@@ -8,12 +8,39 @@
 
 import Foundation
 
-class Teacher{
-    var name: String
-    var email: String
+class Teacher: NSObject, NSCoding{
+    var name: String = ""
+    var email: String = ""
+    
     
     init(name:String, email:String){
         self.name = name
         self.email = email
     }
+    
+    
+    override init() {
+        self.name = String()
+        self.email = String()
+    }
+    
+    //update methods
+    func updateName(newName:String){
+        self.name = newName
+    }
+    
+    func updateEmail(newEmail:String){
+        self.email = newEmail
+    }
+    
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "Name")
+        aCoder.encode(email, forKey: "Email")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init()
+    }
+
 }
