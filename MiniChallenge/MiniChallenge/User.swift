@@ -10,21 +10,30 @@ import Foundation
 
 class User {
     
-    var subjects: [Subject] = []
-//    var activites: Activity[]
+    static var subjects: [Subject] = []
+    static var activites: [Activity] = []
 //    var reminders: Reminders[]
     
     
-    func getSubjects() -> [Subject]{
+    static func getSubjects() -> [Subject]{
         return subjects
     }
+    
+    static func addSubject(subject: Subject){
+        subjects.append(subject)
+        //Write code to save on the PList here
+    }
   
+    static func addActivity(activity: Activity){
+        activites.append(activity)
+        //Write code to save on the PList here
+    }
     
     func getSubjectsByName(name: String) -> [Subject] {
         
         var findedSubjects = [Subject]()
         
-        for subject in subjects {
+        for subject in User.subjects {
             
             if(subject.title.contains(name)) {
                 findedSubjects.append(subject)
