@@ -7,3 +7,21 @@
 //
 
 import Foundation
+
+class Reminder {
+    
+    var title: String = ""
+    var description: String = ""
+    var date: Date
+    var time: Date
+    
+    init(title: String, description: String, date: Date,time: Date) {
+        self.title = title
+        self.description = description
+        self.date = date
+        self.time = time
+    }
+    
+    
+    
+}
