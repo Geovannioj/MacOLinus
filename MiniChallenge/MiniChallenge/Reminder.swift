@@ -7,17 +7,18 @@
 //
 
 import Foundation
+import UIKit
 
 class Reminder {
     
     var title: String = ""
-    var description: String = ""
+    var reminderDescription: String = ""
     var date: Date
     var time: Date
     
-    init(title: String, description: String, date: Date,time: Date) {
+    init(title: String, reminderDescription: String, date: Date,time: Date) {
         self.title = title
-        self.description = description
+        self.reminderDescription = reminderDescription
         self.date = date
         self.time = time
     }
