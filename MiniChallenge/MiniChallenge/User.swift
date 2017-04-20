@@ -8,7 +8,7 @@
 
 import Foundation
 
-class User {
+class User : NSObject {
     
     static var subjects: [Subject] = []
     static var activites: [Activity] = []
@@ -16,7 +16,7 @@ class User {
     
     
     static func getSubjects() -> [Subject]{
-        return subjects
+        return User.subjects
     }
     
     static func addSubject(subject: Subject){
