@@ -16,6 +16,7 @@ class CreateSubjectViewController: UIViewController {
     @IBOutlet weak var TeacherNameField: UITextField!
     @IBOutlet weak var PlaceField: UITextField!
     @IBOutlet weak var TitleField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +51,15 @@ class CreateSubjectViewController: UIViewController {
 
     }
     
+//    internal func saveSubject() {
+//        
+//        UserDefaults.standard().set(subject, forKey: "subject")
+//        
+//        
+//        
+//        
+//        
+//    }
     
 
     /*

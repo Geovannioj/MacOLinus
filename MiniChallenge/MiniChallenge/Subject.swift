@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class Subject: NSObject, NSCoding{
+    
     var title: String = ""
     var place: String = ""
     var icon: UIImage = UIImage()
