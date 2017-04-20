@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6448CFC1EDD54F91A2D1A8C3 /* Pods_MiniChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E16AF73BBE613CD9380165EF /* Pods_MiniChallenge.framework */; };
 		6E15E5151EA6B8130027AAFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15E5141EA6B8130027AAFD /* AppDelegate.swift */; };
 		6E15E5171EA6B8130027AAFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15E5161EA6B8130027AAFD /* ViewController.swift */; };
 		6E15E51A1EA6B8130027AAFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E15E5181EA6B8130027AAFD /* Main.storyboard */; };
@@ -19,8 +20,10 @@
 		6E15E5331EA6D4A50027AAFD /* imagem.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E15E5321EA6D4A50027AAFD /* imagem.png */; };
 		BF0104D61EA9258F00815C4C /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0104D51EA9258F00815C4C /* ActivityTableViewCell.swift */; };
 		BF0104DA1EA9338A00815C4C /* SubjectsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0104D91EA9338A00815C4C /* SubjectsTableViewController.swift */; };
+		BF1AAA6E1EA94C8200DA01DB /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1AAA6D1EA94C8200DA01DB /* CalendarCell.swift */; };
 		BF4C0F2D1EA7E5B20073949B /* Activities.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF4C0F2C1EA7E5B20073949B /* Activities.storyboard */; };
 		BF4C0F311EA7ED4C0073949B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4C0F301EA7ED4C0073949B /* User.swift */; };
+		BF5774111EA942C0001D56BE /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5774101EA942C0001D56BE /* CalendarViewController.swift */; };
 		D4C988981EA7D33B008DC591 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C988971EA7D33B008DC591 /* Goal.swift */; };
 		D4C9889B1EA7D566008DC591 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9889A1EA7D566008DC591 /* Activity.swift */; };
 		D4C9889D1EA7DF4F008DC591 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9889C1EA7DF4F008DC591 /* Reminder.swift */; };
@@ -41,11 +44,16 @@
 		6E15E5321EA6D4A50027AAFD /* imagem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagem.png; sourceTree = "<group>"; };
 		BF0104D51EA9258F00815C4C /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		BF0104D91EA9338A00815C4C /* SubjectsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsTableViewController.swift; sourceTree = "<group>"; };
+		BF1AAA6D1EA94C8200DA01DB /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		BF4C0F2C1EA7E5B20073949B /* Activities.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activities.storyboard; sourceTree = "<group>"; };
 		BF4C0F301EA7ED4C0073949B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BF5774101EA942C0001D56BE /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		CA8F95FA99B46A673F073E94 /* Pods-MiniChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MiniChallenge/Pods-MiniChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		D4C988971EA7D33B008DC591 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		D4C9889A1EA7D566008DC591 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		D4C9889C1EA7DF4F008DC591 /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		E16AF73BBE613CD9380165EF /* Pods_MiniChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE7D79FA614F3E82723E513E /* Pods-MiniChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiniChallenge/Pods-MiniChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,17 +61,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6448CFC1EDD54F91A2D1A8C3 /* Pods_MiniChallenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A5591344758A9518698BC6C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E16AF73BBE613CD9380165EF /* Pods_MiniChallenge.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6E15E5081EA6B8130027AAFD = {
 			isa = PBXGroup;
 			children = (
 				6E15E5131EA6B8130027AAFD /* MiniChallenge */,
 				6E15E5121EA6B8130027AAFD /* Products */,
+				A3AD9E0810CD24122B62D8C9 /* Pods */,
+				3A5591344758A9518698BC6C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,10 +126,21 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		A3AD9E0810CD24122B62D8C9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CA8F95FA99B46A673F073E94 /* Pods-MiniChallenge.debug.xcconfig */,
+				EE7D79FA614F3E82723E513E /* Pods-MiniChallenge.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BF4C0F291EA7E5390073949B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				BF0104D51EA9258F00815C4C /* ActivityTableViewCell.swift */,
+				BF5774101EA942C0001D56BE /* CalendarViewController.swift */,
+				BF1AAA6D1EA94C8200DA01DB /* CalendarCell.swift */,
 				BF0104D91EA9338A00815C4C /* SubjectsTableViewController.swift */,
 			);
 			name = Controller;
@@ -123,9 +153,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E15E5261EA6B8130027AAFD /* Build configuration list for PBXNativeTarget "MiniChallenge" */;
 			buildPhases = (
+				01258263BD037F22E600023F /* [CP] Check Pods Manifest.lock */,
 				6E15E50D1EA6B8130027AAFD /* Sources */,
 				6E15E50E1EA6B8130027AAFD /* Frameworks */,
 				6E15E50F1EA6B8130027AAFD /* Resources */,
+				B07629460710A0B6EB288CAB /* [CP] Embed Pods Frameworks */,
+				B837AB72434EEDE97F3F112E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,12 +219,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01258263BD037F22E600023F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B07629460710A0B6EB288CAB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiniChallenge/Pods-MiniChallenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B837AB72434EEDE97F3F112E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MiniChallenge/Pods-MiniChallenge-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6E15E50D1EA6B8130027AAFD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				6E15E52F1EA6CC8E0027AAFD /* Teacher.swift in Sources */,
+				BF1AAA6E1EA94C8200DA01DB /* CalendarCell.swift in Sources */,
 				6E15E52C1EA6CB9D0027AAFD /* Note.swift in Sources */,
 				6E15E52A1EA6B9B30027AAFD /* Subject.swift in Sources */,
 				6E15E51D1EA6B8130027AAFD /* MiniChallenge.xcdatamodeld in Sources */,
@@ -199,6 +281,7 @@
 				6E15E5171EA6B8130027AAFD /* ViewController.swift in Sources */,
 				6E15E5151EA6B8130027AAFD /* AppDelegate.swift in Sources */,
 				D4C9889D1EA7DF4F008DC591 /* Reminder.swift in Sources */,
+				BF5774111EA942C0001D56BE /* CalendarViewController.swift in Sources */,
 				BF4C0F311EA7ED4C0073949B /* User.swift in Sources */,
 				D4C9889B1EA7D566008DC591 /* Activity.swift in Sources */,
 				D4C988981EA7D33B008DC591 /* Goal.swift in Sources */,
@@ -323,6 +406,7 @@
 		};
 		6E15E5271EA6B8130027AAFD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA8F95FA99B46A673F073E94 /* Pods-MiniChallenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -337,6 +421,7 @@
 		};
 		6E15E5281EA6B8130027AAFD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE7D79FA614F3E82723E513E /* Pods-MiniChallenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
