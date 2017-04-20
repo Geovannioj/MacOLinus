@@ -19,7 +19,8 @@ class CreateSubjectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(documentsDirectory())
+        print("Documents folder is \(documentsDirectory())")
+        print("Data file path is \(dataFilePath())")
         // Do any additional setup after loading the view.
     }
 
@@ -35,13 +36,15 @@ class CreateSubjectViewController: UIViewController {
     func dataFilePath() -> URL {
         return documentsDirectory().appendingPathComponent("SouEuMesmo.plist")
     }
+    
     @IBAction func pressButton(_ sender: UIButton) {
         let note = Note(title: NoteTitle.description, description: NoteDescription.description, images: UIImage(named: "Imagem.jpeg")!)
         let teacher = Teacher(name: TeacherNameField.description, email: TeacherEmailField.description)
         let subject = Subject(title: TitleField.description, place: PlaceField.description, icon: UIImage(named: "Imagem.jpeg")!, schedule: Date(), color: UIColor.black, teacher: teacher, note: note)
         
         
-        let items: NSArray = [subject, teacher, note]
+        //saving in plist
+        let items: NSArray = [subject.place, teacher.email, note.description]
         let data = NSMutableData()
         let archiver = NSKeyedArchiver(forWritingWith: data)
         archiver.encode(items, forKey: "subject")
