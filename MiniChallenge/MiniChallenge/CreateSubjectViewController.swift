@@ -51,9 +51,6 @@ class CreateSubjectViewController: UIViewController {
     
     }
     
-
-    
-    
     internal func saveSubject(subjects: [Subject]) {
         let encodedData = NSKeyedArchiver.archivedData(withRootObject: subjects)
         UserDefaults.standard.set(encodedData, forKey: "subjects")

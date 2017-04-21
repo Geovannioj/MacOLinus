@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Note: NSObject{
+class Note: NSObject, NSCoding {
     
     var title: String = ""
     var noteDescription: String = ""
@@ -24,13 +24,12 @@ class Note: NSObject{
     }
     
     
-    override init() {
-        
-        self.title = String()
-        self.noteDescription = String()
+    init(title: String, noteDescription: String) {
+        self.title = title
+        self.noteDescription = noteDescription
     }
     
-    //update methods
+    // Update methods
     func updateTitle(newTitle: String) {
         
         self.title = newTitle
@@ -44,6 +43,17 @@ class Note: NSObject{
         let indexOfOldImage = self.images.index(of: oldImage)
         self.images[indexOfOldImage!] = newImage
     }
-//
+
+    // Methods to persist data
+    
+    required init(coder decoder: NSCoder) {
+        self.title = decoder.decodeObject(forKey: "title") as? String ?? ""
+        self.noteDescription = decoder.decodeObject(forKey: "noteDescription") as? String ?? ""
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(title, forKey: "title")
+        coder.encode(noteDescription, forKey: "noteDescription")
+    }
 
 }

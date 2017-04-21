@@ -11,8 +11,9 @@ import Foundation
 class User {
     
     var subjects: [Subject] = []
-//    var activites: Activity[]
-//    var reminders: Reminders[]
+    
+//    var activites: [Activity] = []
+//    var reminders: [Reminders] = []
     
     
     func getSubjects() -> [Subject]{

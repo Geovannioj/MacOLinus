@@ -8,7 +8,8 @@
 
 import Foundation
 
-class Teacher: NSObject {
+class Teacher: NSObject, NSCoding {
+    
     var name: String = ""
     var email: String = ""
     
@@ -33,5 +34,17 @@ class Teacher: NSObject {
         self.email = newEmail
     }
     
+    // Methods to persist data
+    
+    required init(coder decoder: NSCoder) {
+        self.name = decoder.decodeObject(forKey: "name") as? String ?? ""
+        self.email = decoder.decodeObject(forKey: "email") as? String ?? ""
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(name, forKey: "name")
+        coder.encode(email, forKey: "email")
+    }
+
     
 }
