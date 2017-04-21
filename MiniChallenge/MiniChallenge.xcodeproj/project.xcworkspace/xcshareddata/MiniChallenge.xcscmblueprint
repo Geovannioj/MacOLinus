@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "93C8E26A3376AA9D26A807CEC964F8FA07C63751",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "93C8E26A3376AA9D26A807CEC964F8FA07C63751" : 9223372036854775807,
+    "11229B0A56BA6EB794920A4B27E521A2EBDEAB72" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "75FD7FE2-07AE-4DF8-A4E2-4346B7453E1D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "93C8E26A3376AA9D26A807CEC964F8FA07C63751" : "Mini%20Challenge\/",
+    "11229B0A56BA6EB794920A4B27E521A2EBDEAB72" : "Reminder\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MiniChallenge",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MiniChallenge\/MiniChallenge.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/eqiu1998\/iOS-PersistentData-LocalNotfications-Example",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "11229B0A56BA6EB794920A4B27E521A2EBDEAB72"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Geovannioj\/MacOLinus",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "93C8E26A3376AA9D26A807CEC964F8FA07C63751"
+    }
+  ]
+}

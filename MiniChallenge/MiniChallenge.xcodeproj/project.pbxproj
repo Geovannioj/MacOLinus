@@ -18,7 +18,9 @@
 		6E15E52F1EA6CC8E0027AAFD /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15E52E1EA6CC8E0027AAFD /* Teacher.swift */; };
 		6E15E5331EA6D4A50027AAFD /* imagem.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E15E5321EA6D4A50027AAFD /* imagem.png */; };
 		6EB805E21EA949EF00CCEE93 /* Reminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EB805E11EA949EF00CCEE93 /* Reminder.storyboard */; };
-		6EB805E41EA94A2F00CCEE93 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB805E31EA94A2F00CCEE93 /* ReminderViewController.swift */; };
+		6EE8AF9F1EAA7499007B7E72 /* Teste.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EE8AF9E1EAA7499007B7E72 /* Teste.storyboard */; };
+		6EE8AFA11EAA7733007B7E72 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8AFA01EAA7733007B7E72 /* ReminderViewController.swift */; };
+		6EE8AFA31EAA77C3007B7E72 /* ReminderAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE8AFA21EAA77C3007B7E72 /* ReminderAddViewController.swift */; };
 		D4C988981EA7D33B008DC591 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C988971EA7D33B008DC591 /* Goal.swift */; };
 		D4C9889B1EA7D566008DC591 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9889A1EA7D566008DC591 /* Activity.swift */; };
 		D4C9889D1EA7DF4F008DC591 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9889C1EA7DF4F008DC591 /* Reminder.swift */; };
@@ -38,7 +40,9 @@
 		6E15E52E1EA6CC8E0027AAFD /* Teacher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
 		6E15E5321EA6D4A50027AAFD /* imagem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagem.png; sourceTree = "<group>"; };
 		6EB805E11EA949EF00CCEE93 /* Reminder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reminder.storyboard; sourceTree = "<group>"; };
-		6EB805E31EA94A2F00CCEE93 /* ReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		6EE8AF9E1EAA7499007B7E72 /* Teste.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Teste.storyboard; sourceTree = "<group>"; };
+		6EE8AFA01EAA7733007B7E72 /* ReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReminderViewController.swift; path = ../../../ReminderViewController.swift; sourceTree = "<group>"; };
+		6EE8AFA21EAA77C3007B7E72 /* ReminderAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderAddViewController.swift; sourceTree = "<group>"; };
 		D4C988971EA7D33B008DC591 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		D4C9889A1EA7D566008DC591 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		D4C9889C1EA7DF4F008DC591 /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
@@ -111,9 +115,11 @@
 		6E75D8B51EA9399500573E5E /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
+				6EE8AFA01EAA7733007B7E72 /* ReminderViewController.swift */,
+				6EE8AF9E1EAA7499007B7E72 /* Teste.storyboard */,
 				D4C9889C1EA7DF4F008DC591 /* Reminder.swift */,
 				6EB805E11EA949EF00CCEE93 /* Reminder.storyboard */,
-				6EB805E31EA94A2F00CCEE93 /* ReminderViewController.swift */,
+				6EE8AFA21EAA77C3007B7E72 /* ReminderAddViewController.swift */,
 			);
 			name = Reminder;
 			sourceTree = "<group>";
@@ -178,6 +184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EE8AF9F1EAA7499007B7E72 /* Teste.storyboard in Resources */,
 				6EB805E21EA949EF00CCEE93 /* Reminder.storyboard in Resources */,
 				6E15E5221EA6B8130027AAFD /* LaunchScreen.storyboard in Resources */,
 				6E15E5331EA6D4A50027AAFD /* imagem.png in Resources */,
@@ -193,9 +200,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EE8AFA31EAA77C3007B7E72 /* ReminderAddViewController.swift in Sources */,
 				6E15E52F1EA6CC8E0027AAFD /* Teacher.swift in Sources */,
 				6E15E52C1EA6CB9D0027AAFD /* Note.swift in Sources */,
-				6EB805E41EA94A2F00CCEE93 /* ReminderViewController.swift in Sources */,
+				6EE8AFA11EAA7733007B7E72 /* ReminderViewController.swift in Sources */,
 				6E15E52A1EA6B9B30027AAFD /* Subject.swift in Sources */,
 				6E15E51D1EA6B8130027AAFD /* MiniChallenge.xcdatamodeld in Sources */,
 				6E15E5171EA6B8130027AAFD /* ViewController.swift in Sources */,
