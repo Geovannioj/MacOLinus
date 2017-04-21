@@ -9,18 +9,18 @@
 import Foundation
 import UIKit
 
-class Note: NSObject, NSCoding{
+class Note: NSObject{
     
     var title: String = ""
     var noteDescription: String = ""
-//    var images: [UIImage] = []
+    var images: [UIImage] = []
     
     
     init(title:String, description:String, images:UIImage) {
         
         self.title = title
         self.noteDescription = description
-//        self.images.append(images)
+        self.images.append(images)
     }
     
     
@@ -40,20 +40,10 @@ class Note: NSObject, NSCoding{
         self.noteDescription = newDescription
     }
     
-//    func updateImage(oldImage: UIImage, newImage: UIImage) {
-//        let indexOfOldImage = self.images.index(of: oldImage)
-//        self.images[indexOfOldImage!] = newImage
-//    }
-//    
-    func encode(with aCoder: NSCoder) {
-        
-        aCoder.encode(title, forKey: "Title")
-        aCoder.encode(description, forKey: "Description")
-//        aCoder.encode(images, forKey: "Images")
+    func updateImage(oldImage: UIImage, newImage: UIImage) {
+        let indexOfOldImage = self.images.index(of: oldImage)
+        self.images[indexOfOldImage!] = newImage
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init()
-    }
+//
 
 }

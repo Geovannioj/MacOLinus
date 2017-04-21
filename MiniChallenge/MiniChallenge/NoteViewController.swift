@@ -34,7 +34,7 @@ class NoteViewController: UIViewController {
         
         } catch {
           
-            print("An erro has been identified")
+            print("An error has been found")
         }
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Notes")
@@ -44,17 +44,25 @@ class NoteViewController: UIViewController {
         do {
             
             let results = try context.fetch(request)
-            
-            for result in results as! [NSManagedObject] {
+           
+            if results.count > 0 {
                 
-                if let noteTitle = result.value(forKey: "title" as? String) {
+                for result in results as! [NSManagedObject] {
                     
+                    if let noteTitle = result.value(forKey: ("title" as? String)!) {
+                        
+                        print(noteTitle)
+                    }
                 }
+        
+            } else {
+                
+                print("No results")
             }
             
         } catch {
             
-            print("Request Failed")
+            print("Could'not fetch results")
             
         }
         

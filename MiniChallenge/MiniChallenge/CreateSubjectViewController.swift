@@ -20,7 +20,23 @@ class CreateSubjectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(documentsDirectory())
+        let softwareDesign = Subject(title: "Desenho de Software", address: "MOCAP")
+        let ux = Subject(title: "Interação Humano Computador", address: "MOCAP")
+        
+        var subjects = [Subject]()
+        
+        subjects.append(softwareDesign)
+        subjects.append(ux)
+        
+        saveSubject(subjects: subjects)
+        
+        
+        let subjectsList = loadSubjects()
+        
+        print(subjectsList[0].title)
+        
+        
+    
         // Do any additional setup after loading the view.
     }
 
@@ -29,47 +45,33 @@ class CreateSubjectViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func documentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    func dataFilePath() -> URL {
-        return documentsDirectory().appendingPathComponent("SouEuMesmo.plist")
-    }
+
     @IBAction func pressButton(_ sender: UIButton) {
-        let note = Note(title: NoteTitle.description, description: NoteDescription.description, images: UIImage(named: "Imagem.jpeg")!)
-        let teacher = Teacher(name: TeacherNameField.description, email: TeacherEmailField.description)
-        let subject = Subject(title: TitleField.description, place: PlaceField.description, icon: UIImage(named: "Imagem.jpeg")!, schedule: Date(), color: UIColor.black, teacher: teacher, note: note)
-        
-        
-        let items: NSArray = [subject, teacher, note]
-        let data = NSMutableData()
-        let archiver = NSKeyedArchiver(forWritingWith: data)
-        archiver.encode(items, forKey: "subject")
-        archiver.finishEncoding()
-        data.write(to: dataFilePath(), atomically: true)
 
+    
     }
     
-//    internal func saveSubject() {
-//        
-//        UserDefaults.standard().set(subject, forKey: "subject")
-//        
-//        
-//        
-//        
-//        
-//    }
+
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    internal func saveSubject(subjects: [Subject]) {
+        let encodedData = NSKeyedArchiver.archivedData(withRootObject: subjects)
+        UserDefaults.standard.set(encodedData, forKey: "subjects")
+        
     }
-    */
+
+    internal func loadSubjects() -> [Subject]{
+        
+        if let data = UserDefaults.standard.data(forKey: "subjects"),
+            let myPeopleList = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Subject] {
+            
+            return myPeopleList
+            
+        } else {
+            print("An error has been ocurred")
+        }
+        
+        return [Subject]()
+    }
 
 }

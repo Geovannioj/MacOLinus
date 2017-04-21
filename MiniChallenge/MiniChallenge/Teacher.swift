@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Teacher: NSObject, NSCoding{
+class Teacher: NSObject {
     var name: String = ""
     var email: String = ""
     
@@ -34,13 +34,4 @@ class Teacher: NSObject, NSCoding{
     }
     
     
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(name, forKey: "Name")
-        aCoder.encode(email, forKey: "Email")
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init()
-    }
-
 }
