@@ -109,11 +109,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Reminder" id="pJF-DU-fof">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="Reminder" id="pJF-DU-fof">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pJF-DU-fof" id="Hl2-Jp-9jd">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="308" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbd-Xq-b3X">
@@ -135,7 +135,7 @@
                     <navigationItem key="navigationItem" title="Reminders" id="ahd-hm-j79">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vWo-DT-cIC">
                             <connections>
-                                <segue destination="bwr-CK-d4K" kind="presentation" id="sMz-kp-KFD"/>
+                                <segue destination="bwr-CK-d4K" kind="presentation" identifier="AddReminder" id="sMz-kp-KFD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

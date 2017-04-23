@@ -10,7 +10,7 @@ import Foundation
 import UserNotifications
 import UIKit
 
-class Reminder {
+class Reminder: NSObject, NSCoding {
     var title: String = ""
     var reminderDescription: String = ""
     var time: Date = Date()
@@ -27,6 +27,27 @@ class Reminder {
         static let timeKey = "time"
         static let reminderDescriptionKey = "reminderDescription"
         static let notificationKey = "notification"
+    }
+    
+    func encode(with aCoder: NSCoder){
+        aCoder.encode(title, forKey: "Title")
+        aCoder.encode(reminderDescription, forKey: "description")
+        
+    }
+    required init?(coder aDecoder: NSCoder) {
+        title = aDecoder.decodeObject(forKey: "Title") as! String
+        reminderDescription = aDecoder.decodeObject(forKey: "description") as! String
+        
+        super.init()
+    }
+    
+    override init(){
+        super.init()
+    }
+    init(title: String, reminderDescription: String, time: Date) {
+        self.title = title
+        self.reminderDescription = reminderDescription
+        self.time = time
     }
     
     init(title: String, reminderDescription: String, time: Date, notification:UNUserNotificationCenter) {

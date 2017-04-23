@@ -51,9 +51,15 @@ extension Date {
     }
 }
 
+protocol AddReminderViewControllerDelegate: class {
+    func addReminderControllerDidCancel(_ controller: ReminderAddViewController)
+    func addReminderViewController(_ controller: ReminderAddViewController, didFinishAdding reminder: Reminder)
+}
+
 class ReminderAddViewController: UIViewController {
 
     var isGrantedNotificationAccess:Bool = false
+    weak var delegate: AddReminderViewControllerDelegate?
     
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var timePicker: UIDatePicker!
@@ -124,10 +130,17 @@ class ReminderAddViewController: UIViewController {
         
     }
     @IBAction func cancelNavBar(){
+        delegate?.addReminderControllerDidCancel(self)
         dismiss(animated: true, completion: nil)
     }
     @IBAction func doneNavBar(){
-        dismiss(animated: true, completion: nil)
+        let title = titleField.text
+        let description = descriptionField.text
+        
+        let reminder = Reminder(title: title!, description: description!)
+        
+        delegate?.addReminderViewController(self, didFinishAdding: reminder)
+        
     }
 
     /*

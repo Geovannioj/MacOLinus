@@ -9,22 +9,25 @@
 import Foundation
 import UIKit
 
-class ReminderViewController: UITableViewController {
+class ReminderViewController: UITableViewController, AddReminderViewControllerDelegate {
     
     var reminders: [Reminder]
     
     required init?(coder aDecoder: NSCoder) {
         reminders = [Reminder]()
+        super.init(coder:aDecoder)
+        loadReminders()
         
-        let reminder1 = Reminder(title: "Molhar plantas", description: "molhar plantas de manhã")
-        let reminder2 = Reminder(title: "Estudar", description: "iOS develpment")
-        
-        reminders.append(reminder1)
-        reminders.append(reminder2)
-        
-        super.init(coder: aDecoder)
     }
-    
+    func loadReminders(){
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            reminders = unarchiver.decodeObject(forKey: "Reminders") as! [Reminder]
+            unarchiver.finishDecoding()
+        }
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reminders.count
     }
@@ -44,15 +47,45 @@ class ReminderViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    @IBAction func addItem(){
+    func addReminderControllerDidCancel(_ controller: ReminderAddViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func addReminderViewController(_ controller: ReminderAddViewController, didFinishAdding reminder: Reminder) {
+        
         let newRowIndex = reminders.count
-        
-        let reminder = Reminder(title: "I'm new", description: "I'm the description")
-        
         reminders.append(reminder)
-        
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
+        dismiss(animated: true, completion: nil)
+        saveReminders()
     }
+    func saveReminders(){
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        archiver.encode(reminders, forKey: "Reminders")
+        archiver.finishEncoding()
+        data.write(to: dataFilePath(), atomically: true)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "AddReminder" {
+            
+            let navigationController = segue.destination as! UINavigationController
+            let controller = navigationController.topViewController as! ReminderAddViewController
+            controller.delegate = self
+        }
+    }
+    func documentsDirectory() -> URL{
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        return paths[0]
+    }
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("Reminders.plist")
+    }
+    
+    
 }
