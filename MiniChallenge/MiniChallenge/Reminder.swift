@@ -13,7 +13,7 @@ import UIKit
 class Reminder {
     var title: String = ""
     var reminderDescription: String = ""
-    var time: Date
+    var time: Date = Date()
     var notification: [UNUserNotificationCenter] = []
     
     // Path to save the reminders
@@ -36,5 +36,8 @@ class Reminder {
         self.notification.append(notification)
     }
     
-    
+    init(title:String, description:String) {
+        self.title = title
+        self.reminderDescription = description
+    }
 }

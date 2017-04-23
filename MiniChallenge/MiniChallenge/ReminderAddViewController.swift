@@ -128,6 +128,12 @@ class ReminderAddViewController: UIViewController {
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         
     }
+    @IBAction func cancelNavBar(){
+        dismiss(animated: true, completion: nil)
+    }
+    @IBAction func doneNavBar(){
+        dismiss(animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation
