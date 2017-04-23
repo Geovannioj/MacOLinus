@@ -103,11 +103,6 @@ class ReminderAddViewController: UIViewController {
     @IBAction func timeChanged(_ sender: UIDatePicker) {
         checkDate()
     }
-    
-    // Cancel button
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
 
     @IBAction func createNotification(_ sender: UIButton) {
         
@@ -127,6 +122,12 @@ class ReminderAddViewController: UIViewController {
         
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         
+    }
+    @IBAction func cancelNavBar(){
+        dismiss(animated: true, completion: nil)
+    }
+    @IBAction func doneNavBar(){
+        dismiss(animated: true, completion: nil)
     }
 
     /*
