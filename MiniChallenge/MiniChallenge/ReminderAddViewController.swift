@@ -60,6 +60,7 @@ class ReminderAddViewController: UIViewController {
 
     var isGrantedNotificationAccess:Bool = false
     weak var delegate: AddReminderViewControllerDelegate?
+    var reminderToEdit: Reminder?
     
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var timePicker: UIDatePicker!
@@ -69,6 +70,12 @@ class ReminderAddViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let reminder = reminderToEdit{
+            title = "Edit Reminder"
+            titleField.text = reminder.title
+            descriptionField.text = reminder.reminderDescription
+            
+        }
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { (granted,error) in
             self.isGrantedNotificationAccess = granted

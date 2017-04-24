@@ -61,6 +61,13 @@ class ReminderViewController: UITableViewController, AddReminderViewControllerDe
         dismiss(animated: true, completion: nil)
         saveReminders()
     }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
+        
+        reminders.remove(at: indexPath.row)
+        let indexPaths = [indexPath]
+        tableView.deleteRows(at: indexPaths, with: .automatic)
+        saveReminders()
+    }
     func saveReminders(){
         let data = NSMutableData()
         let archiver = NSKeyedArchiver(forWritingWith: data)
@@ -75,6 +82,14 @@ class ReminderViewController: UITableViewController, AddReminderViewControllerDe
             let navigationController = segue.destination as! UINavigationController
             let controller = navigationController.topViewController as! ReminderAddViewController
             controller.delegate = self
+        }else if segue.identifier == "EditReminder"{
+            let navigationController = segue.destination as! UINavigationController
+            let controller = navigationController.topViewController as! ReminderAddViewController
+            controller.delegate = self
+            
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
+                controller.reminderToEdit = reminders[indexPath.row]
+            }
         }
     }
     func documentsDirectory() -> URL{

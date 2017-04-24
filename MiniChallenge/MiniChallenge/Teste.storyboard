@@ -125,6 +125,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="bwr-CK-d4K" kind="presentation" identifier="EditReminder" trigger="accessoryAction" id="bfU-ls-Epv"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -181,4 +184,7 @@
             <point key="canvasLocation" x="2344.8000000000002" y="97.601199400299862"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="bfU-ls-Epv"/>
+    </inferredMetricsTieBreakers>
 </document>
