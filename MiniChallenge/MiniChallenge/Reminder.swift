@@ -32,11 +32,13 @@ class Reminder: NSObject, NSCoding {
     func encode(with aCoder: NSCoder){
         aCoder.encode(title, forKey: "Title")
         aCoder.encode(reminderDescription, forKey: "description")
+        aCoder.encode(time, forKey: "time")
         
     }
     required init?(coder aDecoder: NSCoder) {
         title = aDecoder.decodeObject(forKey: "Title") as! String
         reminderDescription = aDecoder.decodeObject(forKey: "description") as! String
+        time = aDecoder.decodeObject(forKey: "time") as! Date
         
         super.init()
     }

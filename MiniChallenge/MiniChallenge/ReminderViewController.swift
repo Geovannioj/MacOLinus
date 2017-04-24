@@ -50,7 +50,15 @@ class ReminderViewController: UITableViewController, AddReminderViewControllerDe
     func addReminderControllerDidCancel(_ controller: ReminderAddViewController) {
         dismiss(animated: true, completion: nil)
     }
-    
+    func addReminderViewController(_ controller: ReminderAddViewController, didFinishEditing reminder: Reminder){
+        if let index = reminders.index(of: reminder){
+        let indexPath = IndexPath(row: index, section: 0)
+            if let cell = tableView.cellForRow(at: indexPath){
+        
+            }
+        }
+        dismiss(animated: true, completion: nil)
+    }
     func addReminderViewController(_ controller: ReminderAddViewController, didFinishAdding reminder: Reminder) {
         
         let newRowIndex = reminders.count
@@ -59,6 +67,13 @@ class ReminderViewController: UITableViewController, AddReminderViewControllerDe
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
         dismiss(animated: true, completion: nil)
+        saveReminders()
+    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
+        
+        reminders.remove(at: indexPath.row)
+        let indexPaths = [indexPath]
+        tableView.deleteRows(at: indexPaths, with: .automatic)
         saveReminders()
     }
     func saveReminders(){
@@ -75,6 +90,14 @@ class ReminderViewController: UITableViewController, AddReminderViewControllerDe
             let navigationController = segue.destination as! UINavigationController
             let controller = navigationController.topViewController as! ReminderAddViewController
             controller.delegate = self
+        }else if segue.identifier == "EditReminder"{
+            let navigationController = segue.destination as! UINavigationController
+            let controller = navigationController.topViewController as! ReminderAddViewController
+            controller.delegate = self
+            
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
+                controller.reminderToEdit = reminders[indexPath.row]
+            }
         }
     }
     func documentsDirectory() -> URL{
