@@ -8,6 +8,12 @@ class Note: NSObject, NSCoding {
     var images: [UIImage] = []
     
     
+    // Path to save the notes
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("subjects")
+
+    
+    
     init(title:String, description:String, images:UIImage) {
         
         self.title = title

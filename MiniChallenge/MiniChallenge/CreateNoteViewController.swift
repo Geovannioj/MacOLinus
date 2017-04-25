@@ -10,22 +10,17 @@ import UIKit
 
 class CreateNoteViewController: UIViewController {
 
+    var notes: [Note] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let note = Note(title: "T1", noteDescription: "Study to first test at january 1st")
+    
+        loadNotes()
         
-        var notes = [Note]()
+        print(notes[0].title)
         
-        notes.append(note)
-        
-        saveNote(notes: notes)
-        
-        let notesList = loadNotes()
-        
-        print(notesList[0].noteDescription)
-        
-        
+    
         // Do any additional setup after loading the view.
     }
 
@@ -34,37 +29,37 @@ class CreateNoteViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
     
-    internal func saveNote(notes: [Note]) {
-        let encodedData = NSKeyedArchiver.archivedData(withRootObject: notes)
-        UserDefaults.standard.set(encodedData, forKey: "notes")
+    func loadNotes() {
+        let path = dataFilePath()
         
-    }
-    
-    internal func loadNotes() -> [Note] {
-        
-        if let data = UserDefaults.standard.data(forKey: "notes"),
-            let notesList = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Note] {
-            
-            return notesList
-            
-        } else {
-            print("An error has been ocurred")
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            notes = unarchiver.decodeObject(forKey: "Notes") as! [Note]
+            unarchiver.finishDecoding()
         }
-        
-        return [Note]()
     }
-
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func saveNotes() {
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        
+        archiver.encode(notes, forKey: "Notes")
+        archiver.finishEncoding()
+        
+        data.write(to: dataFilePath(), atomically: true)
     }
-    */
+    
+    
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("Notes.plist")
+    }
 
 }
