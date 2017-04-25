@@ -7,12 +7,13 @@
 //
 
 import Foundation
-
 import UIKit
+
 import JTAppleCalendar
 
 class CalendarCell: JTAppleCell {
+
     
-    @IBOutlet var dateLabel : UILabel?
-    @IBOutlet weak var selectedCell: UIView!
+    @IBOutlet var dateLabel: UILabel?
+    @IBOutlet var selectedCell: UIView?
 }

@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import JTAppleCalendar
 
 class CalendarViewController: UIViewController {
-
+    
+    @IBOutlet weak var calendarView: JTAppleCalendarView!    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCalendar()
@@ -25,10 +28,37 @@ class CalendarViewController: UIViewController {
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
     }
+    
+    //Funtion responsible for handling the text color on the calendar
+    func handleCellTextColor(cell: JTAppleCell?, cellState: CellState){
+        
+        guard let currentCell = cell as? CalendarCell else { return }
+        
+        if currentCell.isSelected{
+            currentCell.dateLabel?.textColor = UIColor.green
+        } else {
+            if cellState.dateBelongsTo == .thisMonth {
+                currentCell.dateLabel?.textColor = UIColor.black
+            } else {
+                currentCell.dateLabel?.textColor = UIColor.gray
+            }
+        }
+    }
+    
+//    func handleSelectedCellView(cell: JTAppleCell, cellState: CellState){
+//        
+//        guard let currentCell = cell as? CalendarCell else { return }
+//        
+//        if currentCell.isSelected {
+//            currentCell.selectedCell?.isHidden = false
+//        } else {
+//            currentCell.selectedCell?.isHidden = true
+//        }
+//    }
 
 }
 
-extension ViewController: JTAppleCalendarViewDataSource {
+extension CalendarViewController: JTAppleCalendarViewDataSource {
     
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         
@@ -47,20 +77,22 @@ extension ViewController: JTAppleCalendarViewDataSource {
     }
 }
 
-extension ViewController: JTAppleCalendarViewDelegate {
+extension CalendarViewController: JTAppleCalendarViewDelegate {
     
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCell
         
         cell.dateLabel?.text = cellState.text
-        cell.selectedCell.layer.cornerRadius = 12
+        cell.selectedCell?.layer.cornerRadius = 12
         
         if cell.isSelected {
-            cell.selectedCell.isHidden = false
+            cell.selectedCell?.isHidden = false
         } else {
-            cell.selectedCell.isHidden = true
+            cell.selectedCell?.isHidden = true
         }
+        
+        handleCellTextColor(cell: cell, cellState: cellState)
         
         return cell
     }
@@ -68,12 +100,18 @@ extension ViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         
         guard let selectedCell = cell as? CalendarCell else { return }
-        selectedCell.selectedCell.isHidden = false
+        selectedCell.selectedCell?.isHidden = false
+        
+        handleCellTextColor(cell: cell, cellState: cellState)
+
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         
         guard let selectedCell = cell as? CalendarCell else { return }
-        selectedCell.selectedCell.isHidden = true
+        selectedCell.selectedCell?.isHidden = true
+        
+        handleCellTextColor(cell: cell, cellState: cellState)
+
     }
 }
