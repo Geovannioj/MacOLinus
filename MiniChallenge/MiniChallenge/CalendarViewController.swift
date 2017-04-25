@@ -42,6 +42,14 @@ class CalendarViewController: UIViewController {
         self.monthLabel?.text = self.formatter.string(from: date!)
     }
     
+    @IBAction func moveToNextMonth(){
+        calendarView.scrollToSegment(SegmentDestination.next)
+    }
+    
+    @IBAction func moveToPreviousMonth(){
+        calendarView.scrollToSegment(SegmentDestination.previous)
+    }
+    
     //Funtion responsible for handling the text color on the calendar
     func handleCellTextColor(cell: JTAppleCell?, cellState: CellState){
         
@@ -83,7 +91,11 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
         let startDate = formatter.date(from: "2017 01 01")
         let endDate = formatter.date(from: "2017 12 31")
         
-        let parameters = ConfigurationParameters(startDate: startDate!, endDate: endDate!)
+        let parameters = ConfigurationParameters(startDate: startDate!,
+                                                 endDate: endDate!,
+                                                 numberOfRows: 6,
+                                                 generateOutDates: OutDateCellGeneration.tillEndOfRow)
+        
         
         return parameters
     }
