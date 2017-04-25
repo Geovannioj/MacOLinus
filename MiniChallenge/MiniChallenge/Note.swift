@@ -1,22 +1,51 @@
-//
-//  Note.swift
-//  MiniChallenge
-//
-//  Created by Luis Gustavo Avelino de Lima Jacinto on 18/04/17.
-//  Copyright © 2017 Luis Gustavo Avelino de Lima Jacinto. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
-class Note{
-    var title: String
-    var description: String
+class Note: NSObject, NSCoding {
+    
+    var title: String = ""
+    var noteDescription: String = ""
     var images: [UIImage] = []
     
-    init(title:String, description:String, images:UIImage){
+    
+    init(title:String, description:String, images:UIImage) {
+        
         self.title = title
-        self.description = description
+        self.noteDescription = description
         self.images.append(images)
     }
+    
+    
+    init(title: String, noteDescription: String) {
+        self.title = title
+        self.noteDescription = noteDescription
+    }
+    
+    // Update methods
+    func updateTitle(newTitle: String) {
+        
+        self.title = newTitle
+    }
+    
+    func updateDescription(newDescription: String) {
+        self.noteDescription = newDescription
+    }
+    
+    func updateImage(oldImage: UIImage, newImage: UIImage) {
+        let indexOfOldImage = self.images.index(of: oldImage)
+        self.images[indexOfOldImage!] = newImage
+    }
+    
+    // Methods to persist data
+    
+    required init(coder decoder: NSCoder) {
+        self.title = decoder.decodeObject(forKey: "title") as? String ?? ""
+        self.noteDescription = decoder.decodeObject(forKey: "noteDescription") as? String ?? ""
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(title, forKey: "title")
+        coder.encode(noteDescription, forKey: "noteDescription")
+    }
+    
 }
