@@ -14,6 +14,7 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthLabel : UILabel?
     
+    var currentDate : NSDate? = nil
     let formatter = DateFormatter()
     
     override func viewDidLoad() {
@@ -22,6 +23,7 @@ class CalendarViewController: UIViewController {
         
         calendarView.visibleDates{ (visibleDates) in
             self.handleMonthAndYearText(from: visibleDates)
+            self.moveCalendarToCurrentMonth()
         }
     }
 
@@ -33,6 +35,16 @@ class CalendarViewController: UIViewController {
     func setUpCalendar(){
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
+        
+        currentDate = NSDate()
+    }
+    
+    func moveCalendarToCurrentMonth(){
+        calendarView.scrollToDate(currentDate as! Date)
+    }
+    
+    func markCurrentDayOnCalendar(){
+        
     }
     
     func handleMonthAndYearText(from visibleDates: DateSegmentInfo){
@@ -89,13 +101,12 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
         
         
         let startDate = formatter.date(from: "2017 01 01")
-        let endDate = formatter.date(from: "2017 12 31")
+        let endDate = formatter.date(from: "2018 12 31")
         
         let parameters = ConfigurationParameters(startDate: startDate!,
                                                  endDate: endDate!,
                                                  numberOfRows: 6,
                                                  generateOutDates: OutDateCellGeneration.tillEndOfRow)
-        
         
         return parameters
     }

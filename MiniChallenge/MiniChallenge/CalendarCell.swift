@@ -16,4 +16,5 @@ class CalendarCell: JTAppleCell {
     
     @IBOutlet var dateLabel: UILabel?
     @IBOutlet var selectedCell: UIView?
+    
 }
