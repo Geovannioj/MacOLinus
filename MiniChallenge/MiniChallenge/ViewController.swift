@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         let teacher = Teacher(name:"Julio Cezar", email:"Julio@bepid.com")
         let note = Note(title:"Aula de Orientacao a Objetos", description:"Nessa aula o professor Julio ensinou como funciona polimorfismo em Objective C", images:UIImage(named: "imagem.png")!)
         let subject = Subject(title:"Desenho", place:"Mocap", icon:UIImage(named: "imagem.png")!, schedule:Date(), color:UIColor.blue, teacher:teacher, note:note)

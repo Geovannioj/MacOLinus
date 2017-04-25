@@ -2,7 +2,7 @@
 import Foundation
 import UIKit
 
-class Subject: NSObject, NSCoding{
+class Subject: NSObject, NSCoding {
     
     var title: String = ""
     var place: String = ""
@@ -12,6 +12,11 @@ class Subject: NSObject, NSCoding{
     var teacher: Teacher = Teacher()
     //    var note: Note = Note()
     //
+    
+    // Path to save the subjects
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("subjects")
+
     
     init(title: String, place: String, icon: UIImage, schedule: Date, color: UIColor, teacher: Teacher, note: Note){
         self.title = title
@@ -38,33 +43,34 @@ class Subject: NSObject, NSCoding{
         self.place = address
     }
     
+    
     //update methods
-    func updateTitle(newTitle: String){
+    func updateTitle(newTitle: String) {
         self.title = newTitle
     }
     
-    func updatePlace(newPlace: String){
+    func updatePlace(newPlace: String) {
         self.place = newPlace
     }
     
-    func updateIcon(newIcon: UIImage){
+    func updateIcon(newIcon: UIImage) {
         self.icon = newIcon
     }
     
-    func updateSchedule(oldShedule: Date, newSchedule: Date){
+    func updateSchedule(oldShedule: Date, newSchedule: Date) {
         let indexOfOldSchedule = self.schedule.index(of: oldShedule)
         self.schedule[indexOfOldSchedule!] = newSchedule
     }
     
-    func updateColor(newColor: UIColor){
+    func updateColor(newColor: UIColor) {
         self.color = newColor
     }
     
-    func updateTeacher(newTecher: Teacher){
+    func updateTeacher(newTecher: Teacher) {
         self.teacher = newTecher
     }
     
-    func updateNote(newNote: Note){
+    func updateNote(newNote: Note) {
         //        self.note = newNote
     }
     

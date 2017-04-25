@@ -121,9 +121,17 @@
 			path = MiniChallenge;
 			sourceTree = "<group>";
 		};
+		AD69BBB41EAFD49700683ED0 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
 		ADD876AF1EAF897500C45032 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AD69BBB41EAFD49700683ED0 /* Onboarding */,
 				ADD876BA1EAF8B7200C45032 /* Reminder */,
 				ADD876B81EAF8AF600C45032 /* Note */,
 				ADD876B71EAF8AEA00C45032 /* Subject */,

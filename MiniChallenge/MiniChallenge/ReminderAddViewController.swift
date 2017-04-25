@@ -138,18 +138,20 @@ class ReminderAddViewController: UIViewController {
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         
     }
-    @IBAction func cancelNavBar(){
+    
+    @IBAction func cancelNavBar() {
         delegate?.addReminderControllerDidCancel(self)
         dismiss(animated: true, completion: nil)
     }
-    @IBAction func doneNavBar(){
+    
+    @IBAction func doneNavBar() {
         if let reminder = reminderToEdit{
             reminder.title = titleField.text!
             reminder.reminderDescription = descriptionField.text!
             reminder.time = timePicker.date
             
             delegate?.addReminderViewController(self, didFinishEditing: reminder)
-        }else {
+        } else {
             let title = titleField.text
             let description = descriptionField.text
             let time = timePicker.date

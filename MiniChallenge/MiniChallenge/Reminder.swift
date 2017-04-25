@@ -18,7 +18,7 @@ class Reminder: NSObject, NSCoding {
     
     // Path to save the reminders
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("reminders")
+    static let ArchiveURL1 = DocumentsDirectory.appendingPathComponent("reminders")
     
     // enum for property types
     struct PropertyKey {
@@ -46,6 +46,7 @@ class Reminder: NSObject, NSCoding {
     override init(){
         super.init()
     }
+    
     init(title: String, reminderDescription: String, time: Date) {
         self.title = title
         self.reminderDescription = reminderDescription
