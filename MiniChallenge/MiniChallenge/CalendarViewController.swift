@@ -11,12 +11,18 @@ import JTAppleCalendar
 
 class CalendarViewController: UIViewController {
     
-    @IBOutlet weak var calendarView: JTAppleCalendarView!    
-  
+    @IBOutlet weak var calendarView: JTAppleCalendarView!
+    @IBOutlet weak var monthLabel : UILabel?
+    
+    let formatter = DateFormatter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCalendar()
-        // Do any additional setup after loading the view.
+        
+        calendarView.visibleDates{ (visibleDates) in
+            self.handleMonthAndYearText(from: visibleDates)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,6 +33,13 @@ class CalendarViewController: UIViewController {
     func setUpCalendar(){
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
+    }
+    
+    func handleMonthAndYearText(from visibleDates: DateSegmentInfo){
+        let date = visibleDates.monthDates.first?.date
+        
+        self.formatter.dateFormat = "MMMM yyyy"
+        self.monthLabel?.text = self.formatter.string(from: date!)
     }
     
     //Funtion responsible for handling the text color on the calendar
@@ -62,7 +75,6 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
     
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         
-        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy MM dd"
         formatter.locale = Calendar.current.locale
         formatter.timeZone = Calendar.current.timeZone
@@ -113,5 +125,9 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         
         handleCellTextColor(cell: cell, cellState: cellState)
 
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        handleMonthAndYearText(from: visibleDates)
     }
 }
