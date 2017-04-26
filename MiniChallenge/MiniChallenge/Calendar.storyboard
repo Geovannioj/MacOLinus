@@ -100,7 +100,6 @@
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jwx-yR-cx5" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
                                         <rect key="frame" x="0.0" y="50.5" width="375" height="265"/>
-                                        <color key="backgroundColor" red="0.80502458756345174" green="0.80502458756345174" blue="0.80502458756345174" alpha="0.29521618150684931" colorSpace="custom" customColorSpace="sRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uas-Vd-G7e">
                                             <size key="itemSize" width="126" height="130"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -123,6 +122,14 @@
                                                                 <constraint firstAttribute="width" constant="40" id="vLz-Me-vKo"/>
                                                             </constraints>
                                                         </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kky-z3-iba">
+                                                            <rect key="frame" x="43" y="45" width="40" height="40"/>
+                                                            <color key="backgroundColor" red="1" green="0.48857979483588643" blue="0.4808265266135191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="NKg-R7-nh0"/>
+                                                                <constraint firstAttribute="width" constant="40" id="fxS-kk-MQ6"/>
+                                                            </constraints>
+                                                        </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKO-Xx-bgp">
                                                             <rect key="frame" x="42" y="55.5" width="42" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -131,14 +138,16 @@
                                                         </label>
                                                     </subviews>
                                                 </view>
-                                                <color key="backgroundColor" red="0.55090576093904975" green="0.46716029921713143" blue="0.6594622461928934" alpha="0.29521618150684931" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="Np9-3O-gmi" firstAttribute="centerY" secondItem="CuI-Ba-mx7" secondAttribute="centerY" id="NAg-a7-mmC"/>
+                                                    <constraint firstItem="Np9-3O-gmi" firstAttribute="centerX" secondItem="CuI-Ba-mx7" secondAttribute="centerX" id="6za-zq-x2A"/>
+                                                    <constraint firstItem="Np9-3O-gmi" firstAttribute="centerY" secondItem="CuI-Ba-mx7" secondAttribute="centerY" id="Ijq-K9-6xG"/>
                                                     <constraint firstItem="hKO-Xx-bgp" firstAttribute="centerX" secondItem="CuI-Ba-mx7" secondAttribute="centerX" id="WPC-35-des"/>
-                                                    <constraint firstItem="Np9-3O-gmi" firstAttribute="centerX" secondItem="CuI-Ba-mx7" secondAttribute="centerX" id="rBb-3O-nsN"/>
+                                                    <constraint firstItem="Kky-z3-iba" firstAttribute="centerY" secondItem="CuI-Ba-mx7" secondAttribute="centerY" id="ax3-TY-P2V"/>
+                                                    <constraint firstItem="Kky-z3-iba" firstAttribute="centerX" secondItem="CuI-Ba-mx7" secondAttribute="centerX" id="rRs-2a-fNG"/>
                                                     <constraint firstItem="hKO-Xx-bgp" firstAttribute="centerY" secondItem="CuI-Ba-mx7" secondAttribute="centerY" id="xn8-uc-TZO"/>
                                                 </constraints>
                                                 <connections>
+                                                    <outlet property="currentDayCell" destination="Kky-z3-iba" id="Gke-fI-BaF"/>
                                                     <outlet property="dateLabel" destination="hKO-Xx-bgp" id="Gm8-og-y1g"/>
                                                     <outlet property="selectedCell" destination="Np9-3O-gmi" id="I50-0S-wS5"/>
                                                 </connections>
@@ -154,6 +163,14 @@
                                     <constraint firstItem="1aJ-Pf-hgy" firstAttribute="top" secondItem="xe8-OP-o0v" secondAttribute="bottom" constant="35" id="5z0-IX-w8H"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Dd-D1-W0F">
+                                <rect key="frame" x="158" y="389" width="59" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Change"/>
+                                <connections>
+                                    <action selector="changeLayout" destination="aEo-xe-HBL" eventType="touchUpInside" id="5qw-vJ-18Z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

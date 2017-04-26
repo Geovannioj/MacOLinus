@@ -16,15 +16,13 @@ class CalendarViewController: UIViewController {
     
     var currentDate : NSDate? = nil
     let formatter = DateFormatter()
+    var numberOfRows = 6
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCalendar()
         
-        calendarView.visibleDates{ (visibleDates) in
-            self.handleMonthAndYearText(from: visibleDates)
-            self.moveCalendarToCurrentMonth()
-        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,14 +35,20 @@ class CalendarViewController: UIViewController {
         calendarView.minimumInteritemSpacing = 0
         
         currentDate = NSDate()
+        
+        calendarView.visibleDates{ (visibleDates) in
+            self.handleMonthAndYearText(from: visibleDates)
+            self.moveCalendarToCurrentMonth()
+            self.markCurrentDayOnCalendar()
+        }
     }
     
     func moveCalendarToCurrentMonth(){
-        calendarView.scrollToDate(currentDate as! Date)
+        calendarView.scrollToDate(currentDate! as Date)
     }
     
     func markCurrentDayOnCalendar(){
-        
+        calendarView.selectDates([currentDate! as Date])
     }
     
     func handleMonthAndYearText(from visibleDates: DateSegmentInfo){
@@ -60,6 +64,32 @@ class CalendarViewController: UIViewController {
     
     @IBAction func moveToPreviousMonth(){
         calendarView.scrollToSegment(SegmentDestination.previous)
+    }
+    
+    @IBAction func changeLayout(){
+        
+        let animatingDuration = 0.3
+        
+        if numberOfRows == 6 {
+            numberOfRows = 1
+            
+            UIView.animate(withDuration: animatingDuration - 0.1, animations: {
+                self.calendarView.frame = CGRect(x: 0, y: 50, width: self.calendarView.frame.width, height: 50)
+                self.calendarView.reloadData()
+            })
+            
+        } else {
+            numberOfRows = 6
+            
+            UIView.animate(withDuration: animatingDuration, animations: {
+                self.calendarView.frame = CGRect(x: 0, y: 50, width: self.calendarView.frame.width, height: 265)
+                self.calendarView.reloadData()
+            })
+            
+        }
+        
+        markCurrentDayOnCalendar()
+        calendarView.scrollToDate(currentDate! as Date, animateScroll: false)
     }
     
     //Funtion responsible for handling the text color on the calendar
@@ -105,11 +135,12 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
         
         let parameters = ConfigurationParameters(startDate: startDate!,
                                                  endDate: endDate!,
-                                                 numberOfRows: 6,
+                                                 numberOfRows: numberOfRows,
                                                  generateOutDates: OutDateCellGeneration.tillEndOfRow)
         
         return parameters
     }
+    
 }
 
 extension CalendarViewController: JTAppleCalendarViewDelegate {
@@ -120,6 +151,11 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         
         cell.dateLabel?.text = cellState.text
         cell.selectedCell?.layer.cornerRadius = 12
+        cell.currentDayCell?.layer.cornerRadius = 12
+        
+        if (currentDate?.isEqual(to: date))!{
+            cell.currentDayCell?.isHidden = false
+        }
         
         if cell.isSelected {
             cell.selectedCell?.isHidden = false
@@ -132,13 +168,24 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         return cell
     }
     
+    func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: NSDate, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
+        
+        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCell
+        
+        cell.currentDayCell?.layer.cornerRadius = 12
+        cell.currentDayCell?.isHidden = false
+        
+        return cell
+    }
+    
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         
         guard let selectedCell = cell as? CalendarCell else { return }
         selectedCell.selectedCell?.isHidden = false
         
         handleCellTextColor(cell: cell, cellState: cellState)
-
+        
+        changeLayout()
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
