@@ -21,8 +21,6 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCalendar()
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,38 +56,26 @@ class CalendarViewController: UIViewController {
         self.monthLabel?.text = self.formatter.string(from: date!)
     }
     
-    @IBAction func moveToNextMonth(){
-        calendarView.scrollToSegment(SegmentDestination.next)
+    func shrinkCalendar(animationDuration: Float){
+        
+        numberOfRows = 1
+        
+        UIView.animate(withDuration: TimeInterval(animationDuration), animations: {
+            self.calendarView.frame = CGRect(x: 0, y: 90, width: self.calendarView.frame.width, height: 50)
+            self.calendarView.reloadData()
+        })
+        print("Diminui")
     }
     
-    @IBAction func moveToPreviousMonth(){
-        calendarView.scrollToSegment(SegmentDestination.previous)
-    }
-    
-    @IBAction func changeLayout(){
+    func expandCalendar(animationDuration: Float){
         
-        let animatingDuration = 0.3
+        numberOfRows = 6
         
-        if numberOfRows == 6 {
-            numberOfRows = 1
-            
-            UIView.animate(withDuration: animatingDuration - 0.1, animations: {
-                self.calendarView.frame = CGRect(x: 0, y: 50, width: self.calendarView.frame.width, height: 50)
-                self.calendarView.reloadData()
-            })
-            
-        } else {
-            numberOfRows = 6
-            
-            UIView.animate(withDuration: animatingDuration, animations: {
-                self.calendarView.frame = CGRect(x: 0, y: 50, width: self.calendarView.frame.width, height: 265)
-                self.calendarView.reloadData()
-            })
-            
-        }
-        
-        markCurrentDayOnCalendar()
-        calendarView.scrollToDate(currentDate! as Date, animateScroll: false)
+        UIView.animate(withDuration: TimeInterval(animationDuration), animations: {
+            self.calendarView.frame = CGRect(x: 0, y: 90, width: self.calendarView.frame.width, height: 265)
+            self.calendarView.reloadData()
+        })
+        print("Aumentou")
     }
     
     //Funtion responsible for handling the text color on the calendar
@@ -108,17 +94,18 @@ class CalendarViewController: UIViewController {
         }
     }
     
-//    func handleSelectedCellView(cell: JTAppleCell, cellState: CellState){
-//        
-//        guard let currentCell = cell as? CalendarCell else { return }
-//        
-//        if currentCell.isSelected {
-//            currentCell.selectedCell?.isHidden = false
-//        } else {
-//            currentCell.selectedCell?.isHidden = true
-//        }
-//    }
-
+    @IBAction func moveToNextMonth(){
+        calendarView.scrollToSegment(SegmentDestination.next)
+    }
+    
+    @IBAction func moveToPreviousMonth(){
+        calendarView.scrollToSegment(SegmentDestination.previous)
+    }
+    
+    @IBAction func expandCalendarThroughBackButton(){
+        
+        expandCalendar(animationDuration: 0.6)
+    }
 }
 
 extension CalendarViewController: JTAppleCalendarViewDataSource {
@@ -153,10 +140,6 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         cell.selectedCell?.layer.cornerRadius = 12
         cell.currentDayCell?.layer.cornerRadius = 12
         
-        if (currentDate?.isEqual(to: date))!{
-            cell.currentDayCell?.isHidden = false
-        }
-        
         if cell.isSelected {
             cell.selectedCell?.isHidden = false
         } else {
@@ -185,7 +168,13 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         
         handleCellTextColor(cell: cell, cellState: cellState)
         
-        changeLayout()
+        
+        if numberOfRows == 6 {
+            shrinkCalendar(animationDuration: 0.2)
+        }
+        
+        calendarView.scrollToDate(date)
+        
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
