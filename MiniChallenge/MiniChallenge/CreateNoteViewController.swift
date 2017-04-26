@@ -16,11 +16,6 @@ class CreateNoteViewController: UIViewController {
         super.viewDidLoad()
 
     
-        loadNotes()
-        
-        print(notes[0].title)
-        
-    
         // Do any additional setup after loading the view.
     }
 

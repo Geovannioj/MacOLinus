@@ -12,6 +12,12 @@ class CreateSubjectViewController: UIViewController {
     
     var subjects: [Subject] = []
     
+    
+    @IBOutlet weak var subjectTitleField: UITextField!
+    @IBOutlet weak var subjectTeacherField: UITextField!
+    @IBOutlet weak var placeSubjectField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +43,7 @@ class CreateSubjectViewController: UIViewController {
     }
     
     func saveSubjects() {
+    
         let data = NSMutableData()
         let archiver = NSKeyedArchiver(forWritingWith: data)
         
@@ -57,6 +64,20 @@ class CreateSubjectViewController: UIViewController {
         return documentsDirectory().appendingPathComponent("Subjects.plist")
     }
     
+    @IBAction func savePressed(_ sender: Any) {
+   
+        let title = subjectTitleField.text
+        let teacher = subjectTeacherField.text
+        let place = placeSubjectField.text
+        
+        
+        let newSubject = Subject(title: title!, place: place!, teacher: teacher!)
+        
+        subjects.append(newSubject)
+        
+        saveSubjects()
+    
+    }
 
     
 }

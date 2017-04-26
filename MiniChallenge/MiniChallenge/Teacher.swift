@@ -17,6 +17,10 @@ class Teacher: NSObject, NSCoding {
         self.email = String()
     }
     
+    init(name: String) {
+        self.name = name
+    }
+    
     //update methods
     func updateName(newName:String){
         self.name = newName

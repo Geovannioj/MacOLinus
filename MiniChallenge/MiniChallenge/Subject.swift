@@ -44,6 +44,15 @@ class Subject: NSObject, NSCoding {
     }
     
     
+    init(title: String, place: String, teacher: String) {
+        
+        self.title = title
+        self.place = place
+        self.teacher =  Teacher(name: teacher)
+
+    }
+    
+    
     //update methods
     func updateTitle(newTitle: String) {
         self.title = newTitle
