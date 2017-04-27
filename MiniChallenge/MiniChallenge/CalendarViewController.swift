@@ -13,12 +13,11 @@ class CalendarViewController: UIViewController {
     
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthLabel : UILabel?
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     var currentDate : NSDate? = nil
     let formatter = DateFormatter()
     var numberOfRows = 6
-    
-    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +38,7 @@ class CalendarViewController: UIViewController {
         calendarView.visibleDates{ (visibleDates) in
             self.handleMonthAndYearText(from: visibleDates)
             self.moveCalendarToCurrentMonth()
-    //        self.markCurrentDayOnCalendar()
+            self.markCurrentDayOnCalendar()
         }
     }
     
@@ -55,6 +54,7 @@ class CalendarViewController: UIViewController {
         let date = visibleDates.monthDates.first?.date
         
         self.formatter.dateFormat = "MMMM yyyy"
+        print(String(describing: date))
         self.monthLabel?.text = self.formatter.string(from: date!)
     }
     
@@ -74,7 +74,7 @@ class CalendarViewController: UIViewController {
         
         UIView.animate(withDuration: TimeInterval(animationDuration), animations: {
             self.calendarView.frame = CGRect(x: 0, y: 90, width: self.calendarView.frame.width, height: 265)
-            self.calendarView.reloadData()
+            self.calendarView.reloadData(with: self.currentDate as? Date)
         })
     }
     

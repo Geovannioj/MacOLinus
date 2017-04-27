@@ -12,13 +12,13 @@ import JTAppleCalendar
 class DailyCalendarViewController: UIViewController {
 
     @IBOutlet var calendarView: JTAppleCalendarView!
-    @IBOutlet var monthLabel: UILabel?
+//    @IBOutlet var monthLabel: UILabel?
     
     var currentDate : NSDate?
     
     let formatter = DateFormatter()
     
-    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+//    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,18 +38,18 @@ class DailyCalendarViewController: UIViewController {
         currentDate = NSDate()
         
         calendarView.visibleDates{ (visibleDates) in
-            self.handleMonthAndYearText(from: visibleDates)
+//            self.handleMonthAndYearText(from: visibleDates)
             self.moveCalendarToCurrentMonth()
             self.markCurrentDayOnCalendar()
         }
     }
     
-    func handleMonthAndYearText(from visibleDates: DateSegmentInfo){
-        let date = visibleDates.monthDates.first?.date
-        
-        self.formatter.dateFormat = "MMMM yyyy"
-        self.monthLabel?.text = self.formatter.string(from: date!)
-    }
+//    func handleMonthAndYearText(from visibleDates: DateSegmentInfo){
+//        let date = visibleDates.monthDates.first?.date
+//        
+//        self.formatter.dateFormat = "MMMM yyyy"
+//        self.monthLabel?.text = self.formatter.string(from: date!)
+//    }
     
     func moveCalendarToCurrentMonth(){
         calendarView.scrollToDate(currentDate! as Date)
@@ -93,9 +93,6 @@ extension DailyCalendarViewController: JTAppleCalendarViewDelegate {
                                                  endDate: endDate!,
                                                  numberOfRows: 1,
                                                  generateOutDates: OutDateCellGeneration.tillEndOfRow)
-        
-        
-        self.heightConstraint.constant = 50
         
         return parameters
     }
