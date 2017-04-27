@@ -64,12 +64,12 @@ class DailyCalendarViewController: UIViewController {
         
         guard let currentCell = cell as? CalendarCell else { return }
         
-        if currentCell.isSelected{
-            //RED
-            currentCell.dateLabel?.textColor = UIColor(red: 0.9922, green: 0.4941, blue: 0.4941, alpha: 1.0)
+        if currentCell.isSelected {
+            //set current day color to red
+            currentCell.dateLabel?.textColor = UIColor(red: 0.9922, green: 0.4941, blue: 0.4941, alpha: 1)
         } else {
             if cellState.dateBelongsTo == .thisMonth {
-                currentCell.dateLabel?.textColor = UIColor(red: 0.9922, green: 0.4941, blue: 0.4941, alpha: 1.0)
+                currentCell.dateLabel?.textColor = UIColor.white
             } else {
                 currentCell.dateLabel?.textColor = UIColor.gray
             }
@@ -105,6 +105,8 @@ extension DailyCalendarViewController: JTAppleCalendarViewDataSource {
         
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCell
         
+      //  cell.dateLabel?.textColor = UIColor(red: 0.9922, green: 0.4941, blue: 0.4941, alpha: 1.0)
+        
         cell.dateLabel?.text = cellState.text
         cell.selectedCell?.layer.cornerRadius = 12
         cell.currentDayCell?.layer.cornerRadius = 12
@@ -114,6 +116,8 @@ extension DailyCalendarViewController: JTAppleCalendarViewDataSource {
         } else {
             cell.selectedCell?.isHidden = true
         }
+        
+        handleCellTextColor(cell: cell, cellState: cellState)
         
         return cell
     }
@@ -125,16 +129,15 @@ extension DailyCalendarViewController: JTAppleCalendarViewDataSource {
         selectedCell.selectedCell?.isHidden = false
         
         handleCellTextColor(cell: cell, cellState: cellState)
-        
-        calendarView.scrollToDate(date)
-        
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
 
         guard let selectedCell = cell as? CalendarCell else { return }
         
-        selectedCell.selectedCell?.isHidden = false
+        selectedCell.selectedCell?.isHidden = true
+        
+        handleCellTextColor(cell: cell, cellState: cellState)
         
     }
     
