@@ -40,7 +40,9 @@ class ReminderViewController: UITableViewController, AddReminderViewControllerDe
         let reminder = reminders[indexPath.row]
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = reminder.title
-    
+        
+        configureText(for: cell, with: reminder)
+        
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -53,15 +55,21 @@ class ReminderViewController: UITableViewController, AddReminderViewControllerDe
         dismiss(animated: true, completion: nil)
     }
     func addReminderViewController(_ controller: ReminderAddViewController, didFinishEditing reminder: Reminder){
+        
         reminder.scheduleNotification()
         
         if let index = reminders.index(of: reminder){
-        let indexPath = IndexPath(row: index, section: 0)
+            let indexPath = IndexPath(row: index, section: 0)
             if let cell = tableView.cellForRow(at: indexPath){
-        
+                configureText(for: cell, with: reminder)
             }
         }
         dismiss(animated: true, completion: nil)
+        
+    }
+    func configureText(for cell: UITableViewCell, with reminder: Reminder){
+        let label = cell.viewWithTag(1000) as! UILabel
+        label.text = reminder.title
     }
     func addReminderViewController(_ controller: ReminderAddViewController, didFinishAdding reminder: Reminder) {
         

@@ -22,7 +22,6 @@ class ReminderAddViewController: UIViewController {
     weak var delegate: AddReminderViewControllerDelegate?
     var reminderToEdit: Reminder?
     
-    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
