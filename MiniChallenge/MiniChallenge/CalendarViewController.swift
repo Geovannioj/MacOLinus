@@ -14,6 +14,7 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthLabel : UILabel?
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var nextActivities: UITableView!
     
     var currentDate : NSDate? = nil
     let formatter = DateFormatter()
@@ -106,7 +107,7 @@ class CalendarViewController: UIViewController {
     
     @IBAction func expandCalendarThroughBackButton(){
         
-        expandCalendar(animationDuration: 0.6)
+        expandCalendar(animationDuration: 0.5)
     }
 }
 
@@ -199,4 +200,29 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         handleMonthAndYearText(from: visibleDates)
         calendarView.reloadData()
     }
+}
+
+extension CalendarViewController : UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityTableViewCell", for: indexPath) as! ActivityTableViewCell
+        
+        cell.layer.borderWidth = 3.0
+        cell.layer.borderColor = UIColor.blue as! CGColor
+        
+        cell.dayLabel.text = "12"
+        cell.monthLabel.text = "April"
+        
+        cell.activityNameLabel.text = "Teste"
+        cell.sucjectNameLabel.text = "Teste"
+
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 2
+    }
+
 }
