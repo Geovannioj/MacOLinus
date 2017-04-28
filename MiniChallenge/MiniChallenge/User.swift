@@ -10,12 +10,12 @@ import Foundation
 
 class User {
     
-    var subjects: [Subject] = []
-//    var activites: Activity[]
-//    var reminders: Reminders[]
+    static var subjects: [Subject] = []
+    static var activites: [Reminder] = []
+    static var goals: [Goal] = []
     
     
-    func getSubjects() -> [Subject]{
+    static func getSubjects() -> [Subject]{
         return subjects
     }
   
@@ -24,7 +24,7 @@ class User {
         
         var findedSubjects = [Subject]()
         
-        for subject in subjects {
+        for subject in User.subjects {
             
             if(subject.title.contains(name)) {
                 findedSubjects.append(subject)
@@ -32,5 +32,13 @@ class User {
         }
         
         return findedSubjects;
+    }
+    
+   static func getActivities() -> [Reminder] {
+        return activites
+    }
+    
+    static func getGoals() -> [Goal] {
+        return goals
     }
 }

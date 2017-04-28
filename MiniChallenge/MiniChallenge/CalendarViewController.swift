@@ -20,9 +20,28 @@ class CalendarViewController: UIViewController {
     let formatter = DateFormatter()
     var numberOfRows = 6
     
+    var numberOfEvents : Int = 0
+    let distanceBetweenCells = 10.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCalendar()
+        
+        
+        nextActivities.delegate = self
+        nextActivities.dataSource = self
+        
+        numberOfEvents = 2
+//        numberOfEvents = User.getActivities().count
+        
+        creatingTestDataToDisplayOnTableView()
+        
+        nextActivities.delegate = self
+        nextActivities.dataSource = self
+    }
+    
+    func creatingTestDataToDisplayOnTableView() { //FUNCAO TESTE
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,7 +94,7 @@ class CalendarViewController: UIViewController {
         
         UIView.animate(withDuration: TimeInterval(animationDuration), animations: {
             self.calendarView.frame = CGRect(x: 0, y: 90, width: self.calendarView.frame.width, height: 265)
-            self.calendarView.reloadData(with: self.currentDate as? Date)
+            self.calendarView.reloadData(with: self.currentDate as Date?)
         })
     }
     
@@ -109,7 +128,68 @@ class CalendarViewController: UIViewController {
         
         expandCalendar(animationDuration: 0.5)
     }
+
 }
+
+/*
+ * This extensions contains the methods responsible for configuring the TableView of next
+ * Activities.
+ */
+
+extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections() -> Int {
+        return numberOfEvents
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return CGFloat(distanceBetweenCells)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = UIView()
+        header.backgroundColor = UIColor.white
+        return header
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return numberOfEvents
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
+        
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityTableViewCell", for: indexPath) as! ActivityTableViewCell
+        
+//        cell.dayLabel.text = "12"
+//        cell.monthLabel.text = "April"
+//        cell.sucjectNameLabel.text = "Teste"
+//        cell.activityNameLabel.text = "Teste"
+        
+        cell.clipsToBounds = true
+        
+        cell.layer.cornerRadius = 3.0
+    
+        cell.layer.borderWidth = 2.0
+        cell.layer.borderColor = UIColor(red: 0.9922, green: 0.4941, blue: 0.4941, alpha: 1.0).cgColor
+        
+        return cell
+        
+    }
+    
+    
+}
+
+/*
+ * The two extensions below were created to manage the calendarView.
+ * First contains the calendar configuration code
+ * Second contains the calendar constructors and default responses to each interaction
+ */
 
 extension CalendarViewController: JTAppleCalendarViewDataSource {
     
@@ -145,10 +225,6 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         cell.dateLabel?.text = cellState.text
         cell.selectedCell?.layer.cornerRadius = 20
         cell.currentDayCell?.layer.cornerRadius = 12
-        
-//        if (currentDate?.isEqual(to: date))!{
-//            cell.currentDayCell?.isHidden = false
-//        }
         
         if cell.isSelected {
             cell.selectedCell?.isHidden = false
@@ -202,27 +278,4 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
     }
 }
 
-extension CalendarViewController : UITableViewDataSource{
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityTableViewCell", for: indexPath) as! ActivityTableViewCell
-        
-        cell.layer.borderWidth = 3.0
-        cell.layer.borderColor = UIColor.blue as! CGColor
-        
-        cell.dayLabel.text = "12"
-        cell.monthLabel.text = "April"
-        
-        cell.activityNameLabel.text = "Teste"
-        cell.sucjectNameLabel.text = "Teste"
 
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 2
-    }
-
-}
