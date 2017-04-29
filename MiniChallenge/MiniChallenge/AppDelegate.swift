@@ -21,10 +21,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        let center = UNUserNotificationCenter.current()
         
-        center.delegate = self
+        //App colors
+        
+        let customRed =  UIColor(red: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1.0)
+        let customPurple = UIColor(red: 0.4078, green: 0.4078, blue: 0.8784, alpha: 1.0)
+
+        
+        //Set bar navbar color
+        UINavigationBar.appearance().barTintColor = customPurple
+        
+        //Set bar color in navbar
+        UINavigationBar.appearance().tintColor = UIColor.white
+        
+        //Set bar color in navbar
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        
+        //Light Content in  status bar
+        UIApplication.shared.statusBarStyle = .lightContent
+        
+//        // Override point for customization after application launch.
+//        let center = UNUserNotificationCenter.current()
+//        
+//        center.delegate = self
+        
+        
+        
+        UINavigationBar.appearance().barTintColor = customPurple
+        
         
         return true
     }
