@@ -1,21 +1,29 @@
-//
-//  HomeGoalViewController.swift
-//  MiniChallenge
-//
-//  Created by Miguel Pimentel on 29/04/17.
-//  Copyright © 2017 Luis Gustavo Avelino de Lima Jacinto. All rights reserved.
-//
-
 import UIKit
+import UserNotifications
 
 class HomeGoalViewController: UIViewController {
 
+    //MARK - Labels & TextFields
+    
+    
+    @IBOutlet weak var goalTitleField: UITextField!
+    @IBOutlet weak var goalTitleLabel: UILabel!
+    @IBOutlet weak var goalTitleLabell: UILabel!
+    
+    
+    // MARK: - User Goals
+    
+    var userGoals = [Goal]()
+    
+    
+    
+    // MARK: - Default Methods
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            
         
-        
+         createNotification()
         
         // Do any additional setup after loading the view.
     }
@@ -23,30 +31,90 @@ class HomeGoalViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+       
     }
 
     
+    // MARK: - Actions
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func buttonPressed(_ sender: Any) {
+    
+        setNotification(timeToNotificate: 5)
     }
-    */
-
-//   internal func setBackgroundColor() {
-////        
-//////        let customPurple = UIColor(red: 0.4078, green: 0.4078, blue: 0.8784, alpha: 1.0)
-//////        self.view.backgroundColor = customPurple
-//////    
-////        tabBarController?.tabBar.tintColor = UIColor.yellow
-////        tabBarController?.tabBar.barTintColor = UIColor.brown
-//    }
     
+    
+    @IBAction func lala(_ sender: Any) {
+        print("Pressed")
+    }
+    
+    // MARK: - Notification
+    
+    func createNotification() {
 
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { didAllow, error in
+            
+        })
+    }
+    
+    
+    func setNotification(timeToNotificate: Int) {
+        
+        let daySeconds = 86400
+        let alertSeconds = timeToNotificate * daySeconds
+        
+        
+        let content = createNotificationContent()
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(alertSeconds), repeats: false)
+        let request = UNNotificationRequest(identifier: "goalNotification", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
+    }
+    
+    
+    internal func createNotificationContent() -> UNMutableNotificationContent {
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Notification"
+        content.subtitle = "That's a notification"
+        content.body = "Hey do you remember of ..."
+
+        return content
+    }
+    
+    // MARK: - Persist User goals data
+    
+    func saveUserGoals() {
+        
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        
+        archiver.encode(userGoals, forKey: "UserGoals")
+        archiver.finishEncoding()
+        
+        data.write(to: dataFilePath(), atomically: true)
+    }
+    
+    func loadUserGoals() {
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            userGoals = unarchiver.decodeObject(forKey: "UserGoals") as! [Goal]
+            unarchiver.finishDecoding()
+        }
+    }
+    
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("UserGoals.plist")
+    }
     
       
 }
