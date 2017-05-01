@@ -11,4 +11,9 @@ import UIKit
 class ActivityTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subjectLabel: UILabel!
+    @IBOutlet weak var activityColorLabel: UILabel!
 }

@@ -13,8 +13,10 @@ class DailyCalendarViewController: UIViewController {
 
     @IBOutlet var calendarView: JTAppleCalendarView!
 //    @IBOutlet var monthLabel: UILabel?
+
+    var passedDate : Date?
     
-    var currentDate : NSDate?
+    var currentDate : Date?
     
     let formatter = DateFormatter()
     
@@ -23,6 +25,7 @@ class DailyCalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpDailyCalendar()
+        currentDate = passedDate
         // Do any additional setup after loading the view.
     }
 
@@ -34,8 +37,6 @@ class DailyCalendarViewController: UIViewController {
     func setUpDailyCalendar(){
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
-        
-        currentDate = NSDate()
         
         calendarView.visibleDates{ (visibleDates) in
 //            self.handleMonthAndYearText(from: visibleDates)

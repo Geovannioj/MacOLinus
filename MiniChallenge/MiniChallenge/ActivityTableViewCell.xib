@@ -22,10 +22,11 @@
                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xld-8c-05U">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FT9-Og-s6m">
-                                <rect key="frame" x="4.5" y="36" width="42" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klL-4b-hzT">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                <color key="backgroundColor" red="0.98159772160000003" green="0.4592770934" blue="0.44348007439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leY-oi-L6f">
@@ -35,15 +36,24 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FT9-Og-s6m">
+                                <rect key="frame" x="4" y="39" width="42" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.98159772160000003" green="0.4592770934" blue="0.44348007439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FT9-Og-s6m" firstAttribute="centerX" secondItem="Xld-8c-05U" secondAttribute="centerX" id="5Aw-FK-ISt"/>
+                            <constraint firstAttribute="bottom" secondItem="klL-4b-hzT" secondAttribute="bottom" id="Kru-eF-2gh"/>
+                            <constraint firstItem="klL-4b-hzT" firstAttribute="leading" secondItem="Xld-8c-05U" secondAttribute="leading" id="c2r-IG-eHm"/>
                             <constraint firstItem="leY-oi-L6f" firstAttribute="centerX" secondItem="Xld-8c-05U" secondAttribute="centerX" id="pLa-Ka-ryV"/>
+                            <constraint firstItem="klL-4b-hzT" firstAttribute="top" secondItem="Xld-8c-05U" secondAttribute="top" id="pzV-Mc-Ral"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7l-2Y-OT0">
-                        <rect key="frame" x="50" y="0.0" width="8" height="60"/>
+                        <rect key="frame" x="50" y="0.0" width="191" height="60"/>
                         <color key="backgroundColor" red="0.098171795689999994" green="0.098171795689999994" blue="0.098171795689999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -74,6 +84,13 @@
                     <constraint firstItem="7Ny-3D-RQW" firstAttribute="top" secondItem="3AU-Ex-xSn" secondAttribute="bottom" constant="3" id="yg3-ZF-Iz1"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="activityColorLabel" destination="U7l-2Y-OT0" id="Xdo-pg-SQQ"/>
+                <outlet property="dayLabel" destination="leY-oi-L6f" id="H2S-Xe-67R"/>
+                <outlet property="monthLabel" destination="FT9-Og-s6m" id="8Sb-Lv-C3m"/>
+                <outlet property="subjectLabel" destination="7Ny-3D-RQW" id="g0z-FR-0Ms"/>
+                <outlet property="titleLabel" destination="3AU-Ex-xSn" id="9er-jU-WRR"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

@@ -166,10 +166,10 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
         
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityTableViewCell", for: indexPath) as! ActivityTableViewCell
         
-//        cell.dayLabel.text = "12"
-//        cell.monthLabel.text = "April"
-//        cell.sucjectNameLabel.text = "Teste"
-//        cell.activityNameLabel.text = "Teste"
+        cell.dayLabel.text = "12"
+        cell.monthLabel.text = "April"
+        cell.subjectLabel.text = "Teste"
+        cell.titleLabel.text = "Teste"
         
         cell.clipsToBounds = true
         
@@ -181,8 +181,6 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
         return cell
         
     }
-    
-    
 }
 
 /*
@@ -259,8 +257,22 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
             shrinkCalendar(animationDuration: 0.2)
         }
         
+        performSegue(withIdentifier: "goToDailyCalendar", sender: date)
+        
         calendarView.scrollToDate(date)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToDailyCalendar" {
+            
+            if let destination = segue.destination as? DailyCalendarViewController {
+                
+                destination.passedDate = sender as? Date
+                print("Sent date: \(String(describing: sender))")
+            }
+        }
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
@@ -271,6 +283,8 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         handleCellTextColor(cell: cell, cellState: cellState)
 
     }
+    
+    
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         handleMonthAndYearText(from: visibleDates)
