@@ -14,7 +14,13 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthLabel : UILabel?
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var nextActivities: UITableView!
+    @IBOutlet var tableView: UITableView!
+    
+    let cellReuseIdentifier = "ActivityTableViewCell"
+    let cellSpacingHeight: CGFloat = 0
+    
+    let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
+
     
     var currentDate : NSDate? = nil
     let formatter = DateFormatter()
@@ -26,18 +32,12 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCalendar()
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
         
-        nextActivities.delegate = self
-        nextActivities.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
         
-        numberOfEvents = 2
-//        numberOfEvents = User.getActivities().count
-        
-        creatingTestDataToDisplayOnTableView()
-        
-        nextActivities.delegate = self
-        nextActivities.dataSource = self
     }
     
     func creatingTestDataToDisplayOnTableView() { //FUNCAO TESTE
@@ -138,48 +138,51 @@ class CalendarViewController: UIViewController {
 
 extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
     
-    func numberOfSections() -> Int {
-        return numberOfEvents
+    // MARK: - Table View delegate methods
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 5
     }
     
+    // There is just one row in every section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
+    // Set the spacing between sections
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat(distanceBetweenCells)
+        return cellSpacingHeight
     }
     
+    // Make the background color show through
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = UIView()
-        header.backgroundColor = UIColor.white
-        return header
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return numberOfEvents
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 76.0
     }
     
+    // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
         
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityTableViewCell", for: indexPath) as! ActivityTableViewCell
-        
-        cell.dayLabel.text = "12"
-        cell.monthLabel.text = "April"
-        cell.subjectLabel.text = "Teste"
-        cell.titleLabel.text = "Teste"
-        
+        // add border and color
+        cell.backgroundColor = UIColor.white
+        cell.layer.borderColor = redColor.cgColor
+        cell.layer.borderWidth = 1
         cell.clipsToBounds = true
         
-        cell.layer.cornerRadius = 3.0
-    
-        cell.layer.borderWidth = 2.0
-        cell.layer.borderColor = UIColor(red: 0.9922, green: 0.4941, blue: 0.4941, alpha: 1.0).cgColor
-        
         return cell
-        
+    }
+    
+    // method to run when table view cell is tapped
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // note that indexPath.section is used rather than indexPath.row
+        print("You tapped cell number \(indexPath.section).")
     }
 }
 
