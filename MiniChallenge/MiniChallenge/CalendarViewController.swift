@@ -16,38 +16,33 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet var tableView: UITableView!
     
+    //General Attributes
+    let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
+    
+    //Activities TableView Attributes
     let cellReuseIdentifier = "ActivityTableViewCell"
     let cellSpacingHeight: CGFloat = 0
+    var activities = [Activity]()
     
-    let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
-
-    
+    //Calenadar attributes
     var currentDate : NSDate? = nil
     let formatter = DateFormatter()
     var numberOfRows = 6
     
-    var numberOfEvents : Int = 0
-    let distanceBetweenCells = 10.0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCalendar()
+        
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
-        
-        
         tableView.delegate = self
         tableView.dataSource = self
         
+        obtainActivites()
     }
     
-    func creatingTestDataToDisplayOnTableView() { //FUNCAO TESTE
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+   
     
     func setUpCalendar(){
         calendarView.minimumLineSpacing = 0
@@ -138,10 +133,19 @@ class CalendarViewController: UIViewController {
 
 extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
     
+    
+    func obtainActivites(){
+    //    activities = User.getActivities()
+        let activity1 = Activity(title: "Aula de IAL", deadline: NSDate() as Date)
+        let activity2 = Activity(title: "Prova de IHC", deadline: NSDate() as Date)
+        
+        activities = [activity1,activity2]
+    }
+    
     // MARK: - Table View delegate methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return activities.count
     }
     
     // There is just one row in every section
@@ -170,6 +174,8 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
         
         let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
         
+        cell.activityName.text = activities[indexPath.row].title
+        
         // add border and color
         cell.backgroundColor = UIColor.white
         cell.layer.borderColor = redColor.cgColor
@@ -177,12 +183,6 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
         cell.clipsToBounds = true
         
         return cell
-    }
-    
-    // method to run when table view cell is tapped
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // note that indexPath.section is used rather than indexPath.row
-        print("You tapped cell number \(indexPath.section).")
     }
 }
 
@@ -225,7 +225,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         
         cell.dateLabel?.text = cellState.text
         cell.selectedCell?.layer.cornerRadius = 20
-        cell.currentDayCell?.layer.cornerRadius = 12
+        cell.currentDayCell?.layer.cornerRadius = 20
         
         if cell.isSelected {
             cell.selectedCell?.isHidden = false
@@ -242,7 +242,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCell
         
-        cell.currentDayCell?.layer.cornerRadius = 12
+        cell.currentDayCell?.layer.cornerRadius = 20
         cell.currentDayCell?.isHidden = false
         
         return cell

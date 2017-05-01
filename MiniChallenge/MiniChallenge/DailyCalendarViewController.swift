@@ -54,6 +54,7 @@ class DailyCalendarViewController: UIViewController {
     
     func moveCalendarToCurrentMonth(){
         calendarView.scrollToDate(currentDate! as Date)
+     //   calendarView.scrollToHeaderForDate(currentDate as! Date)
     }
     
     func markCurrentDayOnCalendar(){
@@ -92,8 +93,7 @@ extension DailyCalendarViewController: JTAppleCalendarViewDelegate {
         
         let parameters = ConfigurationParameters(startDate: startDate!,
                                                  endDate: endDate!,
-                                                 numberOfRows: 1,
-                                                 generateOutDates: OutDateCellGeneration.tillEndOfRow)
+                                                 numberOfRows: 1)
         
         return parameters
     }
@@ -110,7 +110,6 @@ extension DailyCalendarViewController: JTAppleCalendarViewDataSource {
         
         cell.dateLabel?.text = cellState.text
         cell.selectedCell?.layer.cornerRadius = 12
-        cell.currentDayCell?.layer.cornerRadius = 12
         
         if cell.isSelected {
             cell.selectedCell?.isHidden = false
