@@ -39,6 +39,11 @@ class Reminder: NSObject, NSCoding {
         super.init()
     }
     
+    init(title: String, time: Date){
+        self.title = title
+        self.time = time
+    }
+   
     init(title: String, reminderDescription: String, time: Date) {
         self.title = title
         self.reminderDescription = reminderDescription

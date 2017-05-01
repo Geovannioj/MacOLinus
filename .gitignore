@@ -9,6 +9,8 @@ DerivedData/
 ## Various settings
 *.pbxuser
 !default.pbxuser
+*.pbxproj
+!default.pbxproj
 *.mode1v3
 !default.mode1v3
 *.mode2v3
@@ -26,6 +28,8 @@ xcuserdata/
 *.ipa
 *.dSYM.zip
 *.dSYM
+
+.DS_Store
 
 ## Playgrounds
 timeline.xctimeline
