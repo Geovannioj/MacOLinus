@@ -11,9 +11,9 @@ import UserNotifications
 
 
 protocol AddReminderViewControllerDelegate: class {
-    func addReminderControllerDidCancel(_ controller: ReminderAddViewController)
-    func addReminderViewController(_ controller: ReminderAddViewController, didFinishAdding reminder: Reminder)
-    func addReminderViewController(_ controller: ReminderAddViewController, didFinishEditing reminder: Reminder)
+    func addReminderControllerDidCancel(_ controller: DatePickViewController)
+    func addReminderViewController(_ controller: DatePickViewController, didFinishAdding reminder: Reminder)
+    func addReminderViewController(_ controller: DatePickViewController, didFinishEditing reminder: Reminder)
 }
 
 class ReminderAddViewController: UIViewController {
@@ -29,6 +29,7 @@ class ReminderAddViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if let reminder = reminderToEdit{
             title = "Edit Reminder"
             titleField.text = reminder.title
@@ -49,7 +50,7 @@ class ReminderAddViewController: UIViewController {
     }
     
     @IBAction func cancelNavBar(){
-        delegate?.addReminderControllerDidCancel(self)
+        //delegate?.addReminderControllerDidCancel(self)
         dismiss(animated: true, completion: nil)
     }
     @IBAction func doneNavBar(){
@@ -58,7 +59,7 @@ class ReminderAddViewController: UIViewController {
             reminder.reminderDescription = descriptionField.text!
             reminder.time = timePicker.date
             
-            delegate?.addReminderViewController(self, didFinishEditing: reminder)
+            //delegate?.addReminderViewController(self, didFinishEditing: reminder)
         }else {
             let title = titleField.text
             let description = descriptionField.text
@@ -66,7 +67,7 @@ class ReminderAddViewController: UIViewController {
             
             let reminder = Reminder(title: title!, reminderDescription: description!, time: time)
         
-            delegate?.addReminderViewController(self, didFinishAdding: reminder)
+          //  delegate?.addReminderViewController(self, didFinishAdding: reminder)
         }
     }
 

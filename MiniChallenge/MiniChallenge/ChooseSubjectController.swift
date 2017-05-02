@@ -8,16 +8,19 @@
 
 import Foundation
 import UIKit
-
-class ChooseSubjectController: UITableViewController {
+//UITableViewDataSource, UITableViewDelegate
+class ChooseSubjectController: UIViewController{
     
+    @IBOutlet weak var subjectsTableView: UITableView!
+    
+    var subjects = [Subject]()
     
     var taskTitle: String = ""
     var subject: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "Pink Pattern.png")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Pink Pattern.png")!)
         
     }
     
@@ -25,8 +28,30 @@ class ChooseSubjectController: UITableViewController {
         if segue.identifier == "pickTimeScreen" {
             if let datePickViewController = segue.destination as? DatePickViewController{
                 datePickViewController.taskTitle = taskTitle
+                
             }
         }
     }
+    
+    
+    
+    @IBAction func nextScreen(_ sender: Any) {
+    }
 
+}
+
+extension ChooseSubjectController : UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell  = subjectsTableView.dequeueReusableCell(withIdentifier: "Subjects", for: indexPath) 
+        
+        cell.textLabel?.text = "uheuehuehuehueheuh"
+        
+        return cell
+    }
 }
