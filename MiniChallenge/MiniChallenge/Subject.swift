@@ -3,6 +3,8 @@ import UIKit
 
 class Subject: NSObject, NSCoding {
     
+    // MARK: - Attributes
+    
     var title: String = ""
     var place: String = ""
     var icon: UIImage = UIImage()
@@ -13,9 +15,22 @@ class Subject: NSObject, NSCoding {
     //
     
     
-    // Path to save the subjects
+    // MARK: - Path to persist data
+    
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("subjects")
+    
+    
+    // MARK: - Constructors
+    
+    
+    override init() {
+        super.init()
+    }
+    
+    init(teacher: Teacher) {
+        self.teacher = teacher
+    }
     
     
     init(title: String, place: String, icon: UIImage, schedule: Date, color: UIColor, teacher: Teacher, note: Note){
@@ -26,6 +41,11 @@ class Subject: NSObject, NSCoding {
         self.color = color
         self.teacher = teacher
         //        self.note = note
+    }
+    
+    init(title: String, teacher: Teacher) {
+        self.title = title
+        self.teacher = teacher
     }
     
     
@@ -43,6 +63,8 @@ class Subject: NSObject, NSCoding {
         self.place = address
     }
     
+   
+    
     
     init(title: String, place: String, teacher: String) {
         
@@ -52,6 +74,7 @@ class Subject: NSObject, NSCoding {
         
     }
     
+    // MARK: - Helpers
     
     //update methods
     func updateTitle(newTitle: String) {
@@ -83,7 +106,7 @@ class Subject: NSObject, NSCoding {
         //        self.note = newNote
     }
     
-    // Methods to persist data
+    // MARK: - Persist subject
     
     required init(coder decoder: NSCoder) {
         self.title = decoder.decodeObject(forKey: "title") as? String ?? ""

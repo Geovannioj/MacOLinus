@@ -2,8 +2,21 @@ import Foundation
 
 class Teacher: NSObject, NSCoding {
     
+    // MARK: - Attributes
+    
     var name: String = ""
     var email: String = ""
+    
+    
+    //MARK: - Constructors
+    
+    override init() {
+        super.init()
+    }
+    
+    init(name: String) {
+        self.name = name
+    }
     
     
     init(name:String, email:String){
@@ -11,17 +24,8 @@ class Teacher: NSObject, NSCoding {
         self.email = email
     }
     
+    // MARK: - Helpers
     
-    override init() {
-        self.name = String()
-        self.email = String()
-    }
-    
-    init(name: String) {
-        self.name = name
-    }
-    
-    //update methods
     func updateName(newName:String){
         self.name = newName
     }
@@ -30,7 +34,7 @@ class Teacher: NSObject, NSCoding {
         self.email = newEmail
     }
     
-    // Methods to persist data
+    // MARK: - Code/Encode
     
     required init(coder decoder: NSCoder) {
         self.name = decoder.decodeObject(forKey: "name") as? String ?? ""
