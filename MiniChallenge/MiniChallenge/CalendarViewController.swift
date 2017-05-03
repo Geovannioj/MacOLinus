@@ -11,6 +11,7 @@ import JTAppleCalendar
 
 class CalendarViewController: UIViewController {
     
+    @IBOutlet weak var tabBar: UITabBarItem!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthLabel : UILabel?
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
@@ -26,8 +27,7 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCalendar()
-        
-        
+
         nextActivities.delegate = self
         nextActivities.dataSource = self
         
