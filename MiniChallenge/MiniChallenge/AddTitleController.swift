@@ -23,16 +23,11 @@ class AddTitleController: UIViewController {
         super.viewWillAppear(animated)
         taskTitleTextField.becomeFirstResponder()
     }
+    
     @IBAction func nextScreen(_ sender: Any) {
         taskTitle = taskTitleTextField.text!
+        SingletonActivity.sharedInstance.task.title = taskTitle
+        
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "chooseSubjectScreen" {
-            if let chooseSubjectController = segue.destination as? ChooseSubjectController{
-                chooseSubjectController.taskTitle = taskTitle
-            }
-        }
-    }
-        
 }

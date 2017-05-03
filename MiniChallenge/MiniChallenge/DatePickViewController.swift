@@ -10,6 +10,12 @@ import Foundation
 import UIKit
 import UserNotifications
 
+protocol DatePickViewControllerDelegate: class {
+    func addReminderControllerDidCancel(_ controller: DatePickViewController)
+    func addReminderViewController(_ controller: DatePickViewController, didFinishAdding reminder: Reminder)
+    func addReminderViewController(_ controller: DatePickViewController, didFinishEditing reminder: Reminder)
+}
+
 class DatePickViewController: UIViewController {
     
     @IBOutlet var datePicker: UIDatePicker!
@@ -18,7 +24,7 @@ class DatePickViewController: UIViewController {
     var taskDescription: String? = nil
     
     var isGrantedNotificationAccess:Bool = false
-    weak var delegate: AddReminderViewControllerDelegate?
+    weak var delegate: DatePickViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +41,18 @@ class DatePickViewController: UIViewController {
     
     @IBAction func saveBtn(_ sender: Any) {
         
-        let task = Reminder(title: taskTitle!, time: datePicker.date)
+        SingletonActivity.sharedInstance.task.time = datePicker.date
         
+        let task:Reminder = SingletonActivity.sharedInstance.task
+        
+        //SingletonActivity.sharedInstance.createTask(title: task.title, time: task.time)
+        print("TaskTile: \(task.title) taskTime: \(task.time)")
+        
+        //let size = SingletonActivity.sharedInstance.tasks.count
+        //print("members of the array = \(size)")
+        //dismiss(animated: true, completion: nil)
         delegate?.addReminderViewController(self, didFinishAdding: task)
-        
-        print("tarefa:\(task.title)" + "data:\(task.time)")
+    
 
     }
     

@@ -9,21 +9,15 @@
 import Foundation
 import UIKit
 
-class ShowActivities: UITableViewController, AddReminderViewControllerDelegate{
+class ShowActivities: UITableViewController,DatePickViewControllerDelegate{
     
     var reminders: [Reminder]
     
     required init?(coder aDecoder: NSCoder) {
         reminders = [Reminder]()
         super.init(coder:aDecoder)
-        let r = Reminder(title: "hey", time: Date())
-        reminders.append(r)
         loadReminders()
         print("documentPath: \(documentsDirectory())")
-        
-//        self.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        self.navigationBar.shadowImage = UIImage()
-//        self.navigationBar.isTranslucent = true
         
     }
     
@@ -42,11 +36,7 @@ class ShowActivities: UITableViewController, AddReminderViewControllerDelegate{
         
         return cell
     }
-    
-    func callDatePicker(){
-        
-        
-    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let reminder = reminders[indexPath.row]
         

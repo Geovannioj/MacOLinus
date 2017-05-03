@@ -10,13 +10,17 @@ import Foundation
 import UIKit
 
 class Subject{
-    var title: String
-    var place: String
-    var icon: UIImage
+    var title: String = ""
+    var place: String = ""
+    var icon: UIImage? = nil
     var schedule: [Date] = []
-    var color: UIColor
-    var teacher: Teacher
-    var note: Note
+    var color: UIColor? = nil
+    var teacher: Teacher? = nil
+    var note: Note? = nil
+    
+    init(title:String) {
+        self.title = title
+    }
     
     init(title:String, place:String, icon:UIImage, schedule:Date, color:UIColor, teacher:Teacher, note:Note){
         self.title = title

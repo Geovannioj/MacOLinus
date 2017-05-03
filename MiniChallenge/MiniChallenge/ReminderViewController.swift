@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ReminderViewController: UITableViewController/*, AddReminderViewControllerDelegate */{
+class ReminderViewController: UITableViewController, AddReminderViewControllerDelegate{
     
     var reminders: [Reminder]
     
@@ -99,23 +99,23 @@ class ReminderViewController: UITableViewController/*, AddReminderViewController
         archiver.finishEncoding()
         data.write(to: dataFilePath(), atomically: true)
     }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        if segue.identifier == "AddReminder" {
-//            
-//            let navigationController = segue.destination as! UINavigationController
-//            let controller = navigationController.topViewController as! ReminderAddViewController
-//            controller.delegate = self
-//        }else if segue.identifier == "EditReminder"{
-//            let navigationController = segue.destination as! UINavigationController
-//            let controller = navigationController.topViewController as! ReminderAddViewController
-//            controller.delegate = self
-//            
-//            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
-//                controller.reminderToEdit = reminders[indexPath.row]
-//            }
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "AddReminder" {
+            
+            let navigationController = segue.destination as! UINavigationController
+            let controller = navigationController.topViewController as! ReminderAddViewController
+            controller.delegate = self
+        }else if segue.identifier == "EditReminder"{
+            let navigationController = segue.destination as! UINavigationController
+            let controller = navigationController.topViewController as! ReminderAddViewController
+            controller.delegate = self
+            
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
+                controller.reminderToEdit = reminders[indexPath.row]
+            }
+        }
+    }
     func documentsDirectory() -> URL{
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         

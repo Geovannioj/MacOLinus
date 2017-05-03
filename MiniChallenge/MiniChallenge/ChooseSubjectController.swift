@@ -8,50 +8,47 @@
 
 import Foundation
 import UIKit
-//UITableViewDataSource, UITableViewDelegate
-class ChooseSubjectController: UIViewController{
+
+class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     @IBOutlet weak var subjectsTableView: UITableView!
     
     var subjects = [Subject]()
     
-    var taskTitle: String = ""
-    var subject: String = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Pink Pattern.png")!)
+        let subject1 = Subject(title: "ICC")
+        let subject2 = Subject(title: "Cálculo1")
+        let subject3 = Subject(title: "IAL")
         
+        subjects.append(subject1)
+        subjects.append(subject2)
+        subjects.append(subject3)
+        
+        subjectsTableView.delegate = self
+        subjectsTableView.dataSource = self
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "pickTimeScreen" {
-            if let datePickViewController = segue.destination as? DatePickViewController{
-                datePickViewController.taskTitle = taskTitle
-                
-            }
-        }
-    }
-    
-    
     
     @IBAction func nextScreen(_ sender: Any) {
     }
-
-}
-
-extension ChooseSubjectController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return subjects.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell  = subjectsTableView.dequeueReusableCell(withIdentifier: "Subjects", for: indexPath) 
-        
-        cell.textLabel?.text = "uheuehuehuehueheuh"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Subjects", for: indexPath)
+        let subject = subjects[indexPath.row]
+        let label = cell.viewWithTag(10) as! UILabel
+        label.text = subject.title
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+    }
 }
+
