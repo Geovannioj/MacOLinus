@@ -14,6 +14,7 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var subjectsTableView: UITableView!
     
     var subjects = [Subject]()
+    var subject = Subject(title: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,7 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     
     @IBAction func nextScreen(_ sender: Any) {
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return subjects.count
     }
@@ -47,8 +48,9 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
-        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        SingletonActivity.sharedInstance.task.subject = subjects[indexPath.row]
+        print(subjects[indexPath.row].title)
+
     }
 }
 

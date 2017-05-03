@@ -11,9 +11,9 @@ import UIKit
 import UserNotifications
 
 protocol DatePickViewCovarollerDelegate: class {
-    func addReminderControllerDidCancel(_ controller: DatePickViewController)
-    func addReminderViewController(_ controller: DatePickViewController, didFinishAdding reminder: Reminder)
-    func addReminderViewController(_ controller: DatePickViewController, didFinishEditing reminder: Reminder)
+    //func addReminderControllerDidCancel(_ controller: DatePickViewController)
+    func addTask(_ controller: DatePickViewController, didFinishAdding reminder: Reminder)
+    //func addReminderViewController(_ controller: DatePickViewController, didFinishEditing reminder: Reminder)
 }
 
 class DatePickViewController: UIViewController {
@@ -22,9 +22,9 @@ class DatePickViewController: UIViewController {
     
     var taskTitle: String? = ""
     var taskDescription: String? = nil
-    
-    var isGrantedNotificationAccess:Bool = false
     weak var delegate: DatePickViewCovarollerDelegate?
+    var isGrantedNotificationAccess:Bool = false
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,16 +41,32 @@ class DatePickViewController: UIViewController {
     
     @IBAction func saveBtn(_ sender: Any) {
         
-        SingletonActivity.sharedInstance.task.time = datePicker.date
         
-        let task:Reminder = SingletonActivity.sharedInstance.task
+        if datePicker.date > Date(){
         
-        task.scheduleNotification()
-        SingletonActivity.sharedInstance.tasks.append(task)
+            let controlerPList = ControllerPList()
+            
+            SingletonActivity.sharedInstance.task.time = datePicker.date
+            
+            let task:Reminder = SingletonActivity.sharedInstance.task
+            
+            task.scheduleNotification()
+            
+            SingletonActivity.sharedInstance.tasks.append(task)
+            
+            //save the task in the PList
+            controlerPList.saveReminders()
+            
+            //back to the screen to list the tasks
+            self.navigationController?.popToRootViewController(animated: true)
+            
+            //clean the task reference
+            SingletonActivity.sharedInstance.task = Reminder()
         
-        delegate?.addReminderViewController(self, didFinishAdding: task)
-        self.navigationController?.popToRootViewController(animated: true)
-        SingletonActivity.sharedInstance.task = Reminder()
+        }else{
+            //mensagem de erro avisnado que o horário deve ser maior que o atual
+        }
+        
     }
     
 }
