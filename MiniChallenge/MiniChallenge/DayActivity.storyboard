@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dZs-Im-p7c">
-                                <rect key="frame" x="0.0" y="270" width="375" height="397"/>
+                                <rect key="frame" x="0.0" y="199" width="375" height="419"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="g0z-kl-beZ" customClass="DayActivityTableViewCell" customModule="MiniChallenge" customModuleProvider="target">
@@ -39,13 +40,26 @@
                                     <outlet property="delegate" destination="iQg-nk-cY9" id="Qwp-RZ-LKr"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atividades do dia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nB7-gQ-PvI">
+                                <rect key="frame" x="130" y="169" width="115" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="uLI-hF-NSK"/>
+                                    <constraint firstAttribute="height" constant="20" id="vNV-dr-ndv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.98959678411483765" green="0.45535808801651001" blue="0.43067887425422668" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1H0-UQ-zaN" firstAttribute="top" secondItem="dZs-Im-p7c" secondAttribute="bottom" id="7oU-g4-ed9"/>
-                            <constraint firstItem="dZs-Im-p7c" firstAttribute="top" secondItem="h0E-Ns-WA5" secondAttribute="bottom" constant="250" id="BgC-LC-2gu"/>
-                            <constraint firstAttribute="trailing" secondItem="dZs-Im-p7c" secondAttribute="trailing" id="UZ8-fL-Ph4"/>
-                            <constraint firstItem="dZs-Im-p7c" firstAttribute="leading" secondItem="cit-w0-uIt" secondAttribute="leading" id="Wb2-zO-ESU"/>
+                            <constraint firstItem="dZs-Im-p7c" firstAttribute="leading" secondItem="cit-w0-uIt" secondAttribute="leading" id="HtR-M5-u0k"/>
+                            <constraint firstAttribute="trailing" secondItem="dZs-Im-p7c" secondAttribute="trailing" id="IpY-qN-81k"/>
+                            <constraint firstItem="1H0-UQ-zaN" firstAttribute="top" secondItem="dZs-Im-p7c" secondAttribute="bottom" constant="49" id="Qsg-Is-NTN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nB7-gQ-PvI" secondAttribute="trailing" constant="114" id="Vsf-ac-EFF"/>
+                            <constraint firstItem="nB7-gQ-PvI" firstAttribute="top" secondItem="h0E-Ns-WA5" secondAttribute="bottom" constant="149" id="jxy-m5-KsP"/>
+                            <constraint firstItem="dZs-Im-p7c" firstAttribute="top" secondItem="nB7-gQ-PvI" secondAttribute="bottom" constant="10" id="pwl-Vl-A7M"/>
+                            <constraint firstItem="nB7-gQ-PvI" firstAttribute="leading" secondItem="cit-w0-uIt" secondAttribute="leadingMargin" constant="114" id="xFk-vc-Xgh"/>
                         </constraints>
                     </view>
                 </viewController>
