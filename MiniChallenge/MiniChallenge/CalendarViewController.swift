@@ -94,7 +94,7 @@ class CalendarViewController: UIViewController {
         
         UIView.animate(withDuration: TimeInterval(animationDuration), animations: {
             self.calendarView.frame = CGRect(x: 0, y: 90, width: self.calendarView.frame.width, height: 265)
-            self.calendarView.reloadData(with: self.currentDate as Date?)
+            //self.calendarView.reloadData(with: self.currentDate as Date?)
         })
     }
     
