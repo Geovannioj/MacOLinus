@@ -9,26 +9,28 @@
 import Foundation
 import UIKit
 
-class ShowActivities: UITableViewController,DatePickViewControllerDelegate{
-    
-    var reminders: [Reminder]
+class ShowActivities: UITableViewController, DatePickViewCovarollerDelegate{
     
     required init?(coder aDecoder: NSCoder) {
-        reminders = [Reminder]()
         super.init(coder:aDecoder)
         loadReminders()
         print("documentPath: \(documentsDirectory())")
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return reminders.count
+        return SingletonActivity.sharedInstance.tasks.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Reminder", for: indexPath)
-        let reminder = reminders[indexPath.row]
+        let reminder = SingletonActivity.sharedInstance.tasks[indexPath.row]
         let label = cell.viewWithTag(100) as! UILabel
         label.text = reminder.title
         
@@ -38,7 +40,7 @@ class ShowActivities: UITableViewController,DatePickViewControllerDelegate{
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let reminder = reminders[indexPath.row]
+        let reminder = SingletonActivity.sharedInstance.tasks[indexPath.row]
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -55,7 +57,7 @@ class ShowActivities: UITableViewController,DatePickViewControllerDelegate{
         
         reminder.scheduleNotification()
         
-        if let index = reminders.index(of: reminder){
+        if let index = SingletonActivity.sharedInstance.tasks.index(of: reminder){
             let indexPath = IndexPath(row: index, section: 0)
             if let cell = tableView.cellForRow(at: indexPath){
                 configureText(for: cell, with: reminder)
@@ -68,19 +70,13 @@ class ShowActivities: UITableViewController,DatePickViewControllerDelegate{
     func addReminderViewController(_ controller: DatePickViewController, didFinishAdding reminder: Reminder) {
         
         reminder.scheduleNotification()
-        let newRowIndex = reminders.count
-        reminders.append(reminder)
-        let indexPath = IndexPath(row: newRowIndex, section: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRows(at: indexPaths, with: .automatic)
-        dismiss(animated: true, completion: nil)
         saveReminders()
         
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
         
-        reminders.remove(at: indexPath.row)
+        SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
         saveReminders()
@@ -89,7 +85,7 @@ class ShowActivities: UITableViewController,DatePickViewControllerDelegate{
     func saveReminders(){
         let data = NSMutableData()
         let archiver = NSKeyedArchiver(forWritingWith: data)
-        archiver.encode(reminders, forKey: "Reminders")
+        archiver.encode(SingletonActivity.sharedInstance.tasks, forKey: "Reminders")
         archiver.finishEncoding()
         data.write(to: dataFilePath(), atomically: true)
     }
@@ -99,7 +95,7 @@ class ShowActivities: UITableViewController,DatePickViewControllerDelegate{
         
         if let data = try? Data(contentsOf: path){
             let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
-            reminders = unarchiver.decodeObject(forKey: "Reminders") as! [Reminder]
+            SingletonActivity.sharedInstance.tasks = unarchiver.decodeObject(forKey: "Reminders") as! [Reminder]
             unarchiver.finishDecoding()
         }
     }

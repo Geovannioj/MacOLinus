@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import UserNotifications
 
-protocol DatePickViewControllerDelegate: class {
+protocol DatePickViewCovarollerDelegate: class {
     func addReminderControllerDidCancel(_ controller: DatePickViewController)
     func addReminderViewController(_ controller: DatePickViewController, didFinishAdding reminder: Reminder)
     func addReminderViewController(_ controller: DatePickViewController, didFinishEditing reminder: Reminder)
@@ -24,7 +24,7 @@ class DatePickViewController: UIViewController {
     var taskDescription: String? = nil
     
     var isGrantedNotificationAccess:Bool = false
-    weak var delegate: DatePickViewControllerDelegate?
+    weak var delegate: DatePickViewCovarollerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,15 +45,12 @@ class DatePickViewController: UIViewController {
         
         let task:Reminder = SingletonActivity.sharedInstance.task
         
-        //SingletonActivity.sharedInstance.createTask(title: task.title, time: task.time)
-        print("TaskTile: \(task.title) taskTime: \(task.time)")
+        task.scheduleNotification()
+        SingletonActivity.sharedInstance.tasks.append(task)
         
-        //let size = SingletonActivity.sharedInstance.tasks.count
-        //print("members of the array = \(size)")
-        //dismiss(animated: true, completion: nil)
         delegate?.addReminderViewController(self, didFinishAdding: task)
-    
-
+        self.navigationController?.popToRootViewController(animated: true)
+        SingletonActivity.sharedInstance.task = Reminder()
     }
     
 }

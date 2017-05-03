@@ -101,10 +101,10 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" tag="99" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Reminder" id="emv-g5-0Jo">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="emv-g5-0Jo" id="wQn-JE-eKG">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAz-a3-R4O">
@@ -147,12 +147,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSm-it-cZ8">
-                                <rect key="frame" x="30" y="72" width="48" height="30"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ltg-Ht-a4i">
                                 <rect key="frame" x="6" y="179" width="364" height="30"/>
                                 <nil key="textColor"/>
@@ -184,7 +178,6 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Ltg-Ht-a4i" secondAttribute="trailing" constant="-11" id="9Hz-47-9Bn"/>
                             <constraint firstAttribute="leadingMargin" secondItem="a5z-ah-Vkf" secondAttribute="leading" id="AIo-st-itX"/>
-                            <constraint firstItem="MSm-it-cZ8" firstAttribute="leading" secondItem="jjH-jt-GeX" secondAttribute="leadingMargin" constant="14" id="EFN-Zk-FkB"/>
                             <constraint firstItem="Ltg-Ht-a4i" firstAttribute="top" secondItem="C7L-WY-Ewb" secondAttribute="bottom" constant="115" id="EpG-Jw-s6R"/>
                             <constraint firstItem="Ltg-Ht-a4i" firstAttribute="leading" secondItem="jjH-jt-GeX" secondAttribute="leadingMargin" constant="-10" id="J9E-bK-DtS"/>
                             <constraint firstItem="n8f-LO-GI4" firstAttribute="top" secondItem="C7L-WY-Ewb" secondAttribute="bottom" constant="157" id="Kdg-UJ-OAH"/>
@@ -192,7 +185,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="cMC-ay-yhV" secondAttribute="trailing" constant="62" id="LiS-vH-Xxr"/>
                             <constraint firstItem="dK1-If-4Or" firstAttribute="leading" secondItem="jjH-jt-GeX" secondAttribute="leadingMargin" constant="17" id="WQ7-pV-wjb"/>
                             <constraint firstAttribute="leadingMargin" secondItem="a5z-ah-Vkf" secondAttribute="leading" id="YwQ-60-nMM"/>
-                            <constraint firstItem="MSm-it-cZ8" firstAttribute="top" secondItem="C7L-WY-Ewb" secondAttribute="bottom" constant="8" id="axN-ru-Cme"/>
                             <constraint firstItem="a5z-ah-Vkf" firstAttribute="top" secondItem="C7L-WY-Ewb" secondAttribute="bottom" constant="71" id="btI-7W-i4O"/>
                             <constraint firstItem="cMC-ay-yhV" firstAttribute="top" secondItem="C7L-WY-Ewb" secondAttribute="bottom" constant="244" id="vKF-qB-KGk"/>
                             <constraint firstItem="dK1-If-4Or" firstAttribute="top" secondItem="C7L-WY-Ewb" secondAttribute="bottom" constant="58" id="x4v-E5-2rG"/>
@@ -235,13 +227,13 @@
                                 <rect key="frame" x="61" y="485" width="246" height="182"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeX-eH-rl1">
-                                <rect key="frame" x="315" y="425" width="44" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEa-lW-7PV">
+                                <rect key="frame" x="0.0" y="301" width="375" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="Group 2-1"/>
-                                <connections>
-                                    <segue destination="D2w-Pm-wdv" kind="show" id="rwM-Vf-n99"/>
-                                </connections>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Criar uma nova matéria">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaB-pv-qQp">
                                 <rect key="frame" x="0.0" y="339" width="375" height="30"/>
@@ -252,15 +244,15 @@
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="28" sectionHeaderHeight="44" sectionFooterHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="TfV-mc-6ec">
-                                <rect key="frame" x="18" y="113" width="343" height="167"/>
+                                <rect key="frame" x="0.0" y="113" width="375" height="167"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Subjects" rowHeight="14" id="XWb-3t-a8K">
-                                        <rect key="frame" x="0.0" y="44" width="343" height="14"/>
+                                        <rect key="frame" x="0.0" y="44" width="375" height="14"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XWb-3t-a8K" id="dDn-Bp-VuA">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="13.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="14"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXs-45-ese">
@@ -275,13 +267,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEa-lW-7PV">
-                                <rect key="frame" x="96" y="301" width="159" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeX-eH-rl1">
+                                <rect key="frame" x="315" y="426" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Criar uma nova matéria">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <state key="normal" image="Group 2-1"/>
+                                <connections>
+                                    <segue destination="D2w-Pm-wdv" kind="show" id="rwM-Vf-n99"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -396,10 +388,10 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="Reminder" id="pJF-DU-fof">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pJF-DU-fof" id="Hl2-Jp-9jd">
-                                    <rect key="frame" x="0.0" y="0.0" width="308" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="308" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbd-Xq-b3X">
