@@ -306,7 +306,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCell" id="oE1-uz-zAx" customClass="CalendarCell" customModule="MiniChallenge" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="19" width="50" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.5" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -381,6 +381,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="1iM-yx-1oJ" id="IyN-mX-RyK"/>
+                                    <outlet property="delegate" destination="1iM-yx-1oJ" id="l3g-TL-eSO"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atividades do dia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkD-fq-xMg">
                                 <rect key="frame" x="110" y="188" width="117" height="17"/>
