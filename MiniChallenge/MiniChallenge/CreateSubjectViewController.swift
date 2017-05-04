@@ -32,16 +32,6 @@ class CreateSubjectViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func loadSubjects() {
-        let path = dataFilePath()
-        
-        if let data = try? Data(contentsOf: path){
-            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
-            subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
-            unarchiver.finishDecoding()
-        }
-    }
-    
     func saveSubjects() {
         
         let data = NSMutableData()
@@ -53,6 +43,15 @@ class CreateSubjectViewController: UIViewController {
         data.write(to: dataFilePath(), atomically: true)
     }
     
+    func loadSubjects() {
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
+            unarchiver.finishDecoding()
+        }
+    }
     
     func documentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)

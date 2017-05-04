@@ -10,6 +10,7 @@ class HomeGoalViewController: UIViewController {
     @IBOutlet weak var goalTitleLabel: UILabel!
     @IBOutlet weak var goalTitleLabell: UILabel!
     
+    @IBOutlet weak var tesLabel: UITextField!
     
     // MARK: - User Goals
     
@@ -23,7 +24,15 @@ class HomeGoalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         createNotification()
+        loadUserGoals()
+        
+
+        for goal in userGoals {
+            print(goal.title)
+        }
+        
+        
+        setConfig()
         
         // Do any additional setup after loading the view.
     }
@@ -34,6 +43,36 @@ class HomeGoalViewController: UIViewController {
         
        
     }
+    
+    
+    // MARK - Config
+    
+    func assignWhiteStatusBar() {
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+
+    
+    func assignBackground() {
+        let background = UIImage(named: "purplePattern")
+        
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIViewContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubview(toBack: imageView)
+    }
+    
+    func setConfig() {
+        
+        assignWhiteStatusBar()
+        assignBackground()
+        
+    }
+
 
     
     // MARK: - Actions
@@ -43,6 +82,20 @@ class HomeGoalViewController: UIViewController {
         setNotification(timeToNotificate: 5)
     }
     
+    @IBAction func newGoalRequested(_ sender: Any) {
+        
+        if tesLabel.text != "" {
+            
+            let goalTitle = tesLabel.text
+            let newUserGoal = Goal(title: goalTitle!)
+            
+            userGoals.append(newUserGoal)
+            
+            saveUserGoals()
+            
+        }
+        
+   }
     
     @IBAction func lala(_ sender: Any) {
         print("Pressed")
