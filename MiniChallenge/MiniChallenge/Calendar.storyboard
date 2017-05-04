@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -218,8 +217,8 @@
                     </tabBar>
                     <connections>
                         <outlet property="tabbar" destination="jot-qB-TIb" id="Rtu-O1-5GZ"/>
-                        <segue destination="1iM-yx-1oJ" kind="relationship" relationship="viewControllers" id="gvs-Ho-wMK"/>
                         <segue destination="aEo-xe-HBL" kind="relationship" relationship="viewControllers" id="4bj-Lp-Fkv"/>
+                        <segue destination="1iM-yx-1oJ" kind="relationship" relationship="viewControllers" id="gvs-Ho-wMK"/>
                         <segue destination="NKa-aj-hzD" kind="relationship" relationship="viewControllers" id="cde-kC-j8m"/>
                     </connections>
                 </tabBarController>
@@ -240,7 +239,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sHM-dG-VeO">
-                                <rect key="frame" x="0.0" y="20" width="375" height="89"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="108"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mmI-zw-u4Z">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
@@ -297,7 +296,7 @@
                                         </subviews>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0uG-St-ad5" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                        <rect key="frame" x="0.0" y="20.5" width="375" height="68.5"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="375" height="87.5"/>
                                         <color key="backgroundColor" red="0.98159772160000003" green="0.4592770934" blue="0.44348007439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hac-3L-igW">
                                             <size key="itemSize" width="50" height="50"/>
@@ -307,7 +306,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCell" id="oE1-uz-zAx" customClass="CalendarCell" customModule="MiniChallenge" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="9.5" width="50" height="50"/>
+                                                <rect key="frame" x="0.0" y="19" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -363,16 +362,14 @@
                                     </collectionView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="mmI-zw-u4Z" firstAttribute="top" secondItem="sHM-dG-VeO" secondAttribute="top" id="4X3-Tv-g14"/>
-                                    <constraint firstItem="mmI-zw-u4Z" firstAttribute="leading" secondItem="sHM-dG-VeO" secondAttribute="leading" id="Y0v-Ia-CZB"/>
-                                    <constraint firstAttribute="trailing" secondItem="mmI-zw-u4Z" secondAttribute="trailing" id="twK-aO-v7j"/>
+                                    <constraint firstAttribute="height" constant="108" id="SUq-jU-iqS"/>
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uV9-Qc-rNH">
-                                <rect key="frame" x="0.0" y="180" width="375" height="438"/>
+                                <rect key="frame" x="0.0" y="215" width="375" height="452"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="438" id="ulz-F9-Ibz"/>
+                                    <constraint firstAttribute="height" constant="452" id="yec-im-Pd0"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="174-PO-VB9" customClass="DayActivityTableViewCell" customModule="MiniChallenge" customModuleProvider="target">
@@ -386,9 +383,9 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atividades do dia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkD-fq-xMg">
-                                <rect key="frame" x="130" y="134" width="115" height="29"/>
+                                <rect key="frame" x="110" y="188" width="117" height="17"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="AVv-FX-70V"/>
+                                    <constraint firstAttribute="height" constant="17" id="zgx-XO-U6h"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.98959678409999996" green="0.45535808799999999" blue="0.43067887430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -397,18 +394,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bkD-fq-xMg" firstAttribute="leading" secondItem="hXq-Of-mM0" secondAttribute="leadingMargin" constant="114" id="6Ey-In-Emf"/>
-                            <constraint firstItem="bkD-fq-xMg" firstAttribute="top" secondItem="sHM-dG-VeO" secondAttribute="bottom" constant="25" id="AHY-Rj-FN2"/>
-                            <constraint firstAttribute="trailing" secondItem="sHM-dG-VeO" secondAttribute="trailing" id="C30-Au-saS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bkD-fq-xMg" secondAttribute="trailing" constant="114" id="FAJ-h9-HWs"/>
-                            <constraint firstItem="sHM-dG-VeO" firstAttribute="top" secondItem="sp1-9b-cUf" secondAttribute="bottom" id="Fen-sA-6xF"/>
-                            <constraint firstItem="bkD-fq-xMg" firstAttribute="top" secondItem="sHM-dG-VeO" secondAttribute="bottom" constant="25" id="bZZ-h3-RxD"/>
-                            <constraint firstItem="sHM-dG-VeO" firstAttribute="leading" secondItem="hXq-Of-mM0" secondAttribute="leading" id="ic1-g5-crx"/>
-                            <constraint firstItem="dRd-Ju-pYx" firstAttribute="top" secondItem="uV9-Qc-rNH" secondAttribute="bottom" id="mIN-Sh-k8h"/>
-                            <constraint firstItem="uV9-Qc-rNH" firstAttribute="top" secondItem="bkD-fq-xMg" secondAttribute="bottom" constant="17" id="oWz-yZ-Pzf"/>
-                            <constraint firstItem="uV9-Qc-rNH" firstAttribute="top" secondItem="bkD-fq-xMg" secondAttribute="bottom" constant="17" id="wij-Mv-cb2"/>
-                            <constraint firstAttribute="trailing" secondItem="uV9-Qc-rNH" secondAttribute="trailing" id="wob-5i-lJO"/>
-                            <constraint firstItem="uV9-Qc-rNH" firstAttribute="leading" secondItem="hXq-Of-mM0" secondAttribute="leading" id="xJa-Sp-NHm"/>
+                            <constraint firstItem="bkD-fq-xMg" firstAttribute="leading" secondItem="hXq-Of-mM0" secondAttribute="leading" constant="110" id="4Nr-Gj-P9n"/>
+                            <constraint firstItem="uV9-Qc-rNH" firstAttribute="leading" secondItem="hXq-Of-mM0" secondAttribute="leading" id="5HO-wJ-eIm"/>
+                            <constraint firstAttribute="trailing" secondItem="uV9-Qc-rNH" secondAttribute="trailing" id="69i-2a-JtG"/>
+                            <constraint firstItem="sHM-dG-VeO" firstAttribute="top" secondItem="sp1-9b-cUf" secondAttribute="bottom" id="Cl9-4K-fUJ"/>
+                            <constraint firstAttribute="trailing" secondItem="uV9-Qc-rNH" secondAttribute="trailing" id="DJG-fp-fnR"/>
+                            <constraint firstItem="sHM-dG-VeO" firstAttribute="leading" secondItem="hXq-Of-mM0" secondAttribute="leading" id="Fkl-bR-RIY"/>
+                            <constraint firstItem="uV9-Qc-rNH" firstAttribute="top" secondItem="bkD-fq-xMg" secondAttribute="bottom" constant="10" id="HGU-iz-c4D"/>
+                            <constraint firstAttribute="trailing" secondItem="bkD-fq-xMg" secondAttribute="trailing" constant="148" id="KXf-a9-zUV"/>
+                            <constraint firstItem="dRd-Ju-pYx" firstAttribute="top" secondItem="uV9-Qc-rNH" secondAttribute="bottom" id="Kor-da-5OX"/>
+                            <constraint firstItem="sHM-dG-VeO" firstAttribute="leading" secondItem="hXq-Of-mM0" secondAttribute="leading" id="KzK-re-a0S"/>
+                            <constraint firstItem="uV9-Qc-rNH" firstAttribute="leading" secondItem="hXq-Of-mM0" secondAttribute="leading" id="Ucz-QQ-7Bo"/>
+                            <constraint firstAttribute="trailing" secondItem="sHM-dG-VeO" secondAttribute="trailing" id="eme-l3-fNo"/>
+                            <constraint firstAttribute="trailing" secondItem="sHM-dG-VeO" secondAttribute="trailing" id="yyn-HJ-oSL"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" selectedImage="Clendar Fill.png" id="b5d-KG-t6G"/>
@@ -418,7 +416,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zo3-Sr-QUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1658" y="-190"/>
+            <point key="canvasLocation" x="-1658.4000000000001" y="-190.25487256371815"/>
         </scene>
         <!--Item-->
         <scene sceneID="Xe9-3J-AKd">
