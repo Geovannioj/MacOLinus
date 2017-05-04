@@ -32,7 +32,6 @@ class Subject: NSObject, NSCoding {
         self.teacher = teacher
     }
     
-    
     init(title: String, place: String, icon: UIImage, schedule: Date, color: UIColor, teacher: Teacher, note: Note){
         self.title = title
         self.place = place

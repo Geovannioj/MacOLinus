@@ -14,40 +14,40 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthLabel : UILabel?
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var nextActivities: UITableView!
+    @IBOutlet var tableView: UITableView!
     
+    //General Attributes
+    let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
+    var selectedDayCell = DaysOfWeek.sunday
+    var selectedDayText: String?
+    
+    //Activities TableView Attributes
+    let cellReuseIdentifier = "ActivityTableViewCell"
+    let cellSpacingHeight: CGFloat = 0.02
+    var activities = [Activity]()
+    
+    //Calenadar attributes
     var currentDate : NSDate? = nil
     let formatter = DateFormatter()
     var numberOfRows = 6
+
     
-    var numberOfEvents : Int = 0
-    let distanceBetweenCells = 10.0
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCalendar()
         
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.delegate = self
+        tableView.dataSource = self
         
-        nextActivities.delegate = self
-        nextActivities.dataSource = self
-        
-        numberOfEvents = 2
-//        numberOfEvents = User.getActivities().count
-        
-        creatingTestDataToDisplayOnTableView()
-        
-        nextActivities.delegate = self
-        nextActivities.dataSource = self
+        obtainActivites()
     }
     
-    func creatingTestDataToDisplayOnTableView() { //FUNCAO TESTE
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+   
     
     func setUpCalendar(){
         calendarView.minimumLineSpacing = 0
@@ -138,51 +138,57 @@ class CalendarViewController: UIViewController {
 
 extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
     
-    func numberOfSections() -> Int {
-        return numberOfEvents
+    
+    func obtainActivites(){
+    //    activities = User.getActivities()
+        let activity1 = Activity(title: "Aula de IAL", deadline: NSDate() as Date)
+        let activity2 = Activity(title: "Prova de IHC", deadline: NSDate() as Date)
+        
+        activities = [activity1,activity2]
     }
     
+    // MARK: - Table View delegate methods
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return activities.count
+    }
+    
+    // There is just one row in every section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
+    // Set the spacing between sections
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return CGFloat(distanceBetweenCells)
+        return cellSpacingHeight
     }
     
+    // Make the background color show through
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = UIView()
-        header.backgroundColor = UIColor.white
-        return header
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return numberOfEvents
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 76.0
     }
     
+    // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
         
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityTableViewCell", for: indexPath) as! ActivityTableViewCell
+        cell.nameLabel?.text = activities[indexPath.row].title
         
-//        cell.dayLabel.text = "12"
-//        cell.monthLabel.text = "April"
-//        cell.sucjectNameLabel.text = "Teste"
-//        cell.activityNameLabel.text = "Teste"
-        
+        // add border and color
+        cell.backgroundColor = UIColor.white
+        cell.layer.borderColor = redColor.cgColor
+        cell.layer.borderWidth = 1
         cell.clipsToBounds = true
         
-        cell.layer.cornerRadius = 3.0
-    
-        cell.layer.borderWidth = 2.0
-        cell.layer.borderColor = UIColor(red: 0.9922, green: 0.4941, blue: 0.4941, alpha: 1.0).cgColor
-        
         return cell
-        
     }
-    
-    
 }
 
 /*
@@ -224,7 +230,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         
         cell.dateLabel?.text = cellState.text
         cell.selectedCell?.layer.cornerRadius = 20
-        cell.currentDayCell?.layer.cornerRadius = 12
+        cell.currentDayCell?.layer.cornerRadius = 20
         
         if cell.isSelected {
             cell.selectedCell?.isHidden = false
@@ -241,7 +247,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCell
         
-        cell.currentDayCell?.layer.cornerRadius = 12
+        cell.currentDayCell?.layer.cornerRadius = 20
         cell.currentDayCell?.isHidden = false
         
         return cell
@@ -259,8 +265,49 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
             shrinkCalendar(animationDuration: 0.2)
         }
         
+        selectedDayCell = DaysOfWeek(rawValue: cellState.day.rawValue)!
+        
+        switch selectedDayCell {
+            case .sunday:
+                selectedDayText = "Domingo, "
+            case .monday:
+                selectedDayText = "Segunda-Feira, "
+            case.tuesday:
+                selectedDayText = "Terça-Feira, "
+            case .wednesday:
+                selectedDayText = "Quarta-Feira, "
+            case .thursday:
+                selectedDayText = "Quinta-Feira, "
+            case .friday:
+                selectedDayText = "Sexta-Feira, "
+            case .saturday:
+                selectedDayText = "Sábado, "
+        }
+        
+        performSegue(withIdentifier: "goToDailyCalendar", sender: date)
+        
         calendarView.scrollToDate(date)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToDailyCalendar" {
+            
+            if let destination = segue.destination as? DailyCalendarViewController {
+                
+                destination.passedText = selectedDayText
+                
+                self.formatter.dateStyle = .long
+                
+                destination.passedText?.append(formatter.string(from: sender as! Date))
+                
+                print("Data enviada \(destination.passedText)")
+                
+                destination.passedDate = sender as? Date
+                print("Sent date: \(String(describing: sender))")
+            }
+        }
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
@@ -271,6 +318,8 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         handleCellTextColor(cell: cell, cellState: cellState)
 
     }
+    
+    
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         handleMonthAndYearText(from: visibleDates)
