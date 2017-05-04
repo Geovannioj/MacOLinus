@@ -18,16 +18,21 @@ class CalendarViewController: UIViewController {
     
     //General Attributes
     let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
+    var selectedDayCell = DaysOfWeek.sunday
+    var selectedDayText: String?
     
     //Activities TableView Attributes
     let cellReuseIdentifier = "ActivityTableViewCell"
-    let cellSpacingHeight: CGFloat = 0
+    let cellSpacingHeight: CGFloat = 0.02
     var activities = [Activity]()
     
     //Calenadar attributes
     var currentDate : NSDate? = nil
     let formatter = DateFormatter()
     var numberOfRows = 6
+
+    
+    
     
     
     
@@ -174,7 +179,7 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
         
         let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
         
-        cell.activityName.text = activities[indexPath.row].title
+        cell.nameLabel?.text = activities[indexPath.row].title
         
         // add border and color
         cell.backgroundColor = UIColor.white
@@ -260,6 +265,25 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
             shrinkCalendar(animationDuration: 0.2)
         }
         
+        selectedDayCell = DaysOfWeek(rawValue: cellState.day.rawValue)!
+        
+        switch selectedDayCell {
+            case .sunday:
+                selectedDayText = "Domingo, "
+            case .monday:
+                selectedDayText = "Segunda-Feira, "
+            case.tuesday:
+                selectedDayText = "Terça-Feira, "
+            case .wednesday:
+                selectedDayText = "Quarta-Feira, "
+            case .thursday:
+                selectedDayText = "Quinta-Feira, "
+            case .friday:
+                selectedDayText = "Sexta-Feira, "
+            case .saturday:
+                selectedDayText = "Sábado, "
+        }
+        
         performSegue(withIdentifier: "goToDailyCalendar", sender: date)
         
         calendarView.scrollToDate(date)
@@ -271,6 +295,14 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         if segue.identifier == "goToDailyCalendar" {
             
             if let destination = segue.destination as? DailyCalendarViewController {
+                
+                destination.passedText = selectedDayText
+                
+                self.formatter.dateStyle = .long
+                
+                destination.passedText?.append(formatter.string(from: sender as! Date))
+                
+                print("Data enviada \(destination.passedText)")
                 
                 destination.passedDate = sender as? Date
                 print("Sent date: \(String(describing: sender))")
