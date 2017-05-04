@@ -10,11 +10,6 @@ import Foundation
 import UIKit
 import UserNotifications
 
-protocol DatePickViewCovarollerDelegate: class {
-    //func addReminderControllerDidCancel(_ controller: DatePickViewController)
-    func addTask(_ controller: DatePickViewController, didFinishAdding reminder: Reminder)
-    //func addReminderViewController(_ controller: DatePickViewController, didFinishEditing reminder: Reminder)
-}
 
 class DatePickViewController: UIViewController {
     
@@ -22,8 +17,8 @@ class DatePickViewController: UIViewController {
     
     var taskTitle: String? = ""
     var taskDescription: String? = nil
-    weak var delegate: DatePickViewCovarollerDelegate?
     var isGrantedNotificationAccess:Bool = false
+    var activityToEdit: Reminder?
     
 
     override func viewDidLoad() {

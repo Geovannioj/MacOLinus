@@ -12,9 +12,11 @@ import UIKit
 class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     @IBOutlet weak var subjectsTableView: UITableView!
+    @IBOutlet weak var nextScreenBtn: UIButton!
     
     var subjects = [Subject]()
-    var subject = Subject(title: "")
+    var subject: Subject?
+    var activityToEdit: Reminder?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +31,19 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
         
         subjectsTableView.delegate = self
         subjectsTableView.dataSource = self
+        
+        nextScreenBtn.isEnabled = false
+        
+
     }
     
+    
     @IBAction func nextScreen(_ sender: Any) {
+        
+        if(( subject) != nil){
+            SingletonActivity.sharedInstance.task.subject = subject!
+        }
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,8 +60,13 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        SingletonActivity.sharedInstance.task.subject = subjects[indexPath.row]
-        print(subjects[indexPath.row].title)
+        if let reminder = activityToEdit{
+            subjects[indexPath.row] = reminder.subject
+        }else{
+            subject = subjects[indexPath.row]
+            nextScreenBtn.isEnabled = true
+        }
+        
 
     }
 }

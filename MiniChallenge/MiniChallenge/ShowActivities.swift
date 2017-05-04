@@ -74,5 +74,17 @@ class ShowActivities: UITableViewController{
             unarchiver.finishDecoding()
         }
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "EditActivity"{
+            if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
+                let controller1 = segue.destination as! EditScreen
+                
+                controller1.activityToEdit = SingletonActivity.sharedInstance.tasks[indexPath.row]
+
+            }
+        }
+    }
+
 
 }
