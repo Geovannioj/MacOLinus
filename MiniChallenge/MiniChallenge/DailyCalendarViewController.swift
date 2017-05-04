@@ -20,12 +20,11 @@ class DailyCalendarViewController: UIViewController {
     let formatter = DateFormatter()
     
 //    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpDailyCalendar()
-        // Do any additional setup after loading the view.
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -146,19 +145,8 @@ extension DailyCalendarViewController: JTAppleCalendarViewDataSource {
 
 extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegate{
     
-    func initialize() {
-        
-    }
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 30
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        
-        let indexPaths = [indexPath]
-        tableView.deleteRows(at: indexPaths, with: .automatic)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -169,6 +157,14 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let doneAction = UITableViewRowAction(style: .normal, title: "          ") { (rowAction, indexPath) in
+            print("olar")
+        }
+        doneAction.backgroundColor = UIColor(patternImage: UIImage(named: "done.png")!)
+        return [doneAction]
+    }
+ 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("DayActivityTableViewCell", owner: self, options: nil)?.first as! DayActivityTableViewCell
 
