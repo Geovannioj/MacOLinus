@@ -43,9 +43,10 @@ class Subject: NSObject, NSCoding {
         //        self.note = note
     }
     
-    init(title: String, teacher: Teacher) {
+    init(title: String, teacher: Teacher, color: UIColor) {
         self.title = title
         self.teacher = teacher
+        self.color = color
     }
     
     

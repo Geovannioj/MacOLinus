@@ -25,6 +25,7 @@ class Reminder: NSObject, NSCoding {
         aCoder.encode(reminderID, forKey:"ReminderID")
         
     }
+    
     required init?(coder aDecoder: NSCoder) {
         reminderID = aDecoder.decodeInteger(forKey: "ReminderID")
         title = aDecoder.decodeObject(forKey: "Title") as! String
