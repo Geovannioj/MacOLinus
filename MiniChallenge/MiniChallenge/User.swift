@@ -1,19 +1,19 @@
-//
-//  User.swift
-//  MiniChallenge
-//
-//  Created by Gabriel Rodrigues on 19/04/17.
-//  Copyright © 2017 Luis Gustavo Avelino de Lima Jacinto. All rights reserved.
-//
+//File: User.swift
+//Description: Model for user
+
 
 import Foundation
 
 class User {
     
-    static var subjects: [Subject] = []
-    static var activites: [Reminder] = []
-    static var goals: [Goal] = []
     
+    //MARK: - Atributtes
+
+    static var subjects = [Subject]()
+    static var activites = [Reminder]()
+    static var goals = [Goal]()
+    
+    //MARK: - Getters
     
     static func getSubjects() -> [Subject]{
         return subjects
@@ -34,11 +34,68 @@ class User {
         return findedSubjects;
     }
     
-   static func getActivities() -> [Reminder] {
+    static func getActivities() -> [Reminder] {
         return activites
     }
     
     static func getGoals() -> [Goal] {
         return goals
     }
+
+
+    //MARK: - Load attributes data from plist
+
+    
+    func returnSubjects() -> [Subject] {
+        
+        var subjects = [Subject]()
+        
+        let path = dataFilePathForSubjects()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
+            unarchiver.finishDecoding()
+            
+        }
+        
+        return subjects
+    }
+    
+    func dataFilePathForSubjects() -> URL {
+        return documentsDirectory().appendingPathComponent("Subjects.plist")
+        
+    }
+    
+    func returnUserGoals() -> [Goal] {
+        
+        var userGoals = [Goal]()
+        
+        let path = dataFilePathForSubjects()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            userGoals = unarchiver.decodeObject(forKey: "UserGoals") as! [Goal]
+            unarchiver.finishDecoding()
+            
+        }
+        
+        return userGoals
+    }
+    
+    func dataFilePathForUserGoals() -> URL {
+        return documentsDirectory().appendingPathComponent("UserGoals.plist")
+        
+    }
+    
+    func documentsDirectory() -> URL {
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    
+    
 }
+
+

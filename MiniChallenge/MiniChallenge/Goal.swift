@@ -2,17 +2,28 @@ import Foundation
 
 class Goal {
     
-    var title: String = ""
-    var description: String = ""
-    var finishDate: Date
-    var timeToBeReminded: Date
-    var frequency: Int = 0
     
-    init(description:String, finishDate: Date, timeToBeReminded: Date, frequency: Int) {
-        self.description = description
-        self.finishDate = finishDate
+    // MARK: - Attributes
+    
+    var title: String = ""
+    var goalDescription: String = ""
+    var timeToBeReminded: Date
+    
+    
+    // MARK: - Constructors
+    
+    init(title: String, goalDescription: String, timeToBeReminded: Date) {
+        self.title = title
+        self.goalDescription = goalDescription
         self.timeToBeReminded = timeToBeReminded
-        self.frequency = frequency
     }
     
+    init(timeToBeReminded: Date) {
+        self.timeToBeReminded = timeToBeReminded
+    }
+    
+    // MARK: - Path to user goals
+    
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("userGoals")
 }

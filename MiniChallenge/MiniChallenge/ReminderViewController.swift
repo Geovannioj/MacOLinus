@@ -18,6 +18,8 @@ class ReminderViewController: UITableViewController, AddReminderViewControllerDe
         super.init(coder:aDecoder)
         loadReminders()
         
+        print("documentPath: \(documentsDirectory())")
+        
     }
     func loadReminders(){
         let path = dataFilePath()
@@ -38,7 +40,9 @@ class ReminderViewController: UITableViewController, AddReminderViewControllerDe
         let reminder = reminders[indexPath.row]
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = reminder.title
-    
+        
+        configureText(for: cell, with: reminder)
+        
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -51,16 +55,25 @@ class ReminderViewController: UITableViewController, AddReminderViewControllerDe
         dismiss(animated: true, completion: nil)
     }
     func addReminderViewController(_ controller: ReminderAddViewController, didFinishEditing reminder: Reminder){
-        if let index = reminders.index(of: reminder){
-        let indexPath = IndexPath(row: index, section: 0)
-            if let cell = tableView.cellForRow(at: indexPath){
         
+        reminder.scheduleNotification()
+        
+        if let index = reminders.index(of: reminder){
+            let indexPath = IndexPath(row: index, section: 0)
+            if let cell = tableView.cellForRow(at: indexPath){
+                configureText(for: cell, with: reminder)
             }
         }
         dismiss(animated: true, completion: nil)
+        
+    }
+    func configureText(for cell: UITableViewCell, with reminder: Reminder){
+        let label = cell.viewWithTag(1000) as! UILabel
+        label.text = reminder.title
     }
     func addReminderViewController(_ controller: ReminderAddViewController, didFinishAdding reminder: Reminder) {
         
+        reminder.scheduleNotification()
         let newRowIndex = reminders.count
         reminders.append(reminder)
         let indexPath = IndexPath(row: newRowIndex, section: 0)
@@ -68,6 +81,7 @@ class ReminderViewController: UITableViewController, AddReminderViewControllerDe
         tableView.insertRows(at: indexPaths, with: .automatic)
         dismiss(animated: true, completion: nil)
         saveReminders()
+        
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
         
@@ -76,6 +90,7 @@ class ReminderViewController: UITableViewController, AddReminderViewControllerDe
         tableView.deleteRows(at: indexPaths, with: .automatic)
         saveReminders()
     }
+    
     func saveReminders(){
         let data = NSMutableData()
         let archiver = NSKeyedArchiver(forWritingWith: data)
