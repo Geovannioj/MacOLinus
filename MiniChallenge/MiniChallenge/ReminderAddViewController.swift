@@ -29,6 +29,7 @@ class ReminderAddViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if let reminder = reminderToEdit{
             title = "Edit Reminder"
             titleField.text = reminder.title

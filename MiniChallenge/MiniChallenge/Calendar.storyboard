@@ -140,22 +140,22 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCell" id="CuI-Ba-mx7" customClass="CalendarCell" customModule="MiniChallenge" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="67.5" width="126" height="130"/>
+                                                <rect key="frame" x="0.0" y="67.5" width="130" height="130"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="126" height="130"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kky-z3-iba">
-                                                            <rect key="frame" x="43" y="44.5" width="40" height="40"/>
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kky-z3-iba">
+                                                            <rect key="frame" x="45" y="45" width="40" height="40"/>
                                                             <color key="backgroundColor" red="1" green="0.48857979483588643" blue="0.4808265266135191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="NKg-R7-nh0"/>
                                                                 <constraint firstAttribute="width" constant="40" id="fxS-kk-MQ6"/>
                                                             </constraints>
                                                         </view>
-                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDr-pg-3e4">
-                                                            <rect key="frame" x="43" y="45" width="40" height="40"/>
+                                                        <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RDr-pg-3e4">
+                                                            <rect key="frame" x="46" y="45" width="20" height="20"/>
                                                             <color key="backgroundColor" red="0.98159772160000003" green="0.4592770934" blue="0.44348007439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="cAv-hc-NjT"/>
@@ -163,27 +163,24 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKO-Xx-bgp">
-                                                            <rect key="frame" x="42" y="55.5" width="42" height="20.5"/>
+                                                            <rect key="frame" x="44" y="55" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6tI-Lz-Z3b">
-                                                            <rect key="frame" x="53" y="90" width="20" height="20"/>
-                                                        </imageView>
                                                     </subviews>
                                                 </view>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="6tI-Lz-Z3b" firstAttribute="centerX" secondItem="CuI-Ba-mx7" secondAttribute="centerX" id="KsS-FQ-Wep"/>
+                                                    <constraint firstItem="Kky-z3-iba" firstAttribute="top" secondItem="RDr-pg-3e4" secondAttribute="top" id="0iE-B1-HZm"/>
+                                                    <constraint firstItem="Kky-z3-iba" firstAttribute="leading" secondItem="RDr-pg-3e4" secondAttribute="leading" id="TMk-u9-2B8"/>
                                                     <constraint firstItem="hKO-Xx-bgp" firstAttribute="centerX" secondItem="CuI-Ba-mx7" secondAttribute="centerX" id="WPC-35-des"/>
                                                     <constraint firstItem="RDr-pg-3e4" firstAttribute="centerX" secondItem="CuI-Ba-mx7" secondAttribute="centerX" id="Za7-V9-C1N"/>
-                                                    <constraint firstItem="6tI-Lz-Z3b" firstAttribute="top" secondItem="hKO-Xx-bgp" secondAttribute="bottom" constant="14" id="tST-iD-zuK"/>
                                                     <constraint firstItem="hKO-Xx-bgp" firstAttribute="centerY" secondItem="CuI-Ba-mx7" secondAttribute="centerY" id="xn8-uc-TZO"/>
                                                     <constraint firstItem="RDr-pg-3e4" firstAttribute="centerY" secondItem="CuI-Ba-mx7" secondAttribute="centerY" id="zBY-ko-Tw4"/>
                                                 </constraints>
+                                                <size key="customSize" width="130" height="130"/>
                                                 <connections>
-                                                    <outlet property="appointmentOnDay" destination="6tI-Lz-Z3b" id="SUd-Cp-wCN"/>
                                                     <outlet property="currentDayCell" destination="Kky-z3-iba" id="Gke-fI-BaF"/>
                                                     <outlet property="dateLabel" destination="hKO-Xx-bgp" id="Gm8-og-y1g"/>
                                                     <outlet property="selectedCell" destination="RDr-pg-3e4" id="uaH-S8-SSe"/>

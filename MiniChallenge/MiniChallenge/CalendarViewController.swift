@@ -263,21 +263,28 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
             cell.selectedCell?.isHidden = true
         }
         
-        let numberOfEventsOnDay = howManyEventsOnDay(date: date)
-        
-        if numberOfEventsOnDay > 0 {
-        //    cell.appointmentOnDay = UIImageView()
-            if numberOfEventsOnDay > 4 {
-        //        cell.appointmentOnDay = UIImageView()
-                print("Ia setar o fantasminha")
-            }
-            print("tem \(numberOfEventsOnDay) evento dia \(date)")
-
-        }
+        setCellImage(cell: cell, date: date)
         
         handleCellTextColor(cell: cell, cellState: cellState)
         
         return cell
+    }
+    
+    func setCellImage(cell: CalendarCell, date: Date){
+        
+        let numberOfEventsOnDay = howManyEventsOnDay(date: date)
+        
+        if numberOfEventsOnDay > 0 {
+            
+            if numberOfEventsOnDay > 4 {
+                
+                cell.appointmentOnDay = UIImageView(image:#imageLiteral(resourceName: "LittleGhost"))
+                
+            } else {
+                cell.appointmentOnDay = UIImageView(image:#imageLiteral(resourceName: "AppointmentSymbol"))
+                print("deveria ta aparecendo sá MERDA")
+            }
+        }
     }
     
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: NSDate, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ReminderViewController: UITableViewController, AddReminderViewControllerDelegate {
+class ReminderViewController: UITableViewController, AddReminderViewControllerDelegate{
     
     var reminders: [Reminder]
     
@@ -21,6 +21,7 @@ class ReminderViewController: UITableViewController, AddReminderViewControllerDe
         print("documentPath: \(documentsDirectory())")
         
     }
+    
     func loadReminders(){
         let path = dataFilePath()
         

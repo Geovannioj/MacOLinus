@@ -32,7 +32,6 @@ class Subject: NSObject, NSCoding {
         self.teacher = teacher
     }
     
-    
     init(title: String, place: String, icon: UIImage, schedule: Date, color: UIColor, teacher: Teacher, note: Note){
         self.title = title
         self.place = place
@@ -43,9 +42,10 @@ class Subject: NSObject, NSCoding {
         //        self.note = note
     }
     
-    init(title: String, teacher: Teacher) {
+    init(title: String, teacher: Teacher, color: UIColor) {
         self.title = title
         self.teacher = teacher
+        self.color = color
     }
     
     

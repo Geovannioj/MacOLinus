@@ -38,12 +38,12 @@ class Teacher: NSObject, NSCoding {
     
     required init(coder decoder: NSCoder) {
         self.name = decoder.decodeObject(forKey: "name") as? String ?? ""
-        self.email = decoder.decodeObject(forKey: "email") as? String ?? ""
+//        self.email = decoder.decodeObject(forKey: "email") as? String ?? ""
+//    }
     }
-    
     func encode(with coder: NSCoder) {
         coder.encode(name, forKey: "name")
-        coder.encode(email, forKey: "email")
+//        coder.encode(email, forKey: "email")
     }
     
     

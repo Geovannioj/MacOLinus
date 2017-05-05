@@ -37,8 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         //Set bar color in navbar
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
-        //Light Content in  status bar
-        UIApplication.shared.statusBarStyle = .lightContent
+        // Black Content in  status bar
+        UIApplication.shared.statusBarStyle = .default
+        
         
         //Setting Color for item at navbar
         UINavigationBar.appearance().barTintColor = customPurple

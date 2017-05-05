@@ -16,6 +16,7 @@ class Reminder: NSObject, NSCoding {
     var title: String = ""
     var reminderDescription: String = ""
     var time: Date = Date()
+    var subject:Subject = Subject(title: "")
     
     
     func encode(with aCoder: NSCoder){
@@ -25,6 +26,7 @@ class Reminder: NSObject, NSCoding {
         aCoder.encode(reminderID, forKey:"ReminderID")
         
     }
+    
     required init?(coder aDecoder: NSCoder) {
         reminderID = aDecoder.decodeInteger(forKey: "ReminderID")
         title = aDecoder.decodeObject(forKey: "Title") as! String
@@ -39,6 +41,16 @@ class Reminder: NSObject, NSCoding {
         super.init()
     }
     
+    init(title: String, time: Date){
+        self.title = title
+        self.time = time
+    }
+    init(title: String, subject: Subject, time: Date){
+        self.title = title
+        self.subject = subject
+        self.time = time
+    }
+   
     init(title: String, reminderDescription: String, time: Date) {
         self.title = title
         self.reminderDescription = reminderDescription

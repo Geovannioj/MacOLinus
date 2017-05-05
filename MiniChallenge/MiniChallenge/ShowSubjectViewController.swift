@@ -55,7 +55,7 @@ class ShowSubjectViewController: UITableViewController {
         
         
         
-        if let data = try? Data(contentsOf: path){
+        if let data = try?  Data(contentsOf: path){
             let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
             subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
             unarchiver.finishDecoding()
