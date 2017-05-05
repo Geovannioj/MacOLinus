@@ -706,7 +706,7 @@
         <image name="yellowButton" width="44" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="B1e-wj-hqw"/>
         <segue reference="hed-af-Psw"/>
-        <segue reference="s6V-68-jNB"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -179,7 +179,7 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
         
         let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
         
-        cell.nameLabel?.text = activities[indexPath.row].title
+        cell.dayLabel?.text = activities[indexPath.row].title
         
         // add border and color
         cell.backgroundColor = UIColor.white

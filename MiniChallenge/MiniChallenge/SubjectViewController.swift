@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SubjectViewController: UIViewController {
+class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var subjects = [Subject]()
  
@@ -86,7 +86,21 @@ class SubjectViewController: UIViewController {
         
     }
     
+    // MARK: - Presents subjects
     
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return subjects.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        cell.
+        
+        cell.
+    }
     
 //    
 //    @IBAction func newSubjectRequested(_ sender: Any) {
