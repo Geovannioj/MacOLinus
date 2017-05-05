@@ -11,6 +11,7 @@ import JTAppleCalendar
 
 class CalendarViewController: UIViewController {
     
+    @IBOutlet weak var tabBar: UITabBarItem!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthLabel : UILabel?
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
@@ -117,6 +118,7 @@ class CalendarViewController: UIViewController {
             self.calendarView.frame = CGRect(x: 0, y: 90, width: self.calendarView.frame.width, height: 265)
             //self.calendarView.reloadData(completionHandler: self.currentDate as Date?)
             self.calendarView.reloadData()
+            //self.calendarView.reloadData(with: self.currentDate as Date?)
         })
     }
     

@@ -12,30 +12,36 @@ import JTAppleCalendar
 class DailyCalendarViewController: UIViewController {
 
     var passedText : String?
+    let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
+//    @IBOutlet var calendarView: JTAppleCalendarView!
+//    @IBOutlet var monthLabel: UILabel?
     
-    @IBOutlet weak var backButton: UIButton!
+//    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var extenseDay: UILabel!
     
     var passedDate : Date?
     var currentDate : Date?
-    let formatter = DateFormatter()
+//    let formatter = DateFormatter()
     
 //    @IBOutlet var calendarView: JTAppleCalendarView!
 
 
     
 //    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Passed text: \(passedText)")
+        print("Passed text: \(String(describing: passedText))")
         extenseDay.text = passedText
-  
-        
-        
-        //      setUpDailyCalendar()
-  //      currentDate = passedDate
+ //       setUpDailyCalendar()
     }
+    
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
     
 //    func setUpDailyCalendar(){
 //        calendarView.minimumLineSpacing = 0
@@ -145,4 +151,44 @@ class DailyCalendarViewController: UIViewController {
 //    }
 //    
 //}
+
+extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 30
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 78
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let doneAction = UITableViewRowAction(style: .normal, title: "          ") { (rowAction, indexPath) in
+            print("olar")
+        }
+        doneAction.backgroundColor = UIColor(patternImage: UIImage(named: "done.png")!)
+        return [doneAction]
+    }
+ 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = Bundle.main.loadNibNamed("DayActivityTableViewCell", owner: self, options: nil)?.first as! DayActivityTableViewCell
+
+        cell.activityLabel.text = "Fazer fichamento"
+        cell.colorLabel.backgroundColor = UIColor.green
+        cell.subjectLabel.text = "Economia"
+        cell.timeLabel.text = "18:00"
+        cell.clockImage.image = UIImage(named: "clock.png")
+        
+        cell.backgroundColor = UIColor.white
+        cell.layer.borderColor = redColor.cgColor
+        cell.layer.borderWidth = 1
+        cell.clipsToBounds = true
+        
+        return cell
+    }
+}
 
