@@ -14,6 +14,7 @@ import JTAppleCalendar
 class CalendarCell: JTAppleCell {
 
     
+    @IBOutlet weak var appointmentOnDay: UIImageView!
     @IBOutlet var dateLabel: UILabel?
     @IBOutlet weak var selectedCell: UIView!
     @IBOutlet var currentDayCell: UIView?

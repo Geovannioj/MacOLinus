@@ -33,9 +33,6 @@ class CalendarViewController: UIViewController {
 
     
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCalendar()
@@ -113,6 +110,34 @@ class CalendarViewController: UIViewController {
             }
         }
     }
+    
+    func howManyEventsOnDay(date: Date) -> Int{
+        
+        formatter.timeStyle = .none
+        
+        print("Entrou na funcao")
+        
+        var containsEvent = 0
+        
+        let activity1 = Activity(title: "Teste", deadline: Date(timeInterval: -60*60*24*3, since: NSDate() as Date))
+        let activity2 = Activity(title: "Teste", deadline: Date(timeInterval: 0, since: NSDate() as Date))
+        let activity3 = Activity(title: "Teste", deadline: Date(timeInterval: 60*60*24*3, since: NSDate() as Date))
+        
+        let activities = [activity1, activity2, activity3]
+        
+        //for index in User.getActivities() {
+        
+        for activity in activities{
+            
+            if NSCalendar.current.compare(date, to: activity.deadline, toGranularity: .day) == ComparisonResult.orderedSame {
+                
+                containsEvent += 1
+                print("Achou evento\n")
+            }
+        }
+        return containsEvent
+    }
+    
     
     @IBAction func moveToNextMonth(){
         calendarView.scrollToSegment(SegmentDestination.next)
@@ -238,6 +263,18 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
             cell.selectedCell?.isHidden = true
         }
         
+        let numberOfEventsOnDay = howManyEventsOnDay(date: date)
+        
+        if numberOfEventsOnDay > 0 {
+        //    cell.appointmentOnDay = UIImageView()
+            if numberOfEventsOnDay > 4 {
+        //        cell.appointmentOnDay = UIImageView()
+                print("Ia setar o fantasminha")
+            }
+            print("tem \(numberOfEventsOnDay) evento dia \(date)")
+
+        }
+        
         handleCellTextColor(cell: cell, cellState: cellState)
         
         return cell
@@ -302,7 +339,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
                 
                 destination.passedText?.append(formatter.string(from: sender as! Date))
                 
-                print("Data enviada \(destination.passedText)")
+                print("Data enviada \(String(describing: destination.passedText))")
                 
                 destination.passedDate = sender as? Date
                 print("Sent date: \(String(describing: sender))")

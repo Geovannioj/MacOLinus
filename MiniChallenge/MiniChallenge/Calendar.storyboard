@@ -183,6 +183,7 @@
                                                     <constraint firstItem="RDr-pg-3e4" firstAttribute="centerY" secondItem="CuI-Ba-mx7" secondAttribute="centerY" id="zBY-ko-Tw4"/>
                                                 </constraints>
                                                 <connections>
+                                                    <outlet property="appointmentOnDay" destination="6tI-Lz-Z3b" id="SUd-Cp-wCN"/>
                                                     <outlet property="currentDayCell" destination="Kky-z3-iba" id="Gke-fI-BaF"/>
                                                     <outlet property="dateLabel" destination="hKO-Xx-bgp" id="Gm8-og-y1g"/>
                                                     <outlet property="selectedCell" destination="RDr-pg-3e4" id="uaH-S8-SSe"/>
@@ -211,7 +212,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iYe-HI-60i" id="jWy-KQ-jgz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -245,7 +246,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sHM-dG-VeO">
-                                <rect key="frame" x="0.0" y="52" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="52" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4eQ-gW-dkT" userLabel="HeaderView">
@@ -265,11 +266,12 @@
                                         <color key="backgroundColor" red="0.98159772160000003" green="0.4592770934" blue="0.44348007439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="y7A-oq-e20" firstAttribute="centerY" secondItem="4eQ-gW-dkT" secondAttribute="centerY" id="MWd-Uz-cnE"/>
+                                            <constraint firstAttribute="height" constant="50" id="PH1-vV-Ie4"/>
                                             <constraint firstItem="y7A-oq-e20" firstAttribute="leading" secondItem="4eQ-gW-dkT" secondAttribute="leading" constant="10" id="pav-sZ-mJp"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nV7-Tq-Tid">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhi-Xo-cUO">
                                                 <rect key="frame" x="21" y="15" width="335" height="21"/>
@@ -280,8 +282,9 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.98959678409999996" green="0.45535808799999999" blue="0.43067887430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="zhi-Xo-cUO" firstAttribute="centerX" secondItem="nV7-Tq-Tid" secondAttribute="centerX" id="LHq-dS-TR0"/>
-                                            <constraint firstItem="zhi-Xo-cUO" firstAttribute="centerY" secondItem="nV7-Tq-Tid" secondAttribute="centerY" id="MRP-CN-NAe"/>
+                                            <constraint firstItem="zhi-Xo-cUO" firstAttribute="centerX" secondItem="nV7-Tq-Tid" secondAttribute="centerX" id="Kxm-4e-0Qh"/>
+                                            <constraint firstAttribute="height" constant="40" id="fGm-qt-dpV"/>
+                                            <constraint firstItem="zhi-Xo-cUO" firstAttribute="centerY" secondItem="nV7-Tq-Tid" secondAttribute="centerY" id="rIO-jp-gd8"/>
                                         </constraints>
                                     </view>
                                 </subviews>
