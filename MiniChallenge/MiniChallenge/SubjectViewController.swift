@@ -9,14 +9,12 @@
 import UIKit
 
 class SubjectViewController: UIViewController {
-
     
     var subjects = [Subject]()
-    
-    @IBOutlet weak var subjectNameField: UITextField!
-    @IBOutlet weak var teacherField: UITextField!
-    
+ 
 
+    @IBOutlet weak var subjectTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +31,7 @@ class SubjectViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -71,41 +70,39 @@ class SubjectViewController: UIViewController {
     
     // MARK: - Actions
 
-    @IBAction func buttonPressed(_ sender: Any) {
-        print("Passou aqui")
-    }
-    
-    
+ 
     @IBAction func newSubjectRequested(_ sender: Any) {
+    
+        let newSubject = Subject()
         
-        let teacher = Teacher()
-        teacher.name = "Millene"
+        if subjectTextField.text != "" {
+            
+            newSubject.title = subjectTextField.text!
+            
+            subjects.append(newSubject)
+            
+            saveSubjects()
+        }
         
-        let subject = Subject()
-        subject.title = "Desenho de Software"
-        subject.teacher = teacher
-        
-        subjects.append(subject)
-        
-        saveSubjects()
-//        
-//        if subjectNameField.text != "", teacherField.text != "" {
-//            
-//            let teacherName = teacherField.text!
-//            let subjectName = subjectNameField.text!
-//            let color = assignSubjectColor()
-//            
-//            let teacher = Teacher(name: teacherName)
-//            let newSubject = Subject(title: subjectName, teacher: teacher, color: color)
-//            
-//            subjects.append(newSubject)
-//            
-//            print("Passei aqui")
-//            saveSubjects()
-//        }
-
     }
     
+    
+    
+//    
+//    @IBAction func newSubjectRequested(_ sender: Any) {
+//        
+//        let teacher = Teacher()
+//        teacher.name = "Millene"
+//        
+//        let subject = Subject()
+//        subject.title = "Desenho de Software"
+//        subject.teacher = teacher
+//        
+//        subjects.append(subject)
+//        
+//        saveSubjects()
+//    }
+//    
     // MARK: - Helper
     
    func assignSubjectColor() -> UIColor{
