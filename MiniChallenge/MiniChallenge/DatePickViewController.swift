@@ -14,6 +14,7 @@ import UserNotifications
 class DatePickViewController: UIViewController {
     
     @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet weak var labelValidate: UILabel!
     
     var taskTitle: String? = ""
     var taskDescription: String? = nil
@@ -30,6 +31,8 @@ class DatePickViewController: UIViewController {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { (granted,error) in
             self.isGrantedNotificationAccess = granted
         })
+        
+        labelValidate.isHidden = true
 
         
     }
@@ -60,6 +63,8 @@ class DatePickViewController: UIViewController {
         
         }else{
             //mensagem de erro avisnado que o horário deve ser maior que o atual
+            labelValidate.isHidden =  false
+            
         }
         
     }

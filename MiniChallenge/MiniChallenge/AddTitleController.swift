@@ -13,6 +13,7 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nextScreen: UIButton!
     @IBOutlet weak var taskTitleTextField: UITextField!
+    @IBOutlet weak var emptyTitleLavel: UILabel!
     
     
     var taskTitle: String = ""
@@ -25,16 +26,7 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
         if let reminder = activityToEdit{
             taskTitleTextField.text = reminder.title
         }
-        
-        //nextScreen.isEnabled = false
-        
-        
-//        let notificationName = Notification.Name("Notificationidentifier")
-//        NotificationCenter.default.addObserver(self, selector: #selector (AddTitleController.textFieleed(_:shouldChangeCharactersIn:replacementString:)) , name:notificationName, object: nil)
-//        
-        
-        
-        
+        emptyTitleLavel.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,29 +35,17 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func nextScreen(_ sender: Any) {
+        
         taskTitle = taskTitleTextField.text!
-        
-        SingletonActivity.sharedInstance.task.title = taskTitle
-        
-    }
-    
-//    @objc(textField:shouldChangeCharactersInRange:replacementString:) func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        
-//            let oldText = taskTitleTextField.text! as NSString
-//            let newText = oldText.replacingCharacters(in: range, with: string) as NSString
-//        
-//            if newText.length > 0 {
-//                nextScreen.isEnabled = true
-//            } else {
-//                nextScreen.isEnabled = false
-//            }
-//            return true
-//    }
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if !(taskTitleTextField.text?.isEmpty)!{
-            nextScreen.isEnabled = true
+        if taskTitle.isEmpty{
+           emptyTitleLavel.isHidden = false
         }else{
-            nextScreen.isEnabled = false
+            SingletonActivity.sharedInstance.task.title = taskTitle
+            performSegue(withIdentifier: "SubjectChoiceScreen", sender: Any?.self)
+            
         }
+        
+        
+        
     }
 }

@@ -20,11 +20,12 @@ class CalendarViewController: UIViewController {
     let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
     var selectedDayCell = DaysOfWeek.sunday
     var selectedDayText: String?
+    let controllerPList = ControllerPList()
     
     //Activities TableView Attributes
     let cellReuseIdentifier = "ActivityTableViewCell"
     let cellSpacingHeight: CGFloat = 0.02
-    var activities = [Activity]()
+    var activities = [Reminder]()
     
     //Calenadar attributes
     var currentDate : NSDate? = nil
@@ -40,6 +41,8 @@ class CalendarViewController: UIViewController {
         super.viewDidLoad()
         setUpCalendar()
         
+        loadReminders()
+        
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
@@ -47,7 +50,25 @@ class CalendarViewController: UIViewController {
         obtainActivites()
     }
     
-   
+    func documentsDirectory() -> URL{
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        return paths[0]
+    }
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("Reminders.plist")
+    }
+    func loadReminders(){
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            SingletonActivity.sharedInstance.tasks = unarchiver.decodeObject(forKey: "Reminders") as! [Reminder]
+            unarchiver.finishDecoding()
+        }
+        
+    }
     
     func setUpCalendar(){
         calendarView.minimumLineSpacing = 0
@@ -94,7 +115,8 @@ class CalendarViewController: UIViewController {
         
         UIView.animate(withDuration: TimeInterval(animationDuration), animations: {
             self.calendarView.frame = CGRect(x: 0, y: 90, width: self.calendarView.frame.width, height: 265)
-            self.calendarView.reloadData(with: self.currentDate as Date?)
+            //self.calendarView.reloadData(completionHandler: self.currentDate as Date?)
+            self.calendarView.reloadData()
         })
     }
     
@@ -140,11 +162,7 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
     
     
     func obtainActivites(){
-    //    activities = User.getActivities()
-        let activity1 = Activity(title: "Aula de IAL", deadline: NSDate() as Date)
-        let activity2 = Activity(title: "Prova de IHC", deadline: NSDate() as Date)
-        
-        activities = [activity1,activity2]
+        activities = SingletonActivity.sharedInstance.tasks
     }
     
     // MARK: - Table View delegate methods
@@ -179,7 +197,7 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
         
         let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
         
-        cell.nameLabel?.text = activities[indexPath.row].title
+        cell.dayLabel?.text = activities[indexPath.row].title
         
         // add border and color
         cell.backgroundColor = UIColor.white
