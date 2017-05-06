@@ -33,7 +33,6 @@ class DatePickViewController: UIViewController {
         })
         
         labelValidate.isHidden = true
-
         
     }
     
@@ -68,5 +67,4 @@ class DatePickViewController: UIViewController {
         }
         
     }
-    
 }

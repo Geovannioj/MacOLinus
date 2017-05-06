@@ -17,6 +17,11 @@ class Reminder: NSObject, NSCoding {
     var reminderDescription: String = ""
     var time: Date = Date()
     var subject:Subject = Subject(title: "")
+    var day: Int = 0
+    var month: Int = 0
+    var year: Int = 0
+    var hour: Int = 0
+    var minutes: Int = 0
     
     
     func encode(with aCoder: NSCoder){

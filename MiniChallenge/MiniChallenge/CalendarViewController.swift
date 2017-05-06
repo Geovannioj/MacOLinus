@@ -33,11 +33,7 @@ class CalendarViewController: UIViewController {
     let formatter = DateFormatter()
     var numberOfRows = 6
 
-    
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCalendar()
@@ -49,6 +45,11 @@ class CalendarViewController: UIViewController {
         tableView.dataSource = self
         
         obtainActivites()
+        print(documentsDirectory())
+        
+        let nib = UINib(nibName: "DayActivityTableViewCell", bundle: nil)
+        
+        tableView.register(nib, forCellReuseIdentifier: "ActivityTableViewCell")
     }
     
     func documentsDirectory() -> URL{
@@ -170,12 +171,12 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table View delegate methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return activities.count
+        return 1
     }
     
     // There is just one row in every section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return activities.count
     }
     
     // Set the spacing between sections
@@ -199,7 +200,22 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
         
         let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
         
-        cell.dayLabel?.text = activities[indexPath.row].title
+        let activity = SingletonActivity.sharedInstance.tasks[indexPath.row]
+        
+        
+        let date = activity.time
+        let calendar = Calendar.current
+        
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        
+        cell.activityName.text = activity.title
+        cell.activitySubject.text = activity.subject.title
+        cell.activityHour.text = "\(hour):\(minutes)"
+        cell.dayLabel.text = String(day)
+        cell.monthLabel.text = String(month)
         
         // add border and color
         cell.backgroundColor = UIColor.white
@@ -209,6 +225,24 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+}
+func getDateComponentesFromDate(activity: Reminder){
+    
+    let date = activity.time
+    let calendar = Calendar.current
+    
+    let day = calendar.component(.day, from: date)
+    let month = calendar.component(.month, from: date)
+    let year = calendar.component(.year, from: date)
+    let hour = calendar.component(.hour, from: date)
+    let minutes = calendar.component(.minute, from: date)
+    
+    SingletonActivity.sharedInstance.task.day = day
+    SingletonActivity.sharedInstance.task.day = month
+    SingletonActivity.sharedInstance.task.day = year
+    SingletonActivity.sharedInstance.task.day = hour
+    SingletonActivity.sharedInstance.task.day = minutes
+    
 }
 
 /*

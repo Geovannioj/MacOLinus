@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Day Activity View Controller-->
+        <scene sceneID="eei-u5-ZX4">
+            <objects>
+                <viewController id="iQg-nk-cY9" customClass="DayActivityViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h0E-Ns-WA5"/>
+                        <viewControllerLayoutGuide type="bottom" id="1H0-UQ-zaN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cit-w0-uIt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dZs-Im-p7c">
+                                <rect key="frame" x="0.0" y="199" width="375" height="419"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="g0z-kl-beZ" customClass="DayActivityTableViewCell" customModule="MiniChallenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g0z-kl-beZ" id="wNh-IY-whl">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="iQg-nk-cY9" id="Hga-rb-36n"/>
+                                    <outlet property="delegate" destination="iQg-nk-cY9" id="Qwp-RZ-LKr"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atividades do dia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nB7-gQ-PvI">
+                                <rect key="frame" x="130" y="169" width="115" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="uLI-hF-NSK"/>
+                                    <constraint firstAttribute="height" constant="20" id="vNV-dr-ndv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.98959678411483765" green="0.45535808801651001" blue="0.43067887425422668" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dZs-Im-p7c" firstAttribute="leading" secondItem="cit-w0-uIt" secondAttribute="leading" id="HtR-M5-u0k"/>
+                            <constraint firstAttribute="trailing" secondItem="dZs-Im-p7c" secondAttribute="trailing" id="IpY-qN-81k"/>
+                            <constraint firstItem="1H0-UQ-zaN" firstAttribute="top" secondItem="dZs-Im-p7c" secondAttribute="bottom" constant="49" id="Qsg-Is-NTN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nB7-gQ-PvI" secondAttribute="trailing" constant="114" id="Vsf-ac-EFF"/>
+                            <constraint firstItem="nB7-gQ-PvI" firstAttribute="top" secondItem="h0E-Ns-WA5" secondAttribute="bottom" constant="149" id="jxy-m5-KsP"/>
+                            <constraint firstItem="dZs-Im-p7c" firstAttribute="top" secondItem="nB7-gQ-PvI" secondAttribute="bottom" constant="10" id="pwl-Vl-A7M"/>
+                            <constraint firstItem="nB7-gQ-PvI" firstAttribute="leading" secondItem="cit-w0-uIt" secondAttribute="leadingMargin" constant="114" id="xFk-vc-Xgh"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mcy-TL-r7e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128.80000000000001" y="35.532233883058474"/>
+        </scene>
+    </scenes>
+</document>
