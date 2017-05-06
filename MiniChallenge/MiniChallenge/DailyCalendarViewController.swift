@@ -8,6 +8,7 @@
 
 import UIKit
 import JTAppleCalendar
+import MGSwipeTableCell
 
 class DailyCalendarViewController: UIViewController {
 
@@ -166,13 +167,20 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    /*func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let doneAction = UITableViewRowAction(style: .normal, title: "          ") { (rowAction, indexPath) in
             print("olar")
         }
         doneAction.backgroundColor = UIColor(patternImage: UIImage(named: "done.png")!)
         return [doneAction]
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let indexPaths = [indexPath]
+        tableView.deleteRows(at: indexPaths, with: .automatic)
+    }*/
+    
+    
  
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("DayActivityTableViewCell", owner: self, options: nil)?.first as! DayActivityTableViewCell
@@ -187,6 +195,39 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         cell.layer.borderColor = redColor.cgColor
         cell.layer.borderWidth = 1
         cell.clipsToBounds = true
+        
+        //delay button
+        let delayButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "delay.png")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            print("Cliquei em Delay")
+            return true
+        }
+        
+        //edit button
+        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit.png")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            print("Cliquei em Edit")
+            return true
+        }
+        
+        //done button
+        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done.png")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            print("Cliquei em Done")
+            return true
+        }
+        
+        
+        //configure left and right buttons
+        cell.leftButtons = [delayButton, editButton]
+        cell.leftSwipeSettings.transition = .border
+        cell.rightButtons = [doneButton]
+        cell.rightSwipeSettings.transition = .border
+        
+       /* cell.leftExpansion.buttonIndex = 0
+        cell.leftExpansion.fillOnTrigger = true
+        cell.leftExpansion.threshold = 1.5*/
+        //configure right buttons
         
         return cell
     }
