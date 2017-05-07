@@ -45,6 +45,10 @@ class CalendarViewController: UIViewController {
     }
     
    
+    @IBAction func increaseCellSize(){
+        calendarView.cellSize += 5
+    }
+    
     
     func setUpCalendar(){
         calendarView.minimumLineSpacing = 0
@@ -254,8 +258,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCell
         
         cell.dateLabel?.text = cellState.text
-        cell.selectedCell?.layer.cornerRadius = 20
-        cell.currentDayCell?.layer.cornerRadius = 20
+        cell.selectedCell?.layer.cornerRadius = 12
         
         if cell.isSelected {
             cell.selectedCell?.isHidden = false
@@ -285,16 +288,6 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
                 print("deveria ta aparecendo sá MERDA")
             }
         }
-    }
-    
-    func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: NSDate, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
-        
-        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCell
-        
-        cell.currentDayCell?.layer.cornerRadius = 20
-        cell.currentDayCell?.isHidden = false
-        
-        return cell
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
