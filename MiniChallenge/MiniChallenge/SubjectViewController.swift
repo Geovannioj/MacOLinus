@@ -3,7 +3,7 @@ import UIKit
 class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var subjects = [Subject]()
- 
+    let subjectTitleLabel = ""
 
     @IBOutlet weak var subjectTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -63,9 +63,13 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func setCreatedSubject() {
         
-        let lastSubject = returnSubjects().last
+        loadSubjects()
         
-        subjectCreated.text = lastSubject?.title ?? "dbsbd"
+        let createdSubject = subjects.last
+        let aux = createdSubject?.title
+
+        
+        subjectCreated.text = aux
         
     }
     
@@ -85,8 +89,7 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             
             saveSubjects()
-//            setCreatedSubject()
-//            
+            
         }
         
     }
@@ -94,6 +97,7 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: - Presents subjects
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         let customRowSize: CGFloat = 78.0
         
         return customRowSize
