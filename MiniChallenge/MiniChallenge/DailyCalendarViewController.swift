@@ -228,7 +228,6 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         cell.leftExpansion.fillOnTrigger = true
         cell.leftExpansion.threshold = 1.5*/
         //configure right buttons
-        
         return cell
     }
 }

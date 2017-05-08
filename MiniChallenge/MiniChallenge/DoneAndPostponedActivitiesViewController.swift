@@ -97,6 +97,15 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done.png")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             print("Cliquei em Done")
+            
+            //stobyboard reference
+            let newStoryBoard = UIStoryboard(name: "Calendar", bundle: nil)
+            let newViewController = newStoryBoard.instantiateViewController(withIdentifier: "CalendarViewController") as! CalendarViewController
+            newViewController.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+            
+            self.present(newViewController, animated: true, completion: nil)
+            
+            
             return true
         }
         

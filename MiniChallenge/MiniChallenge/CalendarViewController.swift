@@ -269,7 +269,7 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
                                                  generateOutDates: OutDateCellGeneration.tillEndOfRow)
         
         
-        self.heightConstraint.constant = numberOfRows == 1 ? 50 : 265
+        //self.heightConstraint.constant = numberOfRows == 1 ? 50 : 265
         
         return parameters
     }

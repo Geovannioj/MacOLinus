@@ -22,6 +22,7 @@ class Reminder: NSObject, NSCoding {
     var year: Int = 0
     var hour: Int = 0
     var minutes: Int = 0
+    var status: Int = 0 // 0:toDo - 1:Done - 2:Postponed
     
     
     func encode(with aCoder: NSCoder){
