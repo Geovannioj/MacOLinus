@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aEo-xe-HBL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ChX-vs-g5L">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,50 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--dayStoryboard-->
+        <scene sceneID="wzx-i5-axj">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="dayStoryboard" storyboardName="DayActivity" referencedIdentifier="dayStoryboard" id="tkm-OL-CSj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="qmj-vs-UhT"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pWf-Js-EcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-974" y="384"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="KF9-Jo-E0I">
+            <objects>
+                <tabBarController id="ChX-vs-g5L" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="vSJ-pf-sb2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="aEo-xe-HBL" kind="relationship" relationship="viewControllers" id="BAz-8d-xjy"/>
+                        <segue destination="tkm-OL-CSj" kind="relationship" relationship="viewControllers" id="fAJ-oC-xfh"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WbQ-NW-bue" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3274" y="-228"/>
+        </scene>
+        <!--DoneAndPostponedActivities-->
+        <scene sceneID="2Hq-6J-waM">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DoneAndPostponedActivities" storyboardName="DoneAndPostponedActivities" referencedIdentifier="DoneAndPostponedActivities" id="c3g-4T-Nph" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yJf-AZ-pLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-652" y="-649"/>
+        </scene>
+        <!--Reminders-->
+        <scene sceneID="Uqb-Ao-byu">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Reminders" storyboardName="Reminders" referencedIdentifier="Reminders" id="raQ-or-uW0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZZ-Fh-Q8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-742" y="-612"/>
+        </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="WA6-Fd-ru4">
             <objects>
@@ -23,25 +67,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qWz-a8-E6d">
-                                <rect key="frame" x="0.0" y="46" width="375" height="433"/>
+                                <rect key="frame" x="0.0" y="46" width="375" height="437"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eE7-9n-kYL" userLabel="HeaderView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdl-F5-T7w">
-                                                <rect key="frame" x="321" y="10" width="46" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdl-F5-T7w">
+                                                <rect key="frame" x="339" y="9" width="19" height="22"/>
+                                                <state key="normal" image="+"/>
+                                                <connections>
+                                                    <segue destination="raQ-or-uW0" kind="show" id="TE5-re-B0w"/>
+                                                </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0b-H9-Fhj">
+                                                <rect key="frame" x="311" y="9" width="20" height="22"/>
+                                                <state key="normal" image="list [#1496]"/>
+                                                <connections>
+                                                    <segue destination="c3g-4T-Nph" kind="show" id="FO2-Fm-EMZ"/>
+                                                </connections>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="mYF-yL-5BI">
+                                                <rect key="frame" x="98" y="7" width="184" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="fvR-nJ-D7e"/>
+                                                    <constraint firstAttribute="width" constant="184" id="jDN-K3-mQl"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.98159772160000003" green="0.4592770934" blue="0.44348007439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="Sdl-F5-T7w" firstAttribute="centerY" secondItem="eE7-9n-kYL" secondAttribute="centerY" id="6Sh-t5-8sy"/>
-                                            <constraint firstAttribute="trailing" secondItem="Sdl-F5-T7w" secondAttribute="trailing" constant="8" id="8hY-hs-dH1"/>
-                                            <constraint firstAttribute="height" constant="50" id="GWk-ph-MtM"/>
+                                            <constraint firstAttribute="trailing" secondItem="Sdl-F5-T7w" secondAttribute="trailing" constant="17" id="8hY-hs-dH1"/>
+                                            <constraint firstAttribute="height" constant="40" id="GWk-ph-MtM"/>
+                                            <constraint firstItem="mYF-yL-5BI" firstAttribute="top" secondItem="eE7-9n-kYL" secondAttribute="top" constant="7" id="OBv-tC-geo"/>
+                                            <constraint firstItem="Sdl-F5-T7w" firstAttribute="leading" secondItem="k0b-H9-Fhj" secondAttribute="trailing" constant="8" id="f9e-vW-FTi"/>
+                                            <constraint firstItem="k0b-H9-Fhj" firstAttribute="leading" secondItem="mYF-yL-5BI" secondAttribute="trailing" constant="29" id="k7j-6p-YBW"/>
+                                            <constraint firstItem="k0b-H9-Fhj" firstAttribute="centerY" secondItem="eE7-9n-kYL" secondAttribute="centerY" id="owD-DX-Cxb"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1aJ-Pf-hgy">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="15"/>
+                                        <rect key="frame" x="0.0" y="40" width="375" height="15"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cg-xl-NyV">
                                                 <rect key="frame" x="0.0" y="0.0" width="53.5" height="15"/>
@@ -98,38 +163,47 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKj-nR-S7r">
-                                        <rect key="frame" x="0.0" y="65" width="375" height="21"/>
+                                        <rect key="frame" x="0.0" y="55" width="375" height="15"/>
                                         <color key="backgroundColor" red="0.98959678409999996" green="0.45535808799999999" blue="0.43067887430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="20.5" id="YfU-D5-0tx"/>
+                                            <constraint firstAttribute="height" constant="15" id="YfU-D5-0tx"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.98959678409999996" green="0.45535808799999999" blue="0.43067887430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="xe8-OP-o0v">
-                                        <rect key="frame" x="0.0" y="86" width="375" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xe8-OP-o0v">
+                                        <rect key="frame" x="0.0" y="70" width="375" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2B3-42-xSL">
-                                                <rect key="frame" x="0.0" y="0.0" width="91" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2B3-42-xSL">
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="50"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                                </accessibility>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="91" id="ov1-KN-GLD"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="GwY-sF-HFF"/>
                                                 </constraints>
-                                                <state key="normal" title="esq."/>
+                                                <state key="normal" title="esq." image="leftIcon2x"/>
                                                 <state key="selected" title="esq."/>
                                                 <connections>
                                                     <action selector="moveToPreviousMonth" destination="aEo-xe-HBL" eventType="touchUpInside" id="583-ug-X8o"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yar-LH-WdO">
-                                                <rect key="frame" x="91" y="0.0" width="193" height="30"/>
+                                                <rect key="frame" x="125" y="0.0" width="125" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="J8Z-gK-mEK"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <color key="textColor" red="0.98159772160000003" green="0.4592770934" blue="0.44348007439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jxg-Fn-Ioc">
-                                                <rect key="frame" x="284" y="0.0" width="91" height="30"/>
-                                                <state key="normal" title="dir."/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jxg-Fn-Ioc">
+                                                <rect key="frame" x="250" y="0.0" width="125" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="kzT-TE-kb7"/>
+                                                </constraints>
+                                                <state key="normal" title="dir." image="rightIcon2x"/>
                                                 <connections>
                                                     <action selector="moveToNextMonth" destination="aEo-xe-HBL" eventType="touchUpInside" id="d4W-cd-uCl"/>
                                                 </connections>
@@ -140,7 +214,7 @@
                                         </constraints>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Jwx-yR-cx5" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                        <rect key="frame" x="0.0" y="116" width="375" height="300"/>
+                                        <rect key="frame" x="0.0" y="120" width="375" height="300"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="300" id="Np9-8M-WNR"/>
@@ -209,7 +283,7 @@
                                         </connections>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Próximas Atividades" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="375" translatesAutoresizingMaskIntoConstraints="NO" id="YjP-jP-yV6">
-                                        <rect key="frame" x="0.0" y="416" width="375" height="17"/>
+                                        <rect key="frame" x="0.0" y="420" width="375" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.98159772160000003" green="0.4592770934" blue="0.44348007439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -229,7 +303,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tUp-CP-odA">
-                                <rect key="frame" x="0.0" y="494" width="375" height="310"/>
+                                <rect key="frame" x="0.0" y="498" width="375" height="310"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="310" id="9nY-6Q-R1W"/>
@@ -239,7 +313,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iYe-HI-60i" id="jWy-KQ-jgz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -256,6 +330,7 @@
                             <constraint firstItem="qWz-a8-E6d" firstAttribute="trailing" secondItem="tUp-CP-odA" secondAttribute="trailing" id="vgP-Ks-puG"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="jhV-NC-NPB"/>
                     <connections>
                         <outlet property="calendarView" destination="Jwx-yR-cx5" id="FlA-Ws-DvH"/>
                         <outlet property="heightConstraint" destination="Np9-8M-WNR" id="kQD-hS-Sg3"/>
@@ -440,7 +515,17 @@
                     </subviews>
                 </stackView>
             </objects>
-            <point key="canvasLocation" x="-834.39999999999998" y="-228.03598200899552"/>
+            <point key="canvasLocation" x="-566" y="-184"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="+" width="19" height="20"/>
+        <image name="Pengo" width="69" height="21"/>
+        <image name="leftIcon2x" width="14" height="22"/>
+        <image name="list [#1496]" width="20" height="15"/>
+        <image name="rightIcon2x" width="14" height="22"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="qo6-PJ-6jC"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -11,6 +11,7 @@ import JTAppleCalendar
 
 class CalendarViewController: UIViewController {
 
+    @IBOutlet weak var calendarNavigationBar: UINavigationBar!
     @IBOutlet weak var appointmentOnDay: UILabel!
     @IBOutlet weak var tabBar: UITabBarItem!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
@@ -19,6 +20,7 @@ class CalendarViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     //General Attributes
+    let logo = UIImage(named: "Pengo.png")
     let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
     var selectedDayCell = DaysOfWeek.sunday
     var selectedDayText: String?
