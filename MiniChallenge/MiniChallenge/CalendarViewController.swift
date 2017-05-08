@@ -249,7 +249,7 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
         cell.activitySubject.text = activity.subject.title
         cell.activityHour.text = "\(hour):\(minutes)"
         cell.dayLabel.text = String(day)
-        cell.monthLabel.text = String(month)
+        cell.monthLabel.text = String(selectMonthText(month: month))
         
         // add border and color
         cell.backgroundColor = UIColor.white
@@ -260,6 +260,39 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 }
+
+func selectMonthText(month: Int) -> String {
+    
+    switch month {
+        case 1:
+            return "Jan"
+        case 2:
+            return "Fev"
+        case 3:
+            return "Mar"
+        case 4:
+            return "Apr"
+        case 5:
+            return "May"
+        case 6:
+            return "Jun"
+        case 7:
+            return "Jul"
+        case 8:
+            return "Ago"
+        case 9:
+            return "Set"
+        case 10:
+            return "Oct"
+        case 11:
+            return "Nov"
+        case 12:
+            return "Dec"
+        default:
+            return ""
+    }
+}
+
 func getDateComponentesFromDate(activity: Reminder){
     
     let date = activity.time
