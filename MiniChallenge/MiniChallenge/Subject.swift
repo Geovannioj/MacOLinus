@@ -111,10 +111,12 @@ class Subject: NSObject, NSCoding {
     required init(coder decoder: NSCoder) {
         self.title = decoder.decodeObject(forKey: "title") as? String ?? ""
         self.place = decoder.decodeObject(forKey: "place") as? String ?? ""
+        self.color = decoder.decodeObject(forKey: "color") as? UIColor ?? UIColor.black
     }
     
     func encode(with coder: NSCoder) {
         coder.encode(title, forKey: "title")
         coder.encode(place, forKey: "place")
+        coder.encode(color, forKey: "color")
     }
 }
