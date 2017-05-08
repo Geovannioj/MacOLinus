@@ -8,6 +8,16 @@
 
 import UIKit
 
-class SingletonSubject: NSObject {
-
+class SingletonSubject  {
+    
+    var subjects = [Subject]()
+    var subject = Subject()
+    
+    private init() {
+        
+    }
+        
+    static let subjectSharedInstance = SingletonSubject()
+    
+    
 }
