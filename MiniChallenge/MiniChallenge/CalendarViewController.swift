@@ -45,6 +45,14 @@ class CalendarViewController: UIViewController {
         obtainActivites()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewDidLoad()
+        setUpCalendar()
+        
+        obtainActivites()
+    }
+    
    
     @IBAction func increaseCellSize(){
         calendarView.cellSize += 5
@@ -80,25 +88,25 @@ class CalendarViewController: UIViewController {
         self.monthLabel?.text = self.formatter.string(from: date!)
     }
     
-    func shrinkCalendar(animationDuration: Float){
-        
-        numberOfRows = 1
-        
-        UIView.animate(withDuration: TimeInterval(animationDuration), animations: {
-            self.calendarView.frame = CGRect(x: 0, y: 90, width: self.calendarView.frame.width, height: 50)
-            self.calendarView.reloadData()
-        })
-    }
+//    func shrinkCalendar(animationDuration: Float){
+//        
+//        numberOfRows = 1
+//        
+//        UIView.animate(withDuration: TimeInterval(animationDuration), animations: {
+//            self.calendarView.frame = CGRect(x: 0, y: 90, width: self.calendarView.frame.width, height: 50)
+//            self.calendarView.reloadData()
+//        })
+//    }
     
-    func expandCalendar(animationDuration: Float){
-        
-        numberOfRows = 6
-        
-        UIView.animate(withDuration: TimeInterval(animationDuration), animations: {
-            self.calendarView.frame = CGRect(x: 0, y: 90, width: self.calendarView.frame.width, height: 265)
-            self.calendarView.reloadData(with: self.currentDate as Date?)
-        })
-    }
+//    func expandCalendar(animationDuration: Float){
+//        
+//        numberOfRows = 6
+//        
+//        UIView.animate(withDuration: TimeInterval(animationDuration), animations: {
+//            self.calendarView.frame = CGRect(x: 0, y: 90, width: self.calendarView.frame.width, height: 265)
+//            self.calendarView.reloadData(with: self.currentDate as Date?)
+//        })
+//    }
     
     //Funtion responsible for handling the text color on the calendar
     func handleCellTextColor(cell: JTAppleCell?, cellState: CellState){
@@ -146,11 +154,11 @@ class CalendarViewController: UIViewController {
         calendarView.reloadData()
     }
     
-    @IBAction func expandCalendarThroughBackButton(){
-        
-       expandCalendar(animationDuration: 0.5)
-    }
-    
+//    @IBAction func expandCalendarThroughBackButton(){
+//        
+//       expandCalendar(animationDuration: 0.5)
+//    }
+//    
     func handleAppointmentOnDayLabel(cell: CalendarCell, cellState: CellState, date: Date){
         
         let numberOfEventsOnDay = howManyEventsOnDay(date: date)
@@ -292,9 +300,9 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         handleCellTextColor(cell: cell, cellState: cellState)
         
         
-        if numberOfRows == 6 {
-            shrinkCalendar(animationDuration: 0.2)
-        }
+//        if numberOfRows == 6 {
+//            shrinkCalendar(animationDuration: 0.2)
+//        }
         
         selectedDayCell = DaysOfWeek(rawValue: cellState.day.rawValue)!
         

@@ -37,6 +37,10 @@ class DailyCalendarViewController: UIViewController {
   //      currentDate = passedDate
     }
     
+    @IBAction func dismissScreen(){
+        dismiss(animated: true, completion: nil)
+    }
+    
 //    func setUpDailyCalendar(){
 //        calendarView.minimumLineSpacing = 0
 //        calendarView.minimumInteritemSpacing = 0
