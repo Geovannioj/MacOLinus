@@ -10,8 +10,13 @@ import UIKit
 
 class SubjectTableViewCell: UITableViewCell {
 
+
+    @IBOutlet weak var subjectTitleLabel: UILabel!
+    @IBOutlet weak var subjectColorLabel: UILabel!
+      
     override func awakeFromNib() {
         super.awakeFromNib()
+     
         // Initialization code
     }
 
@@ -20,5 +25,10 @@ class SubjectTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
+    
+    
+    
     
 }

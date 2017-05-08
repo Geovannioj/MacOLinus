@@ -7,6 +7,7 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     @IBOutlet weak var subjectTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var subjectCreated: UILabel!
     
     
     override func viewDidLoad() {
@@ -60,6 +61,14 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+    func setCreatedSubject() {
+        
+        let lastSubject = returnSubjects().last
+        
+        subjectCreated.text = lastSubject?.title ?? "dbsbd"
+        
+    }
+    
     
     // MARK: - Actions
 
@@ -72,16 +81,23 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             newSubject.title = subjectTextField.text!
             newSubject.color = assignSubjectColor()
-            
             subjects.append(newSubject)
             
+            
             saveSubjects()
+//            setCreatedSubject()
+//            
         }
         
     }
     
     // MARK: - Presents subjects
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let customRowSize: CGFloat = 78.0
+        
+        return customRowSize
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
@@ -89,16 +105,21 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SubjectTableViewCell
-      
+        
+        
         cell.subjectTitleLabel.text = subjects[indexPath.row].title
 
         cell.subjectColorLabel.backgroundColor = subjects[indexPath.row].color
        
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
     
    func assignSubjectColor() -> UIColor {
         
