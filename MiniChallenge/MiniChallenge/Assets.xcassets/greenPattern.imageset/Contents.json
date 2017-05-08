@@ -2,18 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-<<<<<<< HEAD
       "filename" : "Green Pattern.png",
-=======
->>>>>>> 0980b589d224ae2dcd39f0fe3667f91385e3112e
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-<<<<<<< HEAD
       "filename" : "Green Pattern@2x.png",
-=======
->>>>>>> 0980b589d224ae2dcd39f0fe3667f91385e3112e
       "scale" : "2x"
     },
     {

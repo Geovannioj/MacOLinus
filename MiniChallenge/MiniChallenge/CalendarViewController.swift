@@ -10,8 +10,9 @@ import UIKit
 import JTAppleCalendar
 
 class CalendarViewController: UIViewController {
-    
+
     @IBOutlet weak var appointmentOnDay: UILabel!
+    @IBOutlet weak var tabBar: UITabBarItem!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthLabel : UILabel?
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
@@ -21,43 +22,57 @@ class CalendarViewController: UIViewController {
     let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
     var selectedDayCell = DaysOfWeek.sunday
     var selectedDayText: String?
+    let controllerPList = ControllerPList()
     
     //Activities TableView Attributes
     let cellReuseIdentifier = "ActivityTableViewCell"
     let cellSpacingHeight: CGFloat = 0.02
-    var activities = [Activity]()
+    var activities = [Reminder]()
     
     //Calenadar attributes
     var currentDate : NSDate? = nil
     let formatter = DateFormatter()
     var numberOfRows = 6
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCalendar()
+        
+        loadReminders()
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
         
         obtainActivites()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        print(documentsDirectory())
         
-        super.viewDidLoad()
-        setUpCalendar()
+        let nib = UINib(nibName: "DayActivityTableViewCell", bundle: nil)
         
-        obtainActivites()
+        tableView.register(nib, forCellReuseIdentifier: "ActivityTableViewCell")
     }
     
-   
-    @IBAction func increaseCellSize(){
-        calendarView.cellSize += 5
+    func documentsDirectory() -> URL{
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        return paths[0]
     }
     
+
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("Reminders.plist")
+    }
+    
+    func loadReminders(){
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            SingletonActivity.sharedInstance.tasks = unarchiver.decodeObject(forKey: "Reminders") as! [Reminder]
+            unarchiver.finishDecoding()
+        }
+        
+    }
     
     func setUpCalendar(){
         calendarView.minimumLineSpacing = 0
@@ -87,7 +102,7 @@ class CalendarViewController: UIViewController {
         print(String(describing: date))
         self.monthLabel?.text = self.formatter.string(from: date!)
     }
-    
+
 //    func shrinkCalendar(animationDuration: Float){
 //        
 //        numberOfRows = 1
@@ -132,7 +147,7 @@ class CalendarViewController: UIViewController {
         
         for activity in activities{
             
-            if NSCalendar.current.compare(date, to: activity.deadline, toGranularity: .day) == ComparisonResult.orderedSame {
+            if NSCalendar.current.compare(date, to: activity.time, toGranularity: .day) == ComparisonResult.orderedSame {
                 
                 containsEvent += 1
                 print(date)
@@ -184,22 +199,18 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
     
     
     func obtainActivites(){
-    //    activities = User.getActivities()
-        let activity1 = Activity(title: "Aula de IAL", deadline: NSDate() as Date)
-        let activity2 = Activity(title: "Prova de IHC", deadline: NSDate() as Date)
-        
-        activities = [activity1,activity2]
+        activities = SingletonActivity.sharedInstance.tasks
     }
     
     // MARK: - Table View delegate methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return activities.count
+        return 1
     }
     
     // There is just one row in every section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return activities.count
     }
     
     // Set the spacing between sections
@@ -223,7 +234,22 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
         
         let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
         
-        cell.nameLabel?.text = activities[indexPath.row].title
+        let activity = SingletonActivity.sharedInstance.tasks[indexPath.row]
+        
+        
+        let date = activity.time
+        let calendar = Calendar.current
+        
+        let day = calendar.component(.day, from: date)
+        let month = calendar.component(.month, from: date)
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        
+        cell.activityName.text = activity.title
+        cell.activitySubject.text = activity.subject.title
+        cell.activityHour.text = "\(hour):\(minutes)"
+        cell.dayLabel.text = String(day)
+        cell.monthLabel.text = String(month)
         
         // add border and color
         cell.backgroundColor = UIColor.white
@@ -233,6 +259,24 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+}
+func getDateComponentesFromDate(activity: Reminder){
+    
+    let date = activity.time
+    let calendar = Calendar.current
+    
+    let day = calendar.component(.day, from: date)
+    let month = calendar.component(.month, from: date)
+    let year = calendar.component(.year, from: date)
+    let hour = calendar.component(.hour, from: date)
+    let minutes = calendar.component(.minute, from: date)
+    
+    SingletonActivity.sharedInstance.task.day = day
+    SingletonActivity.sharedInstance.task.day = month
+    SingletonActivity.sharedInstance.task.day = year
+    SingletonActivity.sharedInstance.task.day = hour
+    SingletonActivity.sharedInstance.task.day = minutes
+    
 }
 
 /*

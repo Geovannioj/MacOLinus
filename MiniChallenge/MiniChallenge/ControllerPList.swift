@@ -29,4 +29,15 @@ class ControllerPList {
     func dataFilePath() -> URL {
         return documentsDirectory().appendingPathComponent("Reminders.plist")
     }
+    
+    func loadReminders(){
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            SingletonActivity.sharedInstance.tasks = unarchiver.decodeObject(forKey: "Reminders") as! [Reminder]
+            unarchiver.finishDecoding()
+        }
+
+    }
 }
