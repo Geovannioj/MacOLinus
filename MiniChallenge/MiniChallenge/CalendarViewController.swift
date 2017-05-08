@@ -11,6 +11,7 @@ import JTAppleCalendar
 
 class CalendarViewController: UIViewController {
     
+    @IBOutlet weak var appointmentOnDay: UILabel!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthLabel : UILabel?
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
@@ -119,29 +120,21 @@ class CalendarViewController: UIViewController {
         
         formatter.timeStyle = .none
         
-        print("Entrou na funcao")
-        
         var containsEvent = 0
-        
-        let activity1 = Activity(title: "Teste", deadline: Date(timeInterval: -60*60*24*3, since: NSDate() as Date))
-        let activity2 = Activity(title: "Teste", deadline: Date(timeInterval: 0, since: NSDate() as Date))
-        let activity3 = Activity(title: "Teste", deadline: Date(timeInterval: 60*60*24*3, since: NSDate() as Date))
-        
-        let activities = [activity1, activity2, activity3]
-        
-        //for index in User.getActivities() {
         
         for activity in activities{
             
             if NSCalendar.current.compare(date, to: activity.deadline, toGranularity: .day) == ComparisonResult.orderedSame {
                 
                 containsEvent += 1
+                print(date)
                 print("Achou evento\n")
             }
         }
+        
+        print(containsEvent)
         return containsEvent
     }
-    
     
     @IBAction func moveToNextMonth(){
         calendarView.scrollToSegment(SegmentDestination.next)
@@ -155,7 +148,21 @@ class CalendarViewController: UIViewController {
     
     @IBAction func expandCalendarThroughBackButton(){
         
-        expandCalendar(animationDuration: 0.5)
+       expandCalendar(animationDuration: 0.5)
+    }
+    
+    func handleAppointmentOnDayLabel(cell: CalendarCell, cellState: CellState, date: Date){
+        
+        let numberOfEventsOnDay = howManyEventsOnDay(date: date)
+
+        if numberOfEventsOnDay > 0 {
+
+            cell.appointmentOnDay.isHidden = false
+        } else {
+            
+            cell.appointmentOnDay.isHidden = true
+        }
+        
     }
 
 }
@@ -259,36 +266,23 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         
         cell.dateLabel?.text = cellState.text
         cell.selectedCell?.layer.cornerRadius = 12
+        cell.appointmentOnDay.layer.masksToBounds = true
+        cell.appointmentOnDay.layer.cornerRadius = 3.5
         
         if cell.isSelected {
             cell.selectedCell?.isHidden = false
+            cell.appointmentOnDay.backgroundColor = UIColor.white
         } else {
             cell.selectedCell?.isHidden = true
+            cell.appointmentOnDay.backgroundColor = redColor
         }
         
-        setCellImage(cell: cell, date: date)
-        
         handleCellTextColor(cell: cell, cellState: cellState)
+        handleAppointmentOnDayLabel(cell: cell, cellState: cellState, date: date)
         
         return cell
     }
     
-    func setCellImage(cell: CalendarCell, date: Date){
-        
-        let numberOfEventsOnDay = howManyEventsOnDay(date: date)
-        
-        if numberOfEventsOnDay > 0 {
-            
-            if numberOfEventsOnDay > 4 {
-                
-                cell.appointmentOnDay = UIImageView(image:#imageLiteral(resourceName: "LittleGhost"))
-                
-            } else {
-                cell.appointmentOnDay = UIImageView(image:#imageLiteral(resourceName: "AppointmentSymbol"))
-                print("deveria ta aparecendo sá MERDA")
-            }
-        }
-    }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         

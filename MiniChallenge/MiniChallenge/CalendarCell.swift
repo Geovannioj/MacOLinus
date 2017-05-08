@@ -13,8 +13,7 @@ import JTAppleCalendar
 
 class CalendarCell: JTAppleCell {
 
-    
-    @IBOutlet weak var appointmentOnDay: UIImageView!
+    @IBOutlet weak var appointmentOnDay: UILabel!
     @IBOutlet var dateLabel: UILabel?
     @IBOutlet weak var selectedCell: UIView!
 }
