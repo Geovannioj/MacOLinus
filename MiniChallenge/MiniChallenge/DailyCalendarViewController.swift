@@ -23,20 +23,15 @@ class DailyCalendarViewController: UIViewController {
     var passedDate : Date?
     var currentDate : Date?
 //    let formatter = DateFormatter()
-    
 //    @IBOutlet var calendarView: JTAppleCalendarView!
 
-
-    
 //    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Passed text: \(String(describing: passedText))")
         extenseDay.text = passedText
- //       setUpDailyCalendar()
-    }
+  }
     
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

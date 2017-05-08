@@ -293,7 +293,7 @@
                                                     <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="dismissScreen" destination="1iM-yx-1oJ" eventType="touchUpInside" id="kBs-KZ-LYm"/>
+                                                    <segue destination="aEo-xe-HBL" kind="presentation" id="qo6-PJ-6jC"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -379,6 +379,9 @@
                             <constraint firstItem="ip5-u2-oJJ" firstAttribute="top" secondItem="NYD-m7-16x" secondAttribute="bottom" constant="10" id="nXe-Az-HGk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="extenseDay" destination="zhi-Xo-cUO" id="x9g-wL-RIY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zo3-Sr-QUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" id="yOu-Ch-26i">
