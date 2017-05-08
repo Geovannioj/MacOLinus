@@ -12,6 +12,8 @@ import MGSwipeTableCell
 
 class DailyCalendarViewController: UIViewController {
 
+    var activitiesOnDay = [Reminder]()
+    
     var passedText : String?
     let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
 //    @IBOutlet var calendarView: JTAppleCalendarView!
@@ -22,7 +24,7 @@ class DailyCalendarViewController: UIViewController {
     
     var passedDate : Date?
     var currentDate : Date?
-//    let formatter = DateFormatter()
+    let formatter = DateFormatter()
 //    @IBOutlet var calendarView: JTAppleCalendarView!
 
 //    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
@@ -30,7 +32,27 @@ class DailyCalendarViewController: UIViewController {
         super.viewDidLoad()
         print("Passed text: \(String(describing: passedText))")
         extenseDay.text = passedText
+        
+        checkActivitiesOnDay(activities: SingletonActivity.sharedInstance.tasks)
   }
+    
+    func checkActivitiesOnDay(activities: [Reminder]){
+        
+        for activity in activities{
+            print("aqui")
+            print(activity.time)
+            if NSCalendar.current.compare(passedDate!, to: activity.time, toGranularity: .day) == ComparisonResult.orderedSame {
+        
+                print("aqui denovo")
+                print(activity.time)
+                //print("to aqui")
+                //print("\(passedDate)")
+                //print("\(String(activity.hour))")
+                //print("Achou evento\n")
+                activitiesOnDay.append(activity)
+            }
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -149,7 +171,7 @@ class DailyCalendarViewController: UIViewController {
 extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return activitiesOnDay.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -178,10 +200,20 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("DayActivityTableViewCell", owner: self, options: nil)?.first as! DayActivityTableViewCell
 
-        cell.activityLabel.text = "Fazer fichamento"
-        cell.colorLabel.backgroundColor = UIColor.green
-        cell.subjectLabel.text = "Economia"
-        cell.timeLabel.text = "18:00"
+        let correspondentActivity = activitiesOnDay[indexPath.row]
+        
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: correspondentActivity.time)
+        let minutes = calendar.component(.minute, from: correspondentActivity.time)
+        
+        cell.activityLabel.text = correspondentActivity.title
+        //cell.colorLabel.backgroundColor? = correspondentActivity.subject.color
+        cell.subjectLabel.text = correspondentActivity.subject.title
+        
+        
+        cell.timeLabel.text = "\(hour):"+"\(minutes)"
+        print("\(correspondentActivity.hour)")
+        print("\(correspondentActivity.minutes)")
         cell.clockImage.image = UIImage(named: "clock.png")
         
         cell.backgroundColor = UIColor.white

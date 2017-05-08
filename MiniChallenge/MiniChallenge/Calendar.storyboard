@@ -44,20 +44,20 @@
                 <viewControllerPlaceholder storyboardIdentifier="DoneAndPostponedActivities" storyboardName="DoneAndPostponedActivities" referencedIdentifier="DoneAndPostponedActivities" id="c3g-4T-Nph" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yJf-AZ-pLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-652" y="-649"/>
+            <point key="canvasLocation" x="-52" y="-828"/>
         </scene>
         <!--Reminders-->
-        <scene sceneID="Uqb-Ao-byu">
+        <scene sceneID="gJ7-5j-PaC">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Reminders" storyboardName="Reminders" referencedIdentifier="Reminders" id="raQ-or-uW0" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SZZ-Fh-Q8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="Reminders" id="A8p-aa-tlV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bCc-GE-P0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-742" y="-612"/>
+            <point key="canvasLocation" x="-41" y="-705"/>
         </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="WA6-Fd-ru4">
             <objects>
-                <viewController id="aEo-xe-HBL" customClass="CalendarViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Calendar" id="aEo-xe-HBL" customClass="CalendarViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x5U-wm-2gS"/>
                         <viewControllerLayoutGuide type="bottom" id="zvX-CO-b7L"/>
@@ -76,7 +76,7 @@
                                                 <rect key="frame" x="339" y="9" width="19" height="22"/>
                                                 <state key="normal" image="+"/>
                                                 <connections>
-                                                    <segue destination="raQ-or-uW0" kind="show" id="TE5-re-B0w"/>
+                                                    <segue destination="A8p-aa-tlV" kind="show" id="QWb-1d-dff"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0b-H9-Fhj">
@@ -341,7 +341,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cff-D3-dVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1615.2" y="-228.03598200899552"/>
+            <point key="canvasLocation" x="-676" y="-228.03598200899552"/>
         </scene>
         <!--Daily Calendar View Controller-->
         <scene sceneID="U6g-Fe-jOj">
@@ -515,7 +515,7 @@
                     </subviews>
                 </stackView>
             </objects>
-            <point key="canvasLocation" x="-566" y="-184"/>
+            <point key="canvasLocation" x="606" y="-284"/>
         </scene>
     </scenes>
     <resources>
