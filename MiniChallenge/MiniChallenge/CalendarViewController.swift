@@ -9,7 +9,7 @@
 import UIKit
 import JTAppleCalendar
 
-class CalendarViewController: UIViewController {
+class CalendarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tabBar: UITabBarItem!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
@@ -21,7 +21,7 @@ class CalendarViewController: UIViewController {
     let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
     var selectedDayCell = DaysOfWeek.sunday
     var selectedDayText: String?
-    let controllerPList = ControllerPList()
+    let controlerPList = ControllerPList()
     
     //Activities TableView Attributes
     let cellReuseIdentifier = "ActivityTableViewCell"
@@ -38,20 +38,30 @@ class CalendarViewController: UIViewController {
         super.viewDidLoad()
         setUpCalendar()
         
+        
         loadReminders()
+        obtainActivites()
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
         
-        obtainActivites()
+        
         print(documentsDirectory())
         
         let nib = UINib(nibName: "DayActivityTableViewCell", bundle: nil)
         
         tableView.register(nib, forCellReuseIdentifier: "ActivityTableViewCell")
+        
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+
     func documentsDirectory() -> URL{
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         
@@ -71,7 +81,7 @@ class CalendarViewController: UIViewController {
         }
         
     }
-    
+
     func setUpCalendar(){
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
@@ -153,15 +163,6 @@ class CalendarViewController: UIViewController {
         
         expandCalendar(animationDuration: 0.5)
     }
-
-}
-
-/*
- * This extensions contains the methods responsible for configuring the TableView of next
- * Activities.
- */
-
-extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
     
     
     func obtainActivites(){
@@ -183,6 +184,16 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return cellSpacingHeight
     }
+    
+    //delete the tableRow
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
+        activities.remove(at: indexPath.row)
+        //SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
+        let indexPaths = [indexPath]
+        tableView.deleteRows(at: indexPaths, with: .automatic)
+        //controlerPList.saveReminders()
+    }
+    
     
     // Make the background color show through
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -215,7 +226,7 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
         cell.activitySubject.text = activity.subject.title
         cell.activityHour.text = "\(hour):\(minutes)"
         cell.dayLabel.text = String(day)
-        cell.monthLabel.text = String(month)
+        cell.monthLabel.text = String(selectMonthText(month: month))
         
         // add border and color
         cell.backgroundColor = UIColor.white
@@ -225,26 +236,50 @@ extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
-}
-func getDateComponentesFromDate(activity: Reminder){
     
-    let date = activity.time
-    let calendar = Calendar.current
-    
-    let day = calendar.component(.day, from: date)
-    let month = calendar.component(.month, from: date)
-    let year = calendar.component(.year, from: date)
-    let hour = calendar.component(.hour, from: date)
-    let minutes = calendar.component(.minute, from: date)
-    
-    SingletonActivity.sharedInstance.task.day = day
-    SingletonActivity.sharedInstance.task.day = month
-    SingletonActivity.sharedInstance.task.day = year
-    SingletonActivity.sharedInstance.task.day = hour
-    SingletonActivity.sharedInstance.task.day = minutes
+    func selectMonthText(month: Int) -> String {
+        
+        switch month {
+        case 1:
+            return "Jan"
+        case 2:
+            return "Fev"
+        case 3:
+            return "Mar"
+        case 4:
+            return "Apr"
+        case 5:
+            return "May"
+        case 6:
+            return "Jun"
+        case 7:
+            return "Jul"
+        case 8:
+            return "Ago"
+        case 9:
+            return "Set"
+        case 10:
+            return "Oct"
+        case 11:
+            return "Nov"
+        case 12:
+            return "Dec"
+        default:
+            return ""
+        }
+    }
+
     
 }
 
+/*
+ * This extensions contains the methods responsible for configuring the TableView of next
+ * Activities.
+ */
+
+//extension CalendarViewController : UITableViewDataSource, UITableViewDelegate {
+
+//}
 /*
  * The two extensions below were created to manage the calendarView.
  * First contains the calendar configuration code

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8J7-zU-Eno">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -173,7 +173,6 @@
                                 <state key="normal" image="Group 2-1"/>
                                 <connections>
                                     <action selector="nextScreen:" destination="8FU-ka-ofJ" eventType="touchUpInside" id="KfY-fz-Gqt"/>
-                                    <segue destination="Vf9-vm-COU" kind="show" identifier="SubjectChoiceScreen" id="yTJ-fh-dpI"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O título deve ser preenchido!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2l9-bT-Nqi">
@@ -206,8 +205,8 @@
                     <navigationItem key="navigationItem" id="KH2-Yh-lxj"/>
                     <connections>
                         <outlet property="emptyTitleLavel" destination="2l9-bT-Nqi" id="32V-6t-Cfq"/>
-                        <outlet property="nextScreen" destination="n8f-LO-GI4" id="LL6-tm-LJz"/>
                         <outlet property="taskTitleTextField" destination="Ltg-Ht-a4i" id="OX6-td-wfu"/>
+                        <segue destination="Vf9-vm-COU" kind="show" identifier="SubjectChoiceScreen" id="pUI-ai-LEt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cF6-3p-Igc" userLabel="First Responder" sceneMemberID="firstResponder"/>

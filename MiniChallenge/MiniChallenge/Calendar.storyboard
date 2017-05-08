@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3a0-my-mQK">
-
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,6 +10,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--AddTitleController-->
+        <scene sceneID="xgR-1x-ETy">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="AddTitleController" id="AY1-mE-vh0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BHI-wI-CFN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-732" y="-746"/>
+        </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="WA6-Fd-ru4">
             <objects>
@@ -214,7 +220,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iYe-HI-60i" id="jWy-KQ-jgz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -224,7 +230,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="v4H-HL-ICm">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="jpY-l1-uFx"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="jpY-l1-uFx">
+                            <connections>
+                                <action selector="goToAddActivityScreen" destination="aEo-xe-HBL" id="iYF-8O-HmJ"/>
+                                <segue destination="AY1-mE-vh0" kind="show" id="4Tg-jL-rEc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="calendarView" destination="Jwx-yR-cx5" id="FlA-Ws-DvH"/>
@@ -342,7 +353,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bVD-pg-KyD" id="ZgK-Dz-UYf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -444,7 +455,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3a0-my-mQK" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mx7-B9-Tq0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mx7-B9-Tq0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

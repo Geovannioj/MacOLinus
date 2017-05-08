@@ -81,7 +81,7 @@
         <!--Subject View Controller-->
         <scene sceneID="AGX-hs-PUR">
             <objects>
-                <viewController id="qkJ-zu-Z48" customClass="SubjectViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="subjectCreate" id="qkJ-zu-Z48" customClass="SubjectViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RZH-5g-QJm"/>
                         <viewControllerLayoutGuide type="bottom" id="KSV-bS-ztL"/>
