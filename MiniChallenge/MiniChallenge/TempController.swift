@@ -48,7 +48,7 @@ class TempController: UIViewController {
     
     internal func assignBackground() {
         
-        let background = UIImage(named: "greenPattern")
+        let background = UIImage(named: "greenPatternWithBoy")
         
         var imageView : UIImageView!
         imageView = UIImageView(frame: view.bounds)

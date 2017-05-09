@@ -12,15 +12,8 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        let array = returnSubjects()
-        
-        for subject in array {
-            print(subject.title)
-        }
-        
         setConfig()
-      
+        
         // Do any additional setup after loading the view.
     }
 
@@ -35,9 +28,12 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func setConfig() {
         
+        loadSubjects()
+        
+        
         assignBlackStatusBar()
         assignBackground()
-        
+
     }
     
     
@@ -49,7 +45,7 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     internal func assignBackground() {
         
-        let background = UIImage(named: "greenPattern")
+        let background = UIImage(named: "greenPatternWithBoy")
         
         var imageView : UIImageView!
         imageView = UIImageView(frame: view.bounds)
@@ -208,13 +204,15 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "printSubject" {
+        if segue.identifier == "subjectCreated" {
             
             if let toViewController = segue.destination as? TempController {
                 toViewController.data = subjectTextField.text!
             }
         }
     }
+    
+    
 
 
 }

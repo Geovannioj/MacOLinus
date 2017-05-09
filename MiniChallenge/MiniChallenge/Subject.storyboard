@@ -60,7 +60,7 @@
                                     <color key="titleColor" red="0.24964994192123413" green="0.062413342297077179" blue="0.23817741870880127" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="qkJ-zu-Z48" kind="show" id="iAc-2b-wa0"/>
+                                    <segue destination="qkJ-zu-Z48" kind="show" identifier="1" id="iAc-2b-wa0"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H28-gB-Vwd">
@@ -190,7 +190,7 @@
                                 <state key="normal" image="redButton"/>
                                 <connections>
                                     <action selector="newSubjectRequested:" destination="qkJ-zu-Z48" eventType="touchUpInside" id="Q3e-Pp-xAa"/>
-                                    <segue destination="Lgz-FB-6bO" kind="show" identifier="printSubject" id="z8D-3R-aE1"/>
+                                    <segue destination="Lgz-FB-6bO" kind="show" identifier="subjectCreated" id="z8D-3R-aE1"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="SLL-OC-xRP">
