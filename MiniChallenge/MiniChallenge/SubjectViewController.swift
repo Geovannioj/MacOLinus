@@ -7,8 +7,7 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     @IBOutlet weak var subjectTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var subjectCreated: UILabel!
-    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +33,14 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK - Config
     
+    func setConfig() {
+        
+        assignBlackStatusBar()
+        assignBackground()
+        
+    }
+    
+    
     func assignBlackStatusBar() {
         
         UIApplication.shared.statusBarStyle = .default
@@ -54,25 +61,8 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.view.sendSubview(toBack: imageView)
     }
     
-    func setConfig() {
-        
-        assignBlackStatusBar()
-        assignBackground()
-        
-    }
     
-    func setCreatedSubject() {
-        
-        loadSubjects()
-        
-        let createdSubject = subjects.last
-        let aux = createdSubject?.title
 
-        
-        subjectCreated.text = aux
-        
-    }
-    
     
     // MARK: - Actions
 
@@ -215,5 +205,16 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         return documentsDirectory().appendingPathComponent("Subjects.plist")
        
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "printSubject" {
+            
+            if let toViewController = segue.destination as? TempController {
+                toViewController.data = subjectTextField.text!
+            }
+        }
+    }
+
 
 }

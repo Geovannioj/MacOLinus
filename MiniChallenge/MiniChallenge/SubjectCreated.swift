@@ -38,6 +38,7 @@ class SubjectCreated: UIViewController {
         assignBackground()
         assignBlackStatusBar()
         setCreatedSubjectLabel()
+        loadSubjects()
         
     }
     
@@ -74,6 +75,18 @@ class SubjectCreated: UIViewController {
     }
     
     //MARK: - Recover Data
+    
+    func loadSubjects()  {
+        
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
+            unarchiver.finishDecoding()
+            
+        }
+    }
     
     func returnSubjects() -> [Subject] {
         

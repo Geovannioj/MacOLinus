@@ -11,10 +11,10 @@ import UIKit
 class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   
-//    var subjects = SingletonSubject.subjectSharedInstance.subjects
-// 
+    var subjects = SingletonSubject.subjectSharedInstance.subjects
+ 
     
-    var subjects = [Subject]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +25,12 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         // Do any additional setup after loading the view.
     }
     
+    
+    
     // MARK: - Controller config 
     
     internal func config() {
-        
-//        let subjectsLoaded = PersistSubjectData()
-//        subjectsLoaded.loadSubjects()
-// 
-        
+                
         loadSubjects()
     }
 
@@ -58,7 +56,6 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SubjectTableViewCell
         
         print(subjects[indexPath.row].title)
-        
         
         cell.subjectTitleLabel.text = subjects[indexPath.row].title
         cell.subjectColorLabel.backgroundColor = subjects[indexPath.row].color

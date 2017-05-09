@@ -190,7 +190,7 @@
                                 <state key="normal" image="redButton"/>
                                 <connections>
                                     <action selector="newSubjectRequested:" destination="qkJ-zu-Z48" eventType="touchUpInside" id="Q3e-Pp-xAa"/>
-                                    <segue destination="Lgz-FB-6bO" kind="show" id="z8D-3R-aE1"/>
+                                    <segue destination="Lgz-FB-6bO" kind="show" identifier="printSubject" id="z8D-3R-aE1"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="SLL-OC-xRP">
@@ -230,10 +230,10 @@
             </objects>
             <point key="canvasLocation" x="594" y="123"/>
         </scene>
-        <!--Subject View Controller-->
+        <!--Temp Controller-->
         <scene sceneID="4Ke-6I-zrU">
             <objects>
-                <viewController id="Lgz-FB-6bO" customClass="SubjectViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Lgz-FB-6bO" customClass="TempController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ybu-hQ-d4o"/>
                         <viewControllerLayoutGuide type="bottom" id="2bR-gJ-Y92"/>
@@ -317,7 +317,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="subjectCreated" destination="0Cn-XR-qKx" id="kuE-0V-MRh"/>
+                        <outlet property="subjectCreatedLabel" destination="0Cn-XR-qKx" id="1da-IC-K9u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ecx-Wk-FnE" userLabel="First Responder" sceneMemberID="firstResponder"/>

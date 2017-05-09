@@ -60,9 +60,6 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="createSubject:" destination="F9j-RJ-gHw" eventType="editingDidEnd" id="foZ-uV-ONo"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5X-Gr-7pN">
                                 <rect key="frame" x="302" y="190" width="44" height="44"/>
