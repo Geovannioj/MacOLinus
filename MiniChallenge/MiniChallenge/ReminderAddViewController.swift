@@ -65,9 +65,9 @@ class ReminderAddViewController: UIViewController {
             let description = descriptionField.text
             let time = timePicker.date
             
-            let reminder = Reminder(title: title!, reminderDescription: description!, time: time)
+            //let reminder = Reminder(title: title!, reminderDescription: description!, time: time)
         
-            delegate?.addReminderViewController(self, didFinishAdding: reminder)
+           // delegate?.addReminderViewController(self, didFinishAdding: reminder)
         }
     }
 

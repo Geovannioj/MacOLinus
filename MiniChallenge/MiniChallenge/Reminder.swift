@@ -15,7 +15,8 @@ class Reminder: NSObject, NSCoding {
     var title: String = ""
     var reminderDescription: String = ""
     var time: Date = Date()
-    var subject:Subject = Subject(title: "")
+    var subject:Subject = Subject(title: "Sem matéria")
+    var status: Int = 0
     var day: Int = 0
     var month: Int = 0
     var year: Int = 0
@@ -27,6 +28,8 @@ class Reminder: NSObject, NSCoding {
         aCoder.encode(title, forKey: "Title")
         aCoder.encode(reminderDescription, forKey: "description")
         aCoder.encode(time, forKey: "time")
+        aCoder.encode(subject, forKey: "Subject")
+        aCoder.encode(status, forKey: "Status")
         aCoder.encode(reminderID, forKey:"ReminderID")
         
     }
@@ -36,6 +39,8 @@ class Reminder: NSObject, NSCoding {
         title = aDecoder.decodeObject(forKey: "Title") as! String
         reminderDescription = aDecoder.decodeObject(forKey: "description") as! String
         time = aDecoder.decodeObject(forKey: "time") as! Date
+        subject = aDecoder.decodeObject(forKey: "Subject") as! Subject
+        status = aDecoder.decodeInteger(forKey: "Status")
         
         super.init()
     }
@@ -48,6 +53,7 @@ class Reminder: NSObject, NSCoding {
     init(title: String, time: Date){
         self.title = title
         self.time = time
+        
     }
     init(title: String, subject: Subject, time: Date){
         self.title = title
@@ -55,11 +61,6 @@ class Reminder: NSObject, NSCoding {
         self.time = time
     }
    
-    init(title: String, reminderDescription: String, time: Date) {
-        self.title = title
-        self.reminderDescription = reminderDescription
-        self.time = time
-    }
     func scheduleNotification(){
         if time > Date(){
             let content = UNMutableNotificationContent()
@@ -88,3 +89,5 @@ class Reminder: NSObject, NSCoding {
     }
  
 }
+
+
