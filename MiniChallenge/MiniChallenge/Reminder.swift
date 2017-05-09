@@ -86,6 +86,15 @@ class Reminder: NSObject, NSCoding {
         userDefaults.synchronize()
         return reminderID
     }
+    
+    func removeNotification() {
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: ["\(reminderID)"])
+    }
+    
+    deinit {
+        removeNotification()
+    }
  
 }
 
