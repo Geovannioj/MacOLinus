@@ -19,14 +19,4 @@ class SingletonActivity {
         
     }
     
-    func createTask(title:String,time: Date) -> Reminder{
-        let task = Reminder(title: title, time: time)
-        
-        return task
-    }
-    
-    func addTaskToArry(task:Reminder){
-        self.tasks.append(task)
-    }
-    
 }
