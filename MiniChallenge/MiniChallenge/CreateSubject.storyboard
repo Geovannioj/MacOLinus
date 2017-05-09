@@ -68,6 +68,7 @@
                                 <rect key="frame" x="302" y="190" width="44" height="44"/>
                                 <state key="normal" image="redButton"/>
                                 <connections>
+                                    <action selector="newSubjectRequired:" destination="F9j-RJ-gHw" eventType="touchUpInside" id="fwg-NR-aU5"/>
                                     <segue destination="8qK-e8-Pfg" kind="show" id="xzq-3y-YaX"/>
                                 </connections>
                             </button>
@@ -101,13 +102,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="newSubjectRequested" destination="k5X-Gr-7pN" id="8cJ-51-jsb"/>
                         <outlet property="subjectField" destination="kYy-Vp-Lhx" id="Pis-1U-zkf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tiv-2m-8KT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="594" y="123"/>
+            <point key="canvasLocation" x="592.79999999999995" y="122.78860569715144"/>
         </scene>
         <!--SubjectCreated-->
         <scene sceneID="bIX-gm-qu7">

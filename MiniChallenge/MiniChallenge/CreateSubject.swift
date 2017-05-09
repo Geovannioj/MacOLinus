@@ -10,27 +10,10 @@ import UIKit
 
 class CreateSubject: UIViewController, UITextFieldDelegate {
 
+    var subjects = [Subject]()
+    
     @IBOutlet weak var subjectField: UITextField!
     
-    @IBAction func newSubjectRequested(_ sender: Any) {
-        
-        let data = PersistSubjectData()
-        
-        if subjectField.text != "" {
-            
-            SingletonSubject.subjectSharedInstance.subject.title = subjectField.text!
-        }
-        
-        SingletonSubject.subjectSharedInstance.subject.color = assignSubjectColor()
-        
-        let newSubject = SingletonSubject.subjectSharedInstance.subject
-        
-        SingletonSubject.subjectSharedInstance.subjects.append(newSubject)
-        
-        data.saveSubjects()
-        
-        print(subjectField.text!)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,25 +28,23 @@ class CreateSubject: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func createSubject(_ sender: Any) {
     
-        let data = PersistSubjectData()
+    
+    @IBAction func newSubjectRequired(_ sender: Any) {
         
+        let newSubject = Subject()
+
         if subjectField.text != "" {
-            
-            SingletonSubject.subjectSharedInstance.subject.title = subjectField.text!
+
+            newSubject.title = subjectField.text!
+            newSubject.color = assignSubjectColor()
         }
+
+        subjects.append(newSubject)
         
-        SingletonSubject.subjectSharedInstance.subject.color = assignSubjectColor()
-        
-        let newSubject = SingletonSubject.subjectSharedInstance.subject
-    
-        SingletonSubject.subjectSharedInstance.subjects.append(newSubject)
-        
-        data.saveSubjects()
-        
-        print(subjectField.text!)
+        saveSubjects()
     }
+    
     
     
     func assignSubjectColor() -> UIColor {
@@ -126,8 +107,95 @@ class CreateSubject: UIViewController, UITextFieldDelegate {
     internal func assignBlackStatusBar() {
         
         UIApplication.shared.statusBarStyle = .default
+
+    }
+    
+    
+    //MARK: - Persist Data
+    
+    func saveSubjects() {
+        
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        
+        archiver.encode(subjects, forKey: "Subjects")
+        archiver.finishEncoding()
+        
+        data.write(to: dataFilePath(), atomically: true)
         
     }
+    
+    func loadSubjects() {
+        
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
+            unarchiver.finishDecoding()
+        }
+    }
+    
+    
+    
+    func returnSubjects() -> [Subject] {
+        
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
+            unarchiver.finishDecoding()
+            
+        }
+        
+        return subjects
+    }
+    
+    func documentsDirectory() -> URL {
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        return paths[0]
+    }
+    
+    
+    func dataFilePath() -> URL {
+        
+        return documentsDirectory().appendingPathComponent("Subjects.plist")
+        
+    }
+    
+    
+    
+    
+    //    @IBAction func newSubjectRequested(_ sender: Any) {
+    //
+    //    }
+    
+    
+    //    @IBAction func createSubject(_ sender: Any) {
+    //
+    //        let data = PersistSubjectData()
+    //
+    //        if subjectField.text != "" {
+    //
+    //            SingletonSubject.subjectSharedInstance.subject.title = subjectField.text!
+    //        }
+    //
+    //        SingletonSubject.subjectSharedInstance.subject.color = assignSubjectColor()
+    //
+    //        let newSubject = SingletonSubject.subjectSharedInstance.subject
+    //
+    //        SingletonSubject.subjectSharedInstance.subjects.append(newSubject)
+    //
+    //        data.saveSubjects()
+    //
+    //        print(subjectField.text!)
+    //    }
+    //    
+    
+
 
     
 }

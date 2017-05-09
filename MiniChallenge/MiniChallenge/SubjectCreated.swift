@@ -11,13 +11,12 @@ import UIKit
 class SubjectCreated: UIViewController {
     
     @IBOutlet weak var subjectCreatedLabel: UILabel!
-
+    
+    var subjects = [Subject]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        subjectCreatedLabel.text = SingletonSubject.subjectSharedInstance.subject.title
         
         configLayout()
 
@@ -38,7 +37,7 @@ class SubjectCreated: UIViewController {
         
         assignBackground()
         assignBlackStatusBar()
-        
+        setCreatedSubjectLabel()
         
     }
     
@@ -61,6 +60,51 @@ class SubjectCreated: UIViewController {
         UIApplication.shared.statusBarStyle = .default
         
     }
+    
+    func setCreatedSubjectLabel() {
+        
+        subjects = returnSubjects()
+        
+        let lastSubject = subjects.last
+        
+        if lastSubject?.title != "" {
+            
+            subjectCreatedLabel.text = lastSubject?.title
+        }
+    }
+    
+    //MARK: - Recover Data
+    
+    func returnSubjects() -> [Subject] {
+        
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
+            unarchiver.finishDecoding()
+            
+        }
+        
+        return subjects
+    }
+    
+    
+    func documentsDirectory() -> URL {
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        return paths[0]
+    }
+    
+    
+    func dataFilePath() -> URL {
+        
+        return documentsDirectory().appendingPathComponent("Subjects.plist")
+        
+    }
+    
+
 
     
 }
