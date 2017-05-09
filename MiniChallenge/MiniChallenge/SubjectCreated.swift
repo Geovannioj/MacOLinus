@@ -9,9 +9,15 @@
 import UIKit
 
 class SubjectCreated: UIViewController {
+    
+    @IBOutlet weak var subjectCreatedLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        subjectCreatedLabel.text = SingletonSubject.subjectSharedInstance.subject.title
         
         configLayout()
 
@@ -28,16 +34,17 @@ class SubjectCreated: UIViewController {
     // MARK: - Config Layout 
 
     
-    internal func configLayout() {
+    func configLayout() {
         
         assignBackground()
         assignBlackStatusBar()
         
+        
     }
     
-    internal func assignBackground() {
+    func assignBackground() {
         
-        let background = UIImage(named: "greenPattern")
+        let background = UIImage(named: "greenPatternWithBoy")
         
         var imageView : UIImageView!
         imageView = UIImageView(frame: view.bounds)
@@ -49,7 +56,7 @@ class SubjectCreated: UIViewController {
         self.view.sendSubview(toBack: imageView)
     }
 
-    internal func assignBlackStatusBar() {
+    func assignBlackStatusBar() {
         
         UIApplication.shared.statusBarStyle = .default
         

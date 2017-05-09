@@ -8,11 +8,35 @@
 
 import UIKit
 
-class CreateSubject: UIViewController {
+class CreateSubject: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var subjectField: UITextField!
+    
+    @IBAction func newSubjectRequested(_ sender: Any) {
+        
+        let data = PersistSubjectData()
+        
+        if subjectField.text != "" {
+            
+            SingletonSubject.subjectSharedInstance.subject.title = subjectField.text!
+        }
+        
+        SingletonSubject.subjectSharedInstance.subject.color = assignSubjectColor()
+        
+        let newSubject = SingletonSubject.subjectSharedInstance.subject
+        
+        SingletonSubject.subjectSharedInstance.subjects.append(newSubject)
+        
+        data.saveSubjects()
+        
+        print(subjectField.text!)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configLayout()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -20,6 +44,27 @@ class CreateSubject: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func createSubject(_ sender: Any) {
+    
+        let data = PersistSubjectData()
+        
+        if subjectField.text != "" {
+            
+            SingletonSubject.subjectSharedInstance.subject.title = subjectField.text!
+        }
+        
+        SingletonSubject.subjectSharedInstance.subject.color = assignSubjectColor()
+        
+        let newSubject = SingletonSubject.subjectSharedInstance.subject
+    
+        SingletonSubject.subjectSharedInstance.subjects.append(newSubject)
+        
+        data.saveSubjects()
+        
+        print(subjectField.text!)
+    }
+    
     
     func assignSubjectColor() -> UIColor {
         
@@ -54,23 +99,35 @@ class CreateSubject: UIViewController {
         return subjectColor[randomNumber]
     }
 
-        //  @IBAction func newSubjectRequested(_ sender: Any) {
-        //
-        //        let newSubject = Subject()
-        //
-        //        if subjectTextField.text != "" {
-        //
-        //            newSubject.title = subjectTextField.text!
-        //            newSubject.color = assignSubjectColor()
-        //            subjects.append(newSubject)
-        //
-        //
-        //            saveSubjects()
-        //            
-        //        }
-        //        
-        //    }
-        //    
+    // MARK: - Config Layout
+    
+    
+    internal func configLayout() {
+        
+        assignBackground()
+        assignBlackStatusBar()
+        
+    }
+    
+    internal func assignBackground() {
+        
+        let background = UIImage(named: "greenPatternWithBoy")
+        
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIViewContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubview(toBack: imageView)
+    }
+    
+    internal func assignBlackStatusBar() {
+        
+        UIApplication.shared.statusBarStyle = .default
+        
+    }
 
     
 }

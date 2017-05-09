@@ -60,6 +60,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="createSubject:" destination="F9j-RJ-gHw" eventType="editingDidEnd" id="foZ-uV-ONo"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5X-Gr-7pN">
                                 <rect key="frame" x="302" y="190" width="44" height="44"/>
@@ -97,6 +100,10 @@
                             <constraint firstItem="vS3-Os-pEs" firstAttribute="leading" secondItem="T7L-wU-jEL" secondAttribute="leadingMargin" constant="10" id="vg4-f6-N7H"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="newSubjectRequested" destination="k5X-Gr-7pN" id="8cJ-51-jsb"/>
+                        <outlet property="subjectField" destination="kYy-Vp-Lhx" id="Pis-1U-zkf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tiv-2m-8KT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

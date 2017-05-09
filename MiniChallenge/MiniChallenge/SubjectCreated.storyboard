@@ -62,6 +62,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nw1-eU-gYQ">
                                 <rect key="frame" x="302" y="190" width="44" height="44"/>
                                 <state key="normal" image="redButton"/>
+                                <connections>
+                                    <segue destination="BId-pP-3Dk" kind="show" id="CL9-K8-UIQ"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="n48-JB-XhC">
                                 <rect key="frame" x="153.5" y="32" width="68" height="21"/>
@@ -101,10 +104,21 @@
                             <constraint firstItem="MLG-sQ-X7O" firstAttribute="leading" secondItem="RxD-xw-QzV" secondAttribute="trailing" constant="8" id="z7K-6Q-R3T"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="subjectCreatedLabel" destination="MLG-sQ-X7O" id="f2c-gO-5hA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Prf-o3-NDz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1474.4000000000001" y="121.88905547226388"/>
+        </scene>
+        <!--HomeSubject-->
+        <scene sceneID="12L-OA-3Ly">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeSubject" id="BId-pP-3Dk" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RYr-rf-jaF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2118" y="121"/>
         </scene>
     </scenes>
     <resources>
