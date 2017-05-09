@@ -14,7 +14,6 @@ class SingletonSubject  {
     var subject = Subject()
     
     private init() {
-        
     }
         
     static let subjectSharedInstance = SingletonSubject()

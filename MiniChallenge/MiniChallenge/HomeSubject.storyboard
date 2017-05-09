@@ -51,6 +51,9 @@
                                 <state key="normal" backgroundImage="createSubjectButton">
                                     <color key="titleColor" red="0.24964994190000001" green="0.062413342300000001" blue="0.2381774187" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="sVB-YR-NZ0" kind="show" id="Q2a-VI-y9z"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XLk-wo-evI">
                                 <rect key="frame" x="0.0" y="251" width="375" height="416"/>
@@ -124,6 +127,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ac-Zg-BQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-375.36231884057975" y="122.28260869565219"/>
+        </scene>
+        <!--CreateSubject-->
+        <scene sceneID="xTc-gH-S2K">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateSubject" id="sVB-YR-NZ0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ID-JK-2sd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="242" y="121"/>
         </scene>
     </scenes>
     <resources>
