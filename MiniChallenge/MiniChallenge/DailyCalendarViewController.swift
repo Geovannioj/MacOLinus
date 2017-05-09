@@ -13,7 +13,10 @@ import MGSwipeTableCell
 class DailyCalendarViewController: UIViewController {
 
     var activitiesOnDay = [Reminder]()
+    let controllerPlsit = ControllerPList()
     
+    
+    @IBOutlet weak var activitiesTableView: UITableView!
     var passedText : String?
     let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
 //    @IBOutlet var calendarView: JTAppleCalendarView!
@@ -39,17 +42,11 @@ class DailyCalendarViewController: UIViewController {
     func checkActivitiesOnDay(activities: [Reminder]){
         
         for activity in activities{
-            print("aqui")
-            print(activity.time)
             if NSCalendar.current.compare(passedDate!, to: activity.time, toGranularity: .day) == ComparisonResult.orderedSame {
-        
-                print("aqui denovo")
-                print(activity.time)
-                //print("to aqui")
-                //print("\(passedDate)")
-                //print("\(String(activity.hour))")
-                //print("Achou evento\n")
-                activitiesOnDay.append(activity)
+                
+                if(activity.status == 0){
+                    activitiesOnDay.append(activity)
+                }
             }
         }
     }
@@ -170,6 +167,12 @@ class DailyCalendarViewController: UIViewController {
 
 extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegate{
     
+    func postponeAcitivity(activities:[Reminder], index:Int){
+        print("data antiga:" + "\(activities[index].time)")
+        activities[index].time = NSCalendar.current.date(byAdding: .day, value: 1, to: activities[index].time)!
+        print("data depois:" + "\(activities[index].time)")
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return activitiesOnDay.count
     }
@@ -224,27 +227,37 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         //delay button
         let delayButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "delay.png")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
+            self.activitiesOnDay[indexPath.row].status = 2
+            self.postponeAcitivity(activities: self.activitiesOnDay, index: indexPath.row)
+            self.activitiesOnDay.remove(at: indexPath.row)
             print("Cliquei em Delay")
+            self.controllerPlsit.saveReminders()
+            self.activitiesTableView.reloadData()
             return true
         }
         
+        /*
         //edit button
         let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit.png")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             print("Cliquei em Edit")
             return true
-        }
+        }*/
         
         //done button
         let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done.png")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
+            self.activitiesOnDay[indexPath.row].status = 1
+            self.activitiesOnDay.remove(at: indexPath.row)
             print("Cliquei em Done")
+            self.controllerPlsit.saveReminders()
+            self.activitiesTableView.reloadData()
             return true
         }
         
         
         //configure left and right buttons
-        cell.leftButtons = [delayButton, editButton]
+        cell.leftButtons = [delayButton]
         cell.leftSwipeSettings.transition = .border
         cell.rightButtons = [doneButton]
         cell.rightSwipeSettings.transition = .border
