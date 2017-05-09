@@ -24,6 +24,7 @@ class Reminder: NSObject, NSCoding {
     var minutes: Int = 0
     
     
+    
     func encode(with aCoder: NSCoder){
         aCoder.encode(title, forKey: "Title")
         aCoder.encode(reminderDescription, forKey: "description")
