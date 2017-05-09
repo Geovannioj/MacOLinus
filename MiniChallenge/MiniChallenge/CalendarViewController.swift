@@ -22,7 +22,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
     //General Attributes
     let logo = UIImage(named: "Pengo.png")
-    let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
+    let redColor = UIColor(red: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
     var selectedDayCell = DaysOfWeek.sunday
     var selectedDayText: String?
     let controlerPList = ControllerPList()
@@ -56,6 +56,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         tableView.register(nib, forCellReuseIdentifier: "ActivityTableViewCell")
         
+        navigationController?.navigationBar.tintColor = redColor
     }
     
     

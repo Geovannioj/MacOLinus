@@ -29,20 +29,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         
         //Set bar navbar color
-        UINavigationBar.appearance().barTintColor = customPurple
+        UINavigationBar.appearance().barTintColor = customRed
+        UINavigationBar.appearance().isTranslucent = false
+        //Set bar color in navbar
+        UINavigationBar.appearance().tintColor = customRed
         
         //Set bar color in navbar
-        UINavigationBar.appearance().tintColor = UIColor.white
-        
-        //Set bar color in navbar
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: customRed]
         
         // Black Content in  status bar
         UIApplication.shared.statusBarStyle = .default
         
         
         //Setting Color for item at navbar
-        UINavigationBar.appearance().barTintColor = customPurple
+        UINavigationBar.appearance().barTintColor = customRed
 
         // Override point for customization after application launch.
         let center = UNUserNotificationCenter.current()
