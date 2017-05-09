@@ -14,6 +14,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
 
     var doneActivities = [Reminder]()
     var postponedActivities = [Reminder]()
+    var indexActivity = 0
     let controllerPlsit = ControllerPList()
     
     let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
@@ -68,6 +69,10 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             if let goToReminders = segue.destination as? AddTitleController{
                 goToReminders.segueRecived = segue.identifier!
             }
+        }else if segue.identifier == "EditActivity"{
+            if let goToEdit = segue.destination as? EditActivityController{
+                goToEdit.indexActivityToEdit = self.indexActivity
+            }
         }
     }
     
@@ -105,30 +110,20 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
     }
     
     func postponeAcitivity(activities:[Reminder], index:Int){
-        print("data antiga:" + "\(activities[index].time)")
         activities[index].time = NSCalendar.current.date(byAdding: .day, value: 1, to: activities[index].time)!
-        print("data depois:" + "\(activities[index].time)")
     }
     
-    func maskTime(hour: Int, minutes: Int) -> String{
+    static func getActivityID(activity:Reminder) -> Int{
         
-        var resultString = ""
-        
-        if hour <= 9  {
-            resultString.append("0" + "\(hour):")
-        } else {
-            resultString.append("\(hour):")
+        var counter = 0
+        for currentActivity in SingletonActivity.sharedInstance.tasks{
+            if(activity.reminderID == currentActivity.reminderID){
+                return counter
+            }
+            counter = counter + 1
         }
-        
-        if minutes <= 9 {
-            resultString.append("0" + "\(minutes)")
-        } else {
-            resultString.append("\(minutes)")
-        }
-        
-        return resultString
+        return counter
     }
-
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("DoneAndPostponedActivitiesTableViewCell", owner: self, options: nil)?.first as! DoneAndPostponedActivitiesTableViewCell
@@ -137,13 +132,6 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         cell.layer.borderColor = redColor.cgColor
         cell.layer.borderWidth = 1
         cell.clipsToBounds = true
-        
-        //edit button
-        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit")!)) {
-            (sender: MGSwipeTableCell!) -> Bool in
-            print("Cliquei em Edit")
-            return true
-        }
         
         //done button
         let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
@@ -172,14 +160,33 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
 
         let calendar = Calendar.current
         
+        let activity:Reminder
+        
+        if(activitiesSegment.selectedSegmentIndex == 0){
+            activity = doneActivities[indexPath.row]
+        }else{
+            activity = postponedActivities[indexPath.row]
+        }
+        
+        //edit button
+        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            
+            self.indexActivity = DoneAndPostponedActivitiesViewController.getActivityID(activity: activity)
+            self.performSegue(withIdentifier: "EditActivity", sender: Any.self)
+            
+            return true
+        }
+        
+        
         switch activitiesSegment.selectedSegmentIndex {
         
         //done activities
         case 0:
-            let activity = doneActivities[indexPath.row]
             cell.activityLabel.text = activity.title
-            cell.colorLabel.backgroundColor? = UIColor.blue//activity.subject.color
             cell.iconImage.image = UIImage(named: "check")
+            cell.colorLabel.backgroundColor = activity.subject?.color
+            cell.subjectLabel.text = activity.subject?.title
             
             let day = calendar.component(.day, from: activity.time)
             let month = calendar.component(.month, from: activity.time)
@@ -187,18 +194,18 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             let hour = calendar.component(.hour, from: activity.time)
             let minutes = calendar.component(.minute, from: activity.time)
             
-            cell.timeLabel.text = "\(day)/\(month)/\(year) -" + maskTime(hour:hour, minutes:minutes)
-            cell.subjectLabel.text = activity.subject?.title
+            cell.timeLabel.text = "\(day)/\(month)/\(year) -" + (CalendarViewController.maskTime(hour:hour, minutes:minutes))
             
             cell.rightButtons = [undoButton]
             cell.rightSwipeSettings.transition = .border
             
             break
         default:
-            let activity = postponedActivities[indexPath.row]
+            cell.colorLabel.backgroundColor = activity.subject?.color
+            cell.subjectLabel.text = activity.subject?.title
             cell.activityLabel.text = activity.title
-            cell.colorLabel.backgroundColor = UIColor.blue//activity.subject.color
             cell.iconImage.image = UIImage(named: "clockIcon")
+
             
             let day = calendar.component(.day, from: activity.time)
             let month = calendar.component(.month, from: activity.time)
@@ -206,14 +213,16 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             let hour = calendar.component(.hour, from: activity.time)
             let minutes = calendar.component(.minute, from: activity.time)
             
-            cell.timeLabel.text = "\(day)/\(month)/\(year) -" + maskTime(hour:hour, minutes:minutes)
-            cell.subjectLabel.text = activity.subject?.title
+            cell.timeLabel.text = "\(day)/\(month)/\(year) -" + (CalendarViewController.maskTime(hour:hour, minutes:minutes))
             
             cell.rightButtons = [doneButton]
             cell.rightSwipeSettings.transition = .border
             cell.leftButtons = [editButton]
             cell.leftSwipeSettings.transition = .border
         }
+        
+        
+        
         return cell
     }
 

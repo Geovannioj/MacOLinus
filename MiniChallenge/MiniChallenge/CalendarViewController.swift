@@ -60,8 +60,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         
         
-        print(documentsDirectory())
-        
         let nib = UINib(nibName: "DayActivityTableViewCell", bundle: nil)
         
         tableView.register(nib, forCellReuseIdentifier: "ActivityTableViewCell")
@@ -246,15 +244,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         return cellSpacingHeight
     }
     
-    //delete the tableRow
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
-        activities.remove(at: indexPath.row)
-        SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
-        let indexPaths = [indexPath]
-        tableView.deleteRows(at: indexPaths, with: .automatic)
-        controlerPList.saveReminders()
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
     }
@@ -299,7 +288,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
 
         let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
         
-        let editButton = MGSwipeButton(title:"          ", backgroundColor: UIColor(patternImage: UIImage(named: "edit.png")!)){
+        let editButton = MGSwipeButton(title:"            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit")!)){
             (sender: MGSwipeTableCell!) -> Bool in
             
             self.indexActivity = indexPath.row
@@ -307,6 +296,40 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             
             return true
         }
+        
+        //postpone button
+        let postponeButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Postpone")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            self.activities[indexPath.row].status = 2
+            
+            self.indexActivity = indexPath.row
+            self.performSegue(withIdentifier: "GoToPostpone", sender: Any.self)
+            
+            self.controlerPList.saveReminders()
+            tableView.reloadData()
+            return true
+        }
+        
+        //done button
+        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            self.activities[indexPath.row].status = 1
+            self.activities.remove(at: indexPath.row)
+            self.controlerPList.saveReminders()
+            tableView.reloadData()
+            return true
+        }
+        
+        let deleteButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "delete")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            self.activities.remove(at: indexPath.row)
+            SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
+            let indexPaths = [indexPath]
+            tableView.deleteRows(at: indexPaths, with: .automatic)
+            self.controlerPList.saveReminders()
+            return true
+        }
+    
         
         let activity = activities[indexPath.row]
         
@@ -323,30 +346,18 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         cell.activityHour.text = CalendarViewController.maskTime(hour: hour, minutes: minutes)
         cell.dayLabel.text = String(day)
         cell.monthLabel.text = String(CalendarViewController.selectMonthText(month: month))
-        
-        if activity.subject == nil {
-            cell.subjectColor.backgroundColor = UIColor.white
-            cell.activitySubject.text = ""
-        } else {
-            cell.subjectColor.backgroundColor = activity.subject?.color
-        }
-        
+        cell.subjectColor.backgroundColor = activity.subject?.color
         
         // add border and color
         cell.backgroundColor = UIColor.white
         cell.layer.borderColor = redColor.cgColor
         cell.layer.borderWidth = 1
         cell.clipsToBounds = true
-    
-        //set data to be passed
-//        sendActivity = activity
-//        activityTitle = activity.title
-//        subjectTitle = (activity.subject?.title)!
-//        activityTime = maskTime(hour: hour, minutes: minutes)
         
-        
-        cell.leftButtons = [editButton]
+        cell.leftButtons = [postponeButton, deleteButton, editButton]
         cell.leftSwipeSettings.transition = .border
+        cell.rightButtons = [doneButton]
+        cell.rightSwipeSettings.transition = .border
         
         
         return cell
@@ -460,11 +471,6 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         
         handleCellTextColor(cell: cell, cellState: cellState)
         
-        
-//        if numberOfRows == 6 {
-//            shrinkCalendar(animationDuration: 0.2)
-//        }
-        
         selectedDayCell = DaysOfWeek(rawValue: cellState.day.rawValue)!
         
         switch selectedDayCell {
@@ -505,12 +511,8 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
                 destination.passedText?.append(formatter.string(from: sender as! Date))
                 
                 SingletonPassedDate.sharedInstance.passedDate = (sender as? Date)!
-                
-                //destination.passedDate = sender as? Date
             }
-        }
-        
-        else if segue.identifier == "GoToRemindersByCalendar"{
+        }else if segue.identifier == "GoToRemindersByCalendar"{
             if let goToReminders = segue.destination as? AddTitleController{
                 goToReminders.segueRecived = segue.identifier!
             }
@@ -521,8 +523,12 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
                 goToEditScreen.indexActivityToEdit = indexActivity
 
           }
+        }else if segue.identifier == "GoToPostpone"{
+            if let goToPostpone = segue.destination as? DatePickViewController{
+                goToPostpone.indexActivityToEdit = self.indexActivity
+                goToPostpone.segueRecived = segue.identifier!
+            }
         }
-
         
     }
     
@@ -534,8 +540,6 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         handleCellTextColor(cell: cell, cellState: cellState)
 
     }
-    
-    
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         handleMonthAndYearText(from: visibleDates)

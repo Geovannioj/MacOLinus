@@ -137,11 +137,20 @@
                     <connections>
                         <outlet property="activitiesSegment" destination="6PT-oj-YX9" id="adv-39-gjN"/>
                         <outlet property="activitiesTableView" destination="9Mb-kp-vUf" id="3zR-1y-e2n"/>
+                        <segue destination="bfw-G1-Xg1" kind="presentation" identifier="EditActivity" id="0iO-ZO-zIU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YB7-MH-cuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="68" y="-3.1484257871064472"/>
+        </scene>
+        <!--EditActivityController-->
+        <scene sceneID="8Tp-tn-Sly">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditActivity" referencedIdentifier="EditActivityController" id="bfw-G1-Xg1" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EE2-uG-UR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="334" y="-476"/>
         </scene>
         <!--Reminders-->
         <scene sceneID="L4D-Ce-C8m">
