@@ -1,19 +1,14 @@
-//
-//  SubjectViewController.swift
-//  MiniChallenge
-//
-//  Created by Miguel Pimentel on 30/04/17.
-//  Copyright © 2017 Luis Gustavo Avelino de Lima Jacinto. All rights reserved.
-//
-
 import UIKit
 
-class SubjectViewController: UIViewController {
+class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var subjects = [Subject]()
- 
+    let subjectTitleLabel = ""
 
     @IBOutlet weak var subjectTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var subjectCreated: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +18,6 @@ class SubjectViewController: UIViewController {
         
         for subject in array {
             print(subject.title)
-            print(subject.teacher.name)
         }
         
         setConfig()
@@ -67,6 +61,18 @@ class SubjectViewController: UIViewController {
         
     }
     
+    func setCreatedSubject() {
+        
+        loadSubjects()
+        
+        let createdSubject = subjects.last
+        let aux = createdSubject?.title
+
+        
+        subjectCreated.text = aux
+        
+    }
+    
     
     // MARK: - Actions
 
@@ -78,34 +84,47 @@ class SubjectViewController: UIViewController {
         if subjectTextField.text != "" {
             
             newSubject.title = subjectTextField.text!
-            
+            newSubject.color = assignSubjectColor()
             subjects.append(newSubject)
+            
             
             saveSubjects()
         }
         
     }
     
+    // MARK: - Presents subjects
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let customRowSize: CGFloat = 78.0
+        
+        return customRowSize
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       
+        return subjects.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SubjectTableViewCell
+        
+        
+        cell.subjectTitleLabel.text = subjects[indexPath.row].title
+
+        cell.subjectColorLabel.backgroundColor = subjects[indexPath.row].color
+       
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
     
     
-//    
-//    @IBAction func newSubjectRequested(_ sender: Any) {
-//        
-//        let teacher = Teacher()
-//        teacher.name = "Millene"
-//        
-//        let subject = Subject()
-//        subject.title = "Desenho de Software"
-//        subject.teacher = teacher
-//        
-//        subjects.append(subject)
-//        
-//        saveSubjects()
-//    }
-//    
-    // MARK: - Helper
-    
-   func assignSubjectColor() -> UIColor{
+   func assignSubjectColor() -> UIColor {
         
         let customRed = UIColor(colorLiteralRed: 1.0000, green: 0.3412, blue: 0.4392, alpha: 1.0)
         let customYellow = UIColor(colorLiteralRed: 1.0000, green: 0.8275, blue: 0.4392, alpha: 1.0)

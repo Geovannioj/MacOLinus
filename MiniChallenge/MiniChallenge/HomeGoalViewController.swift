@@ -24,13 +24,7 @@ class HomeGoalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadUserGoals()
-        
-
-        for goal in userGoals {
-            print(goal.title)
-        }
-        
+        UIApplication.shared.statusBarStyle = .lightContent
         
         setConfig()
         
@@ -48,7 +42,7 @@ class HomeGoalViewController: UIViewController {
     // MARK - Config
     
     func assignWhiteStatusBar() {
-        
+
         UIApplication.shared.statusBarStyle = .lightContent
     }
 
@@ -69,7 +63,7 @@ class HomeGoalViewController: UIViewController {
     func setConfig() {
         
         assignWhiteStatusBar()
-        assignBackground()
+        assignBackground()  
         
     }
 
