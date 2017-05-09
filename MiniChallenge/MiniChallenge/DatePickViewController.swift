@@ -43,6 +43,7 @@ class DatePickViewController: UIViewController {
         
             let controlerPList = ControllerPList()
             
+            //get date
             SingletonActivity.sharedInstance.task.time = datePicker.date
             
             let task:Reminder = SingletonActivity.sharedInstance.task
@@ -50,6 +51,8 @@ class DatePickViewController: UIViewController {
             task.scheduleNotification()
             
             SingletonActivity.sharedInstance.tasks.append(task)
+            
+            print("Titulo:\(task.title), Matéria:\(task.subject.title), Estatus:\(task.status)")
             
             //save the task in the PList
             controlerPList.saveReminders()
