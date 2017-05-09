@@ -10,16 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--dayStoryboard-->
-        <scene sceneID="wzx-i5-axj">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="dayStoryboard" storyboardName="DayActivity" referencedIdentifier="dayStoryboard" id="tkm-OL-CSj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="qmj-vs-UhT"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pWf-Js-EcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-974" y="384"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KF9-Jo-E0I">
             <objects>
@@ -31,12 +21,22 @@
                     </tabBar>
                     <connections>
                         <segue destination="aEo-xe-HBL" kind="relationship" relationship="viewControllers" id="BAz-8d-xjy"/>
-                        <segue destination="tkm-OL-CSj" kind="relationship" relationship="viewControllers" id="fAJ-oC-xfh"/>
+                        <segue destination="PUh-px-ZpJ" kind="relationship" relationship="viewControllers" id="oBy-ft-ZjC"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WbQ-NW-bue" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3274" y="-228"/>
+        </scene>
+        <!--Reminders-->
+        <scene sceneID="JfU-YC-zE0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="Reminders" id="PUh-px-ZpJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="fY1-cd-inR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QVe-5m-OZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2290" y="-31"/>
         </scene>
         <!--DoneAndPostponedActivities-->
         <scene sceneID="2Hq-6J-waM">
@@ -172,11 +172,11 @@
                                         <color key="textColor" red="0.98959678409999996" green="0.45535808799999999" blue="0.43067887430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xe8-OP-o0v">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="xe8-OP-o0v">
                                         <rect key="frame" x="0.0" y="70" width="375" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2B3-42-xSL">
-                                                <rect key="frame" x="0.0" y="0.0" width="125" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="92.5" height="50"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                                 </accessibility>
@@ -190,16 +190,17 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yar-LH-WdO">
-                                                <rect key="frame" x="125" y="0.0" width="125" height="50"/>
+                                                <rect key="frame" x="92.5" y="0.0" width="190" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="J8Z-gK-mEK"/>
+                                                    <constraint firstAttribute="width" constant="190" id="UYU-tI-jIC"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <color key="textColor" red="0.98159772160000003" green="0.4592770934" blue="0.44348007439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jxg-Fn-Ioc">
-                                                <rect key="frame" x="250" y="0.0" width="125" height="50"/>
+                                                <rect key="frame" x="282.5" y="0.0" width="92.5" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="kzT-TE-kb7"/>
                                                 </constraints>
@@ -313,7 +314,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iYe-HI-60i" id="jWy-KQ-jgz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -422,7 +423,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bVD-pg-KyD" id="ZgK-Dz-UYf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -526,6 +527,6 @@
         <image name="rightIcon2x" width="14" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qo6-PJ-6jC"/>
+        <segue reference="BAz-8d-xjy"/>
     </inferredMetricsTieBreakers>
 </document>
