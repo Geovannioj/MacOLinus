@@ -56,6 +56,10 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
         let label = cell.viewWithTag(10) as! UILabel
         label.text = subject.title
         
+        cell.backgroundColor = UIColor.white
+        cell.layer.borderWidth = 0.5
+        cell.clipsToBounds = true
+        
         return cell
     }
     

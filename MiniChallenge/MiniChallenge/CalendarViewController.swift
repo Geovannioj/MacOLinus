@@ -8,6 +8,7 @@
 
 import UIKit
 import JTAppleCalendar
+import MGSwipeTableCell
 
 class CalendarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
@@ -30,7 +31,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     //Activities TableView Attributes
     let cellReuseIdentifier = "ActivityTableViewCell"
     let cellSpacingHeight: CGFloat = 0.02
-    var activities = [Reminder]()
+    //var activities = [Reminder]()
     
     //Calenadar attributes
     var currentDate : NSDate? = nil
@@ -43,27 +44,37 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         loadReminders()
-        obtainActivites()
+        //obtainActivites()
         
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        
-        print(documentsDirectory())
         
         let nib = UINib(nibName: "DayActivityTableViewCell", bundle: nil)
-        
         tableView.register(nib, forCellReuseIdentifier: "ActivityTableViewCell")
+        
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.reloadData()
+        
+        print(documentsDirectory())
+
         
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         tableView.reloadData()
     }
     
+    func saveReminders(){
+        
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        archiver.encode(SingletonActivity.sharedInstance.tasks, forKey: "Reminders")
+        archiver.finishEncoding()
+        data.write(to: dataFilePath(), atomically: true)
+    }
+
 
     func documentsDirectory() -> URL{
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -158,13 +169,12 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         var containsEvent = 0
         
-        for activity in activities{
+        for activity in SingletonActivity.sharedInstance.tasks{
             
             if NSCalendar.current.compare(date, to: activity.time, toGranularity: .day) == ComparisonResult.orderedSame {
                 
                 containsEvent += 1
                 print(date)
-                print("Achou evento\n")
             }
         }
         
@@ -182,11 +192,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         calendarView.reloadData()
     }
     
-//    @IBAction func expandCalendarThroughBackButton(){
-//        
-//       expandCalendar(animationDuration: 0.5)
-//    }
-//    
     func handleAppointmentOnDayLabel(cell: CalendarCell, cellState: CellState, date: Date){
         
         let numberOfEventsOnDay = howManyEventsOnDay(date: date)
@@ -202,9 +207,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
-    func obtainActivites(){
-        activities = SingletonActivity.sharedInstance.tasks
-    }
+//    func obtainActivites(){
+//        activities = SingletonActivity.sharedInstance.tasks
+//    }
     
     // MARK: - Table View delegate methods
     
@@ -214,7 +219,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
     // There is just one row in every section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return activities.count
+        return SingletonActivity.sharedInstance.tasks.count
     }
     
     // Set the spacing between sections
@@ -223,12 +228,11 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     //delete the tableRow
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
-        activities.remove(at: indexPath.row)
-        //SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
+     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
+        SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
-        //controlerPList.saveReminders()
+        controlerPList.saveReminders()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -253,6 +257,12 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let editButton = MGSwipeButton(title:"          ", backgroundColor: UIColor(patternImage: UIImage(named: "edit.png")!)){
+            (sender: MGSwipeTableCell!) -> Bool in
+            
+            return true
+        }
+
         let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
         
         let activity = SingletonActivity.sharedInstance.tasks[indexPath.row]
@@ -277,6 +287,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         cell.layer.borderColor = redColor.cgColor
         cell.layer.borderWidth = 1
         cell.clipsToBounds = true
+        
+        cell.leftButtons = [editButton]
+        cell.leftSwipeSettings.transition = .border
         
         return cell
     }

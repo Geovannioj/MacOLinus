@@ -52,8 +52,6 @@ class DatePickViewController: UIViewController {
             
             SingletonActivity.sharedInstance.tasks.append(task)
             
-            print("Titulo:\(task.title), Matéria:\(task.subject.title), Estatus:\(task.status)")
-            
             //save the task in the PList
             controlerPList.saveReminders()
             

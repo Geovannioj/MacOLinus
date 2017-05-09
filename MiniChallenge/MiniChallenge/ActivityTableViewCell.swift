@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
-class ActivityTableViewCell: UITableViewCell {
+import MGSwipeTableCell
+class ActivityTableViewCell: MGSwipeTableCell  {
 
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var monthLabel: UILabel!
