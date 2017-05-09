@@ -11,9 +11,10 @@ import UIKit
 class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   
-    let subjects = SingletonSubject.subjectSharedInstance.subjects
+//    var subjects = SingletonSubject.subjectSharedInstance.subjects
+// 
     
-    
+    var subjects = [Subject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,9 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
 //        let subjectsLoaded = PersistSubjectData()
 //        subjectsLoaded.loadSubjects()
-//        
+// 
+        
+        loadSubjects()
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +57,9 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SubjectTableViewCell
         
+        print(subjects[indexPath.row].title)
+        
+        
         cell.subjectTitleLabel.text = subjects[indexPath.row].title
         cell.subjectColorLabel.backgroundColor = subjects[indexPath.row].color
         
@@ -64,6 +70,60 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
        
         return UIView()
     }
+    
+    func saveSubjects() {
+        
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        
+        archiver.encode(subjects, forKey: "Subjects")
+        archiver.finishEncoding()
+        
+        data.write(to: dataFilePath(), atomically: true)
+        
+    }
+    
+    func loadSubjects() {
+        
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
+            unarchiver.finishDecoding()
+        }
+    }
+    
+    
+    
+    func returnSubjects() -> [Subject] {
+        
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
+            unarchiver.finishDecoding()
+            
+        }
+        
+        return subjects
+    }
+    
+    func documentsDirectory() -> URL {
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        return paths[0]
+    }
+    
+    
+    func dataFilePath() -> URL {
+        
+        return documentsDirectory().appendingPathComponent("Subjects.plist")
+        
+    }
+
     
     
 }

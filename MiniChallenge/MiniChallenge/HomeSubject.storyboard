@@ -120,9 +120,6 @@
                             <constraint firstItem="HxO-0r-h8D" firstAttribute="top" secondItem="Ndw-Co-UFS" secondAttribute="bottom" constant="10" id="tNM-AR-aP6"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="tableView" destination="XLk-wo-evI" id="4ub-gt-dFF"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ac-Zg-BQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
