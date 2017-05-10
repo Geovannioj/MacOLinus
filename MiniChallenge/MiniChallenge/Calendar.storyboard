@@ -17,24 +17,46 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="vSJ-pf-sb2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="P1r-Vd-bog" kind="relationship" relationship="viewControllers" id="kvI-iN-3L1"/>
-                        <segue destination="cNi-Hm-ED6" kind="relationship" relationship="viewControllers" id="wCJ-Gd-htj"/>
-                        <segue destination="ccb-LL-dmH" kind="relationship" relationship="viewControllers" id="Q56-M6-QCh"/>
+                        <segue destination="aEo-xe-HBL" kind="relationship" relationship="viewControllers" id="mC1-K9-IK4"/>
+                        <segue destination="cde-Zd-n9r" kind="relationship" relationship="viewControllers" id="rU3-rB-5qx"/>
+                        <segue destination="PUh-px-ZpJ" kind="relationship" relationship="viewControllers" id="mjm-Eq-uN7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WbQ-NW-bue" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1614" y="-228"/>
         </scene>
-        <!--DoneAndPostponedActivities-->
-        <scene sceneID="2Hq-6J-waM">
+        <!--Storyboard Reference-->
+        <scene sceneID="wM6-Qy-oed">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="DoneAndPostponedActivities" storyboardName="DoneAndPostponedActivities" referencedIdentifier="DoneAndPostponedActivities" id="c3g-4T-Nph" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yJf-AZ-pLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder id="o3f-wV-9gS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iji-px-cvf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="397" y="-907"/>
+            <point key="canvasLocation" x="-2367" y="-507"/>
+        </scene>
+        <!--Reminders-->
+        <scene sceneID="JfU-YC-zE0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="Reminders" id="PUh-px-ZpJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="Goal Line" id="M9g-GQ-IXG"/>
+                    <navigationItem key="navigationItem" id="7nB-ut-Pd6"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QVe-5m-OZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="146" y="616"/>
+        </scene>
+        <!--Subject-->
+        <scene sceneID="yUV-cT-tXx">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Subject" referencedIdentifier="Subject" id="PjY-kx-4cc" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="IDP-Fk-ibB"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kx0-T3-2ox" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-912" y="1270"/>
         </scene>
         <!--Reminders-->
         <scene sceneID="gJ7-5j-PaC">
@@ -42,7 +64,15 @@
                 <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="Reminders" id="A8p-aa-tlV" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCc-GE-P0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="397" y="-753"/>
+            <point key="canvasLocation" x="-41" y="-705"/>
+        </scene>
+        <!--DoneAndPostponedActivities-->
+        <scene sceneID="x3p-Mi-6Uo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DoneAndPostponedActivities" referencedIdentifier="DoneAndPostponedActivities" id="Kaw-xl-6FA" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tHr-fG-WmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="101" y="-633"/>
         </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="WA6-Fd-ru4">
@@ -250,6 +280,7 @@
                                     <constraint firstItem="xe8-OP-o0v" firstAttribute="top" secondItem="RKj-nR-S7r" secondAttribute="bottom" id="4hT-hO-wXe"/>
                                     <constraint firstItem="RKj-nR-S7r" firstAttribute="leading" secondItem="qWz-a8-E6d" secondAttribute="leading" id="92A-8X-gOk"/>
                                     <constraint firstItem="RKj-nR-S7r" firstAttribute="top" secondItem="1aJ-Pf-hgy" secondAttribute="bottom" id="Hvh-rT-PkO"/>
+                                    <constraint firstAttribute="trailing" secondItem="RKj-nR-S7r" secondAttribute="trailing" id="sAg-oP-vO3"/>
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tUp-CP-odA">
@@ -273,40 +304,50 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="qWz-a8-E6d" secondAttribute="trailing" id="Z0m-sP-FaF"/>
-                            <constraint firstItem="qWz-a8-E6d" firstAttribute="top" secondItem="x5U-wm-2gS" secondAttribute="bottom" id="aJ9-bg-dEB"/>
                             <constraint firstItem="tUp-CP-odA" firstAttribute="top" secondItem="qWz-a8-E6d" secondAttribute="bottom" constant="15" id="dyi-I7-ps4"/>
+                            <constraint firstItem="qWz-a8-E6d" firstAttribute="top" secondItem="x5U-wm-2gS" secondAttribute="bottom" id="k3L-X0-Ekm"/>
                             <constraint firstItem="qWz-a8-E6d" firstAttribute="leading" secondItem="90h-fo-9jy" secondAttribute="leading" id="qOh-op-oAt"/>
                             <constraint firstItem="qWz-a8-E6d" firstAttribute="leading" secondItem="tUp-CP-odA" secondAttribute="leading" id="rzD-EA-Gia"/>
                             <constraint firstItem="qWz-a8-E6d" firstAttribute="trailing" secondItem="tUp-CP-odA" secondAttribute="trailing" id="vgP-Ks-puG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="7yL-at-a0C">
+                    <tabBarItem key="tabBarItem" title="Calendário" image="Calendar Line" id="5KA-1I-qQy"/>
+                    <navigationItem key="navigationItem" id="REa-mK-Xx9">
                         <nil key="title"/>
-                        <view key="titleView" clipsSubviews="YES" contentMode="scaleToFill" id="eE7-9n-kYL" userLabel="HeaderView">
+                        <view key="titleView" contentMode="scaleToFill" id="eE7-9n-kYL" userLabel="HeaderView">
                             <rect key="frame" x="8" y="2" width="359" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdl-F5-T7w">
-                                    <rect key="frame" x="323" y="9" width="19" height="22"/>
+                                    <rect key="frame" x="330" y="9" width="19" height="22"/>
                                     <state key="normal" image="+"/>
                                     <connections>
                                         <segue destination="A8p-aa-tlV" kind="show" id="QWb-1d-dff"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0b-H9-Fhj">
-                                    <rect key="frame" x="283" y="9" width="20" height="22"/>
+                                    <rect key="frame" x="290" y="9" width="20" height="22"/>
                                     <state key="normal" image="list [#1496]"/>
                                     <connections>
-                                        <segue destination="c3g-4T-Nph" kind="show" id="FO2-Fm-EMZ"/>
+                                        <segue destination="Kaw-xl-6FA" kind="presentation" id="swP-6r-dSA"/>
                                     </connections>
                                 </button>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="bG8-UR-C6X">
+                                    <rect key="frame" x="145" y="10" width="68" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="68" id="ems-DF-WPt"/>
+                                        <constraint firstAttribute="height" constant="21" id="mhD-nR-Dqa"/>
+                                    </constraints>
+                                </imageView>
                             </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.98159772160000003" green="0.4592770934" blue="0.44348007439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="Sdl-F5-T7w" firstAttribute="centerY" secondItem="eE7-9n-kYL" secondAttribute="centerY" id="6Sh-t5-8sy"/>
-                                <constraint firstAttribute="trailing" secondItem="Sdl-F5-T7w" secondAttribute="trailing" constant="17" id="8hY-hs-dH1"/>
+                                <constraint firstAttribute="trailing" secondItem="Sdl-F5-T7w" secondAttribute="trailing" constant="10" id="8hY-hs-dH1"/>
                                 <constraint firstAttribute="height" constant="40" id="GWk-ph-MtM"/>
+                                <constraint firstItem="bG8-UR-C6X" firstAttribute="centerX" secondItem="eE7-9n-kYL" secondAttribute="centerX" id="WH7-2g-VEm"/>
                                 <constraint firstItem="Sdl-F5-T7w" firstAttribute="leading" secondItem="k0b-H9-Fhj" secondAttribute="trailing" constant="20" id="f9e-vW-FTi"/>
+                                <constraint firstItem="bG8-UR-C6X" firstAttribute="centerY" secondItem="eE7-9n-kYL" secondAttribute="centerY" id="glL-VW-Jzi"/>
                                 <constraint firstItem="k0b-H9-Fhj" firstAttribute="centerY" secondItem="eE7-9n-kYL" secondAttribute="centerY" id="owD-DX-Cxb"/>
                             </constraints>
                         </view>
@@ -320,72 +361,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cff-D3-dVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRp-Jr-eeP">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="15"/>
-                    <color key="backgroundColor" red="0.98959678409999996" green="0.45535808799999999" blue="0.43067887430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="15" id="dxW-mV-5yl"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.98959678409999996" green="0.45535808799999999" blue="0.43067887430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </objects>
-            <point key="canvasLocation" x="349.60000000000002" y="-228.03598200899552"/>
-        </scene>
-        <!--Disciplinas-->
-        <scene sceneID="uHl-gl-4os">
-            <objects>
-                <navigationController id="cNi-Hm-ED6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Disciplinas" image="Subjects Fill" id="mPy-h5-cIC"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wCO-S6-Zmc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="KzR-uc-rru" kind="relationship" relationship="rootViewController" id="fCe-ct-Y6L"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="STw-2i-lzu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-570" y="532"/>
-        </scene>
-        <!--Subjects-->
-        <scene sceneID="Yxz-3L-QnU">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Subject" referencedIdentifier="Subjects" id="KzR-uc-rru" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="6II-Te-LoN"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RAy-i0-cDx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="151" y="519"/>
-        </scene>
-        <!--Metas-->
-        <scene sceneID="TGX-N7-JM0">
-            <objects>
-                <navigationController id="ccb-LL-dmH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Metas" image="Goal Line" id="UH6-oh-Vpu"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="e4g-Cq-b9F">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="pZV-dx-Qml" kind="relationship" relationship="rootViewController" id="0YA-gX-Pyo"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oyu-0l-hum" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1615" y="1003"/>
-        </scene>
-        <!--Reminders-->
-        <scene sceneID="Ka0-DG-s3m">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Reminders" id="pZV-dx-Qml" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="hDA-2Z-5mS"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d1P-Pd-adF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-591" y="1002"/>
+            <point key="canvasLocation" x="-676" y="-228"/>
         </scene>
         <!--Daily Calendar View Controller-->
         <scene sceneID="U6g-Fe-jOj">
@@ -412,7 +389,7 @@
                                                     <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="P1r-Vd-bog" kind="show" id="ukf-KO-Ciz"/>
+                                                    <segue destination="ChX-vs-g5L" kind="presentation" id="0ak-Li-8gH"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -499,6 +476,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activitiesTableView" destination="ip5-u2-oJJ" id="VFZ-ne-LMo"/>
                         <outlet property="extenseDay" destination="zhi-Xo-cUO" id="x9g-wL-RIY"/>
                     </connections>
                 </viewController>
@@ -559,38 +537,36 @@
                     </subviews>
                 </stackView>
             </objects>
-            <point key="canvasLocation" x="1558" y="-228"/>
+            <point key="canvasLocation" x="367" y="-202"/>
         </scene>
-        <!--Calendário-->
-        <scene sceneID="eVm-s8-Ocn">
+        <!--Disciplinas-->
+        <scene sceneID="rlg-cS-hpB">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="P1r-Vd-bog" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Calendário" image="Calendar Line" id="jhV-NC-NPB"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cde-Zd-n9r" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Disciplinas" image="Subjects Fill" id="QQ0-5I-h4e"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VeJ-fk-8Nc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hL8-Ns-tId">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="aEo-xe-HBL" kind="relationship" relationship="rootViewController" id="CZt-Nn-RDx"/>
+                        <segue destination="PjY-kx-4cc" kind="relationship" relationship="rootViewController" id="WkW-nh-gjJ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Z1-VB-2Hp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yJ0-WM-mCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-590" y="-228"/>
+            <point key="canvasLocation" x="-1615" y="1270"/>
         </scene>
     </scenes>
     <resources>
         <image name="+" width="19" height="20"/>
         <image name="Calendar Line" width="26" height="26"/>
         <image name="Goal Line" width="26" height="26"/>
+        <image name="Pengo" width="69" height="21"/>
         <image name="Subjects Fill" width="26" height="26"/>
         <image name="leftIcon2x" width="14" height="22"/>
         <image name="list [#1496]" width="20" height="15"/>
         <image name="rightIcon2x" width="14" height="22"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="kvI-iN-3L1"/>
-    </inferredMetricsTieBreakers>
 </document>

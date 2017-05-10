@@ -29,7 +29,7 @@ class Reminder: NSObject, NSCoding {
         aCoder.encode(title, forKey: "Title")
         aCoder.encode(reminderDescription, forKey: "description")
         aCoder.encode(time, forKey: "time")
-        aCoder.encode(subject, forKey: "Subject")
+        //aCoder.encode(subject, forKey: "Subject")
         aCoder.encode(status, forKey: "Status")
         aCoder.encode(reminderID, forKey:"ReminderID")
         
