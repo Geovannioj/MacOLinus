@@ -7,21 +7,13 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     @IBOutlet weak var subjectTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var subjectCreated: UILabel!
-    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        let array = returnSubjects()
-        
-        for subject in array {
-            print(subject.title)
-        }
-        
         setConfig()
-      
+        
         // Do any additional setup after loading the view.
     }
 
@@ -34,6 +26,17 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK - Config
     
+    func setConfig() {
+        
+        loadSubjects()
+        
+        
+        assignBlackStatusBar()
+        assignBackground()
+
+    }
+    
+    
     func assignBlackStatusBar() {
         
         UIApplication.shared.statusBarStyle = .default
@@ -42,7 +45,7 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     internal func assignBackground() {
         
-        let background = UIImage(named: "greenPattern")
+        let background = UIImage(named: "greenPatternWithBoy")
         
         var imageView : UIImageView!
         imageView = UIImageView(frame: view.bounds)
@@ -54,25 +57,8 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.view.sendSubview(toBack: imageView)
     }
     
-    func setConfig() {
-        
-        assignBlackStatusBar()
-        assignBackground()
-        
-    }
     
-    func setCreatedSubject() {
-        
-        loadSubjects()
-        
-        let createdSubject = subjects.last
-        let aux = createdSubject?.title
 
-        
-        subjectCreated.text = aux
-        
-    }
-    
     
     // MARK: - Actions
 
@@ -214,5 +200,18 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         return documentsDirectory().appendingPathComponent("Subjects.plist")
        
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "subjectCreated" {
+            
+            if let toViewController = segue.destination as? TempController {
+                toViewController.data = subjectTextField.text!
+            }
+        }
+    }
+    
+    
+
 
 }

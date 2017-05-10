@@ -164,8 +164,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             if NSCalendar.current.compare(date, to: activity.time, toGranularity: .day) == ComparisonResult.orderedSame {
                 
                 containsEvent += 1
-                print(date)
-                print("Achou evento\n")
             }
         }
         

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F9j-RJ-gHw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -15,10 +15,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Subject View Controller-->
+        <!--Create Subject-->
         <scene sceneID="Mzx-PL-1Gf">
             <objects>
-                <viewController id="F9j-RJ-gHw" customClass="SubjectViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="F9j-RJ-gHw" customClass="CreateSubject" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yjZ-R1-zoF"/>
                         <viewControllerLayoutGuide type="bottom" id="uyw-uF-1O0"/>
@@ -65,7 +65,8 @@
                                 <rect key="frame" x="302" y="190" width="44" height="44"/>
                                 <state key="normal" image="redButton"/>
                                 <connections>
-                                    <action selector="newSubjectRequested:" destination="F9j-RJ-gHw" eventType="touchUpInside" id="ezd-kS-KVy"/>
+                                    <action selector="newSubjectRequired:" destination="F9j-RJ-gHw" eventType="touchUpInside" id="fwg-NR-aU5"/>
+                                    <segue destination="8qK-e8-Pfg" kind="show" id="xzq-3y-YaX"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="eZM-bN-85h">
@@ -98,12 +99,20 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="subjectTextField" destination="kYy-Vp-Lhx" id="8m7-J4-qgp"/>
+                        <outlet property="subjectField" destination="kYy-Vp-Lhx" id="Pis-1U-zkf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tiv-2m-8KT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="594" y="123"/>
+            <point key="canvasLocation" x="592.79999999999995" y="122.78860569715144"/>
+        </scene>
+        <!--SubjectCreated-->
+        <scene sceneID="bIX-gm-qu7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SubjectCreated" id="8qK-e8-Pfg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="khk-3j-ePQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1236" y="122"/>
         </scene>
     </scenes>
     <resources>

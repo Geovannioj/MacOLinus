@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        
         //App colors
         let customRed =  UIColor(red: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1.0)
         let customPurple = UIColor(red: 0.4078, green: 0.4078, blue: 0.8784, alpha: 1.0)
@@ -41,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: customRed]
         
         // Black Content in  status bar
-        UIApplication.shared.statusBarStyle = .default
+        UIApplication.shared.statusBarStyle = .lightContent
         
         
         //Setting Color for item at navbar

@@ -60,7 +60,7 @@
                                     <color key="titleColor" red="0.24964994192123413" green="0.062413342297077179" blue="0.23817741870880127" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="qkJ-zu-Z48" kind="show" id="iAc-2b-wa0"/>
+                                    <segue destination="qkJ-zu-Z48" kind="show" identifier="1" id="iAc-2b-wa0"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H28-gB-Vwd">
@@ -71,8 +71,10 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="78" id="Fgt-IZ-lWB" customClass="SubjectTableViewCell" customModule="MiniChallenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="406" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fgt-IZ-lWB" id="ozB-sl-los" customClass="SubjectTableViewCell" customModule="MiniChallenge" customModuleProvider="target">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fgt-IZ-lWB" id="ozB-sl-los" customClass="SubjectTableViewCell" customModule="MiniChallenge">
+                                        
                                             <rect key="frame" x="0.0" y="0.0" width="406" height="77.5"/>
+
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vci-ga-Hzr">
@@ -160,7 +162,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual  sua matéria?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1p-d9-gLV">
+
                                 <rect key="frame" x="40" y="133" width="293" height="28"/>
+
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -177,7 +181,9 @@
                                 <color key="highlightedColor" red="1" green="0.47842687369999998" blue="0.4926418662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gVv-qh-2Al">
+
                                 <rect key="frame" x="4" y="179" width="406" height="44"/>
+
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="1" green="0.47842687369999998" blue="0.4926418662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -188,11 +194,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exJ-fG-4MQ">
+
                                 <rect key="frame" x="306" y="233" width="75" height="44"/>
+
                                 <state key="normal" image="redButton"/>
                                 <connections>
                                     <action selector="newSubjectRequested:" destination="qkJ-zu-Z48" eventType="touchUpInside" id="Q3e-Pp-xAa"/>
-                                    <segue destination="Lgz-FB-6bO" kind="show" id="z8D-3R-aE1"/>
+                                    <segue destination="Lgz-FB-6bO" kind="show" identifier="subjectCreated" id="z8D-3R-aE1"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="SLL-OC-xRP">
@@ -232,10 +240,10 @@
             </objects>
             <point key="canvasLocation" x="1500.0000000000002" y="122.28260869565219"/>
         </scene>
-        <!--Subject View Controller-->
+        <!--Temp Controller-->
         <scene sceneID="4Ke-6I-zrU">
             <objects>
-                <viewController id="Lgz-FB-6bO" customClass="SubjectViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Lgz-FB-6bO" customClass="TempController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ybu-hQ-d4o"/>
                         <viewControllerLayoutGuide type="bottom" id="2bR-gJ-Y92"/>
@@ -251,13 +259,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A matéria " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4i-Ng-fQb">
+
                                 <rect key="frame" x="40" y="133" width="109" height="28"/>
+
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="foi adicionada com sucesso !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQx-X9-Cot">
+
                                 <rect key="frame" x="40" y="174" width="346" height="28"/>
+
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -274,10 +286,12 @@
                                 <color key="highlightedColor" red="1" green="0.47842687369999998" blue="0.4926418662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7B-PI-vaq">
+
                                 <rect key="frame" x="306" y="232" width="75" height="44"/>
+
                                 <state key="normal" image="redButton"/>
                                 <connections>
-                                    <action selector="newSubjectRequested:" destination="Lgz-FB-6bO" eventType="touchUpInside" id="XEW-xm-zbf"/>
+                                    <segue destination="emF-TZ-jQX" kind="show" id="6aD-lz-lvd"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="kS9-AG-E3M">
@@ -287,7 +301,9 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Cn-XR-qKx">
+
                                 <rect key="frame" x="164" y="133" width="161" height="28"/>
+
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="24"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -319,7 +335,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="subjectCreated" destination="0Cn-XR-qKx" id="kuE-0V-MRh"/>
+                        <outlet property="subjectCreatedLabel" destination="0Cn-XR-qKx" id="1da-IC-K9u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ecx-Wk-FnE" userLabel="First Responder" sceneMemberID="firstResponder"/>

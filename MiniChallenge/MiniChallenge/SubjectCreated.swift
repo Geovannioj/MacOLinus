@@ -9,9 +9,16 @@
 import UIKit
 
 class SubjectCreated: UIViewController {
-
+    
+    @IBOutlet weak var subjectCreatedLabel: UILabel!
+    
+    var subjects = [Subject]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configLayout()
 
         // Do any additional setup after loading the view.
     }
@@ -21,15 +28,96 @@ class SubjectCreated: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+   
+    
+    // MARK: - Config Layout 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func configLayout() {
+        
+        assignBackground()
+        assignBlackStatusBar()
+        setCreatedSubjectLabel()
+        loadSubjects()
+        
     }
-    */
+    
+    func assignBackground() {
+        
+        let background = UIImage(named: "greenPatternWithBoy")
+        
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIViewContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubview(toBack: imageView)
+    }
 
+    func assignBlackStatusBar() {
+        
+        UIApplication.shared.statusBarStyle = .default
+        
+    }
+    
+    func setCreatedSubjectLabel() {
+        
+        subjects = returnSubjects()
+        
+        let lastSubject = subjects.last
+        
+        if lastSubject?.title != "" {
+            
+            subjectCreatedLabel.text = lastSubject?.title
+        }
+    }
+    
+    //MARK: - Recover Data
+    
+    func loadSubjects()  {
+        
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
+            unarchiver.finishDecoding()
+            
+        }
+    }
+    
+    func returnSubjects() -> [Subject] {
+        
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
+            unarchiver.finishDecoding()
+            
+        }
+        
+        return subjects
+    }
+    
+    
+    func documentsDirectory() -> URL {
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        return paths[0]
+    }
+    
+    
+    func dataFilePath() -> URL {
+        
+        return documentsDirectory().appendingPathComponent("Subjects.plist")
+        
+    }
+    
+
+
+    
 }
