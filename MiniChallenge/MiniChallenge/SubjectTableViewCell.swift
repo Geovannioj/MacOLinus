@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 
-class SubjectTableViewCell: UITableViewCell {
+class SubjectTableViewCell: MGSwipeTableCell {
 
 
     @IBOutlet weak var subjectTitleLabel: UILabel!
@@ -25,6 +26,7 @@ class SubjectTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     
     
     
