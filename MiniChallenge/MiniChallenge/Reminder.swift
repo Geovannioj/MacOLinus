@@ -15,7 +15,7 @@ class Reminder: NSObject, NSCoding {
     var title: String = ""
     var reminderDescription: String = ""
     var time: Date = Date()
-    var subject :Subject = Subject(title: "Sem matéria")
+    var subject :Subject?
     var status: Int = 0
     var day: Int = 0
     var month: Int = 0

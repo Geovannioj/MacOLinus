@@ -178,7 +178,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             let minutes = calendar.component(.minute, from: activity.time)
             
             cell.timeLabel.text = "\(day)/\(month)/\(year) -" + maskTime(hour:hour, minutes:minutes)
-            cell.subjectLabel.text = activity.subject.title
+            cell.subjectLabel.text = activity.subject?.title
             
             cell.rightButtons = [undoButton]
             cell.rightSwipeSettings.transition = .border
@@ -197,7 +197,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             let minutes = calendar.component(.minute, from: activity.time)
             
             cell.timeLabel.text = "\(day)/\(month)/\(year) -" + maskTime(hour:hour, minutes:minutes)
-            cell.subjectLabel.text = activity.subject.title
+            cell.subjectLabel.text = activity.subject?.title
             
             cell.rightButtons = [doneButton]
             cell.rightSwipeSettings.transition = .border

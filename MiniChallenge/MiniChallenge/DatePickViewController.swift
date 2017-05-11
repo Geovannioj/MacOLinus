@@ -60,7 +60,7 @@ class DatePickViewController: UIViewController {
             self.navigationController?.popToRootViewController(animated: true)
             
             //clean the task reference
-            SingletonActivity.sharedInstance.task = Reminder()
+            //SingletonActivity.sharedInstance.task = Reminder()
             performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
 
         

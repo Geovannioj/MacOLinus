@@ -294,11 +294,18 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         let minutes = calendar.component(.minute, from: date)
         
         cell.activityName.text = activity.title
-        cell.activitySubject.text = activity.subject.title
+        cell.activitySubject.text = activity.subject?.title
         cell.activityHour.text = maskTime(hour: hour, minutes: minutes)
         cell.dayLabel.text = String(day)
         cell.monthLabel.text = String(selectMonthText(month: month))
-        cell.subjectColor.backgroundColor = activity.subject.color
+        
+        if activity.subject == nil {
+            cell.subjectColor.backgroundColor = UIColor.white
+            cell.activitySubject.text = ""
+        } else {
+            cell.subjectColor.backgroundColor = activity.subject?.color
+        }
+        
         
         // add border and color
         cell.backgroundColor = UIColor.white
