@@ -57,7 +57,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         tableView.register(nib, forCellReuseIdentifier: "ActivityTableViewCell")
         
-        navigationController?.navigationBar.tintColor = redColor
+        self.navigationController?.setToolbarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     
@@ -145,7 +146,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             
             if NSCalendar.current.compare(date, to: activity.time, toGranularity: .day) == ComparisonResult.orderedSame {
                 
-                containsEvent += 1
+                if activity.status == 0 || activity.status == 2{
+                     containsEvent += 1
+                }
             }
         }
         
@@ -178,9 +181,17 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
-    
     func obtainActivites(){
+        activities = sortActivities()
+    }
+    
+    func sortActivities() -> [Reminder]{
+        
         activities = SingletonActivity.sharedInstance.tasks
+        
+        var sortedArray : [Reminder] = []
+        sortedArray = activities.sorted(by: { $0.time.compare($1.time) == ComparisonResult.orderedAscending})
+        return sortedArray
     }
     
     // MARK: - Table View delegate methods
@@ -227,6 +238,25 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         return 76.0
     }
     
+    func maskTime(hour: Int, minutes: Int) -> String{
+        
+        var resultString = ""
+        
+        if hour <= 9  {
+            resultString.append("0" + "\(hour):")
+        } else {
+            resultString.append("\(hour):")
+        }
+        
+        if minutes <= 9 {
+            resultString.append("0" + "\(minutes)")
+        } else {
+            resultString.append("\(minutes)")
+        }
+        
+        return resultString
+    }
+    
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -238,8 +268,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
         
-        let activity = SingletonActivity.sharedInstance.tasks[indexPath.row]
-        
+        let activity = activities[indexPath.row]
         
         let date = activity.time
         let calendar = Calendar.current
@@ -251,7 +280,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         cell.activityName.text = activity.title
         cell.activitySubject.text = activity.subject.title
-        cell.activityHour.text = "\(hour):\(minutes)"
+        cell.activityHour.text = maskTime(hour: hour, minutes: minutes)
         cell.dayLabel.text = String(day)
         cell.monthLabel.text = String(selectMonthText(month: month))
         cell.subjectColor.backgroundColor = activity.subject.color

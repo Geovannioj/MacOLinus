@@ -1,4 +1,5 @@
 import UIKit
+import MGSwipeTableCell
 
 class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -14,6 +15,8 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         setConfig()
         
+        self.navigationController?.isToolbarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view.
     }
 
@@ -93,15 +96,52 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         return subjects.count
     }
     
+//    
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
+//        
+//        saveSubjects()
+//    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SubjectTableViewCell
         
-        
         cell.subjectTitleLabel.text = subjects[indexPath.row].title
-
         cell.subjectColorLabel.backgroundColor = subjects[indexPath.row].color
        
+        
+        let deleteButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "10")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            
+            self.subjects.remove(at: indexPath.row)
+            let indexPaths = [indexPath]
+            tableView.deleteRows(at: indexPaths, with: .automatic)
+            
+            self.saveSubjects()
+            self.loadSubjects()
+            
+            return true
+        }
+        
+       
+        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "11")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            
+            print("Something has to happen")
+            return true
+        }
+
+        
+        
+        cell.leftButtons = [editButton]
+        cell.leftSwipeSettings.transition = .border
+        
+        
+        cell.rightButtons = [deleteButton]
+        cell.rightSwipeSettings.transition = .border
+        
+        
         return cell
     }
     
