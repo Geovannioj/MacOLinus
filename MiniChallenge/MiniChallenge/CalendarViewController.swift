@@ -8,6 +8,7 @@
 
 import UIKit
 import JTAppleCalendar
+import MGSwipeTableCell
 
 class CalendarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
@@ -117,25 +118,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         self.monthLabel?.text = self.formatter.string(from: date!)
     }
 
-//    func shrinkCalendar(animationDuration: Float){
-//        
-//        numberOfRows = 1
-//        
-//        UIView.animate(withDuration: TimeInterval(animationDuration), animations: {
-//            self.calendarView.frame = CGRect(x: 0, y: 90, width: self.calendarView.frame.width, height: 50)
-//            self.calendarView.reloadData()
-//        })
-//    }
-    
-//    func expandCalendar(animationDuration: Float){
-//        
-//        numberOfRows = 6
-//        
-//        UIView.animate(withDuration: TimeInterval(animationDuration), animations: {
-//            self.calendarView.frame = CGRect(x: 0, y: 90, width: self.calendarView.frame.width, height: 265)
-//            self.calendarView.reloadData(with: self.currentDate as Date?)
-//        })
-//    }
     
     //Funtion responsible for handling the text color on the calendar
     func handleCellTextColor(cell: JTAppleCell?, cellState: CellState){
@@ -181,11 +163,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         calendarView.reloadData()
     }
     
-//    @IBAction func expandCalendarThroughBackButton(){
-//        
-//       expandCalendar(animationDuration: 0.5)
-//    }
-//    
+ 
     func handleAppointmentOnDayLabel(cell: CalendarCell, cellState: CellState, date: Date){
         
         let numberOfEventsOnDay = howManyEventsOnDay(date: date)
@@ -224,10 +202,10 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     //delete the tableRow
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
         activities.remove(at: indexPath.row)
-        //SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
+        SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
-        //controlerPList.saveReminders()
+        controlerPList.saveReminders()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -252,6 +230,12 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let editButton = MGSwipeButton(title:"          ", backgroundColor: UIColor(patternImage: UIImage(named: "edit.png")!)){
+            (sender: MGSwipeTableCell!) -> Bool in
+            
+            return true
+        }
+        
         let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
         
         let activity = SingletonActivity.sharedInstance.tasks[indexPath.row]
@@ -270,6 +254,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         cell.activityHour.text = "\(hour):\(minutes)"
         cell.dayLabel.text = String(day)
         cell.monthLabel.text = String(selectMonthText(month: month))
+        cell.subjectColor.backgroundColor = activity.subject.color
         
         // add border and color
         cell.backgroundColor = UIColor.white
@@ -277,7 +262,11 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         cell.layer.borderWidth = 1
         cell.clipsToBounds = true
         
+        cell.leftButtons = [editButton]
+        cell.leftSwipeSettings.transition = .border
+        
         return cell
+
     }
 }
 

@@ -29,7 +29,7 @@ class Reminder: NSObject, NSCoding {
         aCoder.encode(title, forKey: "Title")
         aCoder.encode(reminderDescription, forKey: "description")
         aCoder.encode(time, forKey: "time")
-        //aCoder.encode(subject, forKey: "Subject")
+        aCoder.encode(subject, forKey: "Subject")
         aCoder.encode(status, forKey: "Status")
         aCoder.encode(reminderID, forKey:"ReminderID")
         
@@ -40,7 +40,7 @@ class Reminder: NSObject, NSCoding {
         title = aDecoder.decodeObject(forKey: "Title") as! String
         reminderDescription = aDecoder.decodeObject(forKey: "description") as! String
         time = aDecoder.decodeObject(forKey: "time") as! Date
-       // subject = aDecoder.decodeObject(forKey: "Subject") as! Subject
+        subject = aDecoder.decodeObject(forKey: "Subject") as! Subject
         status = aDecoder.decodeInteger(forKey: "Status")
         
         super.init()
