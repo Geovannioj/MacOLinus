@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +21,7 @@
                     <connections>
                         <segue destination="aEo-xe-HBL" kind="relationship" relationship="viewControllers" id="mC1-K9-IK4"/>
                         <segue destination="cde-Zd-n9r" kind="relationship" relationship="viewControllers" id="rU3-rB-5qx"/>
-                        <segue destination="PUh-px-ZpJ" kind="relationship" relationship="viewControllers" id="mjm-Eq-uN7"/>
+                        <segue destination="oCN-wo-Jxa" kind="relationship" relationship="viewControllers" id="EaP-Vo-JGK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WbQ-NW-bue" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -37,16 +36,32 @@
             </objects>
             <point key="canvasLocation" x="-2367" y="-507"/>
         </scene>
-        <!--Reminders-->
-        <scene sceneID="JfU-YC-zE0">
+        <!--Metas-->
+        <scene sceneID="EwX-FA-bVR">
             <objects>
-                <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="Reminders" id="PUh-px-ZpJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="Goal Line" id="M9g-GQ-IXG"/>
-                    <navigationItem key="navigationItem" id="7nB-ut-Pd6"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QVe-5m-OZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="oCN-wo-Jxa" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Metas" image="Goal Line" id="CkP-XL-uKE"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HRH-nQ-7Hd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rmZ-Od-ZYQ" kind="relationship" relationship="rootViewController" id="o6Q-AG-NS9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qhc-A5-EhQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="146" y="616"/>
+            <point key="canvasLocation" x="-676" y="542"/>
+        </scene>
+        <!--Goal-->
+        <scene sceneID="m2p-no-xNm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Goal" referencedIdentifier="Goal" id="rmZ-Od-ZYQ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="NCw-sG-FoT"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mp2-Ch-i7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-87" y="527"/>
         </scene>
         <!--Subject-->
         <scene sceneID="yUV-cT-tXx">
@@ -97,7 +112,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iYe-HI-60i" id="jWy-KQ-jgz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -381,13 +396,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sHM-dG-VeO">
-                                <rect key="frame" x="0.0" y="52" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4eQ-gW-dkT" userLabel="HeaderView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7A-oq-e20">
-                                                <rect key="frame" x="10" y="8" width="86" height="34"/>
+                                                <rect key="frame" x="8" y="25" width="86" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <state key="normal" title=" &lt; Calendário">
                                                     <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -399,15 +414,13 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.98159772160000003" green="0.4592770934" blue="0.44348007439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="y7A-oq-e20" firstAttribute="centerY" secondItem="4eQ-gW-dkT" secondAttribute="centerY" id="MWd-Uz-cnE"/>
-                                            <constraint firstAttribute="height" constant="50" id="PH1-vV-Ie4"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="VrD-NA-3B2"/>
-                                            <constraint firstItem="y7A-oq-e20" firstAttribute="bottom" secondItem="4eQ-gW-dkT" secondAttribute="bottomMargin" id="bPp-uE-yNG"/>
-                                            <constraint firstItem="y7A-oq-e20" firstAttribute="leading" secondItem="4eQ-gW-dkT" secondAttribute="leading" constant="10" id="pav-sZ-mJp"/>
+                                            <constraint firstItem="y7A-oq-e20" firstAttribute="top" secondItem="4eQ-gW-dkT" secondAttribute="top" constant="25" id="8de-FH-832"/>
+                                            <constraint firstItem="y7A-oq-e20" firstAttribute="leading" secondItem="4eQ-gW-dkT" secondAttribute="leading" constant="8" id="hCe-dH-57d"/>
+                                            <constraint firstAttribute="bottom" secondItem="y7A-oq-e20" secondAttribute="bottom" constant="-5" id="tmP-N3-ztI"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nV7-Tq-Tid">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="40"/>
+                                        <rect key="frame" x="0.0" y="49" width="375" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhi-Xo-cUO">
                                                 <rect key="frame" x="21" y="5" width="333" height="30"/>
@@ -437,10 +450,10 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ip5-u2-oJJ">
-                                <rect key="frame" x="0.0" y="177" width="375" height="490"/>
+                                <rect key="frame" x="0.0" y="157" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="490" id="B08-dM-ioF"/>
+                                    <constraint firstAttribute="height" constant="510" id="B08-dM-ioF"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="bVD-pg-KyD" customClass="DayActivityTableViewCell" customModule="MiniChallenge" customModuleProvider="target">
@@ -458,7 +471,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atividades do dia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYD-m7-16x">
-                                <rect key="frame" x="132" y="150" width="111" height="17"/>
+                                <rect key="frame" x="132" y="114" width="111" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="1MV-XB-IPz"/>
                                 </constraints>
@@ -470,13 +483,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ip5-u2-oJJ" firstAttribute="bottom" secondItem="dRd-Ju-pYx" secondAttribute="top" id="7pK-m0-B0S"/>
+                            <constraint firstItem="NYD-m7-16x" firstAttribute="top" secondItem="sHM-dG-VeO" secondAttribute="bottom" constant="25" id="Bua-2M-l6c"/>
                             <constraint firstItem="ip5-u2-oJJ" firstAttribute="leading" secondItem="3Yi-7a-7cU" secondAttribute="leading" id="EPn-P7-Ewh"/>
                             <constraint firstItem="ip5-u2-oJJ" firstAttribute="centerX" secondItem="NYD-m7-16x" secondAttribute="centerX" id="IQu-Vr-iCD"/>
                             <constraint firstAttribute="trailing" secondItem="sHM-dG-VeO" secondAttribute="trailing" id="POA-lK-CJO"/>
                             <constraint firstItem="ip5-u2-oJJ" firstAttribute="trailing" secondItem="sHM-dG-VeO" secondAttribute="trailing" id="dhI-tv-LcR"/>
-                            <constraint firstItem="sHM-dG-VeO" firstAttribute="top" secondItem="sp1-9b-cUf" secondAttribute="bottom" constant="32" id="ewn-zs-Trq"/>
+                            <constraint firstItem="sHM-dG-VeO" firstAttribute="top" secondItem="sp1-9b-cUf" secondAttribute="bottom" constant="-20" id="ewn-zs-Trq"/>
                             <constraint firstItem="ip5-u2-oJJ" firstAttribute="leading" secondItem="sHM-dG-VeO" secondAttribute="leading" id="gzi-Te-JeQ"/>
-                            <constraint firstItem="ip5-u2-oJJ" firstAttribute="top" secondItem="NYD-m7-16x" secondAttribute="bottom" constant="10" id="nXe-Az-HGk"/>
+                            <constraint firstItem="ip5-u2-oJJ" firstAttribute="top" secondItem="NYD-m7-16x" secondAttribute="bottom" constant="26" id="nXe-Az-HGk"/>
                         </constraints>
                     </view>
                     <connections>
@@ -541,7 +555,7 @@
                     </subviews>
                 </stackView>
             </objects>
-            <point key="canvasLocation" x="367" y="-202"/>
+            <point key="canvasLocation" x="365.60000000000002" y="-202.84857571214394"/>
         </scene>
         <!--Disciplinas-->
         <scene sceneID="rlg-cS-hpB">

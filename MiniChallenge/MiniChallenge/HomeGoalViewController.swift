@@ -28,7 +28,8 @@ class HomeGoalViewController: UIViewController {
         
         setConfig()
         
-        // Do any additional setup after loading the view.
+        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isToolbarHidden = true
     }
 
     override func didReceiveMemoryWarning() {

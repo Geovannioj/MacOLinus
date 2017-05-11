@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Add Title Controller-->
         <scene sceneID="g5M-dr-pDt">
             <objects>
                 <viewController restorationIdentifier="Reminder" storyboardIdentifier="Reminders" id="8FU-ka-ofJ" customClass="AddTitleController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
@@ -74,7 +74,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="n8f-LO-GI4" secondAttribute="trailing" constant="-11" id="z4e-D9-oUZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="Goal Line" id="zYB-Ty-7lB"/>
                     <navigationItem key="navigationItem" id="KH2-Yh-lxj"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -312,7 +311,6 @@
     </scenes>
     <resources>
         <image name="Asset 2@2x" width="122" height="193"/>
-        <image name="Goal Line" width="26" height="26"/>
         <image name="Group 2-1" width="44" height="44"/>
         <image name="Rectangle 2" width="8" height="8"/>
     </resources>
