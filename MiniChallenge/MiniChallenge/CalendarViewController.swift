@@ -115,7 +115,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         let date = visibleDates.monthDates.first?.date
         
         self.formatter.dateFormat = "MMMM yyyy"
-        print(String(describing: date))
         self.monthLabel?.text = self.formatter.string(from: date!)
     }
 
@@ -152,7 +151,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             }
         }
         
-        print(containsEvent)
         return containsEvent
     }
     
@@ -467,10 +465,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
                 
                 destination.passedText?.append(formatter.string(from: sender as! Date))
                 
-                print("Data enviada \(String(describing: destination.passedText))")
-                
                 destination.passedDate = sender as? Date
-                print("Sent date: \(String(describing: sender))")
             }
         }
     }

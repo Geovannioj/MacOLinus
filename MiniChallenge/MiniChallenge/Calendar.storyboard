@@ -41,7 +41,7 @@
             <objects>
                 <navigationController id="oCN-wo-Jxa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Metas" image="Goal Line" id="CkP-XL-uKE"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HRH-nQ-7Hd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="HRH-nQ-7Hd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -126,12 +126,12 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdl-F5-T7w">
                                                 <rect key="frame" x="348" y="23" width="19" height="22"/>
-                                                <state key="normal" image="+"/>
+                                                <state key="normal" image="add"/>
                                                 <connections>
                                                     <segue destination="A8p-aa-tlV" kind="show" id="QWb-1d-dff"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="bG8-UR-C6X">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="bG8-UR-C6X">
                                                 <rect key="frame" x="153" y="24" width="68" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="0A6-Ku-EaI"/>
@@ -238,7 +238,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="GwY-sF-HFF"/>
                                                 </constraints>
-                                                <state key="normal" title="esq." image="leftIcon2x"/>
+                                                <state key="normal" title="esq." image="leftIconCalendar"/>
                                                 <state key="selected" title="esq."/>
                                                 <connections>
                                                     <action selector="moveToPreviousMonth" destination="aEo-xe-HBL" eventType="touchUpInside" id="583-ug-X8o"/>
@@ -259,7 +259,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="kzT-TE-kb7"/>
                                                 </constraints>
-                                                <state key="normal" title="dir." image="rightIcon2x"/>
+                                                <state key="normal" image="rightIconCalendar"/>
                                                 <connections>
                                                     <action selector="moveToNextMonth" destination="aEo-xe-HBL" eventType="touchUpInside" id="d4W-cd-uCl"/>
                                                 </connections>
@@ -578,13 +578,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="+" width="19" height="20"/>
         <image name="Calendar Line" width="26" height="26"/>
         <image name="Goal Line" width="26" height="26"/>
-        <image name="Pengo" width="69" height="21"/>
         <image name="Subjects Fill" width="26" height="26"/>
-        <image name="leftIcon2x" width="14" height="22"/>
+        <image name="add" width="19" height="20"/>
+        <image name="leftIconCalendar" width="7" height="11"/>
         <image name="list [#1496]" width="20" height="15"/>
-        <image name="rightIcon2x" width="14" height="22"/>
+        <image name="pengoWhite" width="69" height="21"/>
+        <image name="rightIconCalendar" width="7" height="11"/>
     </resources>
 </document>

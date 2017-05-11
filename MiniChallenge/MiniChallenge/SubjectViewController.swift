@@ -124,7 +124,7 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.subjectColorLabel.backgroundColor = subjects[indexPath.row].color
        
         
-        let deleteButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "10")!)) {
+        let deleteButton = MGSwipeButton(title: "          ", backgroundColor: UIColor(patternImage: UIImage(named: "delete")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
             self.subjects.remove(at: indexPath.row)
@@ -138,7 +138,7 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
        
-        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "11")!)) {
+        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
             print("Something has to happen")
