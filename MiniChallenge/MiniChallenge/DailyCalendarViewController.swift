@@ -211,7 +211,7 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         
         cell.activityLabel.text = correspondentActivity.title
         //cell.colorLabel.backgroundColor? = correspondentActivity.subject.color
-        cell.subjectLabel.text = correspondentActivity.subject.title
+        cell.subjectLabel.text = correspondentActivity.subject?.title
         
         
         cell.timeLabel.text = "\(hour):"+"\(minutes)"
