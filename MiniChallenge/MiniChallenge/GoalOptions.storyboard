@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home Goal View Controller-->
+        <scene sceneID="cy2-pq-r87">
+            <objects>
+                <viewController storyboardIdentifier="First" useStoryboardIdentifierAsRestorationIdentifier="YES" id="73U-ox-Kwp" customClass="HomeGoalViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NKl-wJ-w1X"/>
+                        <viewControllerLayoutGuide type="bottom" id="Iik-s6-FWu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vpG-G8-Yss">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qef-2G-cGA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="UJp-9Q-NgS">
+                                        <rect key="frame" x="153.5" y="32" width="69" height="21"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vamos organizar suas disciplinas" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLE-pv-FgX">
+                                        <rect key="frame" x="80.5" y="56" width="214" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40459585190000003" green="0.41695094110000003" blue="0.89097839590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="vLE-pv-FgX" firstAttribute="centerX" secondItem="qef-2G-cGA" secondAttribute="centerX" id="BJW-gy-cvx"/>
+                                    <constraint firstItem="vLE-pv-FgX" firstAttribute="top" secondItem="UJp-9Q-NgS" secondAttribute="bottom" constant="3" id="Xb8-DD-7eX"/>
+                                    <constraint firstItem="UJp-9Q-NgS" firstAttribute="top" secondItem="qef-2G-cGA" secondAttribute="top" constant="32" id="ejI-bF-sxd"/>
+                                    <constraint firstAttribute="bottom" secondItem="vLE-pv-FgX" secondAttribute="bottom" constant="27" id="rmL-8u-wXU"/>
+                                    <constraint firstItem="UJp-9Q-NgS" firstAttribute="centerX" secondItem="qef-2G-cGA" secondAttribute="centerX" id="wB5-81-cqV"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6f-zy-VcR">
+                                <rect key="frame" x="0.0" y="110" width="375" height="111"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="111" id="Qml-ZC-YuZ"/>
+                                </constraints>
+                                <state key="normal" image="studyForExamButton" backgroundImage="createSubjectButton">
+                                    <color key="titleColor" red="0.24964994190000001" green="0.062413342300000001" blue="0.2381774187" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hd3-U5-hFT">
+                                <rect key="frame" x="0.0" y="236" width="375" height="111"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="111" id="1sD-sC-7Se"/>
+                                </constraints>
+                                <state key="normal" image="startANewProjectButton"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDw-XQ-ZYG">
+                                <rect key="frame" x="0.0" y="362" width="375" height="111"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="111" id="nBd-Ef-Gef"/>
+                                </constraints>
+                                <state key="normal" image="readABookButton"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwr-5A-Rsg">
+                                <rect key="frame" x="0.0" y="488" width="375" height="111"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="111" id="bOm-eH-QnE"/>
+                                </constraints>
+                                <state key="normal" image="customGoalButton"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qDw-XQ-ZYG" firstAttribute="top" secondItem="Hd3-U5-hFT" secondAttribute="bottom" constant="15" id="5gh-ND-pII"/>
+                            <constraint firstItem="qef-2G-cGA" firstAttribute="top" secondItem="NKl-wJ-w1X" secondAttribute="bottom" constant="-20" id="FVI-S9-HLM"/>
+                            <constraint firstItem="b6f-zy-VcR" firstAttribute="top" secondItem="qef-2G-cGA" secondAttribute="bottom" constant="10" id="HvT-VW-7U8"/>
+                            <constraint firstItem="b6f-zy-VcR" firstAttribute="leading" secondItem="vpG-G8-Yss" secondAttribute="leadingMargin" constant="-16" id="LL3-Kn-8JN"/>
+                            <constraint firstItem="b6f-zy-VcR" firstAttribute="centerX" secondItem="qef-2G-cGA" secondAttribute="centerX" id="NEd-5S-nsv"/>
+                            <constraint firstItem="Hd3-U5-hFT" firstAttribute="leading" secondItem="vpG-G8-Yss" secondAttribute="leadingMargin" constant="-16" id="Nu5-7P-cV7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qef-2G-cGA" secondAttribute="trailing" constant="-16" id="Pgh-AI-H6T"/>
+                            <constraint firstItem="bwr-5A-Rsg" firstAttribute="top" secondItem="qDw-XQ-ZYG" secondAttribute="bottom" constant="15" id="VSI-3A-L7A"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bwr-5A-Rsg" secondAttribute="trailing" constant="-16" id="XEw-B4-xkn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qDw-XQ-ZYG" secondAttribute="trailing" constant="-16" id="bfP-SO-brR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="b6f-zy-VcR" secondAttribute="trailing" constant="-16" id="hzG-Gf-GYm"/>
+                            <constraint firstItem="Hd3-U5-hFT" firstAttribute="top" secondItem="b6f-zy-VcR" secondAttribute="bottom" constant="15" id="kWe-xn-MYy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Hd3-U5-hFT" secondAttribute="trailing" constant="-16" id="nyH-V3-6nt"/>
+                            <constraint firstItem="qDw-XQ-ZYG" firstAttribute="leading" secondItem="vpG-G8-Yss" secondAttribute="leadingMargin" constant="-16" id="oui-jT-Kh1"/>
+                            <constraint firstItem="qef-2G-cGA" firstAttribute="leading" secondItem="vpG-G8-Yss" secondAttribute="leadingMargin" constant="-16" id="rKq-bX-7St"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hz7-D3-81v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10" y="77"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Pengo" width="69" height="21"/>
+        <image name="createSubjectButton" width="375" height="125"/>
+        <image name="customGoalButton" width="375" height="107"/>
+        <image name="readABookButton" width="375" height="110"/>
+        <image name="startANewProjectButton" width="375" height="113"/>
+        <image name="studyForExamButton" width="375" height="111"/>
+    </resources>
+</document>
