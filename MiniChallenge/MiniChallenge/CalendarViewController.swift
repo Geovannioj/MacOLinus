@@ -187,11 +187,26 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
     func sortActivities() -> [Reminder]{
         
-        activities = SingletonActivity.sharedInstance.tasks
+        activities = getToDoAndPostponedActivities(activities: SingletonActivity.sharedInstance.tasks)
         
         var sortedArray : [Reminder] = []
         sortedArray = activities.sorted(by: { $0.time.compare($1.time) == ComparisonResult.orderedAscending})
         return sortedArray
+    }
+    
+    func getToDoAndPostponedActivities(activities: [Reminder]) -> [Reminder]{
+        
+        var toDoActivities: [Reminder] = []
+        
+        for activity in activities{
+            
+            //get toDo or postponed Activities(status = 0 || status == 2)
+            if(activity.status == 0 || activity.status == 2){
+                toDoActivities.append(activity)
+            }
+        }
+        
+        return toDoActivities
     }
     
     // MARK: - Table View delegate methods
