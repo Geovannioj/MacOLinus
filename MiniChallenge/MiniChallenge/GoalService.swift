@@ -6,30 +6,17 @@
 //  Copyright © 2017 Luis Gustavo Avelino de Lima Jacinto. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-class GoalService: UIViewController {
+class GoalService {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
+    var user_goals  = [Goal]()
+    var user_goal = Goal()
+    
+    static let sharedInstance = GoalService()
+    
+    private init() {
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
-
 }

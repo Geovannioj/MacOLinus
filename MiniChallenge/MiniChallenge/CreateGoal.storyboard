@@ -18,7 +18,7 @@
         <!--Create Goal-->
         <scene sceneID="nTh-Ph-7ah">
             <objects>
-                <viewController storyboardIdentifier="CreateGoal" id="wAH-rk-qZ8" customClass="CreateGoal" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wAH-rk-qZ8" customClass="CreateGoal" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7oB-VV-HEK"/>
                         <viewControllerLayoutGuide type="bottom" id="7uy-cr-6yV"/>
@@ -45,7 +45,7 @@
                                 <color key="highlightedColor" red="0.98884028199999996" green="0.83359497790000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mv8-SF-fGg">
-                                <rect key="frame" x="0.0" y="135.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="136.5" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="1" green="0.47842687369999998" blue="0.4926418662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -56,8 +56,12 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tW-Ek-7yf">
-                                <rect key="frame" x="302" y="189.5" width="44" height="44"/>
+                                <rect key="frame" x="302" y="190.5" width="44" height="44"/>
                                 <state key="normal" image="yellowButton"/>
+                                <connections>
+                                    <action selector="userGoalTitleCreated:" destination="wAH-rk-qZ8" eventType="touchUpInside" id="FmO-Qc-EbM"/>
+                                    <segue destination="qnO-Xb-FQ5" kind="show" id="BBv-qK-ecd"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="15g-s1-iSv">
                                 <rect key="frame" x="153.5" y="32" width="68" height="21"/>
@@ -94,10 +98,21 @@
                             <constraint firstItem="ogE-aJ-O3H" firstAttribute="top" secondItem="Xt1-dX-gBb" secondAttribute="bottom" constant="32" id="u6w-hm-Bhh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="UserGoalFIeld" destination="mv8-SF-fGg" id="XXs-QN-Fiv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N08-Qh-3wA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1258" y="919"/>
+        </scene>
+        <!--GoalCreated-->
+        <scene sceneID="I5P-6m-J7o">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="nada" storyboardName="GoalCreated" id="qnO-Xb-FQ5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0kD-88-0XQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1872" y="919"/>
         </scene>
     </scenes>
     <resources>
