@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="emF-TZ-jQX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="emF-TZ-jQX">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -142,10 +142,18 @@
             </objects>
             <point key="canvasLocation" x="531.8840579710145" y="122.28260869565219"/>
         </scene>
+        <!--ChooseSubjectController-->
+        <scene sceneID="BcA-Av-YiY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="ChooseSubjectController" id="f1R-aA-iiO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qM9-Lt-5ya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1446" y="-430"/>
+        </scene>
         <!--Subject View Controller-->
         <scene sceneID="AGX-hs-PUR">
             <objects>
-                <viewController storyboardIdentifier="subjectCreate" id="qkJ-zu-Z48" customClass="SubjectViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SubjectViewController" id="qkJ-zu-Z48" customClass="SubjectViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RZH-5g-QJm"/>
                         <viewControllerLayoutGuide type="bottom" id="KSV-bS-ztL"/>
@@ -154,12 +162,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mW-gY-DCc">
-                                <rect key="frame" x="30" y="49" width="79" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual  sua matéria?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1p-d9-gLV">
                                 <rect key="frame" x="40" y="89" width="293" height="28"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
@@ -202,31 +204,42 @@
                                     <constraint firstAttribute="width" constant="69" id="w01-rl-GGS"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80O-at-SGX">
+                                <rect key="frame" x="27" y="44" width="51" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.0084866751269999999" green="0.0084866751269999999" blue="0.0084866751269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToPreviousScreen:" destination="qkJ-zu-Z48" eventType="touchUpInside" id="N2G-gA-5z7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="J1p-d9-gLV" firstAttribute="leading" secondItem="N88-Cg-RE6" secondAttribute="leadingMargin" constant="20" id="2nf-2d-RuM"/>
+                            <constraint firstItem="80O-at-SGX" firstAttribute="leading" secondItem="N88-Cg-RE6" secondAttribute="leadingMargin" constant="7" id="5XW-fA-YZn"/>
                             <constraint firstItem="exJ-fG-4MQ" firstAttribute="leading" secondItem="N88-Cg-RE6" secondAttribute="leadingMargin" constant="286" id="8jD-PX-S3c"/>
                             <constraint firstItem="gVv-qh-2Al" firstAttribute="top" secondItem="J1p-d9-gLV" secondAttribute="bottom" constant="17.666666666666671" id="BPi-5d-kr9"/>
+                            <constraint firstItem="2eA-C1-RZJ" firstAttribute="top" secondItem="80O-at-SGX" secondAttribute="bottom" constant="24" id="DY0-l5-vLk"/>
                             <constraint firstItem="J1p-d9-gLV" firstAttribute="leading" secondItem="2eA-C1-RZJ" secondAttribute="trailing" constant="5" id="ELE-bf-ujc"/>
                             <constraint firstItem="gVv-qh-2Al" firstAttribute="leading" secondItem="N88-Cg-RE6" secondAttribute="leadingMargin" constant="-16" id="IeL-7Q-l3S"/>
                             <constraint firstItem="SLL-OC-xRP" firstAttribute="centerX" secondItem="N88-Cg-RE6" secondAttribute="centerX" id="OZZ-lE-9H3"/>
-                            <constraint firstItem="6mW-gY-DCc" firstAttribute="leading" secondItem="N88-Cg-RE6" secondAttribute="leadingMargin" constant="10" id="PPC-dk-C7P"/>
-                            <constraint firstItem="2eA-C1-RZJ" firstAttribute="top" secondItem="6mW-gY-DCc" secondAttribute="bottom" constant="32" id="Rrd-qq-mqE"/>
                             <constraint firstItem="exJ-fG-4MQ" firstAttribute="top" secondItem="gVv-qh-2Al" secondAttribute="bottom" constant="10" id="S2T-pD-blU"/>
-                            <constraint firstItem="J1p-d9-gLV" firstAttribute="top" secondItem="6mW-gY-DCc" secondAttribute="bottom" constant="23" id="Z0N-Lr-5hK"/>
+                            <constraint firstItem="80O-at-SGX" firstAttribute="top" secondItem="RZH-5g-QJm" secondAttribute="bottom" constant="24" id="THu-U7-Sdv"/>
                             <constraint firstItem="2eA-C1-RZJ" firstAttribute="leading" secondItem="N88-Cg-RE6" secondAttribute="leadingMargin" constant="7" id="c3s-dd-78l"/>
-                            <constraint firstItem="6mW-gY-DCc" firstAttribute="top" secondItem="RZH-5g-QJm" secondAttribute="bottom" constant="29" id="iQB-Jv-MXs"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6mW-gY-DCc" secondAttribute="trailing" constant="285" id="j4K-wg-UaO"/>
+                            <constraint firstItem="gVv-qh-2Al" firstAttribute="top" secondItem="2eA-C1-RZJ" secondAttribute="bottom" constant="29" id="pFn-MX-eHA"/>
                             <constraint firstItem="SLL-OC-xRP" firstAttribute="top" secondItem="N88-Cg-RE6" secondAttribute="topMargin" constant="32" id="qSk-hX-Ttu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="J1p-d9-gLV" secondAttribute="trailing" constant="61" id="qrS-dB-I0P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="exJ-fG-4MQ" secondAttribute="trailing" constant="13" id="rTx-3q-gIa"/>
-                            <constraint firstItem="6mW-gY-DCc" firstAttribute="top" secondItem="SLL-OC-xRP" secondAttribute="bottom" constant="-4" id="sQo-85-wQF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gVv-qh-2Al" secondAttribute="trailing" constant="-16" id="tYZ-jt-VOj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="80O-at-SGX" secondAttribute="trailing" constant="316" id="zHj-oY-BiC"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelBtn" destination="80O-at-SGX" id="xcu-au-239"/>
                         <outlet property="subjectTextField" destination="gVv-qh-2Al" id="kBp-6e-bPc"/>
+                        <segue destination="emF-TZ-jQX" kind="show" identifier="BackToHomeSubject" id="z7q-c8-aAL"/>
+                        <segue destination="f1R-aA-iiO" kind="show" identifier="BackToSubjectChoice" id="HD6-1y-XvZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyL-tR-ytr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -278,11 +291,11 @@
                                 <rect key="frame" x="306" y="188" width="75" height="44"/>
                                 <state key="normal" image="redButton"/>
                                 <connections>
-                                    <segue destination="emF-TZ-jQX" kind="show" id="6aD-lz-lvd"/>
+                                    <action selector="nextScreen:" destination="Lgz-FB-6bO" eventType="touchUpInside" id="kme-J4-7Ha"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="kS9-AG-E3M">
-                                <rect key="frame" x="173" y="32" width="69" height="21"/>
+                                <rect key="frame" x="172.66666666666666" y="32" width="69" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="69" id="2Fz-Q3-0DL"/>
                                 </constraints>
@@ -321,11 +334,21 @@
                     </view>
                     <connections>
                         <outlet property="subjectCreatedLabel" destination="0Cn-XR-qKx" id="1da-IC-K9u"/>
+                        <segue destination="jXn-LI-9wC" kind="show" identifier="GoToSubjectChoice" id="YLd-dq-cTR"/>
+                        <segue destination="emF-TZ-jQX" kind="show" identifier="GoToHomeSubject" id="HZs-5e-kjN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ecx-Wk-FnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2382.608695652174" y="122.28260869565219"/>
+        </scene>
+        <!--ChooseSubjectController-->
+        <scene sceneID="7Zc-r8-whA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="ChooseSubjectController" id="jXn-LI-9wC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e4K-7t-e55" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3254" y="122"/>
         </scene>
     </scenes>
     <resources>
@@ -335,4 +358,7 @@
         <image name="pengoBlack" width="69" height="21"/>
         <image name="redButton" width="44" height="44"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="z7q-c8-aAL"/>
+    </inferredMetricsTieBreakers>
 </document>
