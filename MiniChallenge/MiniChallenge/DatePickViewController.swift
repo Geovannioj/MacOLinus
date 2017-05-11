@@ -52,7 +52,6 @@ class DatePickViewController: UIViewController {
             
             SingletonActivity.sharedInstance.tasks.append(task)
             
-            print("Titulo:\(task.title), Matéria:\(task.subject.title), Estatus:\(task.status)")
             
             //save the task in the PList
             controlerPList.saveReminders()
@@ -62,6 +61,8 @@ class DatePickViewController: UIViewController {
             
             //clean the task reference
             SingletonActivity.sharedInstance.task = Reminder()
+            performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
+
         
         }else{
             //mensagem de erro avisnado que o horário deve ser maior que o atual

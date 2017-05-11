@@ -17,18 +17,15 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     var subjects = [Subject]()
     var subject: Subject?
     var activityToEdit: Reminder?
+    var persistData = PersistSubjectData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Pink Pattern.png")!)
-        let subject1 = Subject(title: "ICC")
-        let subject2 = Subject(title: "Cálculo1")
-        let subject3 = Subject(title: "IAL")
         
-        subjects.append(subject1)
-        subjects.append(subject2)
-        subjects.append(subject3)
-        
+        subjects = persistData.returnSubjects()
+    
         subjectsTableView.delegate = self
         subjectsTableView.dataSource = self
         
@@ -40,9 +37,8 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     
     @IBAction func nextScreen(_ sender: Any) {
         
-        if(( subject) != nil){
-            SingletonActivity.sharedInstance.task.subject = subject!
-        }
+     //   SingletonActivity.sharedInstance.task.subject = subject!
+        
         
     }
 
@@ -51,23 +47,23 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Subjects", for: indexPath)
         let subject = subjects[indexPath.row]
         let label = cell.viewWithTag(10) as! UILabel
+        let imageLabel = cell.viewWithTag(3) as! UILabel
+        
+        imageLabel.backgroundColor = subjects[indexPath.row].color
         label.text = subject.title
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let reminder = activityToEdit{
-            subjects[indexPath.row] = reminder.subject
-        }else{
-            subject = subjects[indexPath.row]
-            nextScreenBtn.isEnabled = true
-        }
         
-
+        //subject = subjects[indexPath.row]
+        SingletonActivity.sharedInstance.task.subject = subjects[indexPath.row]
+        nextScreenBtn.isEnabled = true
+    
     }
 }
-
