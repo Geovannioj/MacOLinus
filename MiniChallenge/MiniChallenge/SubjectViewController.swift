@@ -5,9 +5,11 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var subjects = [Subject]()
     let subjectTitleLabel = ""
+    var segueData:String?
 
     @IBOutlet weak var subjectTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var cancelBtn: UIButton!
   
     
     override func viewDidLoad() {
@@ -80,6 +82,17 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
             saveSubjects()
         }
         
+    }
+    
+    @IBAction func backToPreviousScreen(_ sender: Any){
+        
+        if segueData == "GoToAddSubject"{
+            
+            performSegue(withIdentifier: "BackToSubjectChoice", sender: Any?.self)
+            
+        }else{
+            performSegue(withIdentifier: "BackToHomeSubject", sender: Any?.self)
+        }
     }
     
     // MARK: - Presents subjects
@@ -247,6 +260,7 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             if let toViewController = segue.destination as? TempController {
                 toViewController.data = subjectTextField.text!
+                toViewController.segueData = segueData
             }
         }
     }

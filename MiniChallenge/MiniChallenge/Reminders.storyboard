@@ -121,7 +121,7 @@
         <!--Choose Subject Controller-->
         <scene sceneID="5Kl-YB-Byx">
             <objects>
-                <viewController id="Vf9-vm-COU" customClass="ChooseSubjectController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChooseSubjectController" id="Vf9-vm-COU" customClass="ChooseSubjectController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Iu8-hy-eYD"/>
                         <viewControllerLayoutGuide type="bottom" id="n5p-PL-TJZ"/>
@@ -140,7 +140,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YaB-pv-qQp">
-                                <rect key="frame" x="0.0" y="333" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="382" width="375" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Essa tarefa não precisa de disciplina">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -150,7 +150,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TfV-mc-6ec">
-                                <rect key="frame" x="0.0" y="158" width="375" height="107"/>
+                                <rect key="frame" x="0.0" y="158" width="375" height="156"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Subjects" rowHeight="50" id="XWb-3t-a8K">
@@ -190,10 +190,10 @@
                                 </prototypes>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Asset 2@2x" translatesAutoresizingMaskIntoConstraints="NO" id="2o6-Wi-hyP">
-                                <rect key="frame" x="126" y="425" width="122" height="193"/>
+                                <rect key="frame" x="126" y="474" width="122" height="193"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CwR-fo-gLP">
-                                <rect key="frame" x="314" y="380" width="45" height="44"/>
+                                <rect key="frame" x="314" y="429" width="45" height="44"/>
                                 <state key="normal" image="Group 2-1"/>
                                 <connections>
                                     <action selector="nextScreen:" destination="Vf9-vm-COU" eventType="touchUpInside" id="1Vr-Hj-al4"/>
@@ -210,23 +210,23 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEa-lW-7PV">
-                                <rect key="frame" x="0.0" y="290" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="339" width="375" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Criar uma nova matéria">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uCB-1G-IAC" kind="show" id="uYE-EJ-aQU"/>
+                                    <segue destination="uCB-1G-IAC" kind="show" identifier="GoToAddSubject" id="uYE-EJ-aQU"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group-1" translatesAutoresizingMaskIntoConstraints="NO" id="XtS-F0-2gu">
-                                <rect key="frame" x="19" y="297" width="16" height="16"/>
+                                <rect key="frame" x="19" y="346" width="16" height="16"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="MfR-Su-jdz">
                                 <rect key="frame" x="153" y="12" width="69" height="21"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fuschia Copy 3" translatesAutoresizingMaskIntoConstraints="NO" id="m9T-J9-xmM">
-                                <rect key="frame" x="19" y="340" width="16" height="16"/>
+                                <rect key="frame" x="19" y="389" width="16" height="16"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -276,10 +276,10 @@
             </objects>
             <point key="canvasLocation" x="8816.7999999999993" y="-655.32233883058473"/>
         </scene>
-        <!--subjectCreate-->
+        <!--SubjectViewController-->
         <scene sceneID="tpC-5Z-e7E">
             <objects>
-                <viewControllerPlaceholder storyboardName="Subject" referencedIdentifier="subjectCreate" id="uCB-1G-IAC" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Subject" referencedIdentifier="SubjectViewController" id="uCB-1G-IAC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9VE-Ob-cK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8854" y="-170"/>
@@ -297,7 +297,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="SxQ-zA-QYO" colorLabel="IBBuiltInLabel-Gray">
-                                <rect key="frame" x="1" y="181" width="374" height="148"/>
+                                <rect key="frame" x="1" y="181" width="374" height="197"/>
                                 <color key="tintColor" red="0.99019607843137258" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <date key="date" timeIntervalSinceReferenceDate="515224016.70855498">
                                     <!--2017-04-30 05:46:56 +0000-->
@@ -310,7 +310,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szU-42-1f9">
-                                <rect key="frame" x="115" y="365" width="145" height="41"/>
+                                <rect key="frame" x="115" y="414" width="145" height="41"/>
                                 <color key="backgroundColor" red="0.23793753981590271" green="0.90572047233581543" blue="0.76773148775100708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="tintColor" red="0.94521324159999998" green="1" blue="0.94677690489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -320,10 +320,10 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Asset 2@2x" translatesAutoresizingMaskIntoConstraints="NO" id="QQ8-g0-tNy">
-                                <rect key="frame" x="126" y="425" width="122" height="193"/>
+                                <rect key="frame" x="126" y="474" width="122" height="193"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A data e hora deve ser maior que a atual " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IyC-Ji-fdI">
-                                <rect key="frame" x="24" y="323" width="312" height="21"/>
+                                <rect key="frame" x="24" y="372" width="312" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>

@@ -66,4 +66,16 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
         nextScreenBtn.isEnabled = true
     
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "GoToAddSubject" {
+            
+            if let toAddSubject = segue.destination as? SubjectViewController{
+            
+                toAddSubject.segueData = segue.identifier
+            
+            }
+        }
+    }
 }

@@ -11,8 +11,16 @@ import UIKit
 class TempController: UIViewController {
 
     var data: String = "Nada"
+    var segueData: String?
     
+    @IBOutlet weak var nextScreenBtn: UIButton!
     @IBOutlet weak var subjectCreatedLabel: UILabel!
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +66,18 @@ class TempController: UIViewController {
         imageView.center = view.center
         view.addSubview(imageView)
         self.view.sendSubview(toBack: imageView)
+    }
+    
+    @IBAction func nextScreen(_ sender: Any) {
+        
+        if segueData == "GoToAddSubject"{
+           performSegue(withIdentifier: "GoToSubjectChoice", sender: Any?.self)
+        }else{
+            performSegue(withIdentifier: "GoToHomeSubject", sender: Any?.self)
+        }
+        
+        
+        
     }
 
     
