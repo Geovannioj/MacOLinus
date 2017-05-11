@@ -56,7 +56,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         tableView.register(nib, forCellReuseIdentifier: "ActivityTableViewCell")
         
-        navigationController?.navigationBar.tintColor = redColor
+        self.navigationController?.setToolbarHidden(true, animated: false)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     
@@ -163,9 +164,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             
             if NSCalendar.current.compare(date, to: activity.time, toGranularity: .day) == ComparisonResult.orderedSame {
                 
-                containsEvent += 1
-                print(date)
-                print("Achou evento\n")
+                if activity.status == 0 || activity.status == 2{
+                     containsEvent += 1
+                }
             }
         }
         

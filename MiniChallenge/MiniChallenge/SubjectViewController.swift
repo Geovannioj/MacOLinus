@@ -15,6 +15,8 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         setConfig()
         
+        self.navigationController?.isToolbarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view.
     }
 
