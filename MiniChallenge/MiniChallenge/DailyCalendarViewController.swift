@@ -40,7 +40,7 @@ class DailyCalendarViewController: UIViewController {
   }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "GoToReminders"{
+        if segue.identifier == "GoToRemindersByDaily"{
             if let goToReminders = segue.destination as? AddTitleController{
                 goToReminders.passedDate = passedDate
                 goToReminders.segueDestination = segue.identifier!

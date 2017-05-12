@@ -49,7 +49,13 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func backButton(_ sender: Any){
-        performSegue(withIdentifier: "BackToDailyCalendar", sender: Any?.self)
+        if(segueDestination == "GoToRemindersByDaily"){
+            performSegue(withIdentifier: "BackToDailyCalendar", sender: Any?.self)
+        }else if(segueDestination == "GoToRemindersByDone"){
+            performSegue(withIdentifier: "BackToDoneAndPostponed", sender: Any?.self)
+        }else if(segueDestination == "GoToRemindersByCalendar"){
+            performSegue(withIdentifier: "BackToCalendar", sender: Any?.self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

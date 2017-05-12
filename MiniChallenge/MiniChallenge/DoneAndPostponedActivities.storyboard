@@ -61,7 +61,7 @@
                                                 </constraints>
                                                 <state key="normal" title="Calendário" image="leftIconCalendarWhite"/>
                                                 <connections>
-                                                    <segue destination="Aq1-RG-bIe" kind="show" id="uSu-g8-UIi"/>
+                                                    <segue destination="Aq1-RG-bIe" kind="show" identifier="BackToDoneAndPostponed" id="uSu-g8-UIi"/>
                                                 </connections>
                                             </button>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6PT-oj-YX9">
@@ -95,7 +95,7 @@
                                                 </constraints>
                                                 <state key="normal" image="add"/>
                                                 <connections>
-                                                    <segue destination="WFz-sy-F2t" kind="presentation" id="ooB-Ft-Pzd"/>
+                                                    <segue destination="WFz-sy-F2t" kind="presentation" identifier="GoToRemindersByDone" id="ooB-Ft-Pzd"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -143,10 +143,10 @@
             </objects>
             <point key="canvasLocation" x="68" y="-3.1484257871064472"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--Reminders-->
         <scene sceneID="L4D-Ce-C8m">
             <objects>
-                <viewControllerPlaceholder id="WFz-sy-F2t" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Reminders" id="WFz-sy-F2t" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hLt-zB-LH9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="628" y="-293"/>

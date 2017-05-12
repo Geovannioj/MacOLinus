@@ -18,6 +18,14 @@
             </objects>
             <point key="canvasLocation" x="7836" y="-186"/>
         </scene>
+        <!--DoneAndPostponedActivities-->
+        <scene sceneID="h3T-au-gpL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DoneAndPostponedActivities" referencedIdentifier="DoneAndPostponedActivities" id="hjb-R8-EGT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iMh-HJ-OJm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7276" y="-1133"/>
+        </scene>
         <!--DailyCalendar-->
         <scene sceneID="YKQ-L1-Xoe">
             <objects>
@@ -25,6 +33,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kG8-wO-j0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7277" y="-905"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="v6L-w0-c69">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Calendar" id="7oc-g5-QUe" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZVd-jf-YXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7186" y="-792"/>
         </scene>
         <!--Add Title Controller-->
         <scene sceneID="g5M-dr-pDt">
@@ -122,6 +138,8 @@
                         <outlet property="emptyTitleLavel" destination="2l9-bT-Nqi" id="32V-6t-Cfq"/>
                         <outlet property="taskTitleTextField" destination="Ltg-Ht-a4i" id="OX6-td-wfu"/>
                         <segue destination="Vf9-vm-COU" kind="show" identifier="SubjectChoiceScreen" id="pUI-ai-LEt"/>
+                        <segue destination="hjb-R8-EGT" kind="show" identifier="BackToDoneAndPostponed" id="9kP-Fq-NPY"/>
+                        <segue destination="7oc-g5-QUe" kind="show" identifier="BackToCalendar" id="GJG-eS-Xee"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cF6-3p-Igc" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -61,6 +61,16 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "GoToRemindersByDone"{
+            if let goToReminders = segue.destination as? AddTitleController{
+                goToReminders.segueDestination = segue.identifier!
+            }
+        }
+    }
+    
 
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         self.activitiesTableView.reloadData()
