@@ -8,12 +8,15 @@
 
 import UIKit
 
-class CreateGoal: UIViewController {
 
+
+class CreateGoal: UIViewController {
+    
+    
+    var goalType: String  = ""
+
+    @IBOutlet weak var createSpecficGoal: UILabel!
     @IBOutlet weak var UserGoalFIeld: UITextField!
-    
-    var userGoals: [Goal] = GoalService.sharedInstance.user_goals
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,8 @@ class CreateGoal: UIViewController {
         
         assignBlackStatusBar()
         assignBackground()
+        
+        createSpecficGoal.text = goalType
         
     }
     
@@ -62,49 +67,14 @@ class CreateGoal: UIViewController {
         
         let newUserGoal = Goal()
         
-        if UserGoalFIeld.text != "" {
-        
-            newUserGoal.title = UserGoalFIeld.text!
-            GoalService.sharedInstance.user_goal = newUserGoal
+        if !(UserGoalFIeld.text?.isEmpty)! {
             
+            newUserGoal.title = goalType + " " + UserGoalFIeld.text!
+            GoalService.sharedInstance.user_goal = newUserGoal
         }
-    
-    }
-    
-    // MARK: - Persist User goals data
-    
-    func saveUserGoals() {
         
-        let data = NSMutableData()
-        let archiver = NSKeyedArchiver(forWritingWith: data)
-        
-        archiver.encode(userGoals, forKey: "UserGoals")
-        archiver.finishEncoding()
-        
-        data.write(to: dataFilePath(), atomically: true)
-    }
+        performSegue(withIdentifier: "goalSaved", sender: Any?.self)
     
-    func loadUserGoals() {
-        let path = dataFilePath()
-        
-        if let data = try? Data(contentsOf: path){
-            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
-            userGoals = unarchiver.decodeObject(forKey: "UserGoals") as! [Goal]
-            unarchiver.finishDecoding()
-        }
     }
-    
-    func documentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    
-    
-    func dataFilePath() -> URL {
-        return documentsDirectory().appendingPathComponent("UserGoals.plist")
-    }
-
-
-
 
 }

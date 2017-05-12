@@ -60,7 +60,6 @@
                                 <state key="normal" image="yellowButton"/>
                                 <connections>
                                     <action selector="userGoalTitleCreated:" destination="wAH-rk-qZ8" eventType="touchUpInside" id="FmO-Qc-EbM"/>
-                                    <segue destination="qnO-Xb-FQ5" kind="show" id="BBv-qK-ecd"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="15g-s1-iSv">
@@ -100,6 +99,8 @@
                     </view>
                     <connections>
                         <outlet property="UserGoalFIeld" destination="mv8-SF-fGg" id="XXs-QN-Fiv"/>
+                        <outlet property="createSpecficGoal" destination="w1c-BM-pS3" id="KjZ-hp-hEh"/>
+                        <segue destination="qnO-Xb-FQ5" kind="show" identifier="goalSaved" id="Auq-7o-IAu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N08-Qh-3wA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -109,10 +110,10 @@
         <!--GoalCreated-->
         <scene sceneID="I5P-6m-J7o">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="nada" storyboardName="GoalCreated" id="qnO-Xb-FQ5" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0kD-88-0XQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="nada" storyboardName="GoalCreated" id="qnO-Xb-FQ5" sceneMemberID="viewController"/>
             </objects>
-            <point key="canvasLocation" x="1872" y="919"/>
+            <point key="canvasLocation" x="2139" y="918"/>
         </scene>
     </scenes>
     <resources>
