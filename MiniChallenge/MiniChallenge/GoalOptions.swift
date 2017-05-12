@@ -21,6 +21,42 @@ class GoalOptions: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "studyForTest" {
+            
+            if let toCreateUserGoal = segue.destination as? CreateGoal {
+                toCreateUserGoal.goalType = "Estudar para a prova"
+            }
+        } else if segue.identifier == "startAProject" {
+            if let toCreateUserGoal = segue.destination as? CreateGoal {
+                toCreateUserGoal.goalType = "Começar o projeto"
+            }
+            
+        } else if segue.identifier == "readABook" {
+            if let toCreateUserGoal = segue.destination as? CreateGoal {
+                toCreateUserGoal.goalType = "Ler o Livro"
+            }
+        }
+    }
 
+    @IBAction func studyForTestPressed(_ sender: Any) {
+        performSegue(withIdentifier: "studyForTest", sender: Any?.self)
+    }
+
+    @IBAction func startingAProjectPressed(_ sender: Any) {
+        performSegue(withIdentifier: "startAProject", sender: Any?.self)
+    }
+
+    @IBAction func readABookPressed(_ sender: Any) {
+        performSegue(withIdentifier: "readABook", sender: Any?.self)
+    }
+    
+    @IBAction func customGoalPressed(_ sender: Any) {
+        performSegue(withIdentifier: "createANewGoal", sender: Any?.self)
+    }
+    
+    
 
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="73U-ox-Kwp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home Goal View Controller-->
+        <!--Goal Options-->
         <scene sceneID="cy2-pq-r87">
             <objects>
-                <viewController storyboardIdentifier="First" useStoryboardIdentifierAsRestorationIdentifier="YES" id="73U-ox-Kwp" customClass="HomeGoalViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="First" useStoryboardIdentifierAsRestorationIdentifier="YES" id="73U-ox-Kwp" customClass="GoalOptions" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NKl-wJ-w1X"/>
                         <viewControllerLayoutGuide type="bottom" id="Iik-s6-FWu"/>
@@ -52,6 +52,9 @@
                                 <state key="normal" image="studyForExamButton" backgroundImage="createSubjectButton">
                                     <color key="titleColor" red="0.24964994190000001" green="0.062413342300000001" blue="0.2381774187" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="studyForTestPressed:" destination="73U-ox-Kwp" eventType="touchUpInside" id="RGE-vX-fwb"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hd3-U5-hFT">
                                 <rect key="frame" x="0.0" y="236" width="375" height="111"/>
@@ -59,6 +62,9 @@
                                     <constraint firstAttribute="height" constant="111" id="1sD-sC-7Se"/>
                                 </constraints>
                                 <state key="normal" image="startANewProjectButton"/>
+                                <connections>
+                                    <action selector="startingAProjectPressed:" destination="73U-ox-Kwp" eventType="touchUpInside" id="l0n-1T-mfI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDw-XQ-ZYG">
                                 <rect key="frame" x="0.0" y="362" width="375" height="111"/>
@@ -66,6 +72,9 @@
                                     <constraint firstAttribute="height" constant="111" id="nBd-Ef-Gef"/>
                                 </constraints>
                                 <state key="normal" image="readABookButton"/>
+                                <connections>
+                                    <action selector="readABookPressed:" destination="73U-ox-Kwp" eventType="touchUpInside" id="Mbu-1a-kto"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwr-5A-Rsg">
                                 <rect key="frame" x="0.0" y="488" width="375" height="111"/>
@@ -73,6 +82,9 @@
                                     <constraint firstAttribute="height" constant="111" id="bOm-eH-QnE"/>
                                 </constraints>
                                 <state key="normal" image="customGoalButton"/>
+                                <connections>
+                                    <action selector="customGoalPressed:" destination="73U-ox-Kwp" eventType="touchUpInside" id="8fM-Qr-olE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -94,10 +106,24 @@
                             <constraint firstItem="qef-2G-cGA" firstAttribute="leading" secondItem="vpG-G8-Yss" secondAttribute="leadingMargin" constant="-16" id="rKq-bX-7St"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="vv8-0I-LbM" kind="show" identifier="studyForTest" id="MFc-WA-uaK"/>
+                        <segue destination="vv8-0I-LbM" kind="show" identifier="startAProject" id="GbF-89-Jwk"/>
+                        <segue destination="vv8-0I-LbM" kind="show" identifier="readABook" id="nsm-w4-xsX"/>
+                        <segue destination="vv8-0I-LbM" kind="show" identifier="customGoal" id="saa-C2-tK3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hz7-D3-81v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10" y="77"/>
+            <point key="canvasLocation" x="-334" y="102"/>
+        </scene>
+        <!--CreateGoal-->
+        <scene sceneID="XZw-h8-SGJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateGoal" id="vv8-0I-LbM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0vO-pz-IR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="392" y="-22"/>
         </scene>
     </scenes>
     <resources>
@@ -108,4 +134,7 @@
         <image name="startANewProjectButton" width="375" height="113"/>
         <image name="studyForExamButton" width="375" height="111"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="nsm-w4-xsX"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -10,7 +10,6 @@ import Foundation
 
 class GoalService {
 
-    
     var user_goals  = [Goal]()
     var user_goal = Goal()
     
