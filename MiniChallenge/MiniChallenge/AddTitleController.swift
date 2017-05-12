@@ -13,10 +13,12 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nextScreen: UIButton!
     @IBOutlet weak var taskTitleTextField: UITextField!
     @IBOutlet weak var emptyTitleLavel: UILabel!
-    
+    @IBOutlet weak var backButton: UIButton!
     
     var taskTitle: String = ""
     var activityToEdit: Reminder?
+    var segueDestination: String = ""
+    var passedDate : Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +45,19 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
             performSegue(withIdentifier: "SubjectChoiceScreen", sender: Any?.self)
             
         }
-        
-        
-        
+
     }
+    
+    @IBAction func backButton(_ sender: Any){
+        performSegue(withIdentifier: "BackToDailyCalendar", sender: Any?.self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "BackToDailyCalendar"{
+            if let goToDailyCalendar = segue.destination as? DailyCalendarViewController{
+                goToDailyCalendar.passedDate = passedDate
+            }
+        }
+    }
+
 }

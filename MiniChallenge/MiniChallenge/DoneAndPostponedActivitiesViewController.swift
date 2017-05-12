@@ -129,14 +129,14 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         cell.clipsToBounds = true
         
         //edit button
-        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit.png")!)) {
+        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             print("Cliquei em Edit")
             return true
         }
         
         //done button
-        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done.png")!)) {
+        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             //set status to done(=1)
             self.postponedActivities[indexPath.row].status = 1
@@ -149,7 +149,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         }
         
         //undo button
-        let undoButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "undo.png")!)) {
+        let undoButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "undo")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             //set status to toDo(=0)
             self.doneActivities[indexPath.row].status = 0
@@ -169,7 +169,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             let activity = doneActivities[indexPath.row]
             cell.activityLabel.text = activity.title
             cell.colorLabel.backgroundColor? = UIColor.blue//activity.subject.color
-            cell.iconImage.image = UIImage(named: "check.png")
+            cell.iconImage.image = UIImage(named: "check")
             
             let day = calendar.component(.day, from: activity.time)
             let month = calendar.component(.month, from: activity.time)
@@ -188,7 +188,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             let activity = postponedActivities[indexPath.row]
             cell.activityLabel.text = activity.title
             cell.colorLabel.backgroundColor = UIColor.blue//activity.subject.color
-            cell.iconImage.image = UIImage(named: "clock.png")
+            cell.iconImage.image = UIImage(named: "clockIcon")
             
             let day = calendar.component(.day, from: activity.time)
             let month = calendar.component(.month, from: activity.time)
@@ -206,16 +206,6 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         }
         return cell
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
