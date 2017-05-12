@@ -1,7 +1,141 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fgV-0O-sdI">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Home Goal-->
+        <scene sceneID="hdP-TO-T0A">
+            <objects>
+                <viewController storyboardIdentifier="First" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fgV-0O-sdI" customClass="HomeGoal" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E0C-E8-edS"/>
+                        <viewControllerLayoutGuide type="bottom" id="u4H-yx-voF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vID-gI-Li8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrI-Bk-jzW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="DEe-jD-qx5">
+                                        <rect key="frame" x="153.5" y="32" width="69" height="21"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vamos organizar suas disciplinas" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rbb-ji-MWc">
+                                        <rect key="frame" x="80.5" y="56" width="214" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.40459585190000003" green="0.41695094110000003" blue="0.89097839590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Rbb-ji-MWc" firstAttribute="centerX" secondItem="hrI-Bk-jzW" secondAttribute="centerX" id="5qr-4k-nox"/>
+                                    <constraint firstItem="DEe-jD-qx5" firstAttribute="centerX" secondItem="hrI-Bk-jzW" secondAttribute="centerX" id="QH2-S5-U1i"/>
+                                    <constraint firstItem="Rbb-ji-MWc" firstAttribute="top" secondItem="DEe-jD-qx5" secondAttribute="bottom" constant="3" id="SUN-iB-4RZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Rbb-ji-MWc" secondAttribute="bottom" constant="27" id="tfy-A0-5n4"/>
+                                    <constraint firstItem="DEe-jD-qx5" firstAttribute="top" secondItem="hrI-Bk-jzW" secondAttribute="top" constant="32" id="uai-0p-Xjy"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6E-bQ-Zux">
+                                <rect key="frame" x="0.0" y="110" width="375" height="126"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="126" id="R4n-hb-Jq8"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="createUserGoals">
+                                    <color key="titleColor" red="0.24964994190000001" green="0.062413342300000001" blue="0.2381774187" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="uTU-Y6-BPz" kind="show" id="2eA-JH-bB2"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qic-3c-32M">
+                                <rect key="frame" x="0.0" y="251" width="375" height="416"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.40459585190000003" green="0.41695094110000003" blue="0.89097839590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userGoals" rowHeight="78" id="249-Fb-11D" customClass="GoalCellsTableViewCell" customModule="MiniChallenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="78"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="249-Fb-11D" id="Tfe-lK-jv1" customClass="MGSwipeTableCell">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="77.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f55-SV-18I">
+                                                    <rect key="frame" x="47" y="18" width="195" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RaY-6n-UAy">
+                                                    <rect key="frame" x="187" y="-26" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="listIcon" translatesAutoresizingMaskIntoConstraints="NO" id="A2P-5P-6Sj">
+                                                    <rect key="frame" x="340" y="20" width="13" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="GIr-Kq-4p6">
+                                                    <rect key="frame" x="340" y="45" width="13" height="13"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="goalTitleLabel" destination="f55-SV-18I" id="UQf-H8-8HI"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="fgV-0O-sdI" id="r3h-lT-8RC"/>
+                                    <outlet property="delegate" destination="fgV-0O-sdI" id="LMY-qG-5jt"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="hrI-Bk-jzW" secondAttribute="trailing" constant="-16" id="70B-tk-OtQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qic-3c-32M" secondAttribute="trailing" constant="-16" id="Cqn-nL-gOD"/>
+                            <constraint firstItem="C6E-bQ-Zux" firstAttribute="top" secondItem="hrI-Bk-jzW" secondAttribute="bottom" constant="10" id="NuH-xI-N7Q"/>
+                            <constraint firstItem="hrI-Bk-jzW" firstAttribute="top" secondItem="E0C-E8-edS" secondAttribute="bottom" constant="-20" id="VK0-aj-pld"/>
+                            <constraint firstItem="C6E-bQ-Zux" firstAttribute="centerX" secondItem="hrI-Bk-jzW" secondAttribute="centerX" id="Vc9-RO-M59"/>
+                            <constraint firstItem="Qic-3c-32M" firstAttribute="leading" secondItem="vID-gI-Li8" secondAttribute="leadingMargin" constant="-16" id="Xdl-NQ-2Bs"/>
+                            <constraint firstItem="C6E-bQ-Zux" firstAttribute="leading" secondItem="vID-gI-Li8" secondAttribute="leadingMargin" constant="-16" id="b3F-3H-V3D"/>
+                            <constraint firstItem="u4H-yx-voF" firstAttribute="top" secondItem="Qic-3c-32M" secondAttribute="bottom" id="czu-5a-YMr"/>
+                            <constraint firstItem="hrI-Bk-jzW" firstAttribute="leading" secondItem="vID-gI-Li8" secondAttribute="leadingMargin" constant="-16" id="pDP-cC-7Qy"/>
+                            <constraint firstItem="Qic-3c-32M" firstAttribute="top" secondItem="C6E-bQ-Zux" secondAttribute="bottom" constant="15" id="qDq-Ai-L5i"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="C6E-bQ-Zux" secondAttribute="trailing" constant="-16" id="z9D-dN-jJh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Qic-3c-32M" id="Yxj-ev-APH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8xh-sy-RFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-375.36231884057975" y="122.28260869565219"/>
+        </scene>
+        <!--GoalOptions-->
+        <scene sceneID="Kys-ti-f4N">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="CreateGoal" storyboardName="GoalOptions" id="uTU-Y6-BPz" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nir-l7-wdY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="297" y="121"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Pengo" width="69" height="21"/>
+        <image name="clockIcon" width="14" height="14"/>
+        <image name="createUserGoals" width="375" height="126"/>
+        <image name="listIcon" width="13" height="13"/>
+    </resources>
 </document>

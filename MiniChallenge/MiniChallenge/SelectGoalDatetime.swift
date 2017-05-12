@@ -8,10 +8,12 @@
 
 import UIKit
 
-class SelectGoalDateTime: UIViewController {
+class SelectGoalDatetime: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setConfig()
 
         // Do any additional setup after loading the view.
     }
@@ -20,4 +22,33 @@ class SelectGoalDateTime: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func assignBlackStatusBar() {
+        
+        UIApplication.shared.statusBarStyle = .default
+        
+    }
+    
+    internal func assignBackground() {
+        
+        let background = UIImage(named: "PurplePatternWithBoy")
+        
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIViewContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubview(toBack: imageView)
+    }
+    
+    
+    func setConfig() {
+        
+        assignBlackStatusBar()
+        assignBackground()
+    
+    }
+
 }

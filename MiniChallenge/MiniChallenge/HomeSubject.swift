@@ -60,6 +60,7 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         cell.subjectTitleLabel.text = subjects[indexPath.row].title
         cell.subjectColorLabel.backgroundColor = subjects[indexPath.row].color
         
+        
         return cell
     }
     
