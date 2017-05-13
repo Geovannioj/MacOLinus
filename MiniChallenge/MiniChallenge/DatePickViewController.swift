@@ -52,7 +52,6 @@ class DatePickViewController: UIViewController {
             
             SingletonActivity.sharedInstance.tasks.append(task)
             
-            
             //save the task in the PList
             controlerPList.saveReminders()
             
@@ -60,7 +59,7 @@ class DatePickViewController: UIViewController {
             self.navigationController?.popToRootViewController(animated: true)
             
             //clean the task reference
-            //SingletonActivity.sharedInstance.task = Reminder()
+            SingletonActivity.sharedInstance.task = Reminder()
             performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
 
         

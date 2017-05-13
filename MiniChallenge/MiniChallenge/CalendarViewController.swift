@@ -37,6 +37,12 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     var currentDate : NSDate? = nil
     let formatter = DateFormatter()
     var numberOfRows = 6
+    
+    //Data to be Passed to the edit screen
+    var subjectTitle: String = ""
+    var activityTitle: String = ""
+    var activityTime: String = ""
+    var sendActivity = Reminder()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -272,16 +278,19 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         return resultString
     }
     
+    
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
         
         let editButton = MGSwipeButton(title:"          ", backgroundColor: UIColor(patternImage: UIImage(named: "edit.png")!)){
             (sender: MGSwipeTableCell!) -> Bool in
             
+            self.performSegue(withIdentifier: "EditActivityController", sender: tableView)
+            
             return true
         }
-        
-        let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
         
         let activity = activities[indexPath.row]
         
@@ -312,9 +321,16 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         cell.layer.borderColor = redColor.cgColor
         cell.layer.borderWidth = 1
         cell.clipsToBounds = true
+    
+        //set data to be passed
+        sendActivity = activity
+        activityTitle = activity.title
+        subjectTitle = (activity.subject?.title)!
+        activityTime = maskTime(hour: hour, minutes: minutes)
         
         cell.leftButtons = [editButton]
         cell.leftSwipeSettings.transition = .border
+        
         
         return cell
 
@@ -472,7 +488,22 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
                 destination.passedDate = sender as? Date
                 print("Sent date: \(String(describing: sender))")
             }
+        }else if segue.identifier == "EditActivityController"{
+            
+            if let goToEditScreen = segue.destination as? EditActivityController{
+            
+                goToEditScreen.activityPassed = sendActivity
+                
+                goToEditScreen.dataPassed.append(activityTitle)
+                
+                goToEditScreen.dataPassed.append(subjectTitle)
+            
+                goToEditScreen.dataPassed.append(activityTime)
+                
+          }
         }
+
+        
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {

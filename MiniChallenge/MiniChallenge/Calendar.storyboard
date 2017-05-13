@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ChX-vs-g5L">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ChX-vs-g5L">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,7 +41,7 @@
             <objects>
                 <navigationController id="oCN-wo-Jxa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Metas" image="Goal Line" id="CkP-XL-uKE"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HRH-nQ-7Hd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="HRH-nQ-7Hd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -73,13 +73,21 @@
             </objects>
             <point key="canvasLocation" x="-912" y="1270"/>
         </scene>
+        <!--EditActivityController-->
+        <scene sceneID="mqy-QQ-TVJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditActivity" referencedIdentifier="EditActivityController" id="eul-24-uXC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gTS-9L-vqn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-59" y="-471"/>
+        </scene>
         <!--Reminders-->
         <scene sceneID="gJ7-5j-PaC">
             <objects>
                 <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="Reminders" id="A8p-aa-tlV" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCc-GE-P0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-41" y="-705"/>
+            <point key="canvasLocation" x="-112" y="-413"/>
         </scene>
         <!--DoneAndPostponedActivities-->
         <scene sceneID="x3p-Mi-6Uo">
@@ -87,7 +95,7 @@
                 <viewControllerPlaceholder storyboardName="DoneAndPostponedActivities" referencedIdentifier="DoneAndPostponedActivities" id="Kaw-xl-6FA" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tHr-fG-WmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="101" y="-633"/>
+            <point key="canvasLocation" x="-22" y="-349"/>
         </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="WA6-Fd-ru4">
@@ -377,6 +385,7 @@
                         <outlet property="monthLabel" destination="Yar-LH-WdO" id="IwA-gL-cWv"/>
                         <outlet property="tableView" destination="tUp-CP-odA" id="TfX-IV-DvF"/>
                         <segue destination="1iM-yx-1oJ" kind="presentation" identifier="goToDailyCalendar" modalTransitionStyle="coverVertical" id="qpD-Nh-DIM"/>
+                        <segue destination="eul-24-uXC" kind="show" identifier="EditActivityController" id="Nic-78-0pC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cff-D3-dVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -555,7 +564,7 @@
                     </subviews>
                 </stackView>
             </objects>
-            <point key="canvasLocation" x="365.60000000000002" y="-202.84857571214394"/>
+            <point key="canvasLocation" x="1534" y="-228"/>
         </scene>
         <!--Disciplinas-->
         <scene sceneID="rlg-cS-hpB">
