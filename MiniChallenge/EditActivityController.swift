@@ -16,13 +16,17 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var doneBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    var cellText = ["Matéria", "Tarefa", "Horário"]
+    var cellText = ["Tarefa", "Matéria", "Horário"]
     var dataPassed = [String]()
+    var storageData = [String]()
     var activityPassed = Reminder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Pink Pattern.pgn")!)
+        
+        storageData = dataPassed
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -51,7 +55,7 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
         txt.text = cellText[indexPath.row]
         
         let recivedData = cell.viewWithTag(21) as! UILabel
-        recivedData.text = dataPassed[indexPath.row]
+        recivedData.text = storageData[indexPath.row]
         
         return cell
     }
@@ -59,15 +63,15 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.row == 0{
-            print("Row0")
-            self.performSegue(withIdentifier: "ChooseSubjectController", sender: tableView)
+            
+            self.performSegue(withIdentifier: "Reminders", sender: tableView)
         
         }else if indexPath.row == 1{
-            print("Row1")
-            performSegue(withIdentifier: "Reminders", sender: Any?.self)
+            
+            performSegue(withIdentifier: "ChooseSubjectController", sender: Any?.self)
         
         }else if indexPath.row == 2{
-            print("Row2")
+            
             performSegue(withIdentifier: "DatePickViewController", sender: Any?.self)
                 
         }
@@ -89,19 +93,22 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
         }else if segue.identifier == "ChooseSubjectController" {
             
             if let goToChooseSubject = segue.destination as? ChooseSubjectController{
-                
+                goToChooseSubject.activityToEdit = activityPassed
+                goToChooseSubject.segueRecived = segue.identifier!
             }
         
         }else if segue.identifier == "Reminders" {
             
-            if let gotToReminderAddTitle = segue.destination as? AddTitleController{
-                
+            if let goToReminderAddTitle = segue.destination as? AddTitleController{
+                goToReminderAddTitle.activityToEdit = activityPassed
+                goToReminderAddTitle.segueRecived = segue.identifier!
             }
             
         }else if segue.identifier == "DatePickViewController" {
             
             if let goToDatePickController = segue.destination as? DatePickViewController{
-                
+                goToDatePickController.activityToEdit = activityPassed
+                goToDatePickController.segueRecived = segue.identifier!
                 
             }
             

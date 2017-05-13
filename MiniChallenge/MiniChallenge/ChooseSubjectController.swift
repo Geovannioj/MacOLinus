@@ -18,6 +18,7 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     var subject: Subject?
     var activityToEdit: Reminder?
     var persistData = PersistSubjectData()
+    var segueRecived: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

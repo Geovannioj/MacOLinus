@@ -20,6 +20,7 @@ class DatePickViewController: UIViewController {
     var taskDescription: String? = nil
     var isGrantedNotificationAccess:Bool = false
     var activityToEdit: Reminder?
+    var segueRecived: String = ""
     
 
     override func viewDidLoad() {
@@ -27,6 +28,10 @@ class DatePickViewController: UIViewController {
         
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Pink Pattern.png")!)
         datePicker.setValue(UIColor.white, forKeyPath: "textColor")
+        
+        if let activity = activityToEdit{
+            datePicker.date = (activityToEdit?.time)!
+        }
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { (granted,error) in
             self.isGrantedNotificationAccess = granted

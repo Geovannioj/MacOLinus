@@ -10,13 +10,14 @@ import UIKit
 
 class AddTitleController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var nextScreen: UIButton!
     @IBOutlet weak var taskTitleTextField: UITextField!
     @IBOutlet weak var emptyTitleLavel: UILabel!
     
-    
     var taskTitle: String = ""
     var activityToEdit: Reminder?
+    var segueRecived: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +26,20 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
         if let reminder = activityToEdit{
             taskTitleTextField.text = reminder.title
         }
+        
+        print(segueRecived)
         emptyTitleLavel.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         taskTitleTextField.becomeFirstResponder()
+    }
+    @IBAction func backButton(_ sender: Any){
+        
+        if segueRecived == "Reminders"{
+            performSegue(withIdentifier: "GoToEditScreen", sender: Any?.self)
+        }
     }
     
     @IBAction func nextScreen(_ sender: Any) {
