@@ -14,6 +14,7 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var subjectsTableView: UITableView!
     @IBOutlet weak var nextScreenBtn: UIButton!
     
+    var segueDestination: String = ""
     var subjects = [Subject]()
     var subject: Subject?
     var activityToEdit: Reminder?
@@ -69,13 +70,19 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "GoToAddSubject" {
+        /*if segue.identifier == "GoToAddSubject" {
             
             if let toAddSubject = segue.destination as? SubjectViewController{
             
                 toAddSubject.segueData = segue.identifier
             
             }
+        }*/
+        
+        print("Segue Destination:")
+        print(segueDestination)
+        if let goToChooseSubject = segue.destination as? DatePickViewController{
+            goToChooseSubject.segueDestination = segueDestination
         }
     }
 }

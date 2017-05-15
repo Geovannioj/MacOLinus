@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8FU-ka-ofJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8FU-ka-ofJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,6 +17,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v1D-kN-Ixn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7836" y="-186"/>
+        </scene>
+        <!--DoneAndPostponedActivities-->
+        <scene sceneID="h3T-au-gpL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DoneAndPostponedActivities" referencedIdentifier="DoneAndPostponedActivities" id="hjb-R8-EGT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iMh-HJ-OJm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7276" y="-1133"/>
+        </scene>
+        <!--DailyCalendar-->
+        <scene sceneID="YKQ-L1-Xoe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Calendar" referencedIdentifier="DailyCalendar" id="uiq-Xc-gyT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kG8-wO-j0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7277" y="-905"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="v6L-w0-c69">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Calendar" id="7oc-g5-QUe" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZVd-jf-YXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7186" y="-792"/>
         </scene>
         <!--Add Title Controller-->
         <scene sceneID="g5M-dr-pDt">
@@ -72,7 +96,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="9Vw-n5-eyZ" kind="show" id="2K9-PL-7ZP"/>
+                                    <action selector="backButton:" destination="8FU-ka-ofJ" eventType="touchUpInside" id="jB7-k0-o1H"/>
+                                    <segue destination="uiq-Xc-gyT" kind="show" identifier="BackToDailyCalendar" id="rsz-V2-Dmz"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="5Dk-6r-lnD">
@@ -109,9 +134,13 @@
                     <navigationItem key="navigationItem" id="KH2-Yh-lxj"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="backButton" destination="Abe-IL-Ixg" id="tGZ-u9-NRI"/>
                         <outlet property="emptyTitleLavel" destination="2l9-bT-Nqi" id="32V-6t-Cfq"/>
                         <outlet property="taskTitleTextField" destination="Ltg-Ht-a4i" id="OX6-td-wfu"/>
                         <segue destination="Vf9-vm-COU" kind="show" identifier="SubjectChoiceScreen" id="pUI-ai-LEt"/>
+                        <segue destination="hjb-R8-EGT" kind="show" identifier="BackToDoneAndPostponed" id="9kP-Fq-NPY"/>
+                        <segue destination="7oc-g5-QUe" kind="show" identifier="BackToCalendar" id="GJG-eS-Xee"/>
+                        <segue destination="Vf9-vm-COU" kind="show" identifier="GoToChooseSubjectByDaily" id="m7b-i9-LV3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cF6-3p-Igc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -157,7 +186,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XWb-3t-a8K" id="dDn-Bp-VuA">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXs-45-ese">
@@ -390,11 +419,21 @@
                         <outlet property="datePicker" destination="SxQ-zA-QYO" id="VjS-UR-r6C"/>
                         <outlet property="labelValidate" destination="IyC-Ji-fdI" id="JJT-lS-fj1"/>
                         <segue destination="Qxw-g3-Zdm" kind="show" identifier="GoToCalendar" id="QDF-E7-orA"/>
+                        <segue destination="dFI-Dq-EuP" kind="show" identifier="GoToDone" id="WEY-JE-VdJ"/>
+                        <segue destination="Cmx-6R-MHu" kind="show" identifier="GoToDaily" id="GAo-8Q-P5a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMc-Xt-9ri" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9834.3999999999996" y="-654.42278860569718"/>
+        </scene>
+        <!--DailyCalendar-->
+        <scene sceneID="3pI-Kh-ShF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Calendar" referencedIdentifier="DailyCalendar" id="Cmx-6R-MHu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cBr-Bi-7k0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10511" y="-725"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="MWz-EQ-pA7">
@@ -403,6 +442,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GoT-Fk-tSA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="10481" y="-655"/>
+        </scene>
+        <!--DoneAndPostponedActivities-->
+        <scene sceneID="WH5-48-PiE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DoneAndPostponedActivities" referencedIdentifier="DoneAndPostponedActivities" id="dFI-Dq-EuP" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oj6-8x-AAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10638" y="-523"/>
         </scene>
     </scenes>
     <resources>
@@ -415,6 +462,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="pUI-ai-LEt"/>
-        <segue reference="4gg-0r-DHA"/>
+        <segue reference="0eR-Sp-Ryf"/>
     </inferredMetricsTieBreakers>
 </document>
