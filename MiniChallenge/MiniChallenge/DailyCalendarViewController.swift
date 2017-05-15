@@ -33,6 +33,8 @@ class DailyCalendarViewController: UIViewController {
 //    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        passedDate = SingletonPassedDate.sharedInstance.passedDate
         print("Passed text: \(String(describing: passedText))")
         extenseDay.text = passedText
         
@@ -42,7 +44,6 @@ class DailyCalendarViewController: UIViewController {
         
         if segue.identifier == "GoToRemindersByDaily"{
             if let goToReminders = segue.destination as? AddTitleController{
-                goToReminders.passedDate = passedDate
                 goToReminders.segueDestination = segue.identifier!
             }
         }

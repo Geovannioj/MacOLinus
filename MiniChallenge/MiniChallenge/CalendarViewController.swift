@@ -467,7 +467,9 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
                 
                 destination.passedText?.append(formatter.string(from: sender as! Date))
                 
-                destination.passedDate = sender as? Date
+                SingletonPassedDate.sharedInstance.passedDate = (sender as? Date)!
+                
+                //destination.passedDate = sender as? Date
             }
         }
         

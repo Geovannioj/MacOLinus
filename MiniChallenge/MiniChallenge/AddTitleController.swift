@@ -18,7 +18,6 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
     var taskTitle: String = ""
     var activityToEdit: Reminder?
     var segueDestination: String = ""
-    var passedDate : Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +42,13 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
         }else{
             SingletonActivity.sharedInstance.task.title = taskTitle
             performSegue(withIdentifier: "SubjectChoiceScreen", sender: Any?.self)
-            
         }
-
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let goToChooseSubject = segue.destination as? ChooseSubjectController{
+            goToChooseSubject.segueDestination = segueDestination
+        }
     }
     
     @IBAction func backButton(_ sender: Any){
@@ -55,14 +58,6 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
             performSegue(withIdentifier: "BackToDoneAndPostponed", sender: Any?.self)
         }else if(segueDestination == "GoToRemindersByCalendar"){
             performSegue(withIdentifier: "BackToCalendar", sender: Any?.self)
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "BackToDailyCalendar"{
-            if let goToDailyCalendar = segue.destination as? DailyCalendarViewController{
-                goToDailyCalendar.passedDate = passedDate
-            }
         }
     }
 

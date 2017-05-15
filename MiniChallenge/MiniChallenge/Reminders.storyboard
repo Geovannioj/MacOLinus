@@ -140,6 +140,7 @@
                         <segue destination="Vf9-vm-COU" kind="show" identifier="SubjectChoiceScreen" id="pUI-ai-LEt"/>
                         <segue destination="hjb-R8-EGT" kind="show" identifier="BackToDoneAndPostponed" id="9kP-Fq-NPY"/>
                         <segue destination="7oc-g5-QUe" kind="show" identifier="BackToCalendar" id="GJG-eS-Xee"/>
+                        <segue destination="Vf9-vm-COU" kind="show" identifier="GoToChooseSubjectByDaily" id="m7b-i9-LV3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cF6-3p-Igc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -418,11 +419,21 @@
                         <outlet property="datePicker" destination="SxQ-zA-QYO" id="VjS-UR-r6C"/>
                         <outlet property="labelValidate" destination="IyC-Ji-fdI" id="JJT-lS-fj1"/>
                         <segue destination="Qxw-g3-Zdm" kind="show" identifier="GoToCalendar" id="QDF-E7-orA"/>
+                        <segue destination="dFI-Dq-EuP" kind="show" identifier="GoToDone" id="WEY-JE-VdJ"/>
+                        <segue destination="Cmx-6R-MHu" kind="show" identifier="GoToDaily" id="GAo-8Q-P5a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMc-Xt-9ri" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9834.3999999999996" y="-654.42278860569718"/>
+        </scene>
+        <!--DailyCalendar-->
+        <scene sceneID="3pI-Kh-ShF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Calendar" referencedIdentifier="DailyCalendar" id="Cmx-6R-MHu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cBr-Bi-7k0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10511" y="-725"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="MWz-EQ-pA7">
@@ -431,6 +442,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GoT-Fk-tSA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="10481" y="-655"/>
+        </scene>
+        <!--DoneAndPostponedActivities-->
+        <scene sceneID="WH5-48-PiE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DoneAndPostponedActivities" referencedIdentifier="DoneAndPostponedActivities" id="dFI-Dq-EuP" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oj6-8x-AAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10638" y="-523"/>
         </scene>
     </scenes>
     <resources>
@@ -443,6 +462,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="pUI-ai-LEt"/>
-        <segue reference="4gg-0r-DHA"/>
+        <segue reference="0eR-Sp-Ryf"/>
     </inferredMetricsTieBreakers>
 </document>
