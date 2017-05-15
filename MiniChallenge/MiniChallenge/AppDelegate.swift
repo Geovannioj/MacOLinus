@@ -26,25 +26,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         //App colors
-        let customRed =  UIColor(red: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1.0)
-        let customPurple = UIColor(red: 0.4078, green: 0.4078, blue: 0.8784, alpha: 1.0)
-
-        
-        //Set bar navbar color
-        UINavigationBar.appearance().barTintColor = customRed
-        UINavigationBar.appearance().isTranslucent = false
-        //Set bar color in navbar
-        UINavigationBar.appearance().tintColor = customRed
-        
-        //Set bar color in navbar
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: customRed]
-        
+//        let customRed =  UIColor(red: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1.0)
+//        let customPurple = UIColor(red: 0.4078, green: 0.4078, blue: 0.8784, alpha: 1.0)
+//
+//        
+//        //Set bar navbar color
+//        UINavigationBar.appearance().barTintColor = customRed
+//        UINavigationBar.appearance().isTranslucent = false
+//        //Set bar color in navbar
+//        UINavigationBar.appearance().tintColor = customRed
+//        
+//        //Set bar color in navbar
+//        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: customRed]
+//        
         // Black Content in  status bar
         UIApplication.shared.statusBarStyle = .lightContent
         
         
-        //Setting Color for item at navbar
-        UINavigationBar.appearance().barTintColor = customRed
+//        //Setting Color for item at navbar
+//        UINavigationBar.appearance().barTintColor = customRed
 
         // Override point for customization after application launch.
         let center = UNUserNotificationCenter.current()
