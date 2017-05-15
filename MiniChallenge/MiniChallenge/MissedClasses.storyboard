@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hbD-md-H8j">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Ib Calendar Data Source-->
+        <scene sceneID="EGq-0C-9iM">
+            <objects>
+                <viewController id="hbD-md-H8j" customClass="MissedClassViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wzj-zm-6G9"/>
+                        <viewControllerLayoutGuide type="bottom" id="ky8-1K-jJO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kXA-KD-cTb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jOx-xx-BhS" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
+                                <rect key="frame" x="0.0" y="180" width="375" height="247"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kvm-Q7-8SY">
+                                    <size key="itemSize" width="109" height="113"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MissedClassCell" id="22I-oj-ABy" customClass="CalendarCell" customModule="MiniChallenge" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="109" height="113"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="109" height="113"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3d-Kt-LsZ">
+                                                    <rect key="frame" x="34" y="36" width="40" height="40"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="AD1-Cl-sdO"/>
+                                                        <constraint firstAttribute="width" constant="40" id="aKM-Yy-cIz"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSj-7W-z9f">
+                                                    <rect key="frame" x="34" y="46" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="E3d-Kt-LsZ" firstAttribute="centerX" secondItem="22I-oj-ABy" secondAttribute="centerX" id="2E6-Zc-R5T"/>
+                                            <constraint firstItem="CSj-7W-z9f" firstAttribute="centerY" secondItem="22I-oj-ABy" secondAttribute="centerY" id="NMV-TP-QJc"/>
+                                            <constraint firstItem="E3d-Kt-LsZ" firstAttribute="centerY" secondItem="CSj-7W-z9f" secondAttribute="centerY" id="bmR-Je-VYF"/>
+                                            <constraint firstItem="CSj-7W-z9f" firstAttribute="centerX" secondItem="22I-oj-ABy" secondAttribute="centerX" id="zx3-Y9-SKu"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="CSj-7W-z9f" id="vJl-Q3-Buq"/>
+                                            <outlet property="selectedCell" destination="E3d-Kt-LsZ" id="ugZ-dm-eYD"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="ibCalendarDataSource" destination="hbD-md-H8j" id="3cA-aU-CCO"/>
+                                    <outlet property="ibCalendarDelegate" destination="hbD-md-H8j" id="M3v-08-yFF"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compromissos no dia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6w-hA-RtN">
+                                <rect key="frame" x="105" y="94" width="166" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jOx-xx-BhS" firstAttribute="leading" secondItem="kXA-KD-cTb" secondAttribute="leading" id="9hP-wM-7iG"/>
+                            <constraint firstItem="J6w-hA-RtN" firstAttribute="centerX" secondItem="jOx-xx-BhS" secondAttribute="centerX" id="G5p-lp-cJq"/>
+                            <constraint firstItem="jOx-xx-BhS" firstAttribute="top" secondItem="J6w-hA-RtN" secondAttribute="bottom" constant="65" id="GO2-vg-aGL"/>
+                            <constraint firstItem="ky8-1K-jJO" firstAttribute="top" secondItem="jOx-xx-BhS" secondAttribute="bottom" constant="240" id="RU6-aA-X6O"/>
+                            <constraint firstItem="J6w-hA-RtN" firstAttribute="top" secondItem="wzj-zm-6G9" secondAttribute="bottom" constant="74" id="wlZ-IQ-CYM"/>
+                            <constraint firstItem="J6w-hA-RtN" firstAttribute="centerX" secondItem="kXA-KD-cTb" secondAttribute="centerX" id="xFt-8B-wpQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="calendarView" destination="jOx-xx-BhS" id="rVh-3y-htk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3vL-Sr-NDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-532" y="-508.69565217391306"/>
+        </scene>
+    </scenes>
+</document>

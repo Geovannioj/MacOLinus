@@ -53,10 +53,10 @@
             </objects>
             <point key="canvasLocation" x="-676" y="542"/>
         </scene>
-        <!--Goal-->
+        <!--First-->
         <scene sceneID="m2p-no-xNm">
             <objects>
-                <viewControllerPlaceholder storyboardName="Goal" referencedIdentifier="Goal" id="rmZ-Od-ZYQ" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="HomeGoal" referencedIdentifier="First" id="rmZ-Od-ZYQ" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="NCw-sG-FoT"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mp2-Ch-i7f" userLabel="First Responder" sceneMemberID="firstResponder"/>

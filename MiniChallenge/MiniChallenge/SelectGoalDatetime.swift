@@ -1,33 +1,20 @@
 //
-//  TempController.swift
+//  SelectGoalDateTime.swift
 //  MiniChallenge
 //
-//  Created by Miguel Pimentel on 09/05/17.
+//  Created by Miguel Pimentel on 12/05/17.
 //  Copyright © 2017 Luis Gustavo Avelino de Lima Jacinto. All rights reserved.
 //
 
 import UIKit
 
-class TempController: UIViewController {
+class SelectGoalDatetime: UIViewController {
 
-    var data: String = "Nada"
-    var segueData: String?
-    
-    @IBOutlet weak var nextScreenBtn: UIButton!
-    @IBOutlet weak var subjectCreatedLabel: UILabel!
-    
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         setConfig()
-        
+
         // Do any additional setup after loading the view.
     }
 
@@ -35,18 +22,6 @@ class TempController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // MARK - Config
-    
-    func setConfig() {
-        
-        assignBlackStatusBar()
-        assignBackground()
-        
-        subjectCreatedLabel.text = data
-        
-    }
-    
     
     func assignBlackStatusBar() {
         
@@ -56,7 +31,7 @@ class TempController: UIViewController {
     
     internal func assignBackground() {
         
-        let background = UIImage(named: "greenPatternWithBoy")
+        let background = UIImage(named: "PurplePatternWithBoy")
         
         var imageView : UIImageView!
         imageView = UIImageView(frame: view.bounds)
@@ -68,17 +43,12 @@ class TempController: UIViewController {
         self.view.sendSubview(toBack: imageView)
     }
     
-    @IBAction func nextScreen(_ sender: Any) {
+    
+    func setConfig() {
         
-        if segueData == "GoToAddSubject"{
-           performSegue(withIdentifier: "GoToSubjectChoice", sender: Any?.self)
-        }else{
-            performSegue(withIdentifier: "GoToHomeSubject", sender: Any?.self)
-        }
-        
-        
-        
+        assignBlackStatusBar()
+        assignBackground()
+    
     }
-
 
 }

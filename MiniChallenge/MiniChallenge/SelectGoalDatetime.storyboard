@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Display-Bold.otf">
+            <string>SFUIDisplay-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Select Goal Datetime-->
+        <scene sceneID="l5z-r2-xgO">
+            <objects>
+                <viewController id="HlT-Ck-RBK" customClass="SelectGoalDatetime" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vDr-yG-f9a"/>
+                        <viewControllerLayoutGuide type="bottom" id="lPW-6u-qmp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Yl-As-TFu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JY-KQ-2HE">
+                                <rect key="frame" x="26" y="49" width="48" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Com que frequência ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdt-up-rNF">
+                                <rect key="frame" x="36" y="89" width="262" height="29"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXM-0s-VUv">
+                                <rect key="frame" x="23" y="98" width="8" height="8"/>
+                                <color key="backgroundColor" red="0.98884028199999996" green="0.83359497790000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="8" id="0bQ-yI-iBw"/>
+                                    <constraint firstAttribute="width" constant="8" id="PNH-qE-arO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.98884028199999996" green="0.83359497790000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="0.98884028199999996" green="0.83359497790000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="dxC-fJ-lmJ">
+                                <rect key="frame" x="153.5" y="32" width="68" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="AnL-CA-g1a"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Por quanto tempo ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDF-kt-hq6">
+                                <rect key="frame" x="36" y="126" width="262" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Começa às" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gr3-EU-m2m">
+                                <rect key="frame" x="0.0" y="163" width="262" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Termina às" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyX-WC-lbu">
+                                <rect key="frame" x="0.0" y="423" width="262" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dxC-fJ-lmJ" firstAttribute="top" secondItem="7Yl-As-TFu" secondAttribute="topMargin" constant="32" id="1a5-Ud-hVJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kdt-up-rNF" secondAttribute="trailing" constant="61" id="4J2-uw-wKq"/>
+                            <constraint firstItem="EXM-0s-VUv" firstAttribute="leading" secondItem="7Yl-As-TFu" secondAttribute="leadingMargin" constant="7" id="5Ws-c6-zsV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8JY-KQ-2HE" secondAttribute="trailing" constant="285" id="D1q-8N-jiq"/>
+                            <constraint firstItem="8JY-KQ-2HE" firstAttribute="top" secondItem="vDr-yG-f9a" secondAttribute="bottom" constant="29" id="Msa-w5-hXN"/>
+                            <constraint firstItem="kdt-up-rNF" firstAttribute="leading" secondItem="7Yl-As-TFu" secondAttribute="leadingMargin" constant="20" id="bvg-so-E2F"/>
+                            <constraint firstItem="dxC-fJ-lmJ" firstAttribute="centerX" secondItem="7Yl-As-TFu" secondAttribute="centerX" id="cMM-Py-SsP"/>
+                            <constraint firstItem="8JY-KQ-2HE" firstAttribute="top" secondItem="dxC-fJ-lmJ" secondAttribute="bottom" constant="-4" id="mz6-Cj-3LQ"/>
+                            <constraint firstItem="kdt-up-rNF" firstAttribute="leading" secondItem="EXM-0s-VUv" secondAttribute="trailing" constant="5" id="qda-X2-zbr"/>
+                            <constraint firstItem="8JY-KQ-2HE" firstAttribute="leading" secondItem="7Yl-As-TFu" secondAttribute="leadingMargin" constant="10" id="u6H-fF-SNr"/>
+                            <constraint firstItem="EXM-0s-VUv" firstAttribute="top" secondItem="8JY-KQ-2HE" secondAttribute="bottom" constant="32" id="vFi-Ko-EN2"/>
+                            <constraint firstItem="kdt-up-rNF" firstAttribute="top" secondItem="8JY-KQ-2HE" secondAttribute="bottom" constant="23" id="y2L-GJ-uDn"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="swr-41-Y5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2140" y="918.89055472263874"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Pengo" width="69" height="21"/>
+    </resources>
+</document>
