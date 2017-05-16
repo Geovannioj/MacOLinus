@@ -29,9 +29,12 @@ class DatePickViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Pink Pattern.png")!)
+        
         datePicker.setValue(UIColor.white, forKeyPath: "textColor")
         
-        activityToEdit = SingletonActivity.sharedInstance.tasks[indexActivityToEdit]
+        if indexActivityToEdit >= 0 {
+            activityToEdit = SingletonActivity.sharedInstance.tasks[indexActivityToEdit]
+        }
         
         if let activity = activityToEdit{
             datePicker.date = (activityToEdit?.time)!
@@ -45,35 +48,50 @@ class DatePickViewController: UIViewController {
         
     }
     @IBAction func backBtn(_ sender: Any){
+        if segueRecived == "DatePickViewController"{
+            
+            performSegue(withIdentifier: "GoBackToEditScreen3", sender: Any?.self)
         
-        performSegue(withIdentifier: "GoBackToEditScreen3", sender: Any?.self)
+        }else{
+        
+            performSegue(withIdentifier: "backToSubjectScreen", sender: Any?.self)
+        }
+        
     
     }
     @IBAction func saveBtn(_ sender: Any) {
         
         
         if datePicker.date > Date(){
-        
-            let controlerPList = ControllerPList()
+            if segueRecived == "DatePickViewController" {
+                
+                EditActivityController.activityPassed.time = datePicker.date
+                performSegue(withIdentifier: "GoBackToEditScreen3", sender: Any?.self)
+                
+            }else{
+                
+                let controlerPList = ControllerPList()
+                
+                //get date
+                SingletonActivity.sharedInstance.task.time = datePicker.date
+                
+                let task:Reminder = SingletonActivity.sharedInstance.task
+                
+                task.scheduleNotification()
+                
+                SingletonActivity.sharedInstance.tasks.append(task)
+                
+                //save the task in the PList
+                controlerPList.saveReminders()
+                
+                //back to the screen to list the tasks
+                self.navigationController?.popToRootViewController(animated: true)
+                
+                //clean the task reference
+                SingletonActivity.sharedInstance.task = Reminder()
+                performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
+            }
             
-            //get date
-            SingletonActivity.sharedInstance.task.time = datePicker.date
-            
-            let task:Reminder = SingletonActivity.sharedInstance.task
-            
-            task.scheduleNotification()
-            
-            SingletonActivity.sharedInstance.tasks.append(task)
-            
-            //save the task in the PList
-            controlerPList.saveReminders()
-            
-            //back to the screen to list the tasks
-            self.navigationController?.popToRootViewController(animated: true)
-            
-            //clean the task reference
-            SingletonActivity.sharedInstance.task = Reminder()
-            performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
 
         
         }else{

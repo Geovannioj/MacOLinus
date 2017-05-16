@@ -20,6 +20,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var monthLabel : UILabel?
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var addActivityButton: UIButton!
     
     //General Attributes
     let logo = UIImage(named: "Pengo.png")
@@ -178,6 +179,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         calendarView.reloadData()
     }
     
+    @IBAction func addActivityAction(_ sender: Any) {
+        performSegue(withIdentifier: "AddActivity", sender: Any?.self)
+    }
  
     func handleAppointmentOnDayLabel(cell: CalendarCell, cellState: CellState, date: Date){
         
@@ -199,10 +203,15 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
     func sortActivities() -> [Reminder]{
         
+        let pListController = ControllerPList()
+        
         activities = getToDoAndPostponedActivities(activities: SingletonActivity.sharedInstance.tasks)
         
         var sortedArray : [Reminder] = []
         sortedArray = activities.sorted(by: { $0.time.compare($1.time) == ComparisonResult.orderedAscending})
+        
+        pListController.saveReminders()
+        
         return sortedArray
     }
     
@@ -504,6 +513,9 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
 
                 print("index saindo de calendarController")
                 print(indexActivity)
+                
+                print("titulo da atividade tableView")
+                print(activities[indexActivity].title)
           }
         }
 
