@@ -10,6 +10,8 @@ import UIKit
 
 class SelectGoalDatetime: UIViewController {
 
+    @IBOutlet weak var userGoalTitleLabel: UILabel!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,6 +51,7 @@ class SelectGoalDatetime: UIViewController {
         assignBlackStatusBar()
         assignBackground()
     
+        userGoalTitleLabel.text = GoalService.sharedInstance.user_goal.title
     }
 
 }
