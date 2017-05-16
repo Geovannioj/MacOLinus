@@ -17,9 +17,9 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var tableView: UITableView!
     
     var cellText = ["Tarefa", "Matéria", "Horário"]
-    var activityPassed = Reminder()
+    static var activityPassed = Reminder()
     var activityToBeSaved = Reminder()
-    var indexActivityToEdit: Int = 0
+    var indexActivityToEdit: Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +32,26 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
         print("index chegando na tela de edit")
         print(indexActivityToEdit)
         
-        activityPassed = SingletonActivity.sharedInstance.tasks[indexActivityToEdit]
+        EditActivityController.activityPassed = SingletonActivity.sharedInstance.tasks[indexActivityToEdit]
+        print("atividade do arraySingleton")
+        print(SingletonActivity.sharedInstance.tasks[indexActivityToEdit].title)
 
     }
     
     @IBAction func doneBtnAction(_ sender: Any) {
         
+        let controlerPList = ControllerPList()
+        
+        SingletonActivity.sharedInstance.tasks[indexActivityToEdit] = EditActivityController.activityPassed
+        
+        print("Atividade")
+        print(EditActivityController.activityPassed.title)
+        
+        controlerPList.saveReminders()
+        
         performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
+        
+        EditActivityController.activityPassed = Reminder()
     }
     
     @IBAction func cancelBtnAction(_ sender: Any) {
@@ -59,17 +72,14 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
         
         let recivedData = cell.viewWithTag(21) as! UILabel
         
-        if activityToBeSaved == Reminder(){
+        if indexPath.row == 0 {
+            recivedData.text = EditActivityController.activityPassed.title
             
-            if indexPath.row == 0 {
-                recivedData.text = activityPassed.title
-            }else if indexPath.row == 1 {
-                recivedData.text = activityPassed.subject?.title
-            }else if indexPath.row == 2 {
-                recivedData.text = String(describing: activityPassed.time)
-            }
+        }else if indexPath.row == 1 {
+            recivedData.text = EditActivityController.activityPassed.subject?.title
+        }else if indexPath.row == 2 {
+            recivedData.text = String(describing: EditActivityController.activityPassed.time)
         }
-        
         return cell
     }
     

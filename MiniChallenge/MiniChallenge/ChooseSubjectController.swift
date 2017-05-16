@@ -21,7 +21,7 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     var activityToEdit: Reminder?
     var persistData = PersistSubjectData()
     var segueRecived: String = ""
-    var indexActivity: Int = -1
+    var indexActivity: Int = 0//-1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,19 +39,32 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     @IBAction func backButon(_ sender: Any){
         if segueRecived == "ChooseSubjectController"{
             performSegue(withIdentifier: "GoToEditScreen2", sender: Any?.self)
+        }else{
+            
         }
     }
     @IBAction func nextScreen(_ sender: Any) {
         
-        if(subject != nil){
-            SingletonActivity.sharedInstance.task.subject = subject!
+        if segueRecived == "ChooseSubjectController"{
+            
+            EditActivityController.activityPassed.subject = subject
+            performSegue(withIdentifier: "GoToEditScreen2", sender: Any?.self)
+            
         }else{
-            SingletonActivity.sharedInstance.task.subject = Subject()
+            
+            if(subject != nil){
+                SingletonActivity.sharedInstance.task.subject = subject!
+            }else{
+                SingletonActivity.sharedInstance.task.subject = Subject()
+            }
+            performSegue(withIdentifier: "GoToDateScreenWithSubject", sender: Any?.self)
         }
+        
     }
     
     @IBAction func nextScreenWithOutSubjectAction(_ sender: Any) {
-        SingletonActivity.sharedInstance.task.subject = Subject()   
+        SingletonActivity.sharedInstance.task.subject = Subject()
+        performSegue(withIdentifier: "GoToDateScreenWithOutSubject", sender: Any?.self)
     }
     
 

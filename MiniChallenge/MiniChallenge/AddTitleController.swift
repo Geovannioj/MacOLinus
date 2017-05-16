@@ -25,10 +25,13 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Pink Pattern.pgn")!)
         
-        activityToEdit = SingletonActivity.sharedInstance.tasks[indexActivityArray]
+        if indexActivityArray >= 0{
+            activityToEdit = SingletonActivity.sharedInstance.tasks[indexActivityArray]
+        }
         
-        if let reminder = activityToEdit{
-            taskTitleTextField.text = reminder.title
+        
+        if activityToEdit != nil{
+            taskTitleTextField.text = activityToEdit?.title
         }
         
         print(segueRecived)
@@ -43,30 +46,33 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
         
         if segueRecived == "Reminders"{
             performSegue(withIdentifier: "GoToEditScreen", sender: Any?.self)
+        }else{
+            performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
         }
     }
     
     @IBAction func nextScreen(_ sender: Any) {
         
-        taskTitle = taskTitleTextField.text!
+        self.taskTitle = self.taskTitleTextField.text!
         
-        if let reminder = activityToEdit{
-            //salvar o texto do textField
-            activityToBeSaved?.title = taskTitle
-            //activityToEdit?.title = taskTitleTextField.text!
-            performSegue(withIdentifier: "GoToEditScreen", sender: Any?.self)
-        
-        }else if taskTitle.isEmpty{
+        if taskTitle.isEmpty{
         
             emptyTitleLavel.isHidden = false
         
         }else if !(taskTitle.isEmpty){
-        
-            SingletonActivity.sharedInstance.task.title = taskTitle
-            performSegue(withIdentifier: "SubjectChoiceScreen", sender: Any?.self)
-        
+            
+            if activityToEdit != nil{
+                
+                activityToEdit?.title = self.taskTitle
+                EditActivityController.activityPassed.title = self.taskTitle
+                performSegue(withIdentifier: "GoBackToEditScreen", sender: Any?.self)
+            
+            }else{
+                
+                SingletonActivity.sharedInstance.task.title = taskTitle
+                performSegue(withIdentifier: "SubjectChoiceScreen", sender: Any?.self)
+            }
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -74,11 +80,17 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
         if segue.identifier == "GoToEditScreen" {
            
             if let data = segue.destination as? EditActivityController{
-                data.activityPassed.title = self.taskTitleTextField.text!
+
                 data.indexActivityToEdit = indexActivityArray
-                data.activityToBeSaved.title = (self.activityToBeSaved?.title)!
+                
             }
-        }else {
+        }else if segue.identifier == "GoBackToEditScreen"{
+            if let goToEditScreen = segue.destination as? EditActivityController{
+                goToEditScreen.indexActivityToEdit = indexActivityArray
+                
+            }
+        }
+        else {
             if let dataToSubject = segue.destination as? ChooseSubjectController{
                 dataToSubject.activityToEdit?.title = self.taskTitleTextField.text!
             }

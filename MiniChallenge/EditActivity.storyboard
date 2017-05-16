@@ -80,7 +80,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WHx-KW-D2z">
-                                <rect key="frame" x="0.0" y="163" width="375" height="188"/>
+                                <rect key="frame" x="0.0" y="159" width="375" height="188"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="188" id="tLh-fi-lWS"/>
@@ -134,7 +134,7 @@
                             <constraint firstItem="mIo-xq-L3g" firstAttribute="bottom" secondItem="TGI-nH-23L" secondAttribute="top" id="n3R-dX-rtT"/>
                             <constraint firstItem="mIo-xq-L3g" firstAttribute="leading" secondItem="geS-Mv-KPI" secondAttribute="leadingMargin" constant="110" id="qut-UG-8Jg"/>
                             <constraint firstAttribute="leadingMargin" secondItem="5Zk-7p-W4Q" secondAttribute="leading" id="rfY-7n-ZTR"/>
-                            <constraint firstItem="WHx-KW-D2z" firstAttribute="top" secondItem="5Zk-7p-W4Q" secondAttribute="bottom" constant="93" id="xqo-TY-pf0"/>
+                            <constraint firstItem="WHx-KW-D2z" firstAttribute="top" secondItem="5Zk-7p-W4Q" secondAttribute="bottom" constant="89" id="xqo-TY-pf0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GLi-wh-VVb" secondAttribute="trailing" id="yvc-Bh-YTy"/>
                         </constraints>
                     </view>

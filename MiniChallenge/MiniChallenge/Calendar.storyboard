@@ -79,7 +79,7 @@
                 <viewControllerPlaceholder storyboardName="EditActivity" referencedIdentifier="EditActivityController" id="eul-24-uXC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gTS-9L-vqn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-59" y="-471"/>
+            <point key="canvasLocation" x="23" y="-537"/>
         </scene>
         <!--Reminders-->
         <scene sceneID="gJ7-5j-PaC">
@@ -87,7 +87,7 @@
                 <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="Reminders" id="A8p-aa-tlV" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCc-GE-P0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-112" y="-413"/>
+            <point key="canvasLocation" x="-30" y="-497"/>
         </scene>
         <!--DoneAndPostponedActivities-->
         <scene sceneID="x3p-Mi-6Uo">
@@ -95,7 +95,7 @@
                 <viewControllerPlaceholder storyboardName="DoneAndPostponedActivities" referencedIdentifier="DoneAndPostponedActivities" id="Kaw-xl-6FA" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tHr-fG-WmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-22" y="-349"/>
+            <point key="canvasLocation" x="60" y="-444"/>
         </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="WA6-Fd-ru4">
@@ -136,7 +136,8 @@
                                                 <rect key="frame" x="348" y="23" width="19" height="22"/>
                                                 <state key="normal" image="+"/>
                                                 <connections>
-                                                    <segue destination="A8p-aa-tlV" kind="show" id="QWb-1d-dff"/>
+                                                    <action selector="addActivityAction:" destination="aEo-xe-HBL" eventType="touchUpInside" id="76e-KN-Qjq"/>
+                                                    <segue destination="A8p-aa-tlV" kind="presentation" identifier="AddActivity" id="QWb-1d-dff"/>
                                                 </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="bG8-UR-C6X">
@@ -380,6 +381,7 @@
                         <nil key="title"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="addActivityButton" destination="Sdl-F5-T7w" id="oFb-eg-W91"/>
                         <outlet property="calendarView" destination="Jwx-yR-cx5" id="FlA-Ws-DvH"/>
                         <outlet property="heightConstraint" destination="Np9-8M-WNR" id="kQD-hS-Sg3"/>
                         <outlet property="monthLabel" destination="Yar-LH-WdO" id="IwA-gL-cWv"/>
