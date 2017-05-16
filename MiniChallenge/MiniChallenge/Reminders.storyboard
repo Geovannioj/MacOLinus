@@ -16,7 +16,7 @@
                 <viewControllerPlaceholder storyboardName="Calendar" referencedIdentifier="Calendar" id="9Vw-n5-eyZ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v1D-kN-Ixn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7836" y="-186"/>
+            <point key="canvasLocation" x="7796" y="-187"/>
         </scene>
         <!--EditActivityController-->
         <scene sceneID="GMt-6g-og2">
@@ -24,7 +24,7 @@
                 <viewControllerPlaceholder storyboardName="EditActivity" referencedIdentifier="EditActivityController" id="Jux-gM-eNq" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QjN-ao-9yW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7585" y="-186"/>
+            <point key="canvasLocation" x="8307" y="-170"/>
         </scene>
         <!--Add Title Controller-->
         <scene sceneID="g5M-dr-pDt">
@@ -80,7 +80,7 @@
                                 </state>
                                 <connections>
                                     <action selector="backButton:" destination="8FU-ka-ofJ" eventType="touchUpInside" id="mfE-xh-79G"/>
-                                    <segue destination="9Vw-n5-eyZ" kind="show" id="2K9-PL-7ZP"/>
+                                    <segue destination="9Vw-n5-eyZ" kind="presentation" id="2K9-PL-7ZP"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="5Dk-6r-lnD">
@@ -121,7 +121,7 @@
                         <outlet property="emptyTitleLavel" destination="2l9-bT-Nqi" id="32V-6t-Cfq"/>
                         <outlet property="taskTitleTextField" destination="Ltg-Ht-a4i" id="OX6-td-wfu"/>
                         <segue destination="Vf9-vm-COU" kind="show" identifier="SubjectChoiceScreen" id="pUI-ai-LEt"/>
-                        <segue destination="Jux-gM-eNq" kind="show" identifier="GoToEditScreen" id="o0e-s5-1qf"/>
+                        <segue destination="Jux-gM-eNq" kind="presentation" identifier="GoToEditScreen" id="o0e-s5-1qf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cF6-3p-Igc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -156,6 +156,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="nextScreenWithOutSubjectAction:" destination="Vf9-vm-COU" eventType="touchUpInside" id="SNh-sj-beb"/>
                                     <segue destination="D2w-Pm-wdv" kind="show" id="4gg-0r-DHA"/>
                                 </connections>
                             </button>
@@ -216,7 +217,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="8FU-ka-ofJ" kind="show" id="gmf-tN-uNC"/>
+                                    <action selector="backButon:" destination="Vf9-vm-COU" eventType="touchUpInside" id="N0Y-1t-AVz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEa-lW-7PV">
@@ -226,7 +227,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uCB-1G-IAC" kind="show" identifier="GoToAddSubject" id="uYE-EJ-aQU"/>
+                                    <segue destination="uCB-1G-IAC" kind="presentation" identifier="GoToAddSubject" id="uYE-EJ-aQU"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group-1" translatesAutoresizingMaskIntoConstraints="NO" id="XtS-F0-2gu">
@@ -279,7 +280,9 @@
                     <navigationItem key="navigationItem" id="dez-OC-df5"/>
                     <connections>
                         <outlet property="nextScreenBtn" destination="CwR-fo-gLP" id="ToG-Mh-tPh"/>
+                        <outlet property="nextScreenWithOutSubject" destination="YaB-pv-qQp" id="fXC-6a-IPZ"/>
                         <outlet property="subjectsTableView" destination="TfV-mc-6ec" id="knj-FN-H2F"/>
+                        <segue destination="Jux-gM-eNq" kind="presentation" identifier="GoToEditScreen2" id="7Nj-Gc-8It"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="woo-UF-PkN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -344,7 +347,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Vf9-vm-COU" kind="show" id="0Mu-Qz-oXa"/>
+                                    <action selector="backBtn:" destination="D2w-Pm-wdv" eventType="touchUpInside" id="o8f-H6-9Tz"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle 2" translatesAutoresizingMaskIntoConstraints="NO" id="ffM-dt-uTp">
@@ -395,9 +398,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="UWI-FC-kkz" id="QCZ-3m-LJa"/>
                         <outlet property="datePicker" destination="SxQ-zA-QYO" id="VjS-UR-r6C"/>
                         <outlet property="labelValidate" destination="IyC-Ji-fdI" id="JJT-lS-fj1"/>
                         <segue destination="Qxw-g3-Zdm" kind="show" identifier="GoToCalendar" id="QDF-E7-orA"/>
+                        <segue destination="Jux-gM-eNq" kind="presentation" identifier="GoBackToEditScreen3" id="4P1-zt-QXX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMc-Xt-9ri" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -422,7 +427,7 @@
         <image name="Rectangle 2" width="8" height="8"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="o0e-s5-1qf"/>
         <segue reference="4gg-0r-DHA"/>
-        <segue reference="pUI-ai-LEt"/>
     </inferredMetricsTieBreakers>
 </document>

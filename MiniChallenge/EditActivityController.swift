@@ -17,20 +17,23 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var tableView: UITableView!
     
     var cellText = ["Tarefa", "Matéria", "Horário"]
-    var dataPassed = [String]()
-    var storageData = [String]()
     var activityPassed = Reminder()
+    var activityToBeSaved = Reminder()
+    var indexActivityToEdit: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Pink Pattern.pgn")!)
         
-        storageData = dataPassed
-        
         tableView.delegate = self
         tableView.dataSource = self
         
+        print("index chegando na tela de edit")
+        print(indexActivityToEdit)
+        
+        activityPassed = SingletonActivity.sharedInstance.tasks[indexActivityToEdit]
+
     }
     
     @IBAction func doneBtnAction(_ sender: Any) {
@@ -55,7 +58,17 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
         txt.text = cellText[indexPath.row]
         
         let recivedData = cell.viewWithTag(21) as! UILabel
-        recivedData.text = storageData[indexPath.row]
+        
+        if activityToBeSaved == Reminder(){
+            
+            if indexPath.row == 0 {
+                recivedData.text = activityPassed.title
+            }else if indexPath.row == 1 {
+                recivedData.text = activityPassed.subject?.title
+            }else if indexPath.row == 2 {
+                recivedData.text = String(describing: activityPassed.time)
+            }
+        }
         
         return cell
     }
@@ -85,7 +98,6 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
         if segue.identifier == "GoToAddSubject" {
             
             if let toAddSubject = segue.destination as? SubjectViewController{
-                
                 toAddSubject.segueData = segue.identifier
                 
             }
@@ -93,27 +105,32 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
         }else if segue.identifier == "ChooseSubjectController" {
             
             if let goToChooseSubject = segue.destination as? ChooseSubjectController{
-                goToChooseSubject.activityToEdit = activityPassed
+    
                 goToChooseSubject.segueRecived = segue.identifier!
+                goToChooseSubject.indexActivity = indexActivityToEdit
             }
         
         }else if segue.identifier == "Reminders" {
             
             if let goToReminderAddTitle = segue.destination as? AddTitleController{
-                goToReminderAddTitle.activityToEdit = activityPassed
+                
                 goToReminderAddTitle.segueRecived = segue.identifier!
+                goToReminderAddTitle.indexActivityArray = indexActivityToEdit
             }
             
         }else if segue.identifier == "DatePickViewController" {
             
             if let goToDatePickController = segue.destination as? DatePickViewController{
-                goToDatePickController.activityToEdit = activityPassed
+                goToDatePickController.indexActivityToEdit = indexActivityToEdit
                 goToDatePickController.segueRecived = segue.identifier!
                 
             }
             
+        }else if segue.identifier == "BackToCalendar"{
+            if let backToCalendar = segue.destination as? CalendarViewController{
+                backToCalendar.indexActivity = indexActivityToEdit
+            }
         }
-        
     }
 
 }

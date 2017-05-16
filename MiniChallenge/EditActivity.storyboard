@@ -21,24 +21,24 @@
         <!--ChooseSubjectController-->
         <scene sceneID="62b-p0-kNK">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xXP-R1-cgv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="ChooseSubjectController" id="fFQ-cQ-Rv1" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xXP-R1-cgv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="746" y="333"/>
         </scene>
         <!--Reminders-->
         <scene sceneID="ElI-SF-vn4">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wkU-hV-Gh6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="Reminders" id="Bqa-IE-HNr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wkU-hV-Gh6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="675" y="376"/>
         </scene>
         <!--DatePickViewController-->
         <scene sceneID="xlB-hw-SDE">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DAM-BY-S96" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="DatePickViewController" id="Lv0-cA-ek8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DAM-BY-S96" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="738" y="418"/>
         </scene>
@@ -76,7 +76,7 @@
                                 </state>
                                 <connections>
                                     <action selector="cancelBtnAction:" destination="sJT-Gq-Q9e" eventType="touchUpInside" id="SCi-yc-7Wm"/>
-                                    <segue destination="awk-iv-84v" kind="show" identifier="GoToCalendar" id="BsS-zi-krD"/>
+                                    <segue destination="awk-iv-84v" kind="presentation" identifier="GoToCalendar" id="BsS-zi-krD"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="56" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WHx-KW-D2z">
@@ -142,10 +142,10 @@
                         <outlet property="cancelBtn" destination="5Zk-7p-W4Q" id="o7h-WD-iVk"/>
                         <outlet property="doneBtn" destination="GLi-wh-VVb" id="2dI-Wy-y6K"/>
                         <outlet property="tableView" destination="WHx-KW-D2z" id="WMK-0l-v5E"/>
-                        <segue destination="awk-iv-84v" kind="show" identifier="BackToCalendar" id="UqG-31-BXA"/>
-                        <segue destination="fFQ-cQ-Rv1" kind="show" identifier="ChooseSubjectController" id="6rQ-96-bmu"/>
-                        <segue destination="Bqa-IE-HNr" kind="show" identifier="Reminders" id="oji-xo-D59"/>
-                        <segue destination="Lv0-cA-ek8" kind="show" identifier="DatePickViewController" id="jdm-vf-f2B"/>
+                        <segue destination="awk-iv-84v" kind="presentation" identifier="BackToCalendar" id="UqG-31-BXA"/>
+                        <segue destination="fFQ-cQ-Rv1" kind="presentation" identifier="ChooseSubjectController" id="6rQ-96-bmu"/>
+                        <segue destination="Bqa-IE-HNr" kind="presentation" identifier="Reminders" id="oji-xo-D59"/>
+                        <segue destination="Lv0-cA-ek8" kind="presentation" identifier="DatePickViewController" id="jdm-vf-f2B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3zN-uA-fUv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -158,6 +158,6 @@
         <image name="Pengo" width="69" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UqG-31-BXA"/>
+        <segue reference="BsS-zi-krD"/>
     </inferredMetricsTieBreakers>
 </document>

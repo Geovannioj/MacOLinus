@@ -15,12 +15,14 @@ class DatePickViewController: UIViewController {
     
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet weak var labelValidate: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     
     var taskTitle: String? = ""
     var taskDescription: String? = nil
     var isGrantedNotificationAccess:Bool = false
     var activityToEdit: Reminder?
     var segueRecived: String = ""
+    var indexActivityToEdit: Int = -1
     
 
     override func viewDidLoad() {
@@ -28,6 +30,8 @@ class DatePickViewController: UIViewController {
         
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Pink Pattern.png")!)
         datePicker.setValue(UIColor.white, forKeyPath: "textColor")
+        
+        activityToEdit = SingletonActivity.sharedInstance.tasks[indexActivityToEdit]
         
         if let activity = activityToEdit{
             datePicker.date = (activityToEdit?.time)!
@@ -40,7 +44,11 @@ class DatePickViewController: UIViewController {
         labelValidate.isHidden = true
         
     }
+    @IBAction func backBtn(_ sender: Any){
+        
+        performSegue(withIdentifier: "GoBackToEditScreen3", sender: Any?.self)
     
+    }
     @IBAction func saveBtn(_ sender: Any) {
         
         
@@ -74,5 +82,16 @@ class DatePickViewController: UIViewController {
             
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoBackToEditScreen3"{
+            
+            if let goBackToEditScreen = segue.destination as? EditActivityController{
+            
+                goBackToEditScreen.indexActivityToEdit = indexActivityToEdit
+            
+            }
+        }
     }
 }

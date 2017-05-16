@@ -385,7 +385,7 @@
                         <outlet property="monthLabel" destination="Yar-LH-WdO" id="IwA-gL-cWv"/>
                         <outlet property="tableView" destination="tUp-CP-odA" id="TfX-IV-DvF"/>
                         <segue destination="1iM-yx-1oJ" kind="presentation" identifier="goToDailyCalendar" modalTransitionStyle="coverVertical" id="qpD-Nh-DIM"/>
-                        <segue destination="eul-24-uXC" kind="show" identifier="EditActivityController" id="Nic-78-0pC"/>
+                        <segue destination="eul-24-uXC" kind="presentation" identifier="EditActivityController" id="Nic-78-0pC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cff-D3-dVx" userLabel="First Responder" sceneMemberID="firstResponder"/>

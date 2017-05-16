@@ -43,6 +43,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     var activityTitle: String = ""
     var activityTime: String = ""
     var sendActivity = Reminder()
+    var indexActivity: Int = -1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         obtainActivites()
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -70,7 +72,10 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        
     }
     
 
@@ -93,6 +98,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             SingletonActivity.sharedInstance.tasks = unarchiver.decodeObject(forKey: "Reminders") as! [Reminder]
             unarchiver.finishDecoding()
         }
+        
         
     }
 
@@ -287,6 +293,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         let editButton = MGSwipeButton(title:"          ", backgroundColor: UIColor(patternImage: UIImage(named: "edit.png")!)){
             (sender: MGSwipeTableCell!) -> Bool in
             
+            self.indexActivity = indexPath.row
             self.performSegue(withIdentifier: "EditActivityController", sender: tableView)
             
             return true
@@ -323,10 +330,11 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         cell.clipsToBounds = true
     
         //set data to be passed
-        sendActivity = activity
-        activityTitle = activity.title
-        subjectTitle = (activity.subject?.title)!
-        activityTime = maskTime(hour: hour, minutes: minutes)
+//        sendActivity = activity
+//        activityTitle = activity.title
+//        subjectTitle = (activity.subject?.title)!
+//        activityTime = maskTime(hour: hour, minutes: minutes)
+        
         
         cell.leftButtons = [editButton]
         cell.leftSwipeSettings.transition = .border
@@ -491,15 +499,11 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         }else if segue.identifier == "EditActivityController"{
             
             if let goToEditScreen = segue.destination as? EditActivityController{
-            
-                goToEditScreen.activityPassed = sendActivity
-                
-                goToEditScreen.dataPassed.append(activityTitle)
-                
-                goToEditScreen.dataPassed.append(subjectTitle)
-            
-                goToEditScreen.dataPassed.append(activityTime)
-                
+
+                goToEditScreen.indexActivityToEdit = indexActivity
+
+                print("index saindo de calendarController")
+                print(indexActivity)
           }
         }
 

@@ -17,11 +17,15 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
     
     var taskTitle: String = ""
     var activityToEdit: Reminder?
+    var activityToBeSaved: Reminder?
     var segueRecived: String = ""
+    var indexActivityArray: Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Pink Pattern.pgn")!)
+        
+        activityToEdit = SingletonActivity.sharedInstance.tasks[indexActivityArray]
         
         if let reminder = activityToEdit{
             taskTitleTextField.text = reminder.title
@@ -45,15 +49,40 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
     @IBAction func nextScreen(_ sender: Any) {
         
         taskTitle = taskTitleTextField.text!
-        if taskTitle.isEmpty{
+        
+        if let reminder = activityToEdit{
+            //salvar o texto do textField
+            activityToBeSaved?.title = taskTitle
+            //activityToEdit?.title = taskTitleTextField.text!
+            performSegue(withIdentifier: "GoToEditScreen", sender: Any?.self)
+        
+        }else if taskTitle.isEmpty{
+        
             emptyTitleLavel.isHidden = false
-        }else{
+        
+        }else if !(taskTitle.isEmpty){
+        
             SingletonActivity.sharedInstance.task.title = taskTitle
             performSegue(withIdentifier: "SubjectChoiceScreen", sender: Any?.self)
-            
+        
         }
         
-        
-        
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "GoToEditScreen" {
+           
+            if let data = segue.destination as? EditActivityController{
+                data.activityPassed.title = self.taskTitleTextField.text!
+                data.indexActivityToEdit = indexActivityArray
+                data.activityToBeSaved.title = (self.activityToBeSaved?.title)!
+            }
+        }else {
+            if let dataToSubject = segue.destination as? ChooseSubjectController{
+                dataToSubject.activityToEdit?.title = self.taskTitleTextField.text!
+            }
+        }
+    }
+    
 }
