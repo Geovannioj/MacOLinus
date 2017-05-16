@@ -276,7 +276,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         return 76.0
     }
     
-    func maskTime(hour: Int, minutes: Int) -> String{
+    static func maskTime(hour: Int, minutes: Int) -> String{
         
         var resultString = ""
         
@@ -322,9 +322,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         cell.activityName.text = activity.title
         cell.activitySubject.text = activity.subject?.title
-        cell.activityHour.text = maskTime(hour: hour, minutes: minutes)
+        cell.activityHour.text = CalendarViewController.maskTime(hour: hour, minutes: minutes)
         cell.dayLabel.text = String(day)
-        cell.monthLabel.text = String(selectMonthText(month: month))
+        cell.monthLabel.text = String(CalendarViewController.selectMonthText(month: month))
         
         if activity.subject == nil {
             cell.subjectColor.backgroundColor = UIColor.white
@@ -354,11 +354,10 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
 
     }
-}
-
-func selectMonthText(month: Int) -> String {
     
-    switch month {
+    static func selectMonthText(month: Int) -> String {
+        
+        switch month {
         case 1:
             return "Jan"
         case 2:
@@ -385,8 +384,11 @@ func selectMonthText(month: Int) -> String {
             return "Dec"
         default:
             return ""
+        }
     }
+
 }
+
 
 /*
  * This extensions contains the methods responsible for configuring the TableView of next

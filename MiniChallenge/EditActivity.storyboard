@@ -16,7 +16,7 @@
                 <viewControllerPlaceholder storyboardName="Calendar" referencedIdentifier="Calendar" id="awk-iv-84v" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yvj-3k-2v2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="780" y="165"/>
+            <point key="canvasLocation" x="823" y="165"/>
         </scene>
         <!--ChooseSubjectController-->
         <scene sceneID="62b-p0-kNK">
@@ -24,7 +24,7 @@
                 <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="ChooseSubjectController" id="fFQ-cQ-Rv1" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xXP-R1-cgv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="746" y="333"/>
+            <point key="canvasLocation" x="902" y="252"/>
         </scene>
         <!--Reminders-->
         <scene sceneID="ElI-SF-vn4">
@@ -32,7 +32,7 @@
                 <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="Reminders" id="Bqa-IE-HNr" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wkU-hV-Gh6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="675" y="376"/>
+            <point key="canvasLocation" x="831" y="314"/>
         </scene>
         <!--DatePickViewController-->
         <scene sceneID="xlB-hw-SDE">
@@ -40,7 +40,7 @@
                 <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="DatePickViewController" id="Lv0-cA-ek8" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAM-BY-S96" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="738" y="418"/>
+            <point key="canvasLocation" x="894" y="389"/>
         </scene>
         <!--Edit Activity Controller-->
         <scene sceneID="GLR-80-s7H">
