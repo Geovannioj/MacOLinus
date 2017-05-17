@@ -60,8 +60,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         
         
-        print(documentsDirectory())
-        
         let nib = UINib(nibName: "DayActivityTableViewCell", bundle: nil)
         
         tableView.register(nib, forCellReuseIdentifier: "ActivityTableViewCell")
@@ -290,7 +288,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
 
         let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
         
-        let editButton = MGSwipeButton(title:"          ", backgroundColor: UIColor(patternImage: UIImage(named: "edit.png")!)){
+        let editButton = MGSwipeButton(title:"            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit")!)){
             (sender: MGSwipeTableCell!) -> Bool in
             
             self.indexActivity = indexPath.row
@@ -369,7 +367,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
 //        activityTime = maskTime(hour: hour, minutes: minutes)
         
         
-        cell.leftButtons = [editButton, deleteButton, postponeButton]
+        cell.leftButtons = [postponeButton, deleteButton, editButton]
         cell.leftSwipeSettings.transition = .border
         cell.rightButtons = [doneButton]
         cell.rightSwipeSettings.transition = .border
