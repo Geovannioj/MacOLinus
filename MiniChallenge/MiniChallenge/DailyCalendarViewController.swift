@@ -44,7 +44,7 @@ class DailyCalendarViewController: UIViewController {
         
         if segue.identifier == "GoToRemindersByDaily"{
             if let goToReminders = segue.destination as? AddTitleController{
-                goToReminders.segueDestination = segue.identifier!
+                goToReminders.segueRecived = segue.identifier!
             }
         }
     }

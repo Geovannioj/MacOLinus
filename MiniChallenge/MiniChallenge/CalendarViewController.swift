@@ -20,6 +20,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var monthLabel : UILabel?
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var addActivityButton: UIButton!
     
     //General Attributes
     let logo = UIImage(named: "Pengo.png")
@@ -37,6 +38,13 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     var currentDate : NSDate? = nil
     let formatter = DateFormatter()
     var numberOfRows = 6
+    
+    //Data to be Passed to the edit screen
+    var subjectTitle: String = ""
+    var activityTitle: String = ""
+    var activityTime: String = ""
+    var sendActivity = Reminder()
+    var indexActivity: Int = -1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +55,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         obtainActivites()
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -64,7 +73,10 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        
     }
     
 
@@ -87,6 +99,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             SingletonActivity.sharedInstance.tasks = unarchiver.decodeObject(forKey: "Reminders") as! [Reminder]
             unarchiver.finishDecoding()
         }
+        
         
     }
 
@@ -164,6 +177,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         calendarView.reloadData()
     }
     
+    @IBAction func addActivityAction(_ sender: Any) {
+        performSegue(withIdentifier: "AddActivity", sender: Any?.self)
+    }
  
     func handleAppointmentOnDayLabel(cell: CalendarCell, cellState: CellState, date: Date){
         
@@ -185,10 +201,17 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
     func sortActivities() -> [Reminder]{
         
+        let pListController = ControllerPList()
+        
         activities = getToDoAndPostponedActivities(activities: SingletonActivity.sharedInstance.tasks)
         
         var sortedArray : [Reminder] = []
         sortedArray = activities.sorted(by: { $0.time.compare($1.time) == ComparisonResult.orderedAscending})
+        
+        SingletonActivity.sharedInstance.tasks = sortedArray
+        
+        pListController.saveReminders()
+        
         return sortedArray
     }
     
@@ -251,7 +274,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         return 76.0
     }
     
-    func maskTime(hour: Int, minutes: Int) -> String{
+    static func maskTime(hour: Int, minutes: Int) -> String{
         
         var resultString = ""
         
@@ -270,16 +293,20 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         return resultString
     }
     
+    
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
         
         let editButton = MGSwipeButton(title:"          ", backgroundColor: UIColor(patternImage: UIImage(named: "edit.png")!)){
             (sender: MGSwipeTableCell!) -> Bool in
             
+            self.indexActivity = indexPath.row
+            self.performSegue(withIdentifier: "EditActivityController", sender: tableView)
+            
             return true
         }
-        
-        let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
         
         let activity = activities[indexPath.row]
         
@@ -293,9 +320,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         cell.activityName.text = activity.title
         cell.activitySubject.text = activity.subject?.title
-        cell.activityHour.text = maskTime(hour: hour, minutes: minutes)
+        cell.activityHour.text = CalendarViewController.maskTime(hour: hour, minutes: minutes)
         cell.dayLabel.text = String(day)
-        cell.monthLabel.text = String(selectMonthText(month: month))
+        cell.monthLabel.text = String(CalendarViewController.selectMonthText(month: month))
         
         if activity.subject == nil {
             cell.subjectColor.backgroundColor = UIColor.white
@@ -310,18 +337,25 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         cell.layer.borderColor = redColor.cgColor
         cell.layer.borderWidth = 1
         cell.clipsToBounds = true
+    
+        //set data to be passed
+//        sendActivity = activity
+//        activityTitle = activity.title
+//        subjectTitle = (activity.subject?.title)!
+//        activityTime = maskTime(hour: hour, minutes: minutes)
+        
         
         cell.leftButtons = [editButton]
         cell.leftSwipeSettings.transition = .border
         
+        
         return cell
 
     }
-}
-
-func selectMonthText(month: Int) -> String {
     
-    switch month {
+    static func selectMonthText(month: Int) -> String {
+        
+        switch month {
         case 1:
             return "Jan"
         case 2:
@@ -348,8 +382,11 @@ func selectMonthText(month: Int) -> String {
             return "Dec"
         default:
             return ""
+        }
     }
+
 }
+
 
 /*
  * This extensions contains the methods responsible for configuring the TableView of next
@@ -475,9 +512,18 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         
         else if segue.identifier == "GoToRemindersByCalendar"{
             if let goToReminders = segue.destination as? AddTitleController{
-                goToReminders.segueDestination = segue.identifier!
+                goToReminders.segueRecived = segue.identifier!
             }
+        }else if segue.identifier == "EditActivityController"{
+            
+            if let goToEditScreen = segue.destination as? EditActivityController{
+
+                goToEditScreen.indexActivityToEdit = indexActivity
+
+          }
         }
+
+        
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {

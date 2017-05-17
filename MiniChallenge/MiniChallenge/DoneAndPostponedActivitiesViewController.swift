@@ -66,7 +66,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         
         if segue.identifier == "GoToRemindersByDone"{
             if let goToReminders = segue.destination as? AddTitleController{
-                goToReminders.segueDestination = segue.identifier!
+                goToReminders.segueRecived = segue.identifier!
             }
         }
     }

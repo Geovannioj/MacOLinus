@@ -10,22 +10,31 @@ import UIKit
 
 class AddTitleController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var nextScreen: UIButton!
     @IBOutlet weak var taskTitleTextField: UITextField!
     @IBOutlet weak var emptyTitleLavel: UILabel!
-    @IBOutlet weak var backButton: UIButton!
     
     var taskTitle: String = ""
     var activityToEdit: Reminder?
-    var segueDestination: String = ""
-    
+    var activityToBeSaved: Reminder?
+    var segueRecived: String = ""
+    var indexActivityArray: Int = -1
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Pink Pattern.pgn")!)
         
-        if let reminder = activityToEdit{
-            taskTitleTextField.text = reminder.title
+        if indexActivityArray >= 0{
+            activityToEdit = SingletonActivity.sharedInstance.tasks[indexActivityArray]
         }
+        
+        
+        if activityToEdit != nil{
+            taskTitleTextField.text = activityToEdit?.title
+        }
+        
+        print(segueRecived)
         emptyTitleLavel.isHidden = true
     }
     
@@ -33,32 +42,59 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         taskTitleTextField.becomeFirstResponder()
     }
+    @IBAction func backButton(_ sender: Any){
+        
+        if segueRecived == "Reminders"{
+            performSegue(withIdentifier: "GoToEditScreen", sender: Any?.self)
+        }else{
+            performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
+        }
+    }
     
     @IBAction func nextScreen(_ sender: Any) {
         
-        taskTitle = taskTitleTextField.text!
+        self.taskTitle = self.taskTitleTextField.text!
+        
         if taskTitle.isEmpty{
+        
             emptyTitleLavel.isHidden = false
-        }else{
-            SingletonActivity.sharedInstance.task.title = taskTitle
-            performSegue(withIdentifier: "SubjectChoiceScreen", sender: Any?.self)
+        
+        }else if !(taskTitle.isEmpty){
+            
+            if activityToEdit != nil{
+                
+                activityToEdit?.title = self.taskTitle
+                EditActivityController.activityPassed.title = self.taskTitle
+                performSegue(withIdentifier: "GoBackToEditScreen", sender: Any?.self)
+            
+            }else{
+                
+                SingletonActivity.sharedInstance.task.title = taskTitle
+                performSegue(withIdentifier: "SubjectChoiceScreen", sender: Any?.self)
+            }
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let goToChooseSubject = segue.destination as? ChooseSubjectController{
-            goToChooseSubject.segueDestination = segueDestination
+        
+        if segue.identifier == "GoToEditScreen" {
+           
+            if let data = segue.destination as? EditActivityController{
+
+                data.indexActivityToEdit = indexActivityArray
+                
+            }
+        }else if segue.identifier == "GoBackToEditScreen"{
+            if let goToEditScreen = segue.destination as? EditActivityController{
+                goToEditScreen.indexActivityToEdit = indexActivityArray
+                
+            }
+        }
+        else {
+            if let dataToSubject = segue.destination as? ChooseSubjectController{
+                dataToSubject.activityToEdit?.title = self.taskTitleTextField.text!
+            }
         }
     }
     
-    @IBAction func backButton(_ sender: Any){
-        if(segueDestination == "GoToRemindersByDaily"){
-            performSegue(withIdentifier: "BackToDailyCalendar", sender: Any?.self)
-        }else if(segueDestination == "GoToRemindersByDone"){
-            performSegue(withIdentifier: "BackToDoneAndPostponed", sender: Any?.self)
-        }else if(segueDestination == "GoToRemindersByCalendar"){
-            performSegue(withIdentifier: "BackToCalendar", sender: Any?.self)
-        }
-    }
-
 }

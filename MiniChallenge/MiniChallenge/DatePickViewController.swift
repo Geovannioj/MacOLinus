@@ -15,19 +15,29 @@ class DatePickViewController: UIViewController {
     
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet weak var labelValidate: UILabel!
+    @IBOutlet weak var backButton: UIButton!
     
     var taskTitle: String? = ""
     var taskDescription: String? = nil
     var isGrantedNotificationAccess:Bool = false
     var activityToEdit: Reminder?
-    var segueDestination: String = ""
-    
+    var segueRecived: String = ""
+    var indexActivityToEdit: Int = -1
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Pink Pattern.png")!)
+        
         datePicker.setValue(UIColor.white, forKeyPath: "textColor")
+        
+        if indexActivityToEdit >= 0 {
+            activityToEdit = SingletonActivity.sharedInstance.tasks[indexActivityToEdit]
+        }
+        
+        if let activity = activityToEdit{
+            datePicker.date = (activityToEdit?.time)!
+        }
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { (granted,error) in
             self.isGrantedNotificationAccess = granted
@@ -36,44 +46,50 @@ class DatePickViewController: UIViewController {
         labelValidate.isHidden = true
         
     }
+    @IBAction func backBtn(_ sender: Any){
+        if segueRecived == "DatePickViewController"{
+            
+            performSegue(withIdentifier: "GoBackToEditScreen3", sender: Any?.self)
+        
+        }else{
+        
+            performSegue(withIdentifier: "backToSubjectScreen", sender: Any?.self)
+        }
+        
     
+    }
     @IBAction func saveBtn(_ sender: Any) {
         
         
         if datePicker.date > Date(){
-        
-            let controlerPList = ControllerPList()
-            
-            //get date
-            SingletonActivity.sharedInstance.task.time = datePicker.date
-            
-            let task:Reminder = SingletonActivity.sharedInstance.task
-            
-            task.scheduleNotification()
-            
-            SingletonActivity.sharedInstance.tasks.append(task)
-            
-            
-            //save the task in the PList
-            controlerPList.saveReminders()
-            
-            //back to the screen to list the tasks
-            self.navigationController?.popToRootViewController(animated: true)
-            
-            
-            print("Segue Destination:")
-            print(segueDestination)
-            //clean the task reference
-            //SingletonActivity.sharedInstance.task = Reminder()
-            if(segueDestination == "GoToRemindersByDaily"){
-                performSegue(withIdentifier: "GoToDaily", sender: Any?.self)
-            }else if(segueDestination == "GoToRemindersByDone"){
-                performSegue(withIdentifier: "GoToDone", sender: Any?.self)
-            }else if(segueDestination == "GoToRemindersByCalendar"){
+            if segueRecived == "DatePickViewController" {
+                
+                EditActivityController.activityPassed.time = datePicker.date
+                performSegue(withIdentifier: "GoBackToEditScreen3", sender: Any?.self)
+                
+            }else{
+                
+                let controlerPList = ControllerPList()
+                
+                //get date
+                SingletonActivity.sharedInstance.task.time = datePicker.date
+                
+                let task:Reminder = SingletonActivity.sharedInstance.task
+                
+                task.scheduleNotification()
+                
+                SingletonActivity.sharedInstance.tasks.append(task)
+                
+                //save the task in the PList
+                controlerPList.saveReminders()
+                
+                //back to the screen to list the tasks
+                //self.navigationController?.popToRootViewController(animated: true)
+                
+                //clean the task reference
+                SingletonActivity.sharedInstance.task = Reminder()
                 performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
             }
-            //performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
-
         
         }else{
             //mensagem de erro avisnado que o horário deve ser maior que o atual
@@ -81,5 +97,16 @@ class DatePickViewController: UIViewController {
             
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoBackToEditScreen3"{
+            
+            if let goBackToEditScreen = segue.destination as? EditActivityController{
+            
+                goBackToEditScreen.indexActivityToEdit = indexActivityToEdit
+            
+            }
+        }
     }
 }

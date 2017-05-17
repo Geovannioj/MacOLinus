@@ -23,8 +23,6 @@ class Reminder: NSObject, NSCoding {
     var hour: Int = 0
     var minutes: Int = 0
     
-    
-    
     func encode(with aCoder: NSCoder){
         aCoder.encode(title, forKey: "Title")
         aCoder.encode(reminderDescription, forKey: "description")
@@ -40,7 +38,7 @@ class Reminder: NSObject, NSCoding {
         title = aDecoder.decodeObject(forKey: "Title") as! String
         reminderDescription = aDecoder.decodeObject(forKey: "description") as! String
         time = aDecoder.decodeObject(forKey: "time") as! Date
- //       subject = aDecoder.decodeObject(forKey: "Subject") as! Subject
+        subject = aDecoder.decodeObject(forKey: "Subject") as! Subject
         status = aDecoder.decodeInteger(forKey: "Status")
         
         super.init()

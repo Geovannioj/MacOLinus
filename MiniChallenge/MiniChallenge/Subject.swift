@@ -27,6 +27,9 @@ class Subject: NSObject, NSCoding {
     
     override init() {
         super.init()
+        self.title = String()
+        self.place = String()
+        self.color = UIColor.white
     }
     
     init(teacher: Teacher) {
