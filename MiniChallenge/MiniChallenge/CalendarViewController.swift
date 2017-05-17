@@ -302,8 +302,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             (sender: MGSwipeTableCell!) -> Bool in
             self.activities[indexPath.row].status = 2
             
-            //DailyCalendarViewController.postponeAcitivity(activities: self.activities, index: indexPath.row)
-            
             self.indexActivity = indexPath.row
             self.performSegue(withIdentifier: "GoToPostpone", sender: Any.self)
             

@@ -546,6 +546,7 @@
                     <connections>
                         <outlet property="activitiesTableView" destination="ip5-u2-oJJ" id="VFZ-ne-LMo"/>
                         <outlet property="extenseDay" destination="zhi-Xo-cUO" id="x9g-wL-RIY"/>
+                        <segue destination="KYn-FR-9ca" kind="presentation" identifier="GoToPostponeByDaily" id="gxt-Fe-sZE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zo3-Sr-QUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -606,6 +607,14 @@
                 </stackView>
             </objects>
             <point key="canvasLocation" x="1534" y="-228"/>
+        </scene>
+        <!--DatePickViewController-->
+        <scene sceneID="MYm-zI-6W6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="DatePickViewController" id="KYn-FR-9ca" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U5G-w5-MNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2212" y="-358"/>
         </scene>
         <!--Disciplinas-->
         <scene sceneID="rlg-cS-hpB">

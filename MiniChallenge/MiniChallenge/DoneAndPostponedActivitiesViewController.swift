@@ -113,7 +113,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         activities[index].time = NSCalendar.current.date(byAdding: .day, value: 1, to: activities[index].time)!
     }
     
-    func getActivityID(activity:Reminder) -> Int{
+    static func getActivityID(activity:Reminder) -> Int{
         
         var counter = 0
         for currentActivity in SingletonActivity.sharedInstance.tasks{
@@ -172,7 +172,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
-            self.indexActivity = self.getActivityID(activity: activity)
+            self.indexActivity = DoneAndPostponedActivitiesViewController.getActivityID(activity: activity)
             self.performSegue(withIdentifier: "EditActivity", sender: Any.self)
             
             return true

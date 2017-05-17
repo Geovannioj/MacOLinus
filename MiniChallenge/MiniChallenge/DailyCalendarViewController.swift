@@ -25,6 +25,7 @@ class DailyCalendarViewController: UIViewController {
 //    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var extenseDay: UILabel!
     
+    var indexActivity = -1
     var passedDate : Date?
     var currentDate : Date?
     let formatter = DateFormatter()
@@ -35,16 +36,21 @@ class DailyCalendarViewController: UIViewController {
         super.viewDidLoad()
         
         passedDate = SingletonPassedDate.sharedInstance.passedDate
-        print("Passed text: \(String(describing: passedText))")
         extenseDay.text = passedText
         
         checkActivitiesOnDay(activities: SingletonActivity.sharedInstance.tasks)
+        print("Aquiiiiii:\(activitiesOnDay)")
   }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "GoToRemindersByDaily"{
             if let goToReminders = segue.destination as? AddTitleController{
                 goToReminders.segueRecived = segue.identifier!
+            }
+        }else if segue.identifier == "GoToPostponeByDaily"{
+            if let goToPostpone = segue.destination as? DatePickViewController{
+                goToPostpone.segueRecived = segue.identifier!
+                goToPostpone.indexActivityToEdit = self.indexActivity
             }
         }
     }
@@ -54,7 +60,8 @@ class DailyCalendarViewController: UIViewController {
         for activity in activities{
             if NSCalendar.current.compare(passedDate!, to: activity.time, toGranularity: .day) == ComparisonResult.orderedSame {
     
-                if(activity.status == 0){
+                if(activity.status == 0 || activity.status == 2){
+                    print("Aqui: \(activity.title)")
                     activitiesOnDay.append(activity)
                 }
             }
@@ -177,10 +184,6 @@ class DailyCalendarViewController: UIViewController {
 
 extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegate{
     
-    static func postponeAcitivity(activities:[Reminder], index:Int){
-        activities[index].time = NSCalendar.current.date(byAdding: .day, value: 1, to: activities[index].time)!
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return activitiesOnDay.count
     }
@@ -212,15 +215,18 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         cell.layer.borderWidth = 1
         cell.clipsToBounds = true
         
-        //delay button
+        //postpone button
         let postponeButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Postpone")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
+            
             self.activitiesOnDay[indexPath.row].status = 2
-            DailyCalendarViewController.postponeAcitivity(activities: self.activitiesOnDay, index: indexPath.row)
-            self.activitiesOnDay.remove(at: indexPath.row)
-            print("Cliquei em Delay")
+            
+            self.indexActivity = DoneAndPostponedActivitiesViewController.getActivityID(activity: correspondentActivity)
+            self.performSegue(withIdentifier: "GoToPostponeByDaily", sender: Any.self)
+            
             self.controllerPlsit.saveReminders()
-            self.activitiesTableView.reloadData()
+            tableView.reloadData()
+    
             return true
         }
         
