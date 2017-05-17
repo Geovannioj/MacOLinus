@@ -67,6 +67,16 @@ class DatePickViewController: UIViewController {
                 EditActivityController.activityPassed.time = datePicker.date
                 performSegue(withIdentifier: "GoBackToEditScreen3", sender: Any?.self)
                 
+            }else if (self.segueRecived == "GoToPostpone"){
+                
+                    let controlerPList = ControllerPList()
+                SingletonActivity.sharedInstance.tasks[self.indexActivityToEdit].time = datePicker.date
+                
+                    SingletonActivity.sharedInstance.tasks[self.indexActivityToEdit].scheduleNotification()
+                
+                    controlerPList.saveReminders()
+                
+                    performSegue(withIdentifier: "GoToCalendar", sender: Any.self)
             }else{
                 
                 let controlerPList = ControllerPList()

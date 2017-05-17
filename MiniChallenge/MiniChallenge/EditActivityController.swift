@@ -62,6 +62,7 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
         print("Atividade")
         print(EditActivityController.activityPassed.title)
         
+        SingletonActivity.sharedInstance.tasks[indexActivityToEdit].scheduleNotification()
         controlerPList.saveReminders()
         
         performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
