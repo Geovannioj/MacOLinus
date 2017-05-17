@@ -85,7 +85,7 @@ class DatePickViewController: UIViewController {
                 controlerPList.saveReminders()
                 
                 //back to the screen to list the tasks
-                self.navigationController?.popToRootViewController(animated: true)
+                //self.navigationController?.popToRootViewController(animated: true)
                 
                 //clean the task reference
                 SingletonActivity.sharedInstance.task = Reminder()

@@ -515,11 +515,6 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
 
                 goToEditScreen.indexActivityToEdit = indexActivity
 
-                print("index saindo de calendarController")
-                print(indexActivity)
-                
-                print("titulo da atividade tableView")
-                print(activities[indexActivity].title)
           }
         }
 

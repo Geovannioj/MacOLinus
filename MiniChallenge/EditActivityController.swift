@@ -21,6 +21,13 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
     var activityToBeSaved = Reminder()
     var indexActivityToEdit: Int = -1
     
+    var hour: Int = 0
+    var minutes: Int = 0
+    var day: String = ""
+    var month: Int = 0
+    var year: Int = 0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,8 +40,16 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
         print(indexActivityToEdit)
         
         EditActivityController.activityPassed = SingletonActivity.sharedInstance.tasks[indexActivityToEdit]
-        print("atividade do arraySingleton")
-        print(SingletonActivity.sharedInstance.tasks[indexActivityToEdit].title)
+
+        let date = EditActivityController.activityPassed.time
+        let calendar = Calendar.current
+        
+         day = String(calendar.component(.day, from: date))
+         month = calendar.component(.month, from: date)
+         hour = calendar.component(.hour, from: date)
+         minutes = calendar.component(.minute, from: date)
+         year = calendar.component(.year, from: date)
+
 
     }
     
@@ -78,7 +93,7 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
         }else if indexPath.row == 1 {
             recivedData.text = EditActivityController.activityPassed.subject?.title
         }else if indexPath.row == 2 {
-            recivedData.text = String(describing: EditActivityController.activityPassed.time)
+            recivedData.text = ("\(day)/\(String(month))/\(year) - \(CalendarViewController.maskTime(hour: hour, minutes: minutes))")
         }
         return cell
     }
