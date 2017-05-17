@@ -11,6 +11,7 @@ class Subject: NSObject, NSCoding {
     var schedule: [Date] = []
     var color: UIColor = UIColor()
     var teacher: Teacher = Teacher()
+    var missedClasses = [NSDate]()
     //    var note: Note = Note()
     //
     

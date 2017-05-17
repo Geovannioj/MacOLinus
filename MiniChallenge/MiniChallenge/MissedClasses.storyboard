@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -72,8 +73,18 @@
                                     <outlet property="ibCalendarDelegate" destination="hbD-md-H8j" id="M3v-08-yFF"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compromissos no dia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6w-hA-RtN">
-                                <rect key="frame" x="105" y="94" width="166" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Numero de faltas:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6w-hA-RtN">
+                                <rect key="frame" x="73" y="94" width="136" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="missedClasses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHt-Co-QX1">
+                                <rect key="frame" x="217" y="94" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="FN3-k1-BcD"/>
+                                    <constraint firstAttribute="width" constant="42" id="pgd-8x-cZH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -81,16 +92,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="DHt-Co-QX1" firstAttribute="top" secondItem="wzj-zm-6G9" secondAttribute="bottom" constant="74" id="4M7-4p-8C7"/>
                             <constraint firstItem="jOx-xx-BhS" firstAttribute="leading" secondItem="kXA-KD-cTb" secondAttribute="leading" id="9hP-wM-7iG"/>
-                            <constraint firstItem="J6w-hA-RtN" firstAttribute="centerX" secondItem="jOx-xx-BhS" secondAttribute="centerX" id="G5p-lp-cJq"/>
+                            <constraint firstItem="J6w-hA-RtN" firstAttribute="centerX" secondItem="jOx-xx-BhS" secondAttribute="centerX" constant="-46.5" id="G5p-lp-cJq"/>
                             <constraint firstItem="jOx-xx-BhS" firstAttribute="top" secondItem="J6w-hA-RtN" secondAttribute="bottom" constant="65" id="GO2-vg-aGL"/>
+                            <constraint firstItem="DHt-Co-QX1" firstAttribute="leading" secondItem="J6w-hA-RtN" secondAttribute="trailing" constant="8" id="LVM-Ka-o7J"/>
+                            <constraint firstItem="jOx-xx-BhS" firstAttribute="top" secondItem="DHt-Co-QX1" secondAttribute="bottom" constant="65" id="Lh1-CS-aaA"/>
                             <constraint firstItem="ky8-1K-jJO" firstAttribute="top" secondItem="jOx-xx-BhS" secondAttribute="bottom" constant="240" id="RU6-aA-X6O"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DHt-Co-QX1" secondAttribute="trailing" constant="100" id="dDq-8T-sDS"/>
                             <constraint firstItem="J6w-hA-RtN" firstAttribute="top" secondItem="wzj-zm-6G9" secondAttribute="bottom" constant="74" id="wlZ-IQ-CYM"/>
-                            <constraint firstItem="J6w-hA-RtN" firstAttribute="centerX" secondItem="kXA-KD-cTb" secondAttribute="centerX" id="xFt-8B-wpQ"/>
+                            <constraint firstItem="J6w-hA-RtN" firstAttribute="centerX" secondItem="kXA-KD-cTb" secondAttribute="centerX" constant="-46.5" id="xFt-8B-wpQ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="calendarView" destination="jOx-xx-BhS" id="rVh-3y-htk"/>
+                        <outlet property="missedClassesLb" destination="DHt-Co-QX1" id="8Ob-FL-8KY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3vL-Sr-NDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
