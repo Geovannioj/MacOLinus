@@ -13,10 +13,11 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var nextScreen: UIButton!
     @IBOutlet weak var taskTitleTextField: UITextField!
     @IBOutlet weak var emptyTitleLavel: UILabel!
-    
+    @IBOutlet weak var backButton: UIButton!
     
     var taskTitle: String = ""
     var activityToEdit: Reminder?
+    var segueDestination: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +42,23 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
         }else{
             SingletonActivity.sharedInstance.task.title = taskTitle
             performSegue(withIdentifier: "SubjectChoiceScreen", sender: Any?.self)
-            
         }
-        
-        
-        
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let goToChooseSubject = segue.destination as? ChooseSubjectController{
+            goToChooseSubject.segueDestination = segueDestination
+        }
+    }
+    
+    @IBAction func backButton(_ sender: Any){
+        if(segueDestination == "GoToRemindersByDaily"){
+            performSegue(withIdentifier: "BackToDailyCalendar", sender: Any?.self)
+        }else if(segueDestination == "GoToRemindersByDone"){
+            performSegue(withIdentifier: "BackToDoneAndPostponed", sender: Any?.self)
+        }else if(segueDestination == "GoToRemindersByCalendar"){
+            performSegue(withIdentifier: "BackToCalendar", sender: Any?.self)
+        }
+    }
+
 }

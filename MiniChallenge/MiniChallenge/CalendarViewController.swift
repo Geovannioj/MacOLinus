@@ -453,6 +453,8 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         
     }
     
+
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "goToDailyCalendar" {
@@ -465,7 +467,15 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
                 
                 destination.passedText?.append(formatter.string(from: sender as! Date))
                 
-                destination.passedDate = sender as? Date
+                SingletonPassedDate.sharedInstance.passedDate = (sender as? Date)!
+                
+                //destination.passedDate = sender as? Date
+            }
+        }
+        
+        else if segue.identifier == "GoToRemindersByCalendar"{
+            if let goToReminders = segue.destination as? AddTitleController{
+                goToReminders.segueDestination = segue.identifier!
             }
         }
     }

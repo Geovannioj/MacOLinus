@@ -20,6 +20,7 @@ class DatePickViewController: UIViewController {
     var taskDescription: String? = nil
     var isGrantedNotificationAccess:Bool = false
     var activityToEdit: Reminder?
+    var segueDestination: String = ""
     
 
     override func viewDidLoad() {
@@ -59,9 +60,19 @@ class DatePickViewController: UIViewController {
             //back to the screen to list the tasks
             self.navigationController?.popToRootViewController(animated: true)
             
+            
+            print("Segue Destination:")
+            print(segueDestination)
             //clean the task reference
             //SingletonActivity.sharedInstance.task = Reminder()
-            performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
+            if(segueDestination == "GoToRemindersByDaily"){
+                performSegue(withIdentifier: "GoToDaily", sender: Any?.self)
+            }else if(segueDestination == "GoToRemindersByDone"){
+                performSegue(withIdentifier: "GoToDone", sender: Any?.self)
+            }else if(segueDestination == "GoToRemindersByCalendar"){
+                performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
+            }
+            //performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
 
         
         }else{

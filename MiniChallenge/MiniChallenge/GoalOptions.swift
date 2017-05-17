@@ -53,9 +53,9 @@ class GoalOptions: UIViewController {
         performSegue(withIdentifier: "readABook", sender: Any?.self)
     }
     
-    @IBAction func customGoalPressed(_ sender: Any) {
+    /*@IBAction func customGoalPressed(_ sender: Any) {
         performSegue(withIdentifier: "createANewGoal", sender: Any?.self)
-    }
+    }*/
     
     
 

@@ -33,17 +33,27 @@ class DailyCalendarViewController: UIViewController {
 //    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        passedDate = SingletonPassedDate.sharedInstance.passedDate
         print("Passed text: \(String(describing: passedText))")
         extenseDay.text = passedText
         
         checkActivitiesOnDay(activities: SingletonActivity.sharedInstance.tasks)
   }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "GoToRemindersByDaily"{
+            if let goToReminders = segue.destination as? AddTitleController{
+                goToReminders.segueDestination = segue.identifier!
+            }
+        }
+    }
     
     func checkActivitiesOnDay(activities: [Reminder]){
-        
+    
         for activity in activities{
             if NSCalendar.current.compare(passedDate!, to: activity.time, toGranularity: .day) == ComparisonResult.orderedSame {
-                
+    
                 if(activity.status == 0){
                     activitiesOnDay.append(activity)
                 }
@@ -184,21 +194,6 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    /*func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let doneAction = UITableViewRowAction(style: .normal, title: "          ") { (rowAction, indexPath) in
-            print("olar")
-        }
-        doneAction.backgroundColor = UIColor(patternImage: UIImage(named: "done.png")!)
-        return [doneAction]
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        let indexPaths = [indexPath]
-        tableView.deleteRows(at: indexPaths, with: .automatic)
-    }*/
-    
-    
  
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("DayActivityTableViewCell", owner: self, options: nil)?.first as! DayActivityTableViewCell
@@ -217,7 +212,7 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         cell.timeLabel.text = "\(hour):"+"\(minutes)"
         print("\(correspondentActivity.hour)")
         print("\(correspondentActivity.minutes)")
-        cell.clockImage.image = UIImage(named: "clock.png")
+        cell.clockImage.image = UIImage(named: "clockIcon")
         
         cell.backgroundColor = UIColor.white
         cell.layer.borderColor = redColor.cgColor
@@ -225,7 +220,7 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         cell.clipsToBounds = true
         
         //delay button
-        let delayButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "delay.png")!)) {
+        let postponeButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Postpone")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             self.activitiesOnDay[indexPath.row].status = 2
             self.postponeAcitivity(activities: self.activitiesOnDay, index: indexPath.row)
@@ -236,16 +231,16 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
             return true
         }
         
-        /*
+        
         //edit button
         let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit.png")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             print("Cliquei em Edit")
             return true
-        }*/
+        }
         
         //done button
-        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done.png")!)) {
+        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             self.activitiesOnDay[indexPath.row].status = 1
             self.activitiesOnDay.remove(at: indexPath.row)
@@ -257,15 +252,10 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         
         
         //configure left and right buttons
-        cell.leftButtons = [delayButton]
+        cell.leftButtons = [postponeButton, editButton]
         cell.leftSwipeSettings.transition = .border
         cell.rightButtons = [doneButton]
         cell.rightSwipeSettings.transition = .border
-        
-       /* cell.leftExpansion.buttonIndex = 0
-        cell.leftExpansion.fillOnTrigger = true
-        cell.leftExpansion.threshold = 1.5*/
-        //configure right buttons
         
         return cell
     }
