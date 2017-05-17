@@ -177,10 +177,8 @@ class DailyCalendarViewController: UIViewController {
 
 extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegate{
     
-    func postponeAcitivity(activities:[Reminder], index:Int){
-        print("data antiga:" + "\(activities[index].time)")
+    static func postponeAcitivity(activities:[Reminder], index:Int){
         activities[index].time = NSCalendar.current.date(byAdding: .day, value: 1, to: activities[index].time)!
-        print("data depois:" + "\(activities[index].time)")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -209,9 +207,7 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         cell.subjectLabel.text = correspondentActivity.subject?.title
         
         
-        cell.timeLabel.text = "\(hour):"+"\(minutes)"
-        print("\(correspondentActivity.hour)")
-        print("\(correspondentActivity.minutes)")
+        cell.timeLabel.text = CalendarViewController.maskTime(hour: hour, minutes: minutes)
         cell.clockImage.image = UIImage(named: "clockIcon")
         
         cell.backgroundColor = UIColor.white
@@ -223,7 +219,7 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         let postponeButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Postpone")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             self.activitiesOnDay[indexPath.row].status = 2
-            self.postponeAcitivity(activities: self.activitiesOnDay, index: indexPath.row)
+            DailyCalendarViewController.postponeAcitivity(activities: self.activitiesOnDay, index: indexPath.row)
             self.activitiesOnDay.remove(at: indexPath.row)
             print("Cliquei em Delay")
             self.controllerPlsit.saveReminders()

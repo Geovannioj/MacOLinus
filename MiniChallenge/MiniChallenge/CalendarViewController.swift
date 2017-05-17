@@ -246,15 +246,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         return cellSpacingHeight
     }
     
-    //delete the tableRow
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
-        activities.remove(at: indexPath.row)
-        SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
-        let indexPaths = [indexPath]
-        tableView.deleteRows(at: indexPaths, with: .automatic)
-        controlerPList.saveReminders()
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
     }
@@ -308,6 +299,39 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             return true
         }
         
+        //postpone button
+        let postponeButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Postpone")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            self.activities[indexPath.row].status = 2
+            DailyCalendarViewController.postponeAcitivity(activities: self.activities, index: indexPath.row)
+            print("Cliquei em Postpone")
+            self.controlerPList.saveReminders()
+            tableView.reloadData()
+            return true
+        }
+        
+        //done button
+        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            self.activities[indexPath.row].status = 1
+            self.activities.remove(at: indexPath.row)
+            print("Cliquei em Done")
+            self.controlerPList.saveReminders()
+            tableView.reloadData()
+            return true
+        }
+        
+        let deleteButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "delete")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            self.activities.remove(at: indexPath.row)
+            SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
+            let indexPaths = [indexPath]
+            tableView.deleteRows(at: indexPaths, with: .automatic)
+            self.controlerPList.saveReminders()
+            return true
+        }
+    
+        
         let activity = activities[indexPath.row]
         
         let date = activity.time
@@ -345,8 +369,10 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
 //        activityTime = maskTime(hour: hour, minutes: minutes)
         
         
-        cell.leftButtons = [editButton]
+        cell.leftButtons = [editButton, deleteButton, postponeButton]
         cell.leftSwipeSettings.transition = .border
+        cell.rightButtons = [doneButton]
+        cell.rightSwipeSettings.transition = .border
         
         
         return cell

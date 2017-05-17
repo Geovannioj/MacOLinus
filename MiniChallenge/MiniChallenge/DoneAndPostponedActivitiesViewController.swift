@@ -110,26 +110,6 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         print("data depois:" + "\(activities[index].time)")
     }
     
-    func maskTime(hour: Int, minutes: Int) -> String{
-        
-        var resultString = ""
-        
-        if hour <= 9  {
-            resultString.append("0" + "\(hour):")
-        } else {
-            resultString.append("\(hour):")
-        }
-        
-        if minutes <= 9 {
-            resultString.append("0" + "\(minutes)")
-        } else {
-            resultString.append("\(minutes)")
-        }
-        
-        return resultString
-    }
-
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = Bundle.main.loadNibNamed("DoneAndPostponedActivitiesTableViewCell", owner: self, options: nil)?.first as! DoneAndPostponedActivitiesTableViewCell
         
@@ -187,7 +167,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             let hour = calendar.component(.hour, from: activity.time)
             let minutes = calendar.component(.minute, from: activity.time)
             
-            cell.timeLabel.text = "\(day)/\(month)/\(year) -" + maskTime(hour:hour, minutes:minutes)
+            cell.timeLabel.text = "\(day)/\(month)/\(year) -" + (CalendarViewController.maskTime(hour:hour, minutes:minutes))
             cell.subjectLabel.text = activity.subject?.title
             
             cell.rightButtons = [undoButton]
@@ -206,7 +186,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             let hour = calendar.component(.hour, from: activity.time)
             let minutes = calendar.component(.minute, from: activity.time)
             
-            cell.timeLabel.text = "\(day)/\(month)/\(year) -" + maskTime(hour:hour, minutes:minutes)
+            cell.timeLabel.text = "\(day)/\(month)/\(year) -" + (CalendarViewController.maskTime(hour:hour, minutes:minutes))
             cell.subjectLabel.text = activity.subject?.title
             
             cell.rightButtons = [doneButton]
