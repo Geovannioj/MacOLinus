@@ -14,6 +14,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
 
     var doneActivities = [Reminder]()
     var postponedActivities = [Reminder]()
+    var indexActivity = 0
     let controllerPlsit = ControllerPList()
     
     let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
@@ -68,6 +69,10 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             if let goToReminders = segue.destination as? AddTitleController{
                 goToReminders.segueRecived = segue.identifier!
             }
+        }else if segue.identifier == "EditActivity"{
+            if let goToEdit = segue.destination as? EditActivityController{
+                goToEdit.indexActivityToEdit = self.indexActivity
+            }
         }
     }
     
@@ -105,9 +110,19 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
     }
     
     func postponeAcitivity(activities:[Reminder], index:Int){
-        print("data antiga:" + "\(activities[index].time)")
         activities[index].time = NSCalendar.current.date(byAdding: .day, value: 1, to: activities[index].time)!
-        print("data depois:" + "\(activities[index].time)")
+    }
+    
+    func getActivityID(activity:Reminder) -> Int{
+        
+        var counter = 0
+        for currentActivity in SingletonActivity.sharedInstance.tasks{
+            if(activity.reminderID == currentActivity.reminderID){
+                return counter
+            }
+            counter = counter + 1
+        }
+        return counter
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -117,13 +132,6 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         cell.layer.borderColor = redColor.cgColor
         cell.layer.borderWidth = 1
         cell.clipsToBounds = true
-        
-        //edit button
-        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit")!)) {
-            (sender: MGSwipeTableCell!) -> Bool in
-            print("Cliquei em Edit")
-            return true
-        }
         
         //done button
         let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
@@ -152,12 +160,29 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
 
         let calendar = Calendar.current
         
+        let activity:Reminder
+        
+        if(activitiesSegment.selectedSegmentIndex == 0){
+            activity = doneActivities[indexPath.row]
+        }else{
+            activity = postponedActivities[indexPath.row]
+        }
+        
+        //edit button
+        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            
+            self.indexActivity = self.getActivityID(activity: activity)
+            self.performSegue(withIdentifier: "EditActivity", sender: Any.self)
+            
+            return true
+        }
+        
+        
         switch activitiesSegment.selectedSegmentIndex {
         
         //done activities
         case 0:
-            let activity = doneActivities[indexPath.row]
-            
             cell.activityLabel.text = activity.title
             cell.iconImage.image = UIImage(named: "check")
             cell.colorLabel.backgroundColor = activity.subject?.color
@@ -176,8 +201,6 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             
             break
         default:
-            let activity = postponedActivities[indexPath.row]
-            
             cell.colorLabel.backgroundColor = activity.subject?.color
             cell.subjectLabel.text = activity.subject?.title
             cell.activityLabel.text = activity.title
@@ -197,6 +220,9 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             cell.leftButtons = [editButton]
             cell.leftSwipeSettings.transition = .border
         }
+        
+        
+        
         return cell
     }
 
