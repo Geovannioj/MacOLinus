@@ -157,9 +157,11 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         //done activities
         case 0:
             let activity = doneActivities[indexPath.row]
+            
             cell.activityLabel.text = activity.title
-            cell.colorLabel.backgroundColor? = UIColor.blue//activity.subject.color
             cell.iconImage.image = UIImage(named: "check")
+            cell.colorLabel.backgroundColor = activity.subject?.color
+            cell.subjectLabel.text = activity.subject?.title
             
             let day = calendar.component(.day, from: activity.time)
             let month = calendar.component(.month, from: activity.time)
@@ -168,7 +170,6 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             let minutes = calendar.component(.minute, from: activity.time)
             
             cell.timeLabel.text = "\(day)/\(month)/\(year) -" + (CalendarViewController.maskTime(hour:hour, minutes:minutes))
-            cell.subjectLabel.text = activity.subject?.title
             
             cell.rightButtons = [undoButton]
             cell.rightSwipeSettings.transition = .border
@@ -176,9 +177,12 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             break
         default:
             let activity = postponedActivities[indexPath.row]
+            
+            cell.colorLabel.backgroundColor = activity.subject?.color
+            cell.subjectLabel.text = activity.subject?.title
             cell.activityLabel.text = activity.title
-            cell.colorLabel.backgroundColor = UIColor.blue//activity.subject.color
             cell.iconImage.image = UIImage(named: "clockIcon")
+
             
             let day = calendar.component(.day, from: activity.time)
             let month = calendar.component(.month, from: activity.time)
@@ -187,7 +191,6 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             let minutes = calendar.component(.minute, from: activity.time)
             
             cell.timeLabel.text = "\(day)/\(month)/\(year) -" + (CalendarViewController.maskTime(hour:hour, minutes:minutes))
-            cell.subjectLabel.text = activity.subject?.title
             
             cell.rightButtons = [doneButton]
             cell.rightSwipeSettings.transition = .border
