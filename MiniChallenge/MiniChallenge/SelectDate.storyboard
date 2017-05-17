@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rJH-W8-Lvh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rJH-W8-Lvh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -92,9 +92,9 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLe-wN-pc5">
-                                <rect key="frame" x="70" y="480" width="62" height="34"/>
+                                <rect key="frame" x="70" y="480" width="73" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Sábado">
+                                <state key="normal" title="Domingo">
                                     <color key="titleColor" red="0.086577527225017548" green="0.079168088734149933" blue="0.020614210516214371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
@@ -122,31 +122,49 @@
                                 <rect key="frame" x="33" y="286" width="16" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="checkbokEmpty"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxZ-ls-6C3">
-                                <rect key="frame" x="33" y="224" width="16" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="checkbokEmpty"/>
+                                <connections>
+                                    <action selector="wednesdaySelected:" destination="rJH-W8-Lvh" eventType="touchUpInside" id="bWK-YR-Udg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQq-T0-dPd">
                                 <rect key="frame" x="33" y="390" width="16" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="checkbokEmpty"/>
+                                <connections>
+                                    <action selector="fridaySelected:" destination="rJH-W8-Lvh" eventType="touchUpInside" id="K1K-TU-86j"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhK-Nc-OtK">
                                 <rect key="frame" x="36" y="440" width="16" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="checkbokEmpty"/>
+                                <connections>
+                                    <action selector="saturdaySelected:" destination="rJH-W8-Lvh" eventType="touchUpInside" id="CgW-zf-jwR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktE-fd-dcF">
                                 <rect key="frame" x="36" y="489" width="16" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="checkbokEmpty"/>
+                                <connections>
+                                    <action selector="sundaySelected:" destination="rJH-W8-Lvh" eventType="touchUpInside" id="NdB-kI-mh4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tre-mm-CBr">
                                 <rect key="frame" x="33" y="342" width="16" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="checkbokEmpty"/>
+                                <connections>
+                                    <action selector="thursdaySelected:" destination="rJH-W8-Lvh" eventType="touchUpInside" id="xuA-mU-h75"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxZ-ls-6C3">
+                                <rect key="frame" x="36" y="228" width="16" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="checkbokEmpty"/>
+                                <connections>
+                                    <action selector="tuesdaySelected:" destination="rJH-W8-Lvh" eventType="touchUpInside" id="aWj-6h-lCD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -176,7 +194,7 @@
                             <constraint firstItem="geg-EP-IOR" firstAttribute="leading" secondItem="Z7a-fw-ecn" secondAttribute="leadingMargin" constant="54" id="lF6-8r-5cE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="geg-EP-IOR" secondAttribute="trailing" constant="87" id="lVU-cu-pP5"/>
                             <constraint firstItem="vs3-CL-tuu" firstAttribute="leading" secondItem="Z7a-fw-ecn" secondAttribute="leadingMargin" constant="54" id="nYY-xy-HI6"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="CLe-wN-pc5" secondAttribute="trailing" constant="227" id="oBR-6r-GfR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CLe-wN-pc5" secondAttribute="trailing" constant="216" id="oBR-6r-GfR"/>
                             <constraint firstItem="K1j-qA-MOv" firstAttribute="top" secondItem="VaU-PS-C3J" secondAttribute="bottom" constant="14" id="p04-BE-wEJ"/>
                             <constraint firstItem="kkX-VK-kT3" firstAttribute="centerX" secondItem="Z7a-fw-ecn" secondAttribute="centerX" id="qfL-qS-WnX"/>
                             <constraint firstItem="ciW-95-QFJ" firstAttribute="leading" secondItem="Z7a-fw-ecn" secondAttribute="leadingMargin" constant="10" id="qzq-QK-MLg"/>
@@ -187,7 +205,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="fridayCheckbox" destination="FQq-T0-dPd" id="2iC-Mq-tLD"/>
                         <outlet property="mondayCheckbox" destination="3H5-MH-dct" id="nZv-CR-KTz"/>
+                        <outlet property="saturdayCheckbox" destination="qhK-Nc-OtK" id="eFE-aF-pt6"/>
+                        <outlet property="sundayCheckbox" destination="ktE-fd-dcF" id="3cs-P5-NxT"/>
+                        <outlet property="thursdayCheckbox" destination="Tre-mm-CBr" id="yMr-5u-72M"/>
+                        <outlet property="tuesdayCheckbox" destination="uxZ-ls-6C3" id="Zaf-Fx-Gni"/>
+                        <outlet property="wednesdayCheckbox" destination="qbF-h1-hG4" id="KaI-cG-sgh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xg8-w1-rPU" userLabel="First Responder" sceneMemberID="firstResponder"/>

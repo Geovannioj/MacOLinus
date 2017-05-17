@@ -12,6 +12,12 @@ class SelectGoalDateViewController: UIViewController {
 
     
     @IBOutlet weak var mondayCheckbox: UIButton!
+    @IBOutlet weak var tuesdayCheckbox: UIButton!
+    @IBOutlet weak var wednesdayCheckbox: UIButton!
+    @IBOutlet weak var thursdayCheckbox: UIButton!
+    @IBOutlet weak var fridayCheckbox: UIButton!
+    @IBOutlet weak var saturdayCheckbox: UIButton!
+    @IBOutlet weak var sundayCheckbox: UIButton!
     
     var Checked = UIImage(named: "checkboxSelected")
     var Unchecked = UIImage(named: "checkbokEmpty")
@@ -21,7 +27,7 @@ class SelectGoalDateViewController: UIViewController {
     var isWednesdaySelected: Bool = false
     var isThursdaySelected: Bool = false
     var isFridaySelected: Bool = false
-    var isSaturdarSelected: Bool = false
+    var isSaturdaySelected: Bool = false
     var isSundaySelected: Bool = false
     
     
@@ -41,6 +47,108 @@ class SelectGoalDateViewController: UIViewController {
             mondayCheckbox.setImage(Unchecked, for: UIControlState.normal)
         }
     
+    }
+    
+    @IBAction func tuesdaySelected(_ sender: Any) {
+        
+        if isTuesaySelected {
+            isTuesaySelected = false
+        } else {
+            isTuesaySelected = true
+        }
+        
+        if isTuesaySelected {
+            tuesdayCheckbox.setImage(Checked, for: UIControlState.normal)
+        } else {
+            tuesdayCheckbox.setImage(Unchecked, for: UIControlState.normal)
+        }
+    }
+    
+    @IBAction func wednesdaySelected(_ sender: Any) {
+        
+        
+        if isWednesdaySelected {
+            isWednesdaySelected = false
+        } else {
+            isWednesdaySelected = true
+        }
+        
+        if isWednesdaySelected {
+            wednesdayCheckbox.setImage(Checked, for: UIControlState.normal)
+        } else {
+            wednesdayCheckbox.setImage(Unchecked, for: UIControlState.normal)
+        }
+
+        
+    }
+    
+
+    
+    @IBAction func thursdaySelected(_ sender: Any) {
+        
+        if isThursdaySelected {
+            isThursdaySelected = false
+        } else {
+            isThursdaySelected = true
+        }
+        
+        if isThursdaySelected {
+            thursdayCheckbox.setImage(Checked, for: UIControlState.normal)
+        } else {
+            thursdayCheckbox.setImage(Unchecked, for: UIControlState.normal)
+        }
+
+    }
+    
+    @IBAction func fridaySelected(_ sender: Any) {
+        
+        
+        if isFridaySelected {
+            isFridaySelected = false
+        } else {
+            isFridaySelected = true
+        }
+        
+        if isFridaySelected {
+            fridayCheckbox.setImage(Checked, for: UIControlState.normal)
+        } else {
+            fridayCheckbox.setImage(Unchecked, for: UIControlState.normal)
+        }
+
+    }
+ 
+    @IBAction func saturdaySelected(_ sender: Any) {
+        
+        if isSaturdaySelected {
+            isSaturdaySelected = false
+        } else {
+            isSaturdaySelected = true
+        }
+        
+        if isSaturdaySelected {
+            saturdayCheckbox.setImage(Checked, for: UIControlState.normal)
+        } else {
+            saturdayCheckbox.setImage(Unchecked, for: UIControlState.normal)
+        }
+
+    
+    }
+    
+    
+    @IBAction func sundaySelected(_ sender: Any) {
+        
+        if isSundaySelected {
+            isSundaySelected = false
+        } else {
+            isSundaySelected = true
+        }
+        
+        if isSundaySelected {
+            sundayCheckbox.setImage(Checked, for: UIControlState.normal)
+        } else {
+            sundayCheckbox.setImage(Unchecked, for: UIControlState.normal)
+        }
+
     }
     
     override func viewDidLoad() {
