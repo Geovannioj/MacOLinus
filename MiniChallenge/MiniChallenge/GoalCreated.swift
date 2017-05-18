@@ -19,7 +19,6 @@ class GoalCreated: UIViewController {
         saveUserGoals()
         
         performSegue(withIdentifier: "goalCreated", sender: Any?.self)
-        
       
     }
     
