@@ -31,6 +31,22 @@ class SelectGoalDateViewController: UIViewController {
     var isSundaySelected: Bool = false
     
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        setConfig()
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
     // MARK: - Checkboxes
     
     @IBAction func mondaySelected(_ sender: Any) {
@@ -151,21 +167,11 @@ class SelectGoalDateViewController: UIViewController {
 
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-
+    @IBAction func nextPagePressed(_ sender: Any) {
         
-        setConfig()
-        
-        // Do any additional setup after loading the view.
+        performSegue(withIdentifier: "SelectGoalDatetime", sender: Any?.self)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+ 
 
     
     func assignBlackStatusBar() {

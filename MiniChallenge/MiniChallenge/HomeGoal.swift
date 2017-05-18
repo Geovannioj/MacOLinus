@@ -58,7 +58,7 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             let indexPaths = [indexPath]
             tableView.deleteRows(at: indexPaths, with: .automatic)
-
+            tableView.reloadData()
             
             self.saveUserGoals()
             

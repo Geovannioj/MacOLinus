@@ -6,6 +6,7 @@ class Goal: NSObject, NSCoding {
     
     var title: String = ""
     var goalDescription: String = ""
+    var time: Date = Date()
     
     // MARK: - Path to user goals
     
@@ -20,6 +21,11 @@ class Goal: NSObject, NSCoding {
     
     init(title: String) {
         self.title = title
+    }
+    
+    init(title: String, time: Date) {
+        self.title = title
+        self.time = time
     }
     
     

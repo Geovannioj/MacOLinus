@@ -109,6 +109,10 @@
                                 <rect key="frame" x="299" y="167" width="44" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="yellowButton"/>
+                                <connections>
+                                    <action selector="nextPagePressed:" destination="rJH-W8-Lvh" eventType="touchUpInside" id="19u-hj-gY1"/>
+                                    <segue destination="Pwa-eL-Fbf" kind="show" identifier="SelectGoalDatetime" id="vuZ-ma-g3X"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3H5-MH-dct">
                                 <rect key="frame" x="33" y="176" width="16" height="16"/>
@@ -216,7 +220,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xg8-w1-rPU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2140" y="918.89055472263874"/>
+            <point key="canvasLocation" x="-153" y="-51"/>
+        </scene>
+        <!--SelectGoalDatetime-->
+        <scene sceneID="4xo-Q2-60k">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SelectGoalDatetime" id="Pwa-eL-Fbf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y7S-yX-bNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="665" y="-52"/>
         </scene>
     </scenes>
     <resources>
