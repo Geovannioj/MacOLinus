@@ -15,7 +15,7 @@ class Reminder: NSObject, NSCoding {
     var title: String = ""
     var reminderDescription: String = ""
     var time: Date = Date()
-    var subject :Subject = Subject()
+    var subject :Subject?
     var status: Int = 0
     var day: Int = 0
     var month: Int = 0
@@ -27,7 +27,10 @@ class Reminder: NSObject, NSCoding {
         aCoder.encode(title, forKey: "Title")
         aCoder.encode(reminderDescription, forKey: "description")
         aCoder.encode(time, forKey: "time")
-        aCoder.encode(subject, forKey: "Subject")
+        if subject != nil {
+            aCoder.encode(subject, forKey: "Subject")
+
+        }
         aCoder.encode(status, forKey: "Status")
         aCoder.encode(reminderID, forKey:"ReminderID")
         
@@ -38,9 +41,10 @@ class Reminder: NSObject, NSCoding {
         title = aDecoder.decodeObject(forKey: "Title") as! String
         reminderDescription = aDecoder.decodeObject(forKey: "description") as! String
         time = aDecoder.decodeObject(forKey: "time") as! Date
-        subject = aDecoder.decodeObject(forKey: "Subject") as! Subject
+        if aDecoder.decodeObject(forKey: "Subject") != nil {
+           subject = aDecoder.decodeObject(forKey: "Subject") as! Subject
+        }
         status = aDecoder.decodeInteger(forKey: "Status")
-        
         super.init()
     }
     

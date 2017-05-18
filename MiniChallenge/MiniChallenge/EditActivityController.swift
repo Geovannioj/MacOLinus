@@ -101,7 +101,7 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
             recivedData.text = EditActivityController.activityPassed.title
             
         }else if indexPath.row == 1 {
-            recivedData.text = EditActivityController.activityPassed.subject.title
+            recivedData.text = EditActivityController.activityPassed.subject?.title
         }else if indexPath.row == 2 {
             recivedData.text = ("\(day)/\(String(month))/\(year) - \(CalendarViewController.maskTime(hour: hour, minutes: minutes))")
         }
