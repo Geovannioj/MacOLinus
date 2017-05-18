@@ -354,9 +354,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         cell.layer.borderWidth = 1
         cell.clipsToBounds = true
         
-        cell.leftButtons = [postponeButton, deleteButton, editButton]
+        cell.leftButtons = [deleteButton, editButton]
         cell.leftSwipeSettings.transition = .border
-        cell.rightButtons = [doneButton]
+        cell.rightButtons = [doneButton, postponeButton]
         cell.rightSwipeSettings.transition = .border
         
         
