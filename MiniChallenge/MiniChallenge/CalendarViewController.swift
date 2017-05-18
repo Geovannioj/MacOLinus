@@ -297,19 +297,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             return true
         }
         
-        //postpone button
-        let postponeButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Postpone")!)) {
-            (sender: MGSwipeTableCell!) -> Bool in
-            self.activities[indexPath.row].status = 2
-            
-            self.indexActivity = indexPath.row
-            self.performSegue(withIdentifier: "GoToPostpone", sender: Any.self)
-            
-            self.controlerPList.saveReminders()
-            tableView.reloadData()
-            return true
-        }
-        
         //done button
         let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
@@ -332,6 +319,19 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
         
         let activity = activities[indexPath.row]
+        
+        //postpone button
+        let postponeButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Postpone")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            self.activities[indexPath.row].status = 2
+            
+            self.indexActivity = DoneAndPostponedActivitiesViewController.getActivityID(activity: activity)
+            self.performSegue(withIdentifier: "GoToPostpone", sender: Any.self)
+            
+            self.controlerPList.saveReminders()
+            tableView.reloadData()
+            return true
+        }
         
         let date = activity.time
         let calendar = Calendar.current

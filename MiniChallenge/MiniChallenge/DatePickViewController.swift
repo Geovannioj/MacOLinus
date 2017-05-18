@@ -66,7 +66,7 @@ class DatePickViewController: UIViewController {
                 EditActivityController.activityPassed.time = datePicker.date
                 performSegue(withIdentifier: "GoBackToEditScreen3", sender: Any?.self)
                 
-            }else if (self.segueRecived == "GoToPostpone" || self.segueRecived == "GoToPostponeByDaily"){
+            }else if (self.segueRecived == "GoToPostpone" || self.segueRecived == "GoToPostponeByDaily" || segueRecived == "GoToPostponeByDone"){
                 let controlerPList = ControllerPList()
                 SingletonActivity.sharedInstance.tasks[self.indexActivityToEdit].time = datePicker.date
                 
@@ -76,22 +76,23 @@ class DatePickViewController: UIViewController {
                 
                 if segueRecived == "GoToPostpone"{
                     performSegue(withIdentifier: "GoToCalendar", sender: Any.self)
-                }else{
+                }else if segueRecived == "GoToPostponeByDaily"{
                     performSegue(withIdentifier: "GoToDailyCalendar", sender: Any.self)
+                }else{
+                    performSegue(withIdentifier: "GoToDoneAndPostponed", sender: Any.self)
                 }
+            }else{
+                let controlerPList = ControllerPList()
+                //get date
+                SingletonActivity.sharedInstance.task.time = datePicker.date
+                let task:Reminder = SingletonActivity.sharedInstance.task
+                task.scheduleNotification()
+                SingletonActivity.sharedInstance.tasks.append(task)
+                //save the task in the PList
+                controlerPList.saveReminders()
+                //clean the task reference
+                SingletonActivity.sharedInstance.task = Reminder()
             }
-            
-            let controlerPList = ControllerPList()
-            //get date
-            SingletonActivity.sharedInstance.task.time = datePicker.date
-            let task:Reminder = SingletonActivity.sharedInstance.task
-            task.scheduleNotification()
-            SingletonActivity.sharedInstance.tasks.append(task)
-            //save the task in the PList
-            controlerPList.saveReminders()
-            //clean the task reference
-            SingletonActivity.sharedInstance.task = Reminder()
-            
             
             if segueRecived == "AddActivity"{
                 performSegue(withIdentifier: "GoToCalendar", sender: Any.self)
