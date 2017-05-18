@@ -27,7 +27,7 @@ class DatePickViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Pink Pattern.png")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Pink Pattern")!)
         
         datePicker.setValue(UIColor.white, forKeyPath: "textColor")
         
@@ -58,6 +58,7 @@ class DatePickViewController: UIViewController {
         
     
     }
+    
     @IBAction func saveBtn(_ sender: Any) {
         if datePicker.date > Date(){
             if segueRecived == "DatePickViewController" {
@@ -90,13 +91,11 @@ class DatePickViewController: UIViewController {
             controlerPList.saveReminders()
             //clean the task reference
             SingletonActivity.sharedInstance.task = Reminder()
-            performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
             
             
             if segueRecived == "AddActivity"{
                 performSegue(withIdentifier: "GoToCalendar", sender: Any.self)
             }else if segueRecived == "AddActivityByDaily"{
-                print("Segueeeee aqui47: \(segueRecived)")
                 performSegue(withIdentifier: "GoToDailyCalendar", sender: Any.self)
             }else if segueRecived == "AddActivityByDone"{
                 performSegue(withIdentifier: "GoToDoneAndPostponed", sender: Any.self)

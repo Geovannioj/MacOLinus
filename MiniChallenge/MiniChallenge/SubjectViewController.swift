@@ -85,8 +85,7 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func backToPreviousScreen(_ sender: Any){
-        
-        if segueData == "GoToAddSubject"{
+        if (segueData == "GoToAddSubject" || segueData == "AddActivity" || segueData == "AddActivityByDone" || segueData == "AddActivityByDaily" || segueData == "ChooseSubjectController"){
             
             performSegue(withIdentifier: "BackToSubjectChoice", sender: Any?.self)
             
@@ -261,6 +260,10 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
             if let toViewController = segue.destination as? TempController {
                 toViewController.data = subjectTextField.text!
                 toViewController.segueData = segueData
+            }
+        }else if segue.identifier == "BackToSubjectChoice"{
+            if let goBackToSubjectChoice = segue.destination as? ChooseSubjectController{
+                goBackToSubjectChoice.segueRecived = self.segueData!
             }
         }
     }

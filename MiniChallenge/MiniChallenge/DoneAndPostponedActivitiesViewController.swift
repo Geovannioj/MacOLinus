@@ -71,6 +71,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             }
         }else if segue.identifier == "EditActivity"{
             if let goToEdit = segue.destination as? EditActivityController{
+                goToEdit.segueReceived = (segue.identifier)!
                 goToEdit.indexActivityToEdit = self.indexActivity
             }
         }
@@ -188,8 +189,8 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         case 0:
             cell.activityLabel.text = activity.title
             cell.iconImage.image = UIImage(named: "check")
-            cell.colorLabel.backgroundColor = activity.subject?.color
-            cell.subjectLabel.text = activity.subject?.title
+            cell.colorLabel.backgroundColor = activity.subject.color
+            cell.subjectLabel.text = activity.subject.title
             
             let day = calendar.component(.day, from: activity.time)
             let month = calendar.component(.month, from: activity.time)
@@ -204,8 +205,8 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             
             break
         default:
-            cell.colorLabel.backgroundColor = activity.subject?.color
-            cell.subjectLabel.text = activity.subject?.title
+            cell.colorLabel.backgroundColor = activity.subject.color
+            cell.subjectLabel.text = activity.subject.title
             cell.activityLabel.text = activity.title
             cell.iconImage.image = UIImage(named: "clockIcon")
 

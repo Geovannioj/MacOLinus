@@ -208,8 +208,8 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         let minutes = calendar.component(.minute, from: correspondentActivity.time)
         
         cell.activityLabel.text = correspondentActivity.title
-        cell.subjectLabel.text = correspondentActivity.subject?.title
-        cell.colorLabel.backgroundColor = correspondentActivity.subject?.color
+        cell.subjectLabel.text = correspondentActivity.subject.title
+        cell.colorLabel.backgroundColor = correspondentActivity.subject.color
         cell.timeLabel.text = CalendarViewController.maskTime(hour: hour, minutes: minutes)
         cell.clockImage.image = UIImage(named: "clockIcon")
         

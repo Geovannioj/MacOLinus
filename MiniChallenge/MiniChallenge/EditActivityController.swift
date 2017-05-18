@@ -20,6 +20,7 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
     static var activityPassed = Reminder()
     var activityToBeSaved = Reminder()
     var indexActivityToEdit: Int = -1
+    var segueReceived = ""
     
     var hour: Int = 0
     var minutes: Int = 0
@@ -65,14 +66,22 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
         SingletonActivity.sharedInstance.tasks[indexActivityToEdit].scheduleNotification()
         controlerPList.saveReminders()
         
-        performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
-        
+        if(segueReceived == "EditActivity"){
+            performSegue(withIdentifier: "BackToDone", sender: Any.self)
+        }else{
+            performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
+        }
         EditActivityController.activityPassed = Reminder()
     }
     
     @IBAction func cancelBtnAction(_ sender: Any) {
         
-        performSegue(withIdentifier: "BackToCalendar", sender: Any?.self)
+        if(self.segueReceived == "EditActivity"){
+            performSegue(withIdentifier: "BackToDone", sender: Any.self)
+        }
+        else{
+            performSegue(withIdentifier: "BackToCalendar", sender: Any?.self)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,7 +101,7 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
             recivedData.text = EditActivityController.activityPassed.title
             
         }else if indexPath.row == 1 {
-            recivedData.text = EditActivityController.activityPassed.subject?.title
+            recivedData.text = EditActivityController.activityPassed.subject.title
         }else if indexPath.row == 2 {
             recivedData.text = ("\(day)/\(String(month))/\(year) - \(CalendarViewController.maskTime(hour: hour, minutes: minutes))")
         }

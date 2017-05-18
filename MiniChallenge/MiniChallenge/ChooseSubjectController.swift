@@ -39,7 +39,6 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     }
     
     @IBAction func backButon(_ sender: Any){
-        print("Segueeeeee: \(segueRecived)")
         if segueRecived == "ChooseSubjectController"{
             performSegue(withIdentifier: "GoToEditScreen2", sender: Any?.self)
         }else if segueRecived == "AddActivity"{
@@ -55,7 +54,7 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
         
         if segueRecived == "ChooseSubjectController"{
             
-            EditActivityController.activityPassed.subject = subject
+            EditActivityController.activityPassed.subject = subject!
             performSegue(withIdentifier: "GoToEditScreen2", sender: Any?.self)
             
         }else{
@@ -106,8 +105,7 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
         if segue.identifier == "GoToAddSubject" {
             
             if let toAddSubject = segue.destination as? SubjectViewController{
-            
-                toAddSubject.segueData = segue.identifier
+                toAddSubject.segueData = self.segueRecived
             
             }
 
@@ -120,8 +118,12 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
                 goBackToAddTitle.segueRecived = self.segueRecived
             }
         }else if segue.identifier == "GoToDateScreenWithSubject"{
-            if let goToDapePick = segue.destination as? DatePickViewController{
-                goToDapePick.segueRecived = self.segueRecived
+            if let goToDatePick = segue.destination as? DatePickViewController{
+                goToDatePick.segueRecived = self.segueRecived
+            }
+        }else if segue.identifier == "GoToDateScreenWithOutSubject"{
+            if let goToDatePick = segue.destination as? DatePickViewController{
+                goToDatePick.segueRecived = self.segueRecived
             }
         }
     }
