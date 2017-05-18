@@ -353,6 +353,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         cell.layer.borderColor = redColor.cgColor
         cell.layer.borderWidth = 1
         cell.clipsToBounds = true
+        cell.subjectColor.clipsToBounds = true
+        cell.subjectColor.layer.cornerRadius = 2.5
+        
         
         cell.leftButtons = [deleteButton, editButton]
         cell.leftSwipeSettings.transition = .border

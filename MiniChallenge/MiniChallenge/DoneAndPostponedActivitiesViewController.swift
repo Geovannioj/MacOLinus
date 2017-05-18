@@ -225,7 +225,8 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             cell.leftSwipeSettings.transition = .border
         }
         
-        
+        cell.colorLabel.clipsToBounds = true
+        cell.colorLabel.layer.cornerRadius = 2.5
         
         return cell
     }

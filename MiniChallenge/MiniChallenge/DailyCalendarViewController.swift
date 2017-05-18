@@ -216,6 +216,8 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         cell.layer.borderColor = redColor.cgColor
         cell.layer.borderWidth = 1
         cell.clipsToBounds = true
+        cell.colorLabel.clipsToBounds = true
+        cell.colorLabel.layer.cornerRadius = 2.5
         
         //postpone button
         let postponeButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Postpone")!)) {
