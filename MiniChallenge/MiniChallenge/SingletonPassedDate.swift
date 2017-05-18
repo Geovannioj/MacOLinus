@@ -15,14 +15,12 @@ struct PassedDate {
 
 class SingletonPassedDate {
     var passedDate: Date
+    var passedText: String
     
     static let sharedInstance = SingletonPassedDate()
     
     private init() {
         self.passedDate = Date()
-    }
-    
-    func setPassedDate(newPassedDate:Date) {
-        self.passedDate = newPassedDate
+        self.passedText = String()
     }
 }

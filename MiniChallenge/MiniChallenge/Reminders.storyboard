@@ -10,13 +10,29 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--DoneAndPostponedActivities-->
+        <scene sceneID="d3q-U5-eBO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DoneAndPostponedActivities" referencedIdentifier="DoneAndPostponedActivities" id="6dU-2h-f9P" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1eZ-Hx-Z4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7032" y="-555"/>
+        </scene>
+        <!--DailyCalendar-->
+        <scene sceneID="bLz-ez-9Pi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Calendar" referencedIdentifier="DailyCalendar" id="vNT-fd-6bS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T0m-8K-fAj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7032" y="-418"/>
+        </scene>
         <!--Calendar-->
         <scene sceneID="AbC-0Y-YyZ">
             <objects>
                 <viewControllerPlaceholder storyboardName="Calendar" referencedIdentifier="Calendar" id="9Vw-n5-eyZ" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v1D-kN-Ixn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7796" y="-187"/>
+            <point key="canvasLocation" x="7032" y="-265"/>
         </scene>
         <!--EditActivityController-->
         <scene sceneID="GMt-6g-og2">
@@ -121,9 +137,11 @@
                         <outlet property="cancelButton" destination="Abe-IL-Ixg" id="25x-UK-CD9"/>
                         <outlet property="emptyTitleLavel" destination="2l9-bT-Nqi" id="32V-6t-Cfq"/>
                         <outlet property="taskTitleTextField" destination="Ltg-Ht-a4i" id="OX6-td-wfu"/>
-                        <segue destination="Vf9-vm-COU" kind="show" identifier="SubjectChoiceScreen" id="pUI-ai-LEt"/>
+                        <segue destination="Vf9-vm-COU" kind="presentation" identifier="SubjectChoiceScreen" id="pUI-ai-LEt"/>
                         <segue destination="Jux-gM-eNq" kind="presentation" identifier="GoToEditScreen" id="o0e-s5-1qf"/>
                         <segue destination="Jux-gM-eNq" kind="presentation" identifier="GoBackToEditScreen" id="oIp-sb-8q2"/>
+                        <segue destination="vNT-fd-6bS" kind="presentation" identifier="GoToDailyCalendar" id="fbt-8K-wL7"/>
+                        <segue destination="6dU-2h-f9P" kind="presentation" identifier="GoToDoneAndPostponed" id="Eh7-Ze-Pg8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cF6-3p-Igc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -286,6 +304,7 @@
                         <segue destination="Jux-gM-eNq" kind="presentation" identifier="GoToEditScreen2" id="7Nj-Gc-8It"/>
                         <segue destination="D2w-Pm-wdv" kind="presentation" identifier="GoToDateScreenWithOutSubject" id="cPa-UX-bQr"/>
                         <segue destination="D2w-Pm-wdv" kind="presentation" identifier="GoToDateScreenWithSubject" id="7vk-xA-uQQ"/>
+                        <segue destination="8FU-ka-ofJ" kind="presentation" identifier="BackToAddTitle" id="okC-X0-kCl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="woo-UF-PkN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -405,10 +424,11 @@
                         <outlet property="backButton" destination="UWI-FC-kkz" id="QCZ-3m-LJa"/>
                         <outlet property="datePicker" destination="SxQ-zA-QYO" id="VjS-UR-r6C"/>
                         <outlet property="labelValidate" destination="IyC-Ji-fdI" id="JJT-lS-fj1"/>
-                        <segue destination="Qxw-g3-Zdm" kind="show" identifier="GoToCalendar" id="QDF-E7-orA"/>
+                        <segue destination="Qxw-g3-Zdm" kind="presentation" identifier="GoToCalendar" id="QDF-E7-orA"/>
                         <segue destination="Jux-gM-eNq" kind="presentation" identifier="GoBackToEditScreen3" id="4P1-zt-QXX"/>
                         <segue destination="Vf9-vm-COU" kind="presentation" identifier="backToSubjectScreen" id="7lS-0C-ZfI"/>
                         <segue destination="Bx2-Z5-NDm" kind="presentation" identifier="GoToDailyCalendar" id="Kc0-pl-ooW"/>
+                        <segue destination="CZu-Re-VEj" kind="presentation" identifier="GoToDoneAndPostponed" id="ggL-Cj-Bq3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zMc-Xt-9ri" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -431,6 +451,14 @@
             </objects>
             <point key="canvasLocation" x="10481" y="-655"/>
         </scene>
+        <!--DoneAndPostponedActivities-->
+        <scene sceneID="JuB-uS-ty4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DoneAndPostponedActivities" referencedIdentifier="DoneAndPostponedActivities" id="CZu-Re-VEj" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M5n-lO-qKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10463" y="-540"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Asset 2@2x" width="122" height="193"/>
@@ -442,7 +470,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="7lS-0C-ZfI"/>
-        <segue reference="cPa-UX-bQr"/>
+        <segue reference="7vk-xA-uQQ"/>
         <segue reference="4P1-zt-QXX"/>
     </inferredMetricsTieBreakers>
 </document>

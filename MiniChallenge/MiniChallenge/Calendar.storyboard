@@ -95,7 +95,7 @@
                 <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="Reminders" id="A8p-aa-tlV" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCc-GE-P0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-30" y="-497"/>
+            <point key="canvasLocation" x="135" y="-437"/>
         </scene>
         <!--DoneAndPostponedActivities-->
         <scene sceneID="x3p-Mi-6Uo">
@@ -103,15 +103,7 @@
                 <viewControllerPlaceholder storyboardName="DoneAndPostponedActivities" referencedIdentifier="DoneAndPostponedActivities" id="Kaw-xl-6FA" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tHr-fG-WmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="60" y="-444"/>
-        </scene>
-        <!--Reminders-->
-        <scene sceneID="K87-Cb-Obm">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Reminders" id="BrX-jt-LRG" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U4p-4S-YZJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="968" y="-235"/>
+            <point key="canvasLocation" x="188" y="-358"/>
         </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="WA6-Fd-ru4">
@@ -437,7 +429,8 @@
                                                 </constraints>
                                                 <state key="normal" image="add"/>
                                                 <connections>
-                                                    <segue destination="BrX-jt-LRG" kind="presentation" identifier="GoToRemindersByDaily" id="e5L-Cq-AXT"/>
+                                                    <action selector="AddActivityBtn:" destination="1iM-yx-1oJ" eventType="touchUpInside" id="9MK-lD-Gd7"/>
+                                                    <segue destination="1yH-V4-z8v" kind="presentation" identifier="AddActivityByDaily" id="yFE-T5-Lw4"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7A-oq-e20">
@@ -608,13 +601,21 @@
             </objects>
             <point key="canvasLocation" x="1534" y="-228"/>
         </scene>
+        <!--Reminders-->
+        <scene sceneID="kuP-S5-Pik">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="Reminders" id="1yH-V4-z8v" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LQa-Mn-RvY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2194" y="-475"/>
+        </scene>
         <!--DatePickViewController-->
         <scene sceneID="MYm-zI-6W6">
             <objects>
                 <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="DatePickViewController" id="KYn-FR-9ca" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5G-w5-MNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2212" y="-358"/>
+            <point key="canvasLocation" x="2472" y="-289"/>
         </scene>
         <!--Disciplinas-->
         <scene sceneID="rlg-cS-hpB">

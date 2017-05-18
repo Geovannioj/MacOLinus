@@ -59,8 +59,6 @@ class DatePickViewController: UIViewController {
     
     }
     @IBAction func saveBtn(_ sender: Any) {
-        
-        
         if datePicker.date > Date(){
             if segueRecived == "DatePickViewController" {
                 
@@ -68,42 +66,41 @@ class DatePickViewController: UIViewController {
                 performSegue(withIdentifier: "GoBackToEditScreen3", sender: Any?.self)
                 
             }else if (self.segueRecived == "GoToPostpone" || self.segueRecived == "GoToPostponeByDaily"){
-                    let controlerPList = ControllerPList()
+                let controlerPList = ControllerPList()
                 SingletonActivity.sharedInstance.tasks[self.indexActivityToEdit].time = datePicker.date
                 
-                    SingletonActivity.sharedInstance.tasks[self.indexActivityToEdit].scheduleNotification()
+                SingletonActivity.sharedInstance.tasks[self.indexActivityToEdit].scheduleNotification()
                 
-                    controlerPList.saveReminders()
-            
-                if(self.segueRecived == "GoToPostpone"){
-                        performSegue(withIdentifier: "GoToCalendar", sender: Any.self)
+                controlerPList.saveReminders()
+                
+                if segueRecived == "GoToPostpone"{
+                    performSegue(withIdentifier: "GoToCalendar", sender: Any.self)
                 }else{
                     performSegue(withIdentifier: "GoToDailyCalendar", sender: Any.self)
                 }
-            }else{
-                
-                let controlerPList = ControllerPList()
-                
-                //get date
-                SingletonActivity.sharedInstance.task.time = datePicker.date
-                
-                let task:Reminder = SingletonActivity.sharedInstance.task
-                
-                task.scheduleNotification()
-                
-                SingletonActivity.sharedInstance.tasks.append(task)
-                
-                //save the task in the PList
-                controlerPList.saveReminders()
-                
-                //back to the screen to list the tasks
-                //self.navigationController?.popToRootViewController(animated: true)
-                
-                //clean the task reference
-                SingletonActivity.sharedInstance.task = Reminder()
-                performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
             }
-        
+            
+            let controlerPList = ControllerPList()
+            //get date
+            SingletonActivity.sharedInstance.task.time = datePicker.date
+            let task:Reminder = SingletonActivity.sharedInstance.task
+            task.scheduleNotification()
+            SingletonActivity.sharedInstance.tasks.append(task)
+            //save the task in the PList
+            controlerPList.saveReminders()
+            //clean the task reference
+            SingletonActivity.sharedInstance.task = Reminder()
+            performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
+            
+            
+            if segueRecived == "AddActivity"{
+                performSegue(withIdentifier: "GoToCalendar", sender: Any.self)
+            }else if segueRecived == "AddActivityByDaily"{
+                print("Segueeeee aqui47: \(segueRecived)")
+                performSegue(withIdentifier: "GoToDailyCalendar", sender: Any.self)
+            }else if segueRecived == "AddActivityByDone"{
+                performSegue(withIdentifier: "GoToDoneAndPostponed", sender: Any.self)
+            }
         }else{
             //mensagem de erro avisnado que o horário deve ser maior que o atual
             labelValidate.isHidden =  false
@@ -119,6 +116,10 @@ class DatePickViewController: UIViewController {
             
                 goBackToEditScreen.indexActivityToEdit = indexActivityToEdit
             
+            }
+        }else if segue.identifier == "backToSubjectScreen"{
+            if let backToChooseSubject = segue.destination as? ChooseSubjectController{
+                backToChooseSubject.segueRecived = self.segueRecived
             }
         }
     }

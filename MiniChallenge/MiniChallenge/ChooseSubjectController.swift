@@ -37,13 +37,20 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
         nextScreenBtn.isEnabled = false
 
     }
+    
     @IBAction func backButon(_ sender: Any){
+        print("Segueeeeee: \(segueRecived)")
         if segueRecived == "ChooseSubjectController"{
             performSegue(withIdentifier: "GoToEditScreen2", sender: Any?.self)
-        }else{
-            
+        }else if segueRecived == "AddActivity"{
+            performSegue(withIdentifier: "BackToAddTitle", sender: Any.self)
+        }else if segueRecived == "AddActivityByDaily"{
+            performSegue(withIdentifier: "BackToAddTitle", sender: Any.self)
+        }else if segueRecived == "AddActivityByDone"{
+            performSegue(withIdentifier: "BackToAddTitle", sender: Any.self)
         }
     }
+    
     @IBAction func nextScreen(_ sender: Any) {
         
         if segueRecived == "ChooseSubjectController"{
@@ -107,6 +114,14 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
         }else if segue.identifier == "GoToEditScreen2"{
             if let backToEditScreen = segue.destination as? EditActivityController{
                 backToEditScreen.indexActivityToEdit = indexActivity
+            }
+        }else if segue.identifier == "BackToAddTitle"{
+            if let goBackToAddTitle = segue.destination as? AddTitleController{
+                goBackToAddTitle.segueRecived = self.segueRecived
+            }
+        }else if segue.identifier == "GoToDateScreenWithSubject"{
+            if let goToDapePick = segue.destination as? DatePickViewController{
+                goToDapePick.segueRecived = self.segueRecived
             }
         }
     }

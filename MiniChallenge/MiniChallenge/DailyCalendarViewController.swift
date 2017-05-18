@@ -16,6 +16,9 @@ class DailyCalendarViewController: UIViewController {
     let controllerPlsit = ControllerPList()
     
     
+    @IBAction func AddActivityBtn(_ sender: Any) {
+        performSegue(withIdentifier: "AddActivityByDaily", sender: Any.self)
+    }
     @IBOutlet weak var activitiesTableView: UITableView!
     var passedText : String?
     let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
@@ -35,15 +38,15 @@ class DailyCalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        passedText = SingletonPassedDate.sharedInstance.passedText
         passedDate = SingletonPassedDate.sharedInstance.passedDate
         extenseDay.text = passedText
         
         checkActivitiesOnDay(activities: SingletonActivity.sharedInstance.tasks)
-        print("Aquiiiiii:\(activitiesOnDay)")
   }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "GoToRemindersByDaily"{
+        if segue.identifier == "AddActivityByDaily"{
             if let goToReminders = segue.destination as? AddTitleController{
                 goToReminders.segueRecived = segue.identifier!
             }
@@ -61,7 +64,6 @@ class DailyCalendarViewController: UIViewController {
             if NSCalendar.current.compare(passedDate!, to: activity.time, toGranularity: .day) == ComparisonResult.orderedSame {
     
                 if(activity.status == 0 || activity.status == 2){
-                    print("Aqui: \(activity.title)")
                     activitiesOnDay.append(activity)
                 }
             }
@@ -234,6 +236,8 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         //edit button
         let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit.png")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
+            
+            //falta colocar o edit aqui
             print("Cliquei em Edit")
             return true
         }
@@ -243,7 +247,6 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
             (sender: MGSwipeTableCell!) -> Bool in
             self.activitiesOnDay[indexPath.row].status = 1
             self.activitiesOnDay.remove(at: indexPath.row)
-            print("Cliquei em Done")
             self.controllerPlsit.saveReminders()
             self.activitiesTableView.reloadData()
             return true

@@ -501,21 +501,14 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "goToDailyCalendar" {
-            
-            if let destination = segue.destination as? DailyCalendarViewController {
                 
-                destination.passedText = selectedDayText
+            SingletonPassedDate.sharedInstance.passedText = selectedDayText!
                 
-                self.formatter.dateStyle = .long
+            self.formatter.dateStyle = .long
                 
-                destination.passedText?.append(formatter.string(from: sender as! Date))
+            SingletonPassedDate.sharedInstance.passedText.append(formatter.string(from: sender as! Date))
                 
-                SingletonPassedDate.sharedInstance.passedDate = (sender as? Date)!
-            }
-        }else if segue.identifier == "GoToRemindersByCalendar"{
-            if let goToReminders = segue.destination as? AddTitleController{
-                goToReminders.segueRecived = segue.identifier!
-            }
+            SingletonPassedDate.sharedInstance.passedDate = (sender as? Date)!
         }else if segue.identifier == "EditActivityController"{
             
             if let goToEditScreen = segue.destination as? EditActivityController{
@@ -528,8 +521,11 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
                 goToPostpone.indexActivityToEdit = self.indexActivity
                 goToPostpone.segueRecived = segue.identifier!
             }
+        }else if segue.identifier == "AddActivity"{
+            if let goToAddActivity = segue.destination as? AddTitleController{
+                goToAddActivity.segueRecived = segue.identifier!
+            }
         }
-        
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {

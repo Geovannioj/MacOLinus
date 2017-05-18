@@ -46,8 +46,12 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
         
         if segueRecived == "Reminders"{
             performSegue(withIdentifier: "GoToEditScreen", sender: Any?.self)
-        }else{
+        }else if segueRecived == "AddActivity"{
             performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
+        }else if segueRecived == "AddActivityByDaily"{
+            performSegue(withIdentifier: "GoToDailyCalendar", sender: Any.self)
+        }else if segueRecived == "AddActivityByDone"{
+            performSegue(withIdentifier: "GoToDoneAndPostponed", sender: Any.self)
         }
     }
     
@@ -90,9 +94,10 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
                 
             }
         }
-        else {
+        else if segue.identifier == "SubjectChoiceScreen"{
             if let dataToSubject = segue.destination as? ChooseSubjectController{
                 dataToSubject.activityToEdit?.title = self.taskTitleTextField.text!
+                dataToSubject.segueRecived = self.segueRecived
             }
         }
     }
