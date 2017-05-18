@@ -17,6 +17,12 @@ class SelectGoalDatetime: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {
+            didAllow, error in
+            
+        })
+        
         
         setConfig()
 
@@ -26,7 +32,9 @@ class SelectGoalDatetime: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
     }
+    
     
     func assignBlackStatusBar() {
         
@@ -75,8 +83,8 @@ class SelectGoalDatetime: UIViewController {
     
     //MARK: - Notification
     
-    
     func scheduleNotification(at date: Date) {
+        
         let calendar = Calendar(identifier: .gregorian)
         let components = calendar.dateComponents(in: .current, from: date)
         let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
@@ -85,15 +93,12 @@ class SelectGoalDatetime: UIViewController {
         
     
         let content = UNMutableNotificationContent()
-        content.title = "Tutorial Reminder"
-        content.body = "Just a reminder to read your tutorial over at appcoda.com!"
+        content.title = "Pengo"
+        content.body = "Pengo is notifying you"
         content.sound = UNNotificationSound.default()
-        
-        
         
         let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
 
-        
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().add(request) {(error) in
             if let error = error {

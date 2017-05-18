@@ -107,10 +107,10 @@
             </objects>
             <point key="canvasLocation" x="1258" y="919"/>
         </scene>
-        <!--SelectDate-->
+        <!--SelectWhereToNotify-->
         <scene sceneID="I5P-6m-J7o">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="nada" storyboardName="SelectDate" id="qnO-Xb-FQ5" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="nada" storyboardName="SelectWhereToNotify" id="qnO-Xb-FQ5" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0kD-88-0XQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2139" y="918"/>
