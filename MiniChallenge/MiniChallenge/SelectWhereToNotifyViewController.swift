@@ -8,10 +8,16 @@
 
 import UIKit
 import MapKit
+import CoreLocation
+import UserNotifications
 
-class SelectWhereToNotifyViewController: UIViewController, MKMapViewDelegate {
+
+class SelectWhereToNotifyViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var map: MKMapView!
+    
+    var locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +31,14 @@ class SelectWhereToNotifyViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func nextScreenPressed(_ sender: Any) {
+        performSegue(withIdentifier: "SelectDate", sender: Any?.self)
+    }
+    
+    
+    
+    // MARK: - General Setup
+    
     func setConfig() {
         
         assignBlackStatusBar()
@@ -33,19 +47,14 @@ class SelectWhereToNotifyViewController: UIViewController, MKMapViewDelegate {
     }
     
     
+    // MARK: - Layout Setup
+    
     func assignBlackStatusBar() {
         
         UIApplication.shared.statusBarStyle = .default
-        
     }
     
-    
-    func setupMap() {
-        
-    }
-    
-    
-    internal func assignBackground() {
+    func assignBackground() {
         
         let background = UIImage(named: "PurplePatternWithBoy")
         
@@ -59,12 +68,35 @@ class SelectWhereToNotifyViewController: UIViewController, MKMapViewDelegate {
         self.view.sendSubview(toBack: imageView)
     }
     
-
-    @IBAction func nextScreenPressed(_ sender: Any) {
-          performSegue(withIdentifier: "SelectDate", sender: Any?.self)
+    
+    func setupMap() {
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let userLocation: CLLocation = locations[0]
 
+        let latitude = userLocation.coordinate.latitude
+        let longitude = userLocation.coordinate.longitude
+        
+        let latitudeDelta: CLLocationDegrees = 0.05
+        let longitudeDelta: CLLocationDegrees = 0.05
+        
+        let span = MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
+        let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let region = MKCoordinateRegion(center: location, span: span)
+        
+        self.map.setRegion(region, animated: true)
+    }
+
+
+    
     /*
     // MARK: - Navigation
 
