@@ -55,6 +55,11 @@ class DailyCalendarViewController: UIViewController {
                 goToPostpone.segueRecived = segue.identifier!
                 goToPostpone.indexActivityToEdit = self.indexActivity
             }
+        }else if segue.identifier == "EditActivityByDaily"{
+            if let goToEdit = segue.destination as? EditActivityController{
+                goToEdit.segueReceived = segue.identifier!
+                goToEdit.indexActivityToEdit = self.indexActivity
+            }
         }
     }
     
@@ -239,8 +244,8 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit.png")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
-            //falta colocar o edit aqui
-            print("Cliquei em Edit")
+            self.indexActivity = DoneAndPostponedActivitiesViewController.getActivityID(activity: correspondentActivity)
+            self.performSegue(withIdentifier: "EditActivityByDaily", sender: Any.self)
             return true
         }
         

@@ -180,6 +180,8 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             self.indexActivity = DoneAndPostponedActivitiesViewController.getActivityID(activity: activity)
             self.performSegue(withIdentifier: "GoToPostponeByDone", sender: Any.self)
             
+            self.postponedActivities.append(self.toDoActivities[indexPath.row])
+            self.toDoActivities.remove(at: indexPath.row)
             self.controllerPlsit.saveReminders()
             tableView.reloadData()
             return true
