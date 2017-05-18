@@ -79,19 +79,18 @@ class DatePickViewController: UIViewController {
                 }else{
                     performSegue(withIdentifier: "GoToDailyCalendar", sender: Any.self)
                 }
+            }else{
+                let controlerPList = ControllerPList()
+                //get date
+                SingletonActivity.sharedInstance.task.time = datePicker.date
+                let task:Reminder = SingletonActivity.sharedInstance.task
+                task.scheduleNotification()
+                SingletonActivity.sharedInstance.tasks.append(task)
+                //save the task in the PList
+                controlerPList.saveReminders()
+                //clean the task reference
+                SingletonActivity.sharedInstance.task = Reminder()
             }
-            
-            let controlerPList = ControllerPList()
-            //get date
-            SingletonActivity.sharedInstance.task.time = datePicker.date
-            let task:Reminder = SingletonActivity.sharedInstance.task
-            task.scheduleNotification()
-            SingletonActivity.sharedInstance.tasks.append(task)
-            //save the task in the PList
-            controlerPList.saveReminders()
-            //clean the task reference
-            SingletonActivity.sharedInstance.task = Reminder()
-            
             
             if segueRecived == "AddActivity"{
                 performSegue(withIdentifier: "GoToCalendar", sender: Any.self)
