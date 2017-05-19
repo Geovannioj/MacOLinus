@@ -12,6 +12,7 @@ import MGSwipeTableCell
 class GoalCellsTableViewCell: MGSwipeTableCell {
 
     @IBOutlet weak var goalTitleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
