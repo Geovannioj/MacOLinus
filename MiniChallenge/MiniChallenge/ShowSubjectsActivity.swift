@@ -16,6 +16,7 @@ class ShowSubjectsActivity: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var subjectColorLBl: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
+    
     var subjectReceived:Subject?
     var subjectsActivity: [Reminder] = []
     var receivedArray: [Reminder] = []
@@ -53,9 +54,32 @@ class ShowSubjectsActivity: UIViewController, UITableViewDataSource, UITableView
         
         let activityNameLabel = cell.viewWithTag(30) as! UILabel
         let activityTimeLabel = cell.viewWithTag(31) as! UILabel
+        let warningLbl = cell.viewWithTag(23) as! UILabel
+        
+        warningLbl.isHidden = true
         
         activityNameLabel.text = activity.title
-        activityTimeLabel.text = String(describing: activity.time)
+        
+        let subjectActivity = activity.time
+        let calendar = Calendar.current
+        
+        let hour = calendar.component(.hour, from: subjectActivity)
+        let minute = calendar.component(.minute, from: subjectActivity)
+        let day = calendar.component(.day, from: subjectActivity)
+        let month = calendar.component(.month, from: subjectActivity)
+        
+        let castMonthToString = CalendarViewController.selectMonthText(month: month)
+        let castDayToString = String(day)
+        
+        
+        let activityTime = CalendarViewController.maskTime(hour: hour, minutes: minute)
+        
+        let completeTime = ("\(castDayToString) \(castMonthToString)  \(activityTime)")
+        activityTimeLabel.text = completeTime
+        
+        if activity.time < Date(){
+            warningLbl.isHidden = false
+        }
         
         return cell
 
