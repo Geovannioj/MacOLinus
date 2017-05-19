@@ -11,16 +11,37 @@ import UIKit
 
 class ShowSubjectsActivity: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var subjectsActivityTableView: UITableView!
+    @IBOutlet weak var subjectNameLbl: UILabel!
+    @IBOutlet weak var subjectColorLBl: UILabel!
+    @IBOutlet weak var backButton: UIButton!
+    
+    var subjectReceived:Subject?
     var subjectsActivity: [Reminder] = []
+    var receivedArray: [Reminder] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        subjectsActivity = receivedArray
+        
+        subjectNameLbl.text = subjectReceived?.title
+        subjectColorLBl.backgroundColor = subjectReceived?.color
+        
+        subjectsActivityTableView.delegate = self
+        subjectsActivityTableView.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+//        let cell = tableView.cellForRow(at: indexPath)
+//        let activity = subjectsActivity[indexPath.row]
+//        
+//        let activityName = cell?.viewWithTag()
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return subjectsActivity.count
     }
@@ -40,4 +61,9 @@ class ShowSubjectsActivity: UIViewController, UITableViewDataSource, UITableView
 
     }
     
+    @IBAction func backBtnAction(_ sender: Any) {
+        
+        performSegue(withIdentifier: "BackToSubjectsHome", sender: Any?.self)
+        
+    }
 }
