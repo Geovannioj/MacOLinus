@@ -12,6 +12,7 @@ import Dispatch
 
 class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var toDoActivities = [Reminder]()
     var doneActivities = [Reminder]()
     var postponedActivities = [Reminder]()
     var indexActivity = 0
@@ -25,8 +26,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         //set done and postponed activitiesarrays
-        checkDoneActivities(activities: SingletonActivity.sharedInstance.tasks)
-        checkPostponedActivities(activities: SingletonActivity.sharedInstance.tasks)
+        checkActivities(activities: SingletonActivity.sharedInstance.tasks)
         
         let nib = UINib(nibName: "DoneAndPostponedActivities", bundle: nil)
         activitiesTableView.register(nib, forCellReuseIdentifier: "DoneAndPostponedActivities")
@@ -39,26 +39,14 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         activitiesTableView.reloadData()
     }
     
-    func checkDoneActivities(activities: [Reminder]){
-        
-        var count = 0
-        for activity in activities{
-            print(activity.status)
-            if activity.status == 1 {
-                if(activities[count] == activity){
-                    doneActivities.append(activity)
-                }
-            }
-            count = count + 1
-        }
-    }
-    
-    func checkPostponedActivities(activities: [Reminder]){
-        
-        for activity in activities{
-            print(activity.status)
-            if activity.status == 2 {
-                postponedActivities.append(activity)
+    func checkActivities(activities:[Reminder]){
+        for currentActivity in activities{
+            if currentActivity.status == 0{
+                toDoActivities.append(currentActivity)
+            }else if currentActivity.status == 1{
+                doneActivities.append(currentActivity)
+            }else{
+                postponedActivities.append(currentActivity)
             }
         }
     }
@@ -73,6 +61,11 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             if let goToEdit = segue.destination as? EditActivityController{
                 goToEdit.segueReceived = (segue.identifier)!
                 goToEdit.indexActivityToEdit = self.indexActivity
+            }
+        }else if segue.identifier == "GoToPostponeByDone"{
+            if let goToDatePick = segue.destination as? DatePickViewController{
+                goToDatePick.indexActivityToEdit = self.indexActivity
+                goToDatePick.segueRecived = segue.identifier!
             }
         }
     }
@@ -94,8 +87,12 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         
         var returnValue = 0
         switch activitiesSegment.selectedSegmentIndex {
-        //done activities
+        //todo activities
         case 0:
+            returnValue = toDoActivities.count
+            break
+        //done activities
+        case 1:
             returnValue = doneActivities.count
             break
         //postponed activities
@@ -111,10 +108,6 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func postponeAcitivity(activities:[Reminder], index:Int){
-        activities[index].time = NSCalendar.current.date(byAdding: .day, value: 1, to: activities[index].time)!
     }
     
     static func getActivityID(activity:Reminder) -> Int{
@@ -141,10 +134,15 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             //set status to done(=1)
-            self.postponedActivities[indexPath.row].status = 1
-            
-            self.doneActivities.append(self.postponedActivities[indexPath.row])
-            self.postponedActivities.remove(at: indexPath.row)
+            if(self.activitiesSegment.selectedSegmentIndex == 2){
+                self.postponedActivities[indexPath.row].status = 1
+                self.doneActivities.append(self.postponedActivities[indexPath.row])
+                self.postponedActivities.remove(at: indexPath.row)
+            }else if self.activitiesSegment.selectedSegmentIndex == 0{
+                self.toDoActivities[indexPath.row].status = 1
+                self.doneActivities.append(self.toDoActivities[indexPath.row])
+                self.toDoActivities.remove(at: indexPath.row)
+            }
             self.controllerPlsit.saveReminders()
             self.activitiesTableView.reloadData()
             return true
@@ -155,7 +153,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             (sender: MGSwipeTableCell!) -> Bool in
             //set status to toDo(=0)
             self.doneActivities[indexPath.row].status = 0
-            
+            self.toDoActivities.append(self.doneActivities[indexPath.row])
             self.doneActivities.remove(at: indexPath.row)
             self.controllerPlsit.saveReminders()
             self.activitiesTableView.reloadData()
@@ -167,9 +165,26 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         let activity:Reminder
         
         if(activitiesSegment.selectedSegmentIndex == 0){
+            activity = toDoActivities[indexPath.row]
+        }else if(activitiesSegment.selectedSegmentIndex == 1){
             activity = doneActivities[indexPath.row]
         }else{
             activity = postponedActivities[indexPath.row]
+        }
+        
+        //postpone button
+        let postponeButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Postpone")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            self.toDoActivities[indexPath.row].status = 2
+            
+            self.indexActivity = DoneAndPostponedActivitiesViewController.getActivityID(activity: activity)
+            self.performSegue(withIdentifier: "GoToPostponeByDone", sender: Any.self)
+            
+            self.postponedActivities.append(self.toDoActivities[indexPath.row])
+            self.toDoActivities.remove(at: indexPath.row)
+            self.controllerPlsit.saveReminders()
+            tableView.reloadData()
+            return true
         }
         
         //edit button
@@ -182,11 +197,42 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             return true
         }
         
+        //delete button
+        let deleteButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "delete")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            self.toDoActivities.remove(at: indexPath.row)
+            SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
+            let indexPaths = [indexPath]
+            tableView.deleteRows(at: indexPaths, with: .automatic)
+            self.controllerPlsit.saveReminders()
+            return true
+        }
+        
         
         switch activitiesSegment.selectedSegmentIndex {
         
-        //done activities
+        
         case 0:
+            cell.activityLabel.text = activity.title
+            cell.iconImage.image = UIImage(named: "clockIcon")
+            cell.colorLabel.backgroundColor = activity.subject.color
+            cell.subjectLabel.text = activity.subject.title
+            
+            let day = calendar.component(.day, from: activity.time)
+            let month = calendar.component(.month, from: activity.time)
+            let year = calendar.component(.year, from: activity.time)
+            let hour = calendar.component(.hour, from: activity.time)
+            let minutes = calendar.component(.minute, from: activity.time)
+            
+            cell.timeLabel.text = "\(day)/\(month)/\(year) -" + (CalendarViewController.maskTime(hour:hour, minutes:minutes))
+            
+            cell.leftButtons = [deleteButton, editButton]
+            cell.leftSwipeSettings.transition = .border
+            cell.rightButtons = [doneButton, postponeButton]
+            cell.rightSwipeSettings.transition = .border
+            
+            break
+        case 1:
             cell.activityLabel.text = activity.title
             cell.iconImage.image = UIImage(named: "check")
             cell.colorLabel.backgroundColor = activity.subject?.color
@@ -225,7 +271,8 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             cell.leftSwipeSettings.transition = .border
         }
         
-        
+        cell.colorLabel.clipsToBounds = true
+        cell.colorLabel.layer.cornerRadius = 2.5
         
         return cell
     }

@@ -41,7 +41,7 @@
             <objects>
                 <navigationController id="oCN-wo-Jxa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Metas" image="Goal Line" id="CkP-XL-uKE"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HRH-nQ-7Hd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="HRH-nQ-7Hd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -541,6 +541,7 @@
                         <outlet property="activitiesTableView" destination="ip5-u2-oJJ" id="VFZ-ne-LMo"/>
                         <outlet property="extenseDay" destination="zhi-Xo-cUO" id="x9g-wL-RIY"/>
                         <segue destination="KYn-FR-9ca" kind="presentation" identifier="GoToPostponeByDaily" id="gxt-Fe-sZE"/>
+                        <segue destination="9we-Dr-kLT" kind="presentation" identifier="EditActivityByDaily" id="3Ai-WQ-HSm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zo3-Sr-QUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -602,6 +603,14 @@
             </objects>
             <point key="canvasLocation" x="1534" y="-228"/>
         </scene>
+        <!--EditActivityController-->
+        <scene sceneID="I7f-GO-Dup">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditActivity" referencedIdentifier="EditActivityController" id="9we-Dr-kLT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="saj-Yz-1Jq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2155" y="-611"/>
+        </scene>
         <!--Reminders-->
         <scene sceneID="kuP-S5-Pik">
             <objects>
@@ -624,7 +633,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cde-Zd-n9r" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Disciplinas" image="Subjects Fill" id="QQ0-5I-h4e"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hL8-Ns-tId">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hL8-Ns-tId">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

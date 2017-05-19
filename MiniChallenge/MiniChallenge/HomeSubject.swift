@@ -55,11 +55,11 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SubjectTableViewCell
         
-        print(subjects[indexPath.row].title)
-        
         cell.subjectTitleLabel.text = subjects[indexPath.row].title
         cell.subjectColorLabel.backgroundColor = subjects[indexPath.row].color
         
+        cell.subjectColorLabel.clipsToBounds = true
+        cell.subjectColorLabel.layer.cornerRadius = 20
         
         return cell
     }

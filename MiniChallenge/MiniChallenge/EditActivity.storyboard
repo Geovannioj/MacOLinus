@@ -10,6 +10,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--DailyCalendar-->
+        <scene sceneID="WdR-1F-V7S">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Calendar" referencedIdentifier="DailyCalendar" id="a5s-R0-NnL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y5h-sx-MAA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="735" y="-116"/>
+        </scene>
         <!--DoneAndPostponedActivities-->
         <scene sceneID="8rS-bz-yRg">
             <objects>
@@ -155,6 +163,7 @@
                         <segue destination="Bqa-IE-HNr" kind="presentation" identifier="Reminders" id="oji-xo-D59"/>
                         <segue destination="Lv0-cA-ek8" kind="presentation" identifier="DatePickViewController" id="jdm-vf-f2B"/>
                         <segue destination="PBG-Yp-1eb" kind="presentation" identifier="BackToDone" id="RSf-XL-dwY"/>
+                        <segue destination="a5s-R0-NnL" kind="presentation" identifier="GoToDailyCalendar" id="dih-jz-EBa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3zN-uA-fUv" userLabel="First Responder" sceneMemberID="firstResponder"/>
