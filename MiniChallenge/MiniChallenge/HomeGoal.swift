@@ -12,7 +12,7 @@ import MGSwipeTableCell
 
 class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    
+    let purpleColor = UIColor(colorLiteralRed: 0.4078, green: 0.4314, blue: 0.8784, alpha: 1)
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,6 +21,10 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         loadUserGoals()
         
+        self.tabBarItem.image = UIImage(named: "Goal Line")?.withRenderingMode(.alwaysOriginal)
+        self.tabBarItem.selectedImage = UIImage(named: "goals fill")?.withRenderingMode(.alwaysOriginal)
+        
+        self.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: purpleColor], for: .selected)
         
         // Do any additional setup after loading the view.
     }

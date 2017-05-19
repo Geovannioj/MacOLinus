@@ -23,7 +23,8 @@ class DatePickViewController: UIViewController {
     var activityToEdit: Reminder?
     var segueRecived: String = ""
     var indexActivityToEdit: Int = -1
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,7 +45,6 @@ class DatePickViewController: UIViewController {
         })
         
         labelValidate.isHidden = true
-        
     }
     @IBAction func backBtn(_ sender: Any){
         if segueRecived == "DatePickViewController"{
@@ -112,7 +112,6 @@ class DatePickViewController: UIViewController {
         if segue.identifier == "GoBackToEditScreen3"{
             
             if let goBackToEditScreen = segue.destination as? EditActivityController{
-            
                 goBackToEditScreen.indexActivityToEdit = indexActivityToEdit
             
             }

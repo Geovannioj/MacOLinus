@@ -10,6 +10,8 @@ import UIKit
 import JTAppleCalendar
 import MGSwipeTableCell
 
+let redColor = UIColor(red: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
+
 class CalendarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
@@ -28,10 +30,10 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var addActivityButton: UIButton!
     
+    static var sendActivityToPostpone : Bool  = false
     
     //General Attributes
     let logo = UIImage(named: "Pengo.png")
-    let redColor = UIColor(red: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
     var selectedDayCell = DaysOfWeek.sunday
     var selectedDayText: String?
     let controlerPList = ControllerPList()
@@ -79,14 +81,23 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         self.alertNotificationView.layer.cornerRadius = 10
         
         self.alertNotificationPositionConstraint.constant -= self.view.bounds.width
+        
+        self.tabBarItem.image = UIImage(named: "Calendar Line")?.withRenderingMode(.alwaysOriginal)
+        self.tabBarItem.selectedImage = UIImage(named: "Clendar Fill")?.withRenderingMode(.alwaysOriginal)
+        
+        self.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: redColor], for: .selected)
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         tableView.beginUpdates()
         tableView.endUpdates()
+        
+        if CalendarViewController.sendActivityToPostpone {
+            showAnimationMovedToPostPoned()
+        }
         
     }
     
@@ -315,17 +326,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         //postpone button
         let postponeButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Postpone")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
-            
-            self.alertNotificationLabel.text = "Movida para Adiados"
-            UIView.animate(withDuration: 1, delay: 0, animations: {
-                self.alertNotificationPositionConstraint.constant += self.view.bounds.width
-                self.view.layoutIfNeeded()
-            }, completion: nil)
-            UIView.animate(withDuration: 1, delay: 2.0, animations: {
-                self.alertNotificationPositionConstraint.constant -= self.view.bounds.width
-                self.view.layoutIfNeeded()
-            }, completion: nil)
-            
+        
+            CalendarViewController.sendActivityToPostpone = true
             
             self.activities[indexPath.row].status = 2
             
@@ -341,16 +343,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
-            
-            self.alertNotificationLabel.text = "Movida para Feitos"
-            UIView.animate(withDuration: 1, delay: 0, animations: {
-                self.alertNotificationPositionConstraint.constant += self.view.bounds.width
-                self.view.layoutIfNeeded()
-            }, completion: nil)
-            UIView.animate(withDuration: 1, delay: 2.0, animations: {
-                self.alertNotificationPositionConstraint.constant -= self.view.bounds.width
-                self.view.layoutIfNeeded()
-            }, completion: nil)
+            self.showAnimationMovedToDone()
 
             self.activities[indexPath.row].status = 1
             self.activities.remove(at: indexPath.row)
@@ -449,6 +442,34 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         default:
             return ""
         }
+    }
+    
+    func showAnimationMovedToDone(){
+        
+        self.alertNotificationLabel.text = "Movida para Feitos"
+        UIView.animate(withDuration: 1, delay: 0, animations: {
+            self.alertNotificationPositionConstraint.constant += self.view.bounds.width
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        UIView.animate(withDuration: 1, delay: 2.0, animations: {
+            self.alertNotificationPositionConstraint.constant -= self.view.bounds.width
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+    }
+    
+    func showAnimationMovedToPostPoned(){
+        
+        self.alertNotificationLabel.text = "Movida para Adiados"
+        UIView.animate(withDuration: 1, delay: 0, animations: {
+            self.alertNotificationPositionConstraint.constant += self.view.bounds.width
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        UIView.animate(withDuration: 1, delay: 2.0, animations: {
+            self.alertNotificationPositionConstraint.constant -= self.view.bounds.width
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        
+        CalendarViewController.sendActivityToPostpone = false
     }
 
 }

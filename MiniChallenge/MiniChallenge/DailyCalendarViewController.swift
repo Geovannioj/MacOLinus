@@ -19,6 +19,8 @@ class DailyCalendarViewController: UIViewController {
     @IBOutlet weak var alertNoticationView: UIView!
     @IBOutlet weak var alertNoticationLabel: UILabel!
     
+    static var sentToPostPoned : Bool = false
+    
     @IBAction func AddActivityBtn(_ sender: Any) {
         performSegue(withIdentifier: "AddActivityByDaily", sender: Any.self)
     }
@@ -48,7 +50,19 @@ class DailyCalendarViewController: UIViewController {
         checkActivitiesOnDay(activities: SingletonActivity.sharedInstance.tasks)
         
         trailingAlertNotificationConstraint.constant += view.bounds.width
-  }
+        alertNoticationView.layer.borderWidth = 1
+        alertNoticationView.layer.borderColor = redColor.cgColor
+        alertNoticationView.layer.cornerRadius = 10
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if DailyCalendarViewController.sentToPostPoned {
+            showMovedAnimation("Movida para Adiados")
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "AddActivityByDaily"{
@@ -226,6 +240,8 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         let postponeButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Postpone")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
+            DailyCalendarViewController.sentToPostPoned = true
+            
             self.activitiesOnDay[indexPath.row].status = 2
             
             self.indexActivity = DoneAndPostponedActivitiesViewController.getActivityID(activity: correspondentActivity)
@@ -234,16 +250,7 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
             self.controllerPlsit.saveReminders()
             tableView.reloadData()
             
-            self.alertNoticationLabel.text = "Movida para adiados"
             
-            UIView.animate(withDuration: 0.2, delay: 0.0, animations: {
-                
-                self.trailingAlertNotificationConstraint.constant -= self.view.bounds.width
-                self.view.layoutIfNeeded()
-                
-            }, completion: nil)
-    
-            print("ANIMATION SHOULD HAVE APPEARED")
             return true
         }
         
@@ -260,6 +267,11 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         //done button
         let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
+            
+            
+            self.showMovedAnimation("movida para Feitos")
+            //self.showMovedToDoneAnimation()
+            
             self.activitiesOnDay[indexPath.row].status = 1
             self.activitiesOnDay.remove(at: indexPath.row)
             self.controllerPlsit.saveReminders()
@@ -275,6 +287,59 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
         cell.rightSwipeSettings.transition = .border
         
         return cell
+    }
+    
+    func showMovedAnimation(_ textToLabel : String) {
+        
+        self.alertNoticationLabel.text = textToLabel
+        
+        UIView.animate(withDuration: 1, delay: 0.0, animations: {
+            
+            self.trailingAlertNotificationConstraint.constant -= self.view.bounds.width
+            self.view.layoutIfNeeded()
+            
+        }, completion: nil)
+        UIView.animate(withDuration: 1, delay: 2.0, animations: {
+            self.trailingAlertNotificationConstraint.constant += self.view.bounds.width
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        
+        if textToLabel == "Movida para Adiados" {
+            DailyCalendarViewController.sentToPostPoned = false
+        }
+        
+    }
+    
+    func showMovedToPostPonedAnimation(){
+        
+        self.alertNoticationLabel.text = "Movida para Adiados"
+        
+        UIView.animate(withDuration: 1, delay: 0.0, animations: {
+            self.trailingAlertNotificationConstraint.constant -= self.view.bounds.width
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        UIView.animate(withDuration: 1, delay: 2.0 ,animations: {
+            self.trailingAlertNotificationConstraint.constant += self.view.bounds.width
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        
+        DailyCalendarViewController.sentToPostPoned = false
+    }
+    
+    func showMovedToDoneAnimation(){
+        
+        self.alertNoticationLabel.text = "Movida para feitos"
+        
+        UIView.animate(withDuration: 1, delay: 0.0, animations: {
+            
+            self.trailingAlertNotificationConstraint.constant -= self.view.bounds.width
+            self.view.layoutIfNeeded()
+            
+        }, completion: nil)
+        UIView.animate(withDuration: 1, delay: 2.0, animations: {
+            self.trailingAlertNotificationConstraint.constant += self.view.bounds.width
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
 }
 

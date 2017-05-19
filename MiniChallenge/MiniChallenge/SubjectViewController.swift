@@ -6,6 +6,8 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
     var subjects = [Subject]()
     let subjectTitleLabel = ""
     var segueData:String?
+    
+    var greenColor = UIColor(red: 0.2352, green: 0.9020, blue: 0.7686, alpha: 1)
 
     @IBOutlet weak var subjectTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -19,7 +21,12 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.navigationController?.isToolbarHidden = true
         self.navigationController?.isNavigationBarHidden = true
-        // Do any additional setup after loading the view.
+        
+        self.tabBarItem.image = UIImage(named: "subject line")?.withRenderingMode(.alwaysOriginal)
+        self.tabBarItem.selectedImage = UIImage(named: "Subjects Fill")?.withRenderingMode(.alwaysOriginal)
+        
+        self.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.brown], for: .selected)
+        self.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.brown], for: UIControlState())
     }
 
     
