@@ -13,10 +13,10 @@ import Dispatch
 class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var toDoActivities = [Reminder]()
-    var doneActivities = [Reminder]()
+    var doneActivities  = [Reminder]()
     var postponedActivities = [Reminder]()
     var indexActivity = 0
-    let controllerPlsit = ControllerPList()
+    let controllerPlist = ControllerPList()
     
     let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
    
@@ -27,6 +27,12 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         super.viewDidLoad()
         //set done and postponed activitiesarrays
         checkActivities(activities: SingletonActivity.sharedInstance.tasks)
+        
+        
+        
+        print("Aquiiiiiiiii")
+        loadReminders()
+        print("Aquiiiiiiiii")
         
         let nib = UINib(nibName: "DoneAndPostponedActivities", bundle: nil)
         activitiesTableView.register(nib, forCellReuseIdentifier: "DoneAndPostponedActivities")
@@ -49,6 +55,33 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
                 postponedActivities.append(currentActivity)
             }
         }
+    }
+    
+    func documentsDirectory() -> URL{
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        return paths[0]
+    }
+    
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("Reminders.plist")
+    }
+    
+    func loadReminders(){
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            SingletonActivity.sharedInstance.tasks = unarchiver.decodeObject(forKey: "Reminders") as! [Reminder]
+            unarchiver.finishDecoding()
+        }
+        
+        for newactivity in SingletonActivity.sharedInstance.tasks{
+            print(newactivity)
+        }
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -129,25 +162,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         cell.layer.borderColor = redColor.cgColor
         cell.layer.borderWidth = 1
         cell.clipsToBounds = true
-        
-        //done button
-        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
-            (sender: MGSwipeTableCell!) -> Bool in
-            //set status to done(=1)
-            if(self.activitiesSegment.selectedSegmentIndex == 2){
-                self.postponedActivities[indexPath.row].status = 1
-                self.doneActivities.append(self.postponedActivities[indexPath.row])
-                self.postponedActivities.remove(at: indexPath.row)
-            }else if self.activitiesSegment.selectedSegmentIndex == 0{
-                self.toDoActivities[indexPath.row].status = 1
-                self.doneActivities.append(self.toDoActivities[indexPath.row])
-                self.toDoActivities.remove(at: indexPath.row)
-            }
-            self.controllerPlsit.saveReminders()
-            self.activitiesTableView.reloadData()
-            return true
-        }
-        
+
         //undo button
         let undoButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "undo")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
@@ -155,7 +170,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             self.doneActivities[indexPath.row].status = 0
             self.toDoActivities.append(self.doneActivities[indexPath.row])
             self.doneActivities.remove(at: indexPath.row)
-            self.controllerPlsit.saveReminders()
+            self.controllerPlist.saveReminders()
             self.activitiesTableView.reloadData()
             return true
         }
@@ -172,6 +187,25 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             activity = postponedActivities[indexPath.row]
         }
         
+        //done button
+        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            //set status to done(=1)
+            if(self.activitiesSegment.selectedSegmentIndex == 2){
+                self.postponedActivities[indexPath.row].status = 1
+                self.doneActivities.append(self.postponedActivities[indexPath.row])
+                self.postponedActivities.remove(at: indexPath.row)
+            }else if (self.activitiesSegment.selectedSegmentIndex == 0){
+                self.toDoActivities[indexPath.row].status = 1
+                self.doneActivities.append(self.toDoActivities[indexPath.row])
+                self.toDoActivities.remove(at: indexPath.row)
+            }
+            self.controllerPlist.saveReminders()
+            self.activitiesTableView.reloadData()
+            return true
+        }
+
+        
         //postpone button
         let postponeButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Postpone")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
@@ -182,7 +216,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             
             self.postponedActivities.append(self.toDoActivities[indexPath.row])
             self.toDoActivities.remove(at: indexPath.row)
-            self.controllerPlsit.saveReminders()
+            self.controllerPlist.saveReminders()
             tableView.reloadData()
             return true
         }
@@ -204,7 +238,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
             let indexPaths = [indexPath]
             tableView.deleteRows(at: indexPaths, with: .automatic)
-            self.controllerPlsit.saveReminders()
+            self.controllerPlist.saveReminders()
             return true
         }
         
@@ -215,8 +249,8 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         case 0:
             cell.activityLabel.text = activity.title
             cell.iconImage.image = UIImage(named: "clockIcon")
-            cell.colorLabel.backgroundColor = activity.subject.color
-            cell.subjectLabel.text = activity.subject.title
+            cell.colorLabel.backgroundColor = activity.subject?.color
+            cell.subjectLabel.text = activity.subject?.title
             
             let day = calendar.component(.day, from: activity.time)
             let month = calendar.component(.month, from: activity.time)
@@ -255,7 +289,6 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             cell.subjectLabel.text = activity.subject?.title
             cell.activityLabel.text = activity.title
             cell.iconImage.image = UIImage(named: "clockIcon")
-
             
             let day = calendar.component(.day, from: activity.time)
             let month = calendar.component(.month, from: activity.time)

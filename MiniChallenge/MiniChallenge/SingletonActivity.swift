@@ -10,7 +10,7 @@ import Foundation
 
 class SingletonActivity {
     
-    var tasks: [Reminder] = []
+    var tasks: [Reminder] = [Reminder(title: "Teste", time: Date())]
     var task = Reminder()
     
     static let sharedInstance = SingletonActivity()

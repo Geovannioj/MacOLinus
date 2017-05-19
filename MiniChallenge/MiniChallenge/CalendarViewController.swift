@@ -50,9 +50,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         setUpCalendar()
         
+        activities = getToDoAndPostponedActivities(activities: SingletonActivity.sharedInstance.tasks)
+        activities = sortActivities()
         
-        loadReminders()
-        obtainActivites()
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
@@ -66,6 +66,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.navigationController?.setToolbarHidden(true, animated: false)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+
     }
     
     
@@ -98,6 +100,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             unarchiver.finishDecoding()
         }
         
+        for newactivity in SingletonActivity.sharedInstance.tasks{
+            print(newactivity)
+        }
         
     }
 
@@ -193,22 +198,10 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
-    func obtainActivites(){
-        activities = sortActivities()
-    }
-    
     func sortActivities() -> [Reminder]{
-        
-        let pListController = ControllerPList()
-        
-        activities = getToDoAndPostponedActivities(activities: SingletonActivity.sharedInstance.tasks)
         
         var sortedArray : [Reminder] = []
         sortedArray = activities.sorted(by: { $0.time.compare($1.time) == ComparisonResult.orderedAscending})
-        
-        SingletonActivity.sharedInstance.tasks = sortedArray
-        
-        pListController.saveReminders()
         
         return sortedArray
     }
@@ -223,6 +216,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             if(activity.status == 0 || activity.status == 2){
                 toDoActivities.append(activity)
             }
+            
         }
         
         return toDoActivities
@@ -246,10 +240,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        //DO SHIT
     }
     
     // Make the background color show through
@@ -297,16 +287,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             return true
         }
         
-        //done button
-        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
-            (sender: MGSwipeTableCell!) -> Bool in
-            self.activities[indexPath.row].status = 1
-            self.activities.remove(at: indexPath.row)
-            self.controlerPList.saveReminders()
-            tableView.reloadData()
-            return true
-        }
-        
         let deleteButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "delete")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             self.activities.remove(at: indexPath.row)
@@ -319,6 +299,16 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
         
         let activity = activities[indexPath.row]
+        
+        //done button
+        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            self.activities[indexPath.row].status = 1
+            self.activities.remove(at: indexPath.row)
+            self.controlerPList.saveReminders()
+            tableView.reloadData()
+            return true
+        }
         
         //postpone button
         let postponeButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Postpone")!)) {

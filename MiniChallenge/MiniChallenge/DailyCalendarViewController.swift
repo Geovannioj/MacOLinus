@@ -13,7 +13,7 @@ import MGSwipeTableCell
 class DailyCalendarViewController: UIViewController {
 
     var activitiesOnDay = [Reminder]()
-    let controllerPlsit = ControllerPList()
+    let controllerPlist = ControllerPList()
     
     
     @IBAction func AddActivityBtn(_ sender: Any) {
@@ -233,7 +233,7 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
             self.indexActivity = DoneAndPostponedActivitiesViewController.getActivityID(activity: correspondentActivity)
             self.performSegue(withIdentifier: "GoToPostponeByDaily", sender: Any.self)
             
-            self.controllerPlsit.saveReminders()
+            self.controllerPlist.saveReminders()
             tableView.reloadData()
     
             return true
@@ -254,11 +254,10 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
             (sender: MGSwipeTableCell!) -> Bool in
             self.activitiesOnDay[indexPath.row].status = 1
             self.activitiesOnDay.remove(at: indexPath.row)
-            self.controllerPlsit.saveReminders()
-            self.activitiesTableView.reloadData()
+            self.controllerPlist.saveReminders()
+            tableView.reloadData()
             return true
         }
-        
         
         //configure left and right buttons
         cell.leftButtons = [postponeButton, editButton]
