@@ -11,7 +11,13 @@ import JTAppleCalendar
 import MGSwipeTableCell
 
 class CalendarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-
+    
+    
+    
+    @IBOutlet weak var alertNotificationPositionConstraint: NSLayoutConstraint!
+    @IBOutlet weak var alertNotificationView: UIView!
+    @IBOutlet weak var alertNotificationLabel: UILabel!
+    
     @IBOutlet weak var calendarNavigationBar: UINavigationBar!
     @IBOutlet weak var appointmentOnDay: UILabel!
 
@@ -21,6 +27,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var addActivityButton: UIButton!
+    
     
     //General Attributes
     let logo = UIImage(named: "Pengo.png")
@@ -66,6 +73,12 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.navigationController?.setToolbarHidden(true, animated: false)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        self.alertNotificationView.layer.borderWidth = 1
+        self.alertNotificationView.layer.borderColor = redColor.cgColor
+        self.alertNotificationView.layer.cornerRadius = 10
+        
+        self.alertNotificationPositionConstraint.constant -= self.view.bounds.width
     }
     
     
@@ -288,6 +301,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
 
         let cell = Bundle.main.loadNibNamed("ActivityTableViewCell", owner: self, options: nil)?.first as! ActivityTableViewCell
         
+        let activity = activities[indexPath.row]
+        
         let editButton = MGSwipeButton(title:"            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit")!)){
             (sender: MGSwipeTableCell!) -> Bool in
             
@@ -300,6 +315,18 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         //postpone button
         let postponeButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Postpone")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
+            
+            self.alertNotificationLabel.text = "Movida para Adiados"
+            UIView.animate(withDuration: 1, delay: 0, animations: {
+                self.alertNotificationPositionConstraint.constant += self.view.bounds.width
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+            UIView.animate(withDuration: 1, delay: 2.0, animations: {
+                self.alertNotificationPositionConstraint.constant -= self.view.bounds.width
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+            
+            
             self.activities[indexPath.row].status = 2
             
             self.indexActivity = indexPath.row
@@ -313,6 +340,18 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         //done button
         let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
+            
+            
+            self.alertNotificationLabel.text = "Movida para Feitos"
+            UIView.animate(withDuration: 1, delay: 0, animations: {
+                self.alertNotificationPositionConstraint.constant += self.view.bounds.width
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+            UIView.animate(withDuration: 1, delay: 2.0, animations: {
+                self.alertNotificationPositionConstraint.constant -= self.view.bounds.width
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+
             self.activities[indexPath.row].status = 1
             self.activities.remove(at: indexPath.row)
             self.controlerPList.saveReminders()
@@ -320,18 +359,34 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             return true
         }
         
+        //delete button
         let deleteButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "delete")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
-            self.activities.remove(at: indexPath.row)
-            SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
-            let indexPaths = [indexPath]
-            tableView.deleteRows(at: indexPaths, with: .automatic)
-            self.controlerPList.saveReminders()
+            
+            let deletingAlert = UIAlertController(title: "Excluindo atividade", message: "você deseja excluir a atividade: \(activity.title)", preferredStyle: .alert)
+            
+            let deleteButton = UIAlertAction(title: "Deletar", style: UIAlertActionStyle.cancel, handler: { action in
+                self.activities.remove(at: indexPath.row)
+                SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
+                let indexPaths = [indexPath]
+                tableView.deleteRows(at: indexPaths, with: .automatic)
+                self.controlerPList.saveReminders()
+                
+                self.calendarView.reloadData()
+            })
+            
+            let cancelButton = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+                //Do nothing
+            })
+            
+            deletingAlert.addAction(deleteButton)
+            deletingAlert.addAction(cancelButton)
+            
+            
+            self.present(deletingAlert, animated: true, completion: nil)
+            
             return true
         }
-    
-        
-        let activity = activities[indexPath.row]
         
         let date = activity.time
         let calendar = Calendar.current

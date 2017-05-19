@@ -15,6 +15,9 @@ class DailyCalendarViewController: UIViewController {
     var activitiesOnDay = [Reminder]()
     let controllerPlsit = ControllerPList()
     
+    @IBOutlet weak var trailingAlertNotificationConstraint: NSLayoutConstraint!
+    @IBOutlet weak var alertNoticationView: UIView!
+    @IBOutlet weak var alertNoticationLabel: UILabel!
     
     @IBAction func AddActivityBtn(_ sender: Any) {
         performSegue(withIdentifier: "AddActivityByDaily", sender: Any.self)
@@ -43,6 +46,8 @@ class DailyCalendarViewController: UIViewController {
         extenseDay.text = passedText
         
         checkActivitiesOnDay(activities: SingletonActivity.sharedInstance.tasks)
+        
+        trailingAlertNotificationConstraint.constant += view.bounds.width
   }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -228,7 +233,17 @@ extension DailyCalendarViewController: UITableViewDataSource, UITableViewDelegat
             
             self.controllerPlsit.saveReminders()
             tableView.reloadData()
+            
+            self.alertNoticationLabel.text = "Movida para adiados"
+            
+            UIView.animate(withDuration: 0.2, delay: 0.0, animations: {
+                
+                self.trailingAlertNotificationConstraint.constant -= self.view.bounds.width
+                self.view.layoutIfNeeded()
+                
+            }, completion: nil)
     
+            print("ANIMATION SHOULD HAVE APPEARED")
             return true
         }
         
