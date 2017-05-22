@@ -71,7 +71,7 @@
                                     <action selector="doneBtnAction:" destination="sJT-Gq-Q9e" eventType="touchUpInside" id="Esd-GB-chP"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="2Y9-cY-OXv">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="2Y9-cY-OXv">
                                 <rect key="frame" x="153" y="20" width="68" height="21"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Asset 2@2x" translatesAutoresizingMaskIntoConstraints="NO" id="mIo-xq-L3g">
@@ -164,7 +164,7 @@
     </scenes>
     <resources>
         <image name="Asset 2@2x" width="122" height="193"/>
-        <image name="Pengo" width="69" height="21"/>
+        <image name="pengoWhite" width="69" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="BsS-zi-krD"/>
