@@ -66,11 +66,22 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return true
         }
         
+        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Done")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            
+            return true
+        }
         
-        cell.rightButtons = [deleteButton]
+        
+        
+        cell.rightButtons = [doneButton, deleteButton]
         cell.rightSwipeSettings.transition = .border
         
-        
+        let doneLaterButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Adiar")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            
+            return true
+        }
         
         let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "11")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
@@ -78,7 +89,7 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return true
         }
         
-        cell.leftButtons = [editButton]
+        cell.leftButtons = [editButton, doneLaterButton]
         cell.leftSwipeSettings.transition = .border
         
      

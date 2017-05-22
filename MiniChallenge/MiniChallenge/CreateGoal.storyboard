@@ -13,6 +13,9 @@
         <array key="SF-UI-Display-Bold.otf">
             <string>SFUIDisplay-Bold</string>
         </array>
+        <array key="SF-UI-Display-Light.otf">
+            <string>SFUIDisplay-Light</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Create Goal-->
@@ -44,15 +47,16 @@
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" red="0.98884028199999996" green="0.83359497790000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mv8-SF-fGg">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mv8-SF-fGg">
                                 <rect key="frame" x="0.0" y="136.5" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" red="1" green="0.47842687369999998" blue="0.4926418662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.98884028199999996" green="0.83359497790000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="contentStretch" x="0.050000000000000003" y="0.0" width="1" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="CwG-oe-6L1"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tW-Ek-7yf">

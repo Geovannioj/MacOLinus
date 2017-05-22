@@ -54,7 +54,7 @@ class SelectWhereToNotifyViewController: UIViewController, MKMapViewDelegate, CL
     
     func assignBlackStatusBar() {
         
-        UIApplication.shared.statusBarStyle = .default
+        UIApplication.shared.statusBarStyle = .lightContent
     }
     
     func assignBackground() {
@@ -119,7 +119,7 @@ class SelectWhereToNotifyViewController: UIViewController, MKMapViewDelegate, CL
         annotation.coordinate = coordinate
         
         annotation.title = "New place"
-        annotation.subtitle = "Maybe I'll go here too..."
+        annotation.subtitle = "Just a description"
         
         map.addAnnotation(annotation)
         
@@ -149,13 +149,13 @@ class SelectWhereToNotifyViewController: UIViewController, MKMapViewDelegate, CL
         let trigger = UNLocationNotificationTrigger(region: region, repeats: true)
     
         let content = UNMutableNotificationContent()
-        content.title = "Pengo"
-        content.body = "Pengo is notifying you"
+        content.title = "fvaefv"
+        content.body = "vafadvavadvfdavadv"
         content.sound = UNNotificationSound.default()
         
         let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
         
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+//        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().add(request) {(error) in
             if let error = error {
                 print("Uh oh! We had an error: \(error)")

@@ -176,8 +176,7 @@ class SelectGoalDateViewController: UIViewController {
     
     func assignBlackStatusBar() {
         
-        UIApplication.shared.statusBarStyle = .default
-        
+        UIApplication.shared.statusBarStyle = .lightContent
     }
     
     internal func assignBackground() {
