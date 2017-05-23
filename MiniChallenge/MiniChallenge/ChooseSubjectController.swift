@@ -15,6 +15,7 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var nextScreenBtn: UIButton!
     @IBOutlet weak var nextScreenWithOutSubject: UIButton!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var createSubject: UIButton!
     
     var segueDestination: String = ""
     var subjects = [Subject]()
@@ -74,6 +75,9 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
         performSegue(withIdentifier: "GoToDateScreenWithOutSubject", sender: Any?.self)
     }
     
+    @IBAction func createSubjectAction(_ sender: Any){
+        performSegue(withIdentifier: "GoToAddSubject", sender: Any?.self)
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return subjects.count

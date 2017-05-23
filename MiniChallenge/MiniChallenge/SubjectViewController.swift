@@ -6,9 +6,10 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
     var subjects = [Subject]()
     let subjectTitleLabel = ""
     var segueData:String?
-    
-    var greenColor = UIColor(red: 0.2352, green: 0.9020, blue: 0.7686, alpha: 1)
 
+    var filteredActivityArray = [Reminder]()
+    var subjectInRow: Subject?
+    
     @IBOutlet weak var subjectTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cancelBtn: UIButton!
@@ -121,7 +122,18 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
 //        saveSubjects()
 //    }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+         let subjectInRow = subjects[indexPath.row]
+        
+        filterSubjectsActivity(subjectName: subjectInRow.title)
+        self.subjectInRow = subjectInRow
+        performSegue(withIdentifier: "ShowASubject", sender: Any?.self)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SubjectTableViewCell
@@ -168,6 +180,16 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         return UIView()
     }
     
+    func filterSubjectsActivity(subjectName: String){
+        
+        for activity in SingletonActivity.sharedInstance.tasks{
+            
+            if activity.subject?.title == subjectName{
+                filteredActivityArray.append(activity)
+            }
+        }
+    }
+
     
    func assignSubjectColor() -> UIColor {
         
@@ -272,7 +294,14 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
             if let goBackToSubjectChoice = segue.destination as? ChooseSubjectController{
                 goBackToSubjectChoice.segueRecived = self.segueData!
             }
+        }else if segue.identifier == "ShowASubject"{
+            
+            if let showActivities = segue.destination as? ShowSubjectsActivity{
+                showActivities.receivedArray = self.filteredActivityArray
+                showActivities.subjectReceived = self.subjectInRow
+            }
         }
+
     }
     
     

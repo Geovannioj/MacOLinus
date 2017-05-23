@@ -70,14 +70,21 @@ class TempController: UIViewController {
     
     @IBAction func nextScreen(_ sender: Any) {
         
-        if segueData == "GoToAddSubject"{
+        if segueData == "AddActivity"{
            performSegue(withIdentifier: "GoToSubjectChoice", sender: Any?.self)
         }else{
             performSegue(withIdentifier: "GoToHomeSubject", sender: Any?.self)
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
+        if segue.identifier == "GoToSubjectChoice"{
+            if let chooseSubjectScreen = segue.destination as? ChooseSubjectController {
+                chooseSubjectScreen.segueRecived = self.segueData!
+            }
+        }
     }
 
 

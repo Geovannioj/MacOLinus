@@ -68,6 +68,8 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
         
         if(segueReceived == "EditActivity"){
             performSegue(withIdentifier: "BackToDone", sender: Any.self)
+        }else if segueReceived == "EditActivityByDaily"{
+            performSegue(withIdentifier: "GoToDailyCalendar", sender: Any.self)
         }else{
             performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
         }
@@ -78,8 +80,9 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
         
         if(self.segueReceived == "EditActivity"){
             performSegue(withIdentifier: "BackToDone", sender: Any.self)
-        }
-        else{
+        }else if segueReceived == "EditActivityByDaily"{
+            performSegue(withIdentifier: "GoToDailyCalendar", sender: Any.self)
+        }else{
             performSegue(withIdentifier: "BackToCalendar", sender: Any?.self)
         }
     }

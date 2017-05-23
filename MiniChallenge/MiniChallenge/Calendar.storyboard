@@ -29,20 +29,14 @@
             </objects>
             <point key="canvasLocation" x="-1614" y="-228"/>
         </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="wM6-Qy-oed">
-            <objects>
-                <viewControllerPlaceholder id="o3f-wV-9gS" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Iji-px-cvf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2367" y="-507"/>
-        </scene>
         <!--Metas-->
         <scene sceneID="EwX-FA-bVR">
             <objects>
                 <navigationController id="oCN-wo-Jxa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Metas" image="Goal Line" selectedImage="goals fill" id="CkP-XL-uKE"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HRH-nQ-7Hd">
+
+                    <tabBarItem key="tabBarItem" title="Metas" image="Goal Line" id="CkP-XL-uKE"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="HRH-nQ-7Hd">
+
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -655,11 +649,20 @@
                         <outlet property="extenseDay" destination="zhi-Xo-cUO" id="x9g-wL-RIY"/>
                         <outlet property="trailingAlertNotificationConstraint" destination="Vw1-ZG-VHK" id="clx-0b-mvD"/>
                         <segue destination="KYn-FR-9ca" kind="presentation" identifier="GoToPostponeByDaily" id="gxt-Fe-sZE"/>
+                        <segue destination="9we-Dr-kLT" kind="presentation" identifier="EditActivityByDaily" id="3Ai-WQ-HSm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zo3-Sr-QUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1533.3333333333335" y="-228.2608695652174"/>
+        </scene>
+        <!--EditActivityController-->
+        <scene sceneID="I7f-GO-Dup">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditActivity" referencedIdentifier="EditActivityController" id="9we-Dr-kLT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="saj-Yz-1Jq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2155" y="-611"/>
         </scene>
         <!--Reminders-->
         <scene sceneID="kuP-S5-Pik">
@@ -687,7 +690,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hL8-Ns-tId">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hL8-Ns-tId">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

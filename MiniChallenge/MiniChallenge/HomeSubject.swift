@@ -12,10 +12,9 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
 
   
     var subjects = SingletonSubject.subjectSharedInstance.subjects
- 
-    
+    var filteredActivityArray = [Reminder]()
 
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,15 +50,16 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         return subjects.count
     }
     
+        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SubjectTableViewCell
         
-        print(subjects[indexPath.row].title)
-        
         cell.subjectTitleLabel.text = subjects[indexPath.row].title
         cell.subjectColorLabel.backgroundColor = subjects[indexPath.row].color
         
+        cell.subjectColorLabel.clipsToBounds = true
+        cell.subjectColorLabel.layer.cornerRadius = 20
         
         return cell
     }
@@ -69,8 +69,7 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         return UIView()
     }
     
-    
-    // MARK: - Persist Data
+         // MARK: - Persist Data
     
     
     func saveSubjects() {

@@ -65,13 +65,14 @@
                                                 </connections>
                                             </button>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6PT-oj-YX9">
-                                                <rect key="frame" x="111" y="80" width="152" height="31"/>
+                                                <rect key="frame" x="27" y="80" width="320" height="31"/>
                                                 <color key="backgroundColor" red="0.98959678411483765" green="0.45535808801651001" blue="0.43067887425422668" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="152" id="6r8-14-Kat"/>
+                                                    <constraint firstAttribute="width" constant="320" id="aZd-Hc-FmU"/>
                                                     <constraint firstAttribute="height" constant="30" id="yyX-lH-xfL"/>
                                                 </constraints>
                                                 <segments>
+                                                    <segment title="Em Andamento"/>
                                                     <segment title="Feitos"/>
                                                     <segment title="Adiados"/>
                                                 </segments>
@@ -139,6 +140,7 @@
                         <outlet property="activitiesSegment" destination="6PT-oj-YX9" id="adv-39-gjN"/>
                         <outlet property="activitiesTableView" destination="9Mb-kp-vUf" id="3zR-1y-e2n"/>
                         <segue destination="bfw-G1-Xg1" kind="presentation" identifier="EditActivity" id="0iO-ZO-zIU"/>
+                        <segue destination="Wz2-Of-soq" kind="presentation" identifier="GoToPostponeByDone" id="a5U-YD-2L8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YB7-MH-cuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -152,6 +154,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EE2-uG-UR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="334" y="-476"/>
+        </scene>
+        <!--DatePickViewController-->
+        <scene sceneID="y5g-s9-ytA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="DatePickViewController" id="Wz2-Of-soq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6YB-7U-Y8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="671" y="-353"/>
         </scene>
         <!--Reminders-->
         <scene sceneID="L4D-Ce-C8m">

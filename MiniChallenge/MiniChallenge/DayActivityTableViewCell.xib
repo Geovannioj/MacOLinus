@@ -19,18 +19,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="77.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6XH-1p-K0k">
-                        <rect key="frame" x="15" y="17" width="39.5" height="24"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXg-P3-han">
-                        <rect key="frame" x="15" y="49" width="5" height="5"/>
+                        <rect key="frame" x="15" y="46" width="10" height="10"/>
                         <color key="backgroundColor" red="0.098171795689999994" green="0.098171795689999994" blue="0.098171795689999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="5" id="TAJ-qn-fz7"/>
-                            <constraint firstAttribute="height" constant="5" id="V3n-4v-CQN"/>
+                            <constraint firstAttribute="width" constant="10" id="TAJ-qn-fz7"/>
+                            <constraint firstAttribute="height" constant="10" id="V3n-4v-CQN"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -44,7 +38,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1B-ea-hZv">
-                        <rect key="frame" x="23" y="44" width="31" height="14.5"/>
+                        <rect key="frame" x="33" y="44" width="31" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -55,9 +49,16 @@
                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6XH-1p-K0k">
+                        <rect key="frame" x="15" y="17" width="39.5" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="mXg-P3-han" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="0ZF-dU-3a3"/>
+                    <constraint firstItem="c1B-ea-hZv" firstAttribute="centerY" secondItem="mXg-P3-han" secondAttribute="centerY" id="1rC-cY-B2Q"/>
                     <constraint firstItem="Mz5-ZW-Q2h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="5ex-xW-jDx"/>
                     <constraint firstItem="6XH-1p-K0k" firstAttribute="centerY" secondItem="Mz5-ZW-Q2h" secondAttribute="centerY" id="6oA-Od-C5V"/>
                     <constraint firstItem="Z0j-ir-qzf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="12" id="HmO-Ia-baK"/>
@@ -65,8 +66,8 @@
                     <constraint firstItem="Z0j-ir-qzf" firstAttribute="centerY" secondItem="Mz5-ZW-Q2h" secondAttribute="centerY" id="Pbf-Y7-fMz"/>
                     <constraint firstItem="c1B-ea-hZv" firstAttribute="top" secondItem="6XH-1p-K0k" secondAttribute="bottom" constant="3" id="PhZ-AB-8EU"/>
                     <constraint firstItem="Z0j-ir-qzf" firstAttribute="leading" secondItem="Mz5-ZW-Q2h" secondAttribute="trailing" constant="8" id="UQ5-uy-28K"/>
-                    <constraint firstItem="mXg-P3-han" firstAttribute="top" secondItem="6XH-1p-K0k" secondAttribute="bottom" constant="8" id="rMY-1n-2gk"/>
-                    <constraint firstItem="c1B-ea-hZv" firstAttribute="leading" secondItem="mXg-P3-han" secondAttribute="trailing" constant="3" id="ra9-rk-l46"/>
+                    <constraint firstItem="mXg-P3-han" firstAttribute="top" secondItem="6XH-1p-K0k" secondAttribute="bottom" constant="5" id="rMY-1n-2gk"/>
+                    <constraint firstItem="c1B-ea-hZv" firstAttribute="leading" secondItem="mXg-P3-han" secondAttribute="trailing" constant="8" id="ra9-rk-l46"/>
                     <constraint firstItem="6XH-1p-K0k" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="9" id="w0y-AT-whf"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Z0j-ir-qzf" secondAttribute="trailing" constant="8" id="x8j-q5-9PV"/>
                 </constraints>
