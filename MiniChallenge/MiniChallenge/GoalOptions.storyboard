@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="73U-ox-Kwp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="73U-ox-Kwp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -28,8 +28,8 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="UJp-9Q-NgS">
                                         <rect key="frame" x="153.5" y="32" width="69" height="21"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vamos organizar suas disciplinas" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLE-pv-FgX">
-                                        <rect key="frame" x="80.5" y="56" width="214" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crie metas e alcanse seus objetivos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLE-pv-FgX">
+                                        <rect key="frame" x="72.5" y="56" width="231" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -99,7 +99,6 @@
                             <constraint firstItem="bwr-5A-Rsg" firstAttribute="top" secondItem="qDw-XQ-ZYG" secondAttribute="bottom" constant="15" id="VSI-3A-L7A"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bwr-5A-Rsg" secondAttribute="trailing" constant="-16" id="XEw-B4-xkn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qDw-XQ-ZYG" secondAttribute="trailing" constant="-16" id="bfP-SO-brR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="b6f-zy-VcR" secondAttribute="trailing" constant="-16" id="hzG-Gf-GYm"/>
                             <constraint firstItem="Hd3-U5-hFT" firstAttribute="top" secondItem="b6f-zy-VcR" secondAttribute="bottom" constant="15" id="kWe-xn-MYy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Hd3-U5-hFT" secondAttribute="trailing" constant="-16" id="nyH-V3-6nt"/>
                             <constraint firstItem="qDw-XQ-ZYG" firstAttribute="leading" secondItem="vpG-G8-Yss" secondAttribute="leadingMargin" constant="-16" id="oui-jT-Kh1"/>
@@ -135,6 +134,6 @@
         <image name="studyForExamButton" width="375" height="111"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nsm-w4-xsX"/>
+        <segue reference="saa-C2-tK3"/>
     </inferredMetricsTieBreakers>
 </document>

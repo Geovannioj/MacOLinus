@@ -318,6 +318,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             self.activities[indexPath.row].status = 1
             self.activities.remove(at: indexPath.row)
             self.controlerPList.saveReminders()
+            self.calendarView.reloadData()
             tableView.reloadData()
             return true
         }

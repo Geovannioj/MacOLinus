@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F9j-RJ-gHw">
+
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -66,7 +68,7 @@
                                 <state key="normal" image="redButton"/>
                                 <connections>
                                     <action selector="newSubjectRequired:" destination="F9j-RJ-gHw" eventType="touchUpInside" id="fwg-NR-aU5"/>
-                                    <segue destination="8qK-e8-Pfg" kind="show" id="xzq-3y-YaX"/>
+                                    <segue destination="8qK-e8-Pfg" kind="show" identifier="CreateTeacher" id="xzq-3y-YaX"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="eZM-bN-85h">
@@ -87,7 +89,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="k5X-Gr-7pN" secondAttribute="trailing" constant="13" id="Vzy-kF-OjQ"/>
                             <constraint firstItem="kYy-Vp-Lhx" firstAttribute="leading" secondItem="T7L-wU-jEL" secondAttribute="leadingMargin" constant="-16" id="a5c-kZ-aUO"/>
                             <constraint firstItem="k5X-Gr-7pN" firstAttribute="top" secondItem="kYy-Vp-Lhx" secondAttribute="bottom" constant="10" id="aIO-Oj-C1O"/>
-                            <constraint firstItem="vS3-Os-pEs" firstAttribute="top" secondItem="yjZ-R1-zoF" secondAttribute="bottom" constant="29" id="db4-DS-nKZ"/>
+                            <constraint firstItem="vS3-Os-pEs" firstAttribute="top" secondItem="yjZ-R1-zoF" secondAttribute="bottom" constant="29" id="d6B-k3-yTe"/>
                             <constraint firstItem="vS3-Os-pEs" firstAttribute="top" secondItem="eZM-bN-85h" secondAttribute="bottom" constant="-4" id="ebA-Ga-QCa"/>
                             <constraint firstItem="zs9-nJ-0bz" firstAttribute="top" secondItem="vS3-Os-pEs" secondAttribute="bottom" constant="23" id="glB-wJ-S7i"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kYy-Vp-Lhx" secondAttribute="trailing" constant="-16" id="jKo-nz-Hkz"/>
@@ -106,10 +108,10 @@
             </objects>
             <point key="canvasLocation" x="592.79999999999995" y="122.78860569715144"/>
         </scene>
-        <!--SubjectCreated-->
+        <!--CreateTeacher-->
         <scene sceneID="bIX-gm-qu7">
             <objects>
-                <viewControllerPlaceholder storyboardName="SubjectCreated" id="8qK-e8-Pfg" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="CreateTeacher" id="8qK-e8-Pfg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="khk-3j-ePQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1236" y="122"/>

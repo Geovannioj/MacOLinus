@@ -14,7 +14,9 @@ class SubjectTableViewCell: MGSwipeTableCell {
 
     @IBOutlet weak var subjectTitleLabel: UILabel!
     @IBOutlet weak var subjectColorLabel: UILabel!
-      
+    @IBOutlet weak var teacherNameLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
      
@@ -26,12 +28,5 @@ class SubjectTableViewCell: MGSwipeTableCell {
 
         // Configure the view for the selected state
     }
-    
-    
-    
-    
-    
-    
-    
     
 }

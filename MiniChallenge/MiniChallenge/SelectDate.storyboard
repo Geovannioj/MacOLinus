@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rJH-W8-Lvh">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Display-Bold.otf">
+            <string>SFUIDisplay-Bold</string>
+        </array>
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Select Goal Date View Controller-->
+        <scene sceneID="LEU-HS-XFd">
+            <objects>
+                <viewController id="rJH-W8-Lvh" customClass="SelectGoalDateViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vlh-Kb-Nmh"/>
+                        <viewControllerLayoutGuide type="bottom" id="ieu-zk-IUm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z7a-fw-ecn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ciW-95-QFJ">
+                                <rect key="frame" x="26" y="49" width="48" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quando gostaria de  ser lembrado ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yU7-jF-ybx">
+                                <rect key="frame" x="36" y="89" width="262" height="28"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyh-DQ-zt2">
+                                <rect key="frame" x="23" y="98" width="8" height="8"/>
+                                <color key="backgroundColor" red="0.98884028199999996" green="0.83359497790000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="8" id="EUq-sn-bor"/>
+                                    <constraint firstAttribute="width" constant="8" id="SPx-Kf-tyO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.98884028199999996" green="0.83359497790000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="0.98884028199999996" green="0.83359497790000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="kkX-VK-kT3">
+                                <rect key="frame" x="153.5" y="32" width="68" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="8Gd-DY-R9K"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="geg-EP-IOR">
+                                <rect key="frame" x="70" y="272" width="202" height="33"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="18"/>
+                                <state key="normal" title="Quarta">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaU-PS-C3J">
+                                <rect key="frame" x="70" y="327" width="113" height="32"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                                <state key="normal" title="Quinta">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vs3-CL-tuu">
+                                <rect key="frame" x="70" y="166" width="173" height="32"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                                <state key="normal" title="Segunda">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rp-lj-qff">
+                                <rect key="frame" x="70" y="217" width="186" height="32"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                                <state key="normal" title="Terça">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1j-qA-MOv">
+                                <rect key="frame" x="70" y="373" width="113" height="32"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                                <state key="normal" title="Sexta">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLe-wN-pc5">
+                                <rect key="frame" x="70" y="468" width="73" height="32"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                                <state key="normal" title="Domingo">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4P-xH-mqN">
+                                <rect key="frame" x="70" y="421" width="113" height="32"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                                <state key="normal" title="Sábado">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLj-2L-JmG">
+                                <rect key="frame" x="299" y="167" width="44" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="yellowButton"/>
+                                <connections>
+                                    <action selector="nextPagePressed:" destination="rJH-W8-Lvh" eventType="touchUpInside" id="19u-hj-gY1"/>
+                                    <segue destination="Pwa-eL-Fbf" kind="show" identifier="SelectGoalDatetime" id="vuZ-ma-g3X"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3H5-MH-dct">
+                                <rect key="frame" x="33" y="176" width="16" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="checkbokEmpty"/>
+                                <connections>
+                                    <action selector="mondaySelected:" destination="rJH-W8-Lvh" eventType="touchUpInside" id="VMl-Bj-ht5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbF-h1-hG4">
+                                <rect key="frame" x="33" y="286" width="16" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="checkbokEmpty"/>
+                                <connections>
+                                    <action selector="wednesdaySelected:" destination="rJH-W8-Lvh" eventType="touchUpInside" id="bWK-YR-Udg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQq-T0-dPd">
+                                <rect key="frame" x="33" y="390" width="16" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="checkbokEmpty"/>
+                                <connections>
+                                    <action selector="fridaySelected:" destination="rJH-W8-Lvh" eventType="touchUpInside" id="K1K-TU-86j"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhK-Nc-OtK">
+                                <rect key="frame" x="36" y="440" width="16" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="checkbokEmpty"/>
+                                <connections>
+                                    <action selector="saturdaySelected:" destination="rJH-W8-Lvh" eventType="touchUpInside" id="CgW-zf-jwR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ktE-fd-dcF">
+                                <rect key="frame" x="36" y="489" width="16" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="checkbokEmpty"/>
+                                <connections>
+                                    <action selector="sundaySelected:" destination="rJH-W8-Lvh" eventType="touchUpInside" id="NdB-kI-mh4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tre-mm-CBr">
+                                <rect key="frame" x="33" y="342" width="16" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="checkbokEmpty"/>
+                                <connections>
+                                    <action selector="thursdaySelected:" destination="rJH-W8-Lvh" eventType="touchUpInside" id="xuA-mU-h75"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxZ-ls-6C3">
+                                <rect key="frame" x="36" y="228" width="16" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="checkbokEmpty"/>
+                                <connections>
+                                    <action selector="tuesdaySelected:" destination="rJH-W8-Lvh" eventType="touchUpInside" id="aWj-6h-lCD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yU7-jF-ybx" firstAttribute="top" secondItem="ciW-95-QFJ" secondAttribute="bottom" constant="23" id="2bu-fA-ekt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ciW-95-QFJ" secondAttribute="trailing" constant="285" id="2ra-mT-jNi"/>
+                            <constraint firstItem="VaU-PS-C3J" firstAttribute="leading" secondItem="Z7a-fw-ecn" secondAttribute="leadingMargin" constant="54" id="3x8-xS-RFA"/>
+                            <constraint firstItem="CLe-wN-pc5" firstAttribute="leading" secondItem="Z7a-fw-ecn" secondAttribute="leadingMargin" constant="54" id="4EM-cB-apk"/>
+                            <constraint firstItem="K1j-qA-MOv" firstAttribute="leading" secondItem="Z7a-fw-ecn" secondAttribute="leadingMargin" constant="54" id="4aN-xz-esB"/>
+                            <constraint firstItem="kkX-VK-kT3" firstAttribute="top" secondItem="Z7a-fw-ecn" secondAttribute="topMargin" constant="32" id="8qC-l1-NQm"/>
+                            <constraint firstItem="vs3-CL-tuu" firstAttribute="top" secondItem="yU7-jF-ybx" secondAttribute="bottom" constant="49" id="D8F-TZ-MVQ"/>
+                            <constraint firstItem="CLe-wN-pc5" firstAttribute="top" secondItem="b4P-xH-mqN" secondAttribute="bottom" constant="15" id="E56-De-jYT"/>
+                            <constraint firstItem="4rp-lj-qff" firstAttribute="leading" secondItem="Z7a-fw-ecn" secondAttribute="leadingMargin" constant="54" id="GdS-GT-U0c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="b4P-xH-mqN" secondAttribute="trailing" constant="176" id="HJp-jD-yav"/>
+                            <constraint firstItem="yU7-jF-ybx" firstAttribute="leading" secondItem="vyh-DQ-zt2" secondAttribute="trailing" constant="5" id="HR3-8r-Gol"/>
+                            <constraint firstItem="VaU-PS-C3J" firstAttribute="top" secondItem="geg-EP-IOR" secondAttribute="bottom" constant="22" id="I2O-mO-bbS"/>
+                            <constraint firstItem="ciW-95-QFJ" firstAttribute="top" secondItem="Vlh-Kb-Nmh" secondAttribute="bottom" constant="29" id="JPD-DG-2un"/>
+                            <constraint firstItem="vyh-DQ-zt2" firstAttribute="top" secondItem="ciW-95-QFJ" secondAttribute="bottom" constant="32" id="Nus-s5-nfF"/>
+                            <constraint firstItem="geg-EP-IOR" firstAttribute="top" secondItem="4rp-lj-qff" secondAttribute="bottom" constant="23" id="QBK-zQ-pY2"/>
+                            <constraint firstItem="b4P-xH-mqN" firstAttribute="leading" secondItem="Z7a-fw-ecn" secondAttribute="leadingMargin" constant="54" id="Qs3-vE-sHd"/>
+                            <constraint firstItem="ciW-95-QFJ" firstAttribute="top" secondItem="kkX-VK-kT3" secondAttribute="bottom" constant="-4" id="Ugt-sH-irh"/>
+                            <constraint firstItem="4rp-lj-qff" firstAttribute="top" secondItem="vs3-CL-tuu" secondAttribute="bottom" constant="19" id="ZBL-K9-uA0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vs3-CL-tuu" secondAttribute="trailing" constant="116" id="aTe-pN-bkt"/>
+                            <constraint firstItem="b4P-xH-mqN" firstAttribute="top" secondItem="K1j-qA-MOv" secondAttribute="bottom" constant="16" id="gk3-GA-23S"/>
+                            <constraint firstItem="vyh-DQ-zt2" firstAttribute="leading" secondItem="Z7a-fw-ecn" secondAttribute="leadingMargin" constant="7" id="h4S-2Y-RDX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VaU-PS-C3J" secondAttribute="trailing" constant="176" id="ha7-t8-ZEh"/>
+                            <constraint firstItem="geg-EP-IOR" firstAttribute="leading" secondItem="Z7a-fw-ecn" secondAttribute="leadingMargin" constant="54" id="lF6-8r-5cE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="geg-EP-IOR" secondAttribute="trailing" constant="87" id="lVU-cu-pP5"/>
+                            <constraint firstItem="vs3-CL-tuu" firstAttribute="leading" secondItem="Z7a-fw-ecn" secondAttribute="leadingMargin" constant="54" id="nYY-xy-HI6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CLe-wN-pc5" secondAttribute="trailing" constant="216" id="oBR-6r-GfR"/>
+                            <constraint firstItem="K1j-qA-MOv" firstAttribute="top" secondItem="VaU-PS-C3J" secondAttribute="bottom" constant="14" id="p04-BE-wEJ"/>
+                            <constraint firstItem="kkX-VK-kT3" firstAttribute="centerX" secondItem="Z7a-fw-ecn" secondAttribute="centerX" id="qfL-qS-WnX"/>
+                            <constraint firstItem="ciW-95-QFJ" firstAttribute="leading" secondItem="Z7a-fw-ecn" secondAttribute="leadingMargin" constant="10" id="qzq-QK-MLg"/>
+                            <constraint firstItem="yU7-jF-ybx" firstAttribute="leading" secondItem="Z7a-fw-ecn" secondAttribute="leadingMargin" constant="20" id="uWl-0h-vMt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4rp-lj-qff" secondAttribute="trailing" constant="103" id="unT-aX-WKj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yU7-jF-ybx" secondAttribute="trailing" constant="61" id="vwo-GP-ZH4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="K1j-qA-MOv" secondAttribute="trailing" constant="176" id="yoc-Uw-ZEm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="fridayCheckbox" destination="FQq-T0-dPd" id="2iC-Mq-tLD"/>
+                        <outlet property="mondayCheckbox" destination="3H5-MH-dct" id="nZv-CR-KTz"/>
+                        <outlet property="saturdayCheckbox" destination="qhK-Nc-OtK" id="eFE-aF-pt6"/>
+                        <outlet property="sundayCheckbox" destination="ktE-fd-dcF" id="3cs-P5-NxT"/>
+                        <outlet property="thursdayCheckbox" destination="Tre-mm-CBr" id="yMr-5u-72M"/>
+                        <outlet property="tuesdayCheckbox" destination="uxZ-ls-6C3" id="Zaf-Fx-Gni"/>
+                        <outlet property="wednesdayCheckbox" destination="qbF-h1-hG4" id="KaI-cG-sgh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xg8-w1-rPU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-153" y="-51"/>
+        </scene>
+        <!--SelectGoalDatetime-->
+        <scene sceneID="4xo-Q2-60k">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SelectGoalDatetime" id="Pwa-eL-Fbf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y7S-yX-bNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="665" y="-52"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Pengo" width="69" height="21"/>
+        <image name="checkbokEmpty" width="16" height="16"/>
+        <image name="yellowButton" width="44" height="44"/>
+    </resources>
+</document>

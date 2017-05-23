@@ -12,12 +12,14 @@ class SubjectCreated: UIViewController {
     
     @IBOutlet weak var subjectCreatedLabel: UILabel!
     
+    var subjectName: String = ""
+    
     var subjects = [Subject]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+            
         configLayout()
 
         // Do any additional setup after loading the view.
@@ -37,9 +39,8 @@ class SubjectCreated: UIViewController {
         
         assignBackground()
         assignBlackStatusBar()
-        setCreatedSubjectLabel()
-        loadSubjects()
         
+        subjectCreatedLabel.text = SingletonSubject.sharedInstance.subject.title
     }
     
     func assignBackground() {
@@ -62,51 +63,37 @@ class SubjectCreated: UIViewController {
         
     }
     
-    func setCreatedSubjectLabel() {
-        
-        subjects = returnSubjects()
-        
-        let lastSubject = subjects.last
-        
-        if lastSubject?.title != "" {
-            
-            subjectCreatedLabel.text = lastSubject?.title
-        }
-    }
-    
-    //MARK: - Recover Data
+    //MARK: - Persist Data
     
     func loadSubjects()  {
         
         let path = dataFilePath()
         
-        if let data = try? Data(contentsOf: path){
+        if let data = try? Data(contentsOf: path) {
             let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
             subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
             unarchiver.finishDecoding()
-            
         }
     }
     
-    func returnSubjects() -> [Subject] {
-        
-        let path = dataFilePath()
-        
-        if let data = try? Data(contentsOf: path){
-            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
-            subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
-            unarchiver.finishDecoding()
-            
-        }
-        
-        return subjects
-    }
+//    func returnSubjects() -> [Subject] {
+//        
+//        let path = dataFilePath()
+//        
+//        if let data = try? Data(contentsOf: path) {
+//            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+//            subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
+//            unarchiver.finishDecoding()
+//            
+//        }
+//        
+//        return subjects
+//    }
     
     
     func documentsDirectory() -> URL {
         
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        
         return paths[0]
     }
     
@@ -114,7 +101,6 @@ class SubjectCreated: UIViewController {
     func dataFilePath() -> URL {
         
         return documentsDirectory().appendingPathComponent("Subjects.plist")
-        
     }
     
 

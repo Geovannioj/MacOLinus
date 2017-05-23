@@ -21,7 +21,7 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     var subjects = [Subject]()
     var subject: Subject?
     var activityToEdit: Reminder?
-    var persistData = PersistSubjectData()
+//    var persistData = PersistSubjectData()
     var segueRecived: String = ""
     var indexActivity: Int = 0//-1
     
@@ -30,7 +30,7 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
         
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Pink Pattern.png")!)
         
-        subjects = persistData.returnSubjects()
+        subjects = returnSubjects()
     
         subjectsTableView.delegate = self
         subjectsTableView.dataSource = self
@@ -131,4 +131,61 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
             }
         }
     }
+    
+    // MARK: - Persist subject
+    
+    
+    func saveSubjects() {
+        
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        
+        archiver.encode(subjects, forKey: "Subjects")
+        archiver.finishEncoding()
+        
+        data.write(to: dataFilePath(), atomically: true)
+        
+    }
+    
+    internal func loadSubjects() {
+        
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
+            unarchiver.finishDecoding()
+        }
+    }
+    
+    
+    
+    internal func returnSubjects() -> [Subject] {
+        
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
+            unarchiver.finishDecoding()
+            
+        }
+        
+        return subjects
+    }
+    
+    internal func documentsDirectory() -> URL {
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        return paths[0]
+    }
+    
+    
+    internal func dataFilePath() -> URL {
+        
+        return documentsDirectory().appendingPathComponent("Subjects.plist")
+        
+    }
+
 }

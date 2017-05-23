@@ -44,7 +44,7 @@ class CreateGoal: UIViewController {
     
     func assignBlackStatusBar() {
         
-        UIApplication.shared.statusBarStyle = .default
+        UIApplication.shared.statusBarStyle = .lightContent
         
     }
     
@@ -73,7 +73,7 @@ class CreateGoal: UIViewController {
             GoalService.sharedInstance.user_goal = newUserGoal
         }
         
-        performSegue(withIdentifier: "goalSaved", sender: Any?.self)
+        performSegue(withIdentifier: "SelectDate", sender: Any?.self)
     
     }
 
