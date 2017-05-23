@@ -178,7 +178,7 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         for activity in SingletonActivity.sharedInstance.tasks{
             
-            if activity.subject.title == subjectName{
+            if activity.subject?.title == subjectName{
                 filteredActivityArray.append(activity)
             }
         }
