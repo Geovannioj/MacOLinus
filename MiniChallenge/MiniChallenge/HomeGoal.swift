@@ -30,7 +30,7 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Dispose of any resources that can be recreated.
     }
     
-    // Protocols to Table View
+    // TableView Protocol
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     
@@ -100,6 +100,9 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
+    
+    
+    //MARK: - Persist Data
     
     func saveUserGoals() {
         

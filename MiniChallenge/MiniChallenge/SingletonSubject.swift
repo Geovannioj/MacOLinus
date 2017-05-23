@@ -13,10 +13,10 @@ class SingletonSubject  {
     var subjects = [Subject]()
     var subject = Subject()
     
+    static let sharedInstance = SingletonSubject()
+    
     private init() {
     }
-        
-    static let subjectSharedInstance = SingletonSubject()
     
     
 }

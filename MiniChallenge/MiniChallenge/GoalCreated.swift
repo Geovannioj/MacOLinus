@@ -65,8 +65,6 @@ class GoalCreated: UIViewController {
         assignBlackStatusBar()
         assignBackground()
         
-        print(GoalService.sharedInstance.user_goal.title)
-        
         goalCreated.text = GoalService.sharedInstance.user_goal.title
         
     }

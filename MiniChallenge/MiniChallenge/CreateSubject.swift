@@ -10,7 +10,7 @@ import UIKit
 
 class CreateSubject: UIViewController {
 
-    var subjects = SingletonSubject.subjectSharedInstance.subjects
+
     
     @IBOutlet weak var subjectField: UITextField!
     
@@ -32,34 +32,41 @@ class CreateSubject: UIViewController {
     
     internal func cleanBuffer () {
     
-        SingletonSubject.subjectSharedInstance.subject = Subject()
+        SingletonSubject.sharedInstance.subject = Subject()
     }
     
     
     
     
     @IBAction func newSubjectRequired(_ sender: Any) {
-        
-        let data = PersistSubjectData()
-        
        
+        
         if subjectField.text != "" {
 
-            SingletonSubject.subjectSharedInstance.subject.title = subjectField.text!
-            SingletonSubject.subjectSharedInstance.subject.color = assignSubjectColor()
-        
-            print(subjectField.text ?? "nothing")
-            
+            SingletonSubject.sharedInstance.subject.title = subjectField.text!
+            SingletonSubject.sharedInstance.subject.color = assignSubjectColor()
+         
         }
         
-        let newSubject = SingletonSubject.subjectSharedInstance.subject
-        SingletonSubject.subjectSharedInstance.subjects.append(newSubject)
+        let newSubject = SingletonSubject.sharedInstance.subject
         
-        data.saveSubjects()
-
-        cleanBuffer()
+        SingletonSubject.sharedInstance.subjects.append(newSubject)
+        
+        saveSubjects()
+     
+        performSegue(withIdentifier: "CreateTeacher", sender: Any?.self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "SubjectCreated" {
+            
+            if let toNextScreen = segue.destination as? SubjectCreated {
+                toNextScreen.subjectName = subjectField.text!
+            }
+            
+        }
+    }
     
     
     func assignSubjectColor() -> UIColor {
@@ -98,14 +105,14 @@ class CreateSubject: UIViewController {
     // MARK: - Config Layout
     
     
-    internal func configLayout() {
+   func configLayout() {
         
         assignBackground()
         assignBlackStatusBar()
         
     }
     
-    internal func assignBackground() {
+    func assignBackground() {
         
         let background = UIImage(named: "greenPatternWithBoy")
         
@@ -119,10 +126,51 @@ class CreateSubject: UIViewController {
         self.view.sendSubview(toBack: imageView)
     }
     
-    internal func assignBlackStatusBar() {
+    func assignBlackStatusBar() {
         
         UIApplication.shared.statusBarStyle = .default
 
     }
+    
+    
+    // MARK: - Persist Data
+    
+    
+    func saveSubjects() {
+        
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        
+        archiver.encode(SingletonSubject.sharedInstance.subjects, forKey: "Subjects")
+        archiver.finishEncoding()
+        
+        data.write(to: dataFilePath(), atomically: true)
+        
+    }
+    
+    func loadSubjects() {
+        
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            SingletonSubject.sharedInstance.subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
+            unarchiver.finishDecoding()
+        }
+    }
+    
+    func documentsDirectory() -> URL {
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        return paths[0]
+    }
+    
+    func dataFilePath() -> URL {
+        
+        return documentsDirectory().appendingPathComponent("Subjects.plist")
+        
+    }
+
     
 }
