@@ -122,10 +122,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             unarchiver.finishDecoding()
         }
         
-        for newactivity in SingletonActivity.sharedInstance.tasks{
-            print(newactivity)
-        }
-        
     }
 
     func setUpCalendar(){
@@ -311,7 +307,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         //done button
-        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
+        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Done")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
             self.showAnimationMovedToDone()
