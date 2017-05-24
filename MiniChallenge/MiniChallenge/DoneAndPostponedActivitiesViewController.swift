@@ -28,12 +28,6 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         //set done and postponed activitiesarrays
         checkActivities(activities: SingletonActivity.sharedInstance.tasks)
         
-        
-        
-        print("Aquiiiiiiiii")
-        loadReminders()
-        print("Aquiiiiiiiii")
-        
         let nib = UINib(nibName: "DoneAndPostponedActivities", bundle: nil)
         activitiesTableView.register(nib, forCellReuseIdentifier: "DoneAndPostponedActivities")
         
@@ -55,33 +49,6 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
                 postponedActivities.append(currentActivity)
             }
         }
-    }
-    
-    func documentsDirectory() -> URL{
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        
-        return paths[0]
-    }
-    
-    
-    func dataFilePath() -> URL {
-        return documentsDirectory().appendingPathComponent("Reminders.plist")
-    }
-    
-    func loadReminders(){
-        let path = dataFilePath()
-        
-        if let data = try? Data(contentsOf: path){
-            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
-            SingletonActivity.sharedInstance.tasks = unarchiver.decodeObject(forKey: "Reminders") as! [Reminder]
-            unarchiver.finishDecoding()
-        }
-        
-        for newactivity in SingletonActivity.sharedInstance.tasks{
-            print(newactivity)
-        }
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

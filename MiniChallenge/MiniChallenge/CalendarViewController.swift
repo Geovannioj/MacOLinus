@@ -59,6 +59,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         setUpCalendar()
         
+        loadReminders()
+        
         activities = getToDoAndPostponedActivities(activities: SingletonActivity.sharedInstance.tasks)
         activities = sortActivities()
         
@@ -236,7 +238,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             if(activity.status == 0 || activity.status == 2){
                 toDoActivities.append(activity)
             }
-            
         }
         
         return toDoActivities
