@@ -7,14 +7,22 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 
 class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
   
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadSubjects()
+        
+        
+        for aux in SingletonSubject.sharedInstance.subjects {
+            print(aux.title)
+            
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -45,9 +53,42 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SubjectTableViewCell
         
         cell.subjectTitleLabel.text = SingletonSubject.sharedInstance.subjects[indexPath.row].title
-        
-        cell.subjectColorLabel.layer.cornerRadius = 20
+        cell.teacherNameLabel.text = SingletonSubject.sharedInstance.subjects[indexPath.row].teacher.name
+    
         cell.subjectColorLabel.backgroundColor = SingletonSubject.sharedInstance.subjects[indexPath.row].color
+        cell.subjectColorLabel.layer.cornerRadius = 20
+        
+        
+        let deleteButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "10")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            
+            SingletonSubject.sharedInstance.subjects.remove(at: indexPath.row)
+            
+            let indexPaths = [indexPath]
+            tableView.deleteRows(at: indexPaths, with: .automatic)
+            tableView.reloadData()
+
+            self.saveSubjects()
+            
+            return true
+        }
+        
+        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "11")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            
+            SingletonSubject.sharedInstance.subject = SingletonSubject.sharedInstance.subjects[indexPath.row]
+            self.performSegue(withIdentifier: "EditSubject", sender: Any?.self)
+
+            return true
+        }
+        
+   
+        cell.rightButtons = [deleteButton]
+        cell.rightSwipeSettings.transition = .border
+        
+    
+        cell.leftButtons = [editButton]
+        cell.leftSwipeSettings.transition = .border
         
         
         return cell
@@ -97,7 +138,4 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         return documentsDirectory().appendingPathComponent("Subjects.plist")
         
     }
-
-    
-    
 }

@@ -11,12 +11,7 @@ import UIKit
 class SubjectCreated: UIViewController {
     
     @IBOutlet weak var subjectCreatedLabel: UILabel!
-    
-    var subjectName: String = ""
-    
-    var subjects = [Subject]()
-    
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
             
@@ -41,6 +36,8 @@ class SubjectCreated: UIViewController {
         assignBlackStatusBar()
         
         subjectCreatedLabel.text = SingletonSubject.sharedInstance.subject.title
+        
+     
     }
     
     func assignBackground() {
@@ -71,7 +68,7 @@ class SubjectCreated: UIViewController {
         
         if let data = try? Data(contentsOf: path) {
             let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
-            subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
+            SingletonSubject.sharedInstance.subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
             unarchiver.finishDecoding()
         }
     }

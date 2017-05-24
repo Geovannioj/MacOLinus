@@ -59,7 +59,10 @@ class CreateTeacherViewController: UIViewController {
     @IBAction func nextScreenPressed(_ sender: Any) {
         
          setTeacherName()
+        
          performSegue(withIdentifier: "SelectSubjectColor", sender: Any?.self)
+//         performSegue(withIdentifier: "BackEditSubject", sender: Any?.self)
+//        
     }
     
     func setTeacherName() {

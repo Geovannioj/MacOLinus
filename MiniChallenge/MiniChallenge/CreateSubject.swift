@@ -48,26 +48,24 @@ class CreateSubject: UIViewController {
          
         }
         
-        let newSubject = SingletonSubject.sharedInstance.subject
-        
-        SingletonSubject.sharedInstance.subjects.append(newSubject)
-        
-        saveSubjects()
+//        SingletonSubject.sharedInstance.subjects.append(newSubject)
+//        
+//        saveSubjects()
      
         performSegue(withIdentifier: "CreateTeacher", sender: Any?.self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "SubjectCreated" {
-            
-            if let toNextScreen = segue.destination as? SubjectCreated {
-                toNextScreen.subjectName = subjectField.text!
-            }
-            
-        }
-    }
-    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        
+//        if segue.identifier == "SubjectCreated" {
+//            
+//            if let toNextScreen = segue.destination as? SubjectCreated {
+//                toNextScreen.subjectName = subjectField.text!
+//            }
+//            
+//        }
+//    }
+//    
     
     func assignSubjectColor() -> UIColor {
         
