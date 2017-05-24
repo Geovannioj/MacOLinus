@@ -57,6 +57,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         setUpCalendar()
         
+        loadReminders()
+        
         activities = getToDoAndPostponedActivities(activities: SingletonActivity.sharedInstance.tasks)
         activities = sortActivities()
         

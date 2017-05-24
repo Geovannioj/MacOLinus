@@ -48,15 +48,16 @@ class DatePickViewController: UIViewController {
     }
     @IBAction func backBtn(_ sender: Any){
         if segueRecived == "DatePickViewController"{
-            
             performSegue(withIdentifier: "GoBackToEditScreen3", sender: Any?.self)
-        
+        }else if segueRecived == "GoToPostpone"{
+            performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
+        }else if segueRecived == "GoToPostponeByDaily"{
+            performSegue(withIdentifier: "GoToDailyCalendar", sender: Any?.self)
+        }else if segueRecived == "GoToPostponeByDone"{
+            performSegue(withIdentifier: "GoToDoneAndPostponed", sender: Any?.self)
         }else{
-        
             performSegue(withIdentifier: "backToSubjectScreen", sender: Any?.self)
         }
-        
-    
     }
     
     @IBAction func saveBtn(_ sender: Any) {
