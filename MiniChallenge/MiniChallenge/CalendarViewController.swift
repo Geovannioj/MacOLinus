@@ -236,7 +236,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             if(activity.status == 0 || activity.status == 2){
                 toDoActivities.append(activity)
             }
-            
         }
         
         return toDoActivities
