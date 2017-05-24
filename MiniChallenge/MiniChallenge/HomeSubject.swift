@@ -77,6 +77,8 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
             (sender: MGSwipeTableCell!) -> Bool in
             
             SingletonSubject.sharedInstance.subject = SingletonSubject.sharedInstance.subjects[indexPath.row]
+            SingletonSubject.sharedInstance.index  = indexPath.row
+            
             self.performSegue(withIdentifier: "EditSubject", sender: Any?.self)
 
             return true

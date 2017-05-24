@@ -12,6 +12,7 @@ class SingletonSubject  {
     
     var subjects = [Subject]()
     var subject = Subject()
+    var index: Int = -1
     
     static let sharedInstance = SingletonSubject()
     

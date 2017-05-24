@@ -120,8 +120,6 @@ class OnboardingViewController: UIViewController {
 //        
 //        
 //    }
-    
-    
 //    
 //    import UIKit
 //    import paper_onboarding

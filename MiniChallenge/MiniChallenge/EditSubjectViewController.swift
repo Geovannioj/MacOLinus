@@ -12,7 +12,9 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
 
     
     let formFields = ["Matéria", "Professor","Cor"]
+    var fields = ["", "", ""]
     
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +44,8 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EditSubjectTableViewCell
-        cell.formFieldLabel.text = formFields[indexPath.row]
+        cell.formFieldLabel?.text = formFields[indexPath.row]
+        cell.fieldLabel?.text = fields[indexPath.row]
         
       
         
@@ -80,6 +83,7 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
         
         assignBackground()
         assignBlackStatusBar()
+        loadContent()
         
     }
     
@@ -102,20 +106,72 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
         UIApplication.shared.statusBarStyle = .default
         
     }
-
     
-
-    // MARK: - Setup
+    func loadContent() {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        fields[0] = SingletonSubject.sharedInstance.subject.title
+        fields[1] = SingletonSubject.sharedInstance.subject.teacher.name
+    
+        
+        
     }
-    */
 
+    
+    // MARK: - Navigation
+    
+    @IBAction func nextScreenPressed(_ sender: Any) {
+        
+        let index = SingletonSubject.sharedInstance.index
+        let editedSubject = SingletonSubject.sharedInstance.subjects[index]
+        
+        editedSubject.title = SingletonSubject.sharedInstance.subject.title
+        editedSubject.teacher.name = SingletonSubject.sharedInstance.subject.teacher.name
+        
+        saveSubjects()
+        
+        performSegue(withIdentifier: "BackToHome", sender: Any?.self)
+        
+    }
+
+    
+    
+    // MARK: - Persist Data
+    
+    func saveSubjects() {
+        
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        
+        archiver.encode(SingletonSubject.sharedInstance.subjects, forKey: "Subjects")
+        archiver.finishEncoding()
+        
+        data.write(to: dataFilePath(), atomically: true)
+        
+    }
+    
+    func loadSubjects() {
+        
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            SingletonSubject.sharedInstance.subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
+            unarchiver.finishDecoding()
+        }
+    }
+    
+    func documentsDirectory() -> URL {
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        return paths[0]
+    }
+    
+    func dataFilePath() -> URL {
+        
+        return documentsDirectory().appendingPathComponent("Subjects.plist")
+        
+    }
+    
+    
 }

@@ -10,7 +10,8 @@ import UIKit
 
 class EditSubjectTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var formFieldLabel: UILabel!
+    @IBOutlet weak var formFieldLabel: UILabel?
+    @IBOutlet weak var fieldLabel: UILabel?
     
     override func awakeFromNib() {
         super.awakeFromNib()

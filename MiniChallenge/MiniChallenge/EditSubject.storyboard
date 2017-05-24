@@ -59,10 +59,18 @@
                                                     <color key="textColor" red="0.43916493654251099" green="0.43924486637115479" blue="0.43915987014770508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRL-At-KQI">
+                                                    <rect key="frame" x="135" y="8" width="199" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="16"/>
+                                                    <color key="textColor" red="0.43916493649999999" green="0.43924486639999999" blue="0.43915987010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="FormFieldLabel" destination="W3Y-eH-kiV" id="oQQ-Hr-dU7"/>
+                                            <outlet property="fieldLabel" destination="vRL-At-KQI" id="JxK-f2-9Tb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -71,13 +79,17 @@
                                     <outlet property="delegate" destination="bb2-q5-Rbd" id="RMu-3P-z0e"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Concluir" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OD9-KL-bAz">
-                                <rect key="frame" x="287" y="49" width="54" height="17"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AC5-89-ASG">
+                                <rect key="frame" x="293" y="42" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.086577527225017548" green="0.079168088734149933" blue="0.020614210516214371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextScreenPressed:" destination="bb2-q5-Rbd" eventType="touchUpInside" id="hYQ-hQ-6uI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -93,27 +105,36 @@
                         <segue destination="TxH-fX-6rc" kind="show" identifier="EditTeacher" id="TK2-DX-bLe"/>
                         <segue destination="Efj-Se-Qjg" kind="show" identifier="EditSubjectTitle" id="9ZD-lD-KdD"/>
                         <segue destination="ZUs-mF-cTH" kind="show" identifier="EditColor" id="fAb-Mw-PbP"/>
+                        <segue destination="9JO-pD-re6" kind="show" identifier="BackToHome" id="c2q-sp-4Gv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NEn-bg-iGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-282.39999999999998" y="184.85757121439281"/>
         </scene>
-        <!--CreateTeacher-->
+        <!--EditSubjectTeacher-->
         <scene sceneID="4ef-yS-ULL">
             <objects>
-                <viewControllerPlaceholder storyboardName="CreateTeacher" id="TxH-fX-6rc" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="EditSubjectTeacher" id="TxH-fX-6rc" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0c-fa-SdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="481" y="184"/>
+            <point key="canvasLocation" x="490" y="184"/>
         </scene>
-        <!--CreateSubject-->
+        <!--HomeSubject-->
+        <scene sceneID="R0U-vc-bb6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeSubject" id="9JO-pD-re6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pzs-zP-Qr7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="462" y="63"/>
+        </scene>
+        <!--EditSubjectTitle-->
         <scene sceneID="Cr2-K2-nnX">
             <objects>
-                <viewControllerPlaceholder storyboardName="CreateSubject" id="Efj-Se-Qjg" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="EditSubjectTitle" id="Efj-Se-Qjg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nI2-TN-krR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="481" y="121"/>
+            <point key="canvasLocation" x="473" y="124"/>
         </scene>
         <!--SelectSubjectColor-->
         <scene sceneID="nAX-dJ-5iL">
@@ -121,7 +142,7 @@
                 <viewControllerPlaceholder storyboardName="SelectSubjectColor" id="ZUs-mF-cTH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwC-0E-Hqp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="503" y="242"/>
+            <point key="canvasLocation" x="492" y="246"/>
         </scene>
     </scenes>
     <resources>
