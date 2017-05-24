@@ -33,10 +33,8 @@
         <scene sceneID="EwX-FA-bVR">
             <objects>
                 <navigationController id="oCN-wo-Jxa" sceneMemberID="viewController">
-
                     <tabBarItem key="tabBarItem" title="Metas" image="Goal Line" id="CkP-XL-uKE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="HRH-nQ-7Hd">
-
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -118,12 +116,32 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="217" id="9nY-6Q-R1W"/>
                                 </constraints>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="kr7-n3-E5Q">
+                                    <rect key="frame" x="0.0" y="72" width="414" height="146"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="por isso é hoje" translatesAutoresizingMaskIntoConstraints="NO" id="0O9-Nk-Iwk">
+                                            <rect key="frame" x="72" y="12" width="271" height="123"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="271" id="jf6-ey-gCl"/>
+                                                <constraint firstAttribute="height" constant="123" id="w51-gf-HQd"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="0O9-Nk-Iwk" firstAttribute="top" secondItem="kr7-n3-E5Q" secondAttribute="top" constant="12" id="P3V-uQ-82P"/>
+                                        <constraint firstItem="0O9-Nk-Iwk" firstAttribute="leading" secondItem="kr7-n3-E5Q" secondAttribute="leading" constant="72" id="T74-7U-r9h"/>
+                                        <constraint firstItem="0O9-Nk-Iwk" firstAttribute="centerX" secondItem="kr7-n3-E5Q" secondAttribute="centerX" constant="0.5" id="gma-Qt-LYV"/>
+                                        <constraint firstItem="0O9-Nk-Iwk" firstAttribute="centerY" secondItem="kr7-n3-E5Q" secondAttribute="centerY" constant="0.5" id="qHC-jo-JOB"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityTableViewCell" id="iYe-HI-60i" customClass="ActivityTableViewCell" customModule="MiniChallenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iYe-HI-60i" id="jWy-KQ-jgz">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -183,35 +201,35 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTu-vc-E6V">
-                                                <rect key="frame" x="58.999999999999993" y="0.0" width="59.333333333333321" height="15"/>
+                                                <rect key="frame" x="59" y="0.0" width="59" height="15"/>
                                                 <color key="backgroundColor" red="0.98159772160000003" green="0.4592770934" blue="0.44348007439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3m-99-md4">
-                                                <rect key="frame" x="118.33333333333334" y="0.0" width="59.000000000000028" height="15"/>
+                                                <rect key="frame" x="118" y="0.0" width="59" height="15"/>
                                                 <color key="backgroundColor" red="0.98159772160000003" green="0.4592770934" blue="0.44348007439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPQ-bx-lz2">
-                                                <rect key="frame" x="177.33333333333334" y="0.0" width="59.333333333333314" height="15"/>
+                                                <rect key="frame" x="177" y="0.0" width="60" height="15"/>
                                                 <color key="backgroundColor" red="0.98159772160000003" green="0.4592770934" blue="0.44348007439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTD-Jt-xnP">
-                                                <rect key="frame" x="236.66666666666669" y="0.0" width="59.000000000000057" height="15"/>
+                                                <rect key="frame" x="237" y="0.0" width="59" height="15"/>
                                                 <color key="backgroundColor" red="0.98159772160000003" green="0.4592770934" blue="0.44348007439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGY-Ub-xFF">
-                                                <rect key="frame" x="295.66666666666674" y="0.0" width="59.333333333333314" height="15"/>
+                                                <rect key="frame" x="296" y="0.0" width="59" height="15"/>
                                                 <color key="backgroundColor" red="0.98159772160000003" green="0.4592770934" blue="0.44348007439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -555,12 +573,32 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="510" id="B08-dM-ioF"/>
                                 </constraints>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="qqB-Zz-SfC">
+                                    <rect key="frame" x="0.0" y="72" width="414" height="146"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="por isso é hoje" translatesAutoresizingMaskIntoConstraints="NO" id="hvS-Ie-afy">
+                                            <rect key="frame" x="72" y="12" width="271" height="123"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="123" id="HSH-5j-sLR"/>
+                                                <constraint firstAttribute="width" constant="271" id="dUO-tZ-igI"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="hvS-Ie-afy" firstAttribute="top" secondItem="qqB-Zz-SfC" secondAttribute="top" constant="12" id="3bd-fR-hNq"/>
+                                        <constraint firstItem="hvS-Ie-afy" firstAttribute="centerX" secondItem="qqB-Zz-SfC" secondAttribute="centerX" constant="0.5" id="6Pb-EI-TgN"/>
+                                        <constraint firstItem="hvS-Ie-afy" firstAttribute="leading" secondItem="qqB-Zz-SfC" secondAttribute="leading" constant="72" id="FoD-h4-0yN"/>
+                                        <constraint firstItem="hvS-Ie-afy" firstAttribute="centerY" secondItem="qqB-Zz-SfC" secondAttribute="centerY" constant="0.5" id="cVe-WM-SiW"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="bVD-pg-KyD" customClass="DayActivityTableViewCell" customModule="MiniChallenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bVD-pg-KyD" id="ZgK-Dz-UYf">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -711,10 +749,10 @@
         <image name="Subjects Fill" width="26" height="26"/>
         <image name="add" width="19" height="20"/>
         <image name="arrow_up [#366]" width="17" height="15"/>
-        <image name="goals fill" width="24" height="25"/>
         <image name="leftIconCalendar" width="7" height="11"/>
         <image name="list [#1496]" width="20" height="15"/>
         <image name="pengoWhite" width="69" height="21"/>
+        <image name="por isso é hoje" width="271" height="123"/>
         <image name="rightIconCalendar" width="7" height="11"/>
         <image name="subject line" width="26" height="26"/>
     </resources>

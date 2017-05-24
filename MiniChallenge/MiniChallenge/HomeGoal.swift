@@ -70,7 +70,7 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return true
         }
         
-        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Done")!)) {
+        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
             return true
@@ -87,7 +87,7 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return true
         }
         
-        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "11")!)) {
+        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
             return true

@@ -11,6 +11,8 @@ import JTAppleCalendar
 import MGSwipeTableCell
 
 let redColor = UIColor(red: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
+let purpleColor = UIColor(colorLiteralRed: 0.4078, green: 0.4314, blue: 0.8784, alpha: 1)
+
 
 class CalendarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
@@ -96,9 +98,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         if CalendarViewController.sendActivityToPostpone {
             showAnimationMovedToPostPoned()
         }
-        
     }
-    
 
     func documentsDirectory() -> URL{
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)

@@ -145,6 +145,20 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
         let deleteButton = MGSwipeButton(title: "          ", backgroundColor: UIColor(patternImage: UIImage(named: "delete")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
+            let controllerReference = ControllerPList()
+            var position = 0
+            
+            for activity in SingletonActivity.sharedInstance.tasks {
+                print("Total: \(SingletonActivity.sharedInstance.tasks.count)")
+                print("On position:\(position)")
+                if activity.title == self.subjects[indexPath.row].title {
+                    print("Removed at:\(position)")
+                    SingletonActivity.sharedInstance.tasks.remove(at: position)
+                    controllerReference.saveReminders()
+                }
+                position += 1
+            }
+            
             self.subjects.remove(at: indexPath.row)
             let indexPaths = [indexPath]
             tableView.deleteRows(at: indexPaths, with: .automatic)
