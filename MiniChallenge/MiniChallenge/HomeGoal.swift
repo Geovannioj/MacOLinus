@@ -23,7 +23,6 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         self.tabBarItem.image = UIImage(named: "Goal Line")?.withRenderingMode(.alwaysOriginal)
         self.tabBarItem.selectedImage = UIImage(named: "goals fill")?.withRenderingMode(.alwaysOriginal)
-        
         self.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: purpleColor], for: .selected)
         
         // Do any additional setup after loading the view.
@@ -91,7 +90,7 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return true
         }
         
-        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
+        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Done")!)) {
 
             (sender: MGSwipeTableCell!) -> Bool in
             

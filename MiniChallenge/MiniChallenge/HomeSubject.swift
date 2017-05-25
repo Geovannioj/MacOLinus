@@ -14,11 +14,17 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
     var filteredActivityArray = [Reminder]()
     @IBOutlet weak var tableView: UITableView!
   
+    let greenColor = UIColor(red: 0.2824, green: 0.9098, blue: 0.7765, alpha: 1)
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadSubjects()
         
+        
+        self.tabBarItem.selectedImage = UIImage(named: "Subjects Fill")?.withRenderingMode(.alwaysOriginal)
+        self.tabBarItem.image = UIImage(named: "subject line")?.withRenderingMode(.alwaysOriginal)
+        
+        self.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: greenColor], for: .selected)
         
         for aux in SingletonSubject.sharedInstance.subjects {
             print(aux.title)
@@ -61,7 +67,7 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         cell.subjectColorLabel.layer.cornerRadius = 20
         
         
-        let deleteButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "10")!)) {
+        let deleteButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "delete")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
             SingletonSubject.sharedInstance.subjects.remove(at: indexPath.row)
@@ -75,7 +81,7 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
             return true
         }
         
-        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "11")!)) {
+        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
             SingletonSubject.sharedInstance.subject = SingletonSubject.sharedInstance.subjects[indexPath.row]
@@ -95,7 +101,7 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         cell.leftSwipeSettings.transition = .border
         
         cell.subjectColorLabel.clipsToBounds = true
-        cell.subjectColorLabel.layer.cornerRadius = 20
+        cell.subjectColorLabel.layer.cornerRadius = 4
         
         return cell
     }

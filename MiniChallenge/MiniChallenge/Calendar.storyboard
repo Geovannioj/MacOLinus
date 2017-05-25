@@ -21,50 +21,35 @@
                     </tabBar>
                     <connections>
                         <segue destination="aEo-xe-HBL" kind="relationship" relationship="viewControllers" id="mC1-K9-IK4"/>
-                        <segue destination="cde-Zd-n9r" kind="relationship" relationship="viewControllers" id="rU3-rB-5qx"/>
-                        <segue destination="oCN-wo-Jxa" kind="relationship" relationship="viewControllers" id="EaP-Vo-JGK"/>
+                        <segue destination="PjY-kx-4cc" kind="relationship" relationship="viewControllers" id="IQV-KB-dPa"/>
+                        <segue destination="rmZ-Od-ZYQ" kind="relationship" relationship="viewControllers" id="Tqy-YF-3HA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WbQ-NW-bue" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1614" y="-228"/>
         </scene>
-        <!--Metas-->
-        <scene sceneID="EwX-FA-bVR">
-            <objects>
-                <navigationController id="oCN-wo-Jxa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Metas" image="Goal Line" id="CkP-XL-uKE"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="HRH-nQ-7Hd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="rmZ-Od-ZYQ" kind="relationship" relationship="rootViewController" id="o6Q-AG-NS9"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qhc-A5-EhQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-676" y="542"/>
-        </scene>
         <!--First-->
         <scene sceneID="m2p-no-xNm">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mp2-Ch-i7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="HomeGoal" referencedIdentifier="First" id="rmZ-Od-ZYQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="DIsciplinas" image="subject line" selectedImage="Subjects Fill" id="MsH-1V-wNV"/>
                     <navigationItem key="navigationItem" id="NCw-sG-FoT"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mp2-Ch-i7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-87" y="527"/>
+            <point key="canvasLocation" x="-1237" y="217"/>
         </scene>
-        <!--Subject-->
+        <!--First-->
         <scene sceneID="yUV-cT-tXx">
             <objects>
-                <viewControllerPlaceholder storyboardName="Subject" referencedIdentifier="Subject" id="PjY-kx-4cc" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="HomeSubject" referencedIdentifier="First" id="PjY-kx-4cc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Metas" image="Goal Line" selectedImage="goals fill" id="zJZ-zf-RFW"/>
                     <navigationItem key="navigationItem" id="IDP-Fk-ibB"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kx0-T3-2ox" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-912" y="1270"/>
+            <point key="canvasLocation" x="-1524" y="217"/>
         </scene>
         <!--DatePickViewController-->
         <scene sceneID="ZgS-sh-euc">
@@ -718,29 +703,6 @@
             </objects>
             <point key="canvasLocation" x="2193" y="-290"/>
         </scene>
-        <!--Disciplinas-->
-        <scene sceneID="rlg-cS-hpB">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cde-Zd-n9r" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Disciplinas" image="subject line" selectedImage="Subjects Fill" id="QQ0-5I-h4e">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hL8-Ns-tId">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="PjY-kx-4cc" kind="relationship" relationship="rootViewController" id="WkW-nh-gjJ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yJ0-WM-mCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1615" y="1270"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Calendar Line" width="26" height="26"/>
@@ -749,6 +711,7 @@
         <image name="Subjects Fill" width="26" height="26"/>
         <image name="add" width="19" height="20"/>
         <image name="arrow_up [#366]" width="17" height="15"/>
+        <image name="goals fill" width="24" height="25"/>
         <image name="leftIconCalendar" width="7" height="11"/>
         <image name="list [#1496]" width="20" height="15"/>
         <image name="pengoWhite" width="69" height="21"/>
