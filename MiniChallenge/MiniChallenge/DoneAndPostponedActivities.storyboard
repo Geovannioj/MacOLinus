@@ -15,7 +15,7 @@
                 <viewControllerPlaceholder storyboardName="Calendar" referencedIdentifier="Calendar" id="Aq1-RG-bIe" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFt-g5-6gp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-413" y="-380"/>
+            <point key="canvasLocation" x="752" y="-50"/>
         </scene>
         <!--Item-->
         <scene sceneID="LNd-EG-d7V">
@@ -153,7 +153,7 @@
                 <viewControllerPlaceholder storyboardName="EditActivity" referencedIdentifier="EditActivityController" id="bfw-G1-Xg1" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EE2-uG-UR6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="334" y="-476"/>
+            <point key="canvasLocation" x="813" y="36"/>
         </scene>
         <!--DatePickViewController-->
         <scene sceneID="y5g-s9-ytA">
@@ -161,7 +161,7 @@
                 <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="DatePickViewController" id="Wz2-Of-soq" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6YB-7U-Y8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="671" y="-353"/>
+            <point key="canvasLocation" x="823" y="86"/>
         </scene>
         <!--Reminders-->
         <scene sceneID="L4D-Ce-C8m">
@@ -169,7 +169,7 @@
                 <viewControllerPlaceholder storyboardName="Reminders" id="WFz-sy-F2t" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hLt-zB-LH9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="794" y="-214"/>
+            <point key="canvasLocation" x="760" y="-3"/>
         </scene>
     </scenes>
     <resources>

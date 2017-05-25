@@ -6,7 +6,8 @@ class SubjectViewController: UIViewController, UITableViewDelegate, UITableViewD
     var subjects = [Subject]()
     let subjectTitleLabel = ""
     var segueData:String?
-
+    var auxSegue:String?
+    
     var filteredActivityArray = [Reminder]()
     var subjectInRow: Subject?
     

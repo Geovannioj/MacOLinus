@@ -137,6 +137,7 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
             
             if let toAddSubject = segue.destination as? SubjectViewController{
                 toAddSubject.segueData = segue.identifier
+                toAddSubject.auxSegue = segueReceived
                 
             }
             
@@ -146,6 +147,7 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
     
                 goToChooseSubject.segueRecived = segue.identifier!
                 goToChooseSubject.indexActivity = indexActivityToEdit
+                goToChooseSubject.auxSegue = segueReceived
             }
         
         }else if segue.identifier == "Reminders" {
@@ -154,6 +156,7 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
                 
                 goToReminderAddTitle.segueRecived = segue.identifier!
                 goToReminderAddTitle.indexActivityArray = indexActivityToEdit
+                goToReminderAddTitle.auxSeuge = segueReceived
             }
             
         }else if segue.identifier == "DatePickViewController" {
@@ -161,6 +164,7 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
             if let goToDatePickController = segue.destination as? DatePickViewController{
                 goToDatePickController.indexActivityToEdit = indexActivityToEdit
                 goToDatePickController.segueRecived = segue.identifier!
+                goToDatePickController.auxSegue = segueReceived
                 
             }
             

@@ -19,6 +19,7 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
     var activityToEdit: Reminder?
     var activityToBeSaved: Reminder?
     var segueRecived: String = ""
+    var auxSeuge: String = ""
     var indexActivityArray: Int = -1
 
     override func viewDidLoad() {
@@ -86,11 +87,13 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
             if let data = segue.destination as? EditActivityController{
 
                 data.indexActivityToEdit = indexActivityArray
+                data.segueReceived = auxSeuge
                 
             }
         }else if segue.identifier == "GoBackToEditScreen"{
             if let goToEditScreen = segue.destination as? EditActivityController{
                 goToEditScreen.indexActivityToEdit = indexActivityArray
+                goToEditScreen.segueReceived = auxSeuge
                 
             }
         }

@@ -21,7 +21,7 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     var subjects = [Subject]()
     var subject: Subject?
     var activityToEdit: Reminder?
-//    var persistData = PersistSubjectData()
+    var auxSegue:String = ""
     var segueRecived: String = ""
     var indexActivity: Int = 0//-1
     
@@ -124,6 +124,7 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
         }else if segue.identifier == "GoToEditScreen2"{
             if let backToEditScreen = segue.destination as? EditActivityController{
                 backToEditScreen.indexActivityToEdit = indexActivity
+                backToEditScreen.segueReceived = auxSegue
             }
         }else if segue.identifier == "BackToAddTitle"{
             if let goBackToAddTitle = segue.destination as? AddTitleController{
