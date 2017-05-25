@@ -224,6 +224,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         var sortedArray : [Reminder] = []
         sortedArray = activities.sorted(by: { $0.time.compare($1.time) == ComparisonResult.orderedAscending})
+        SingletonActivity.sharedInstance.tasks = sortedArray
+        controlerPList.saveReminders()
         
         return sortedArray
     }
@@ -311,7 +313,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         //done button
-        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
+        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Done")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
             self.showAnimationMovedToDone()
