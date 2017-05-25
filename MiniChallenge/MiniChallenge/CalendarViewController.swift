@@ -67,8 +67,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         //Pode gerar um bug!
         activities = getToDoAndPostponedActivities(activities: SingletonActivity.sharedInstance.tasks)
         
-        
-        
         activities = sortActivities()
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
