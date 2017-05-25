@@ -37,6 +37,8 @@ class DailyCalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        controllerPlist.loadReminders()
+        
         passedText = SingletonPassedDate.sharedInstance.passedText
         passedDate = SingletonPassedDate.sharedInstance.passedDate
         extenseDay.text = passedText
