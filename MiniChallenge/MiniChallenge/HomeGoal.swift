@@ -66,38 +66,37 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return true
         }
         
+        
+        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "11")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            
+            GoalService.sharedInstance.user_goal = GoalService.sharedInstance.user_goals[indexPath.row]
+            GoalService.sharedInstance.user_goal.index = indexPath.row
+            
+            self.performSegue(withIdentifier: "EditGoal", sender: Any?.self)
+            
+            return true
+        }
+        
+        cell.leftButtons = [editButton]
+        cell.leftSwipeSettings.transition = .border
+        
+        
         let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Done")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
             return true
         }
         
-        
-        
         cell.rightButtons = [doneButton, deleteButton]
         cell.rightSwipeSettings.transition = .border
-        
-        let doneLaterButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Adiar")!)) {
-            (sender: MGSwipeTableCell!) -> Bool in
-            
-            return true
-        }
-        
-        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "11")!)) {
-            (sender: MGSwipeTableCell!) -> Bool in
-            
-            return true
-        }
-        
-        cell.leftButtons = [editButton, doneLaterButton]
-        cell.leftSwipeSettings.transition = .border
-        
      
         return cell;
     }
     
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
         return UIView()
     }
     
