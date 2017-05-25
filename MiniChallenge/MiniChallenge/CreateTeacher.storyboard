@@ -66,7 +66,6 @@
                                 <state key="normal" image="redButton"/>
                                 <connections>
                                     <action selector="nextScreenPressed:" destination="wEI-v4-pIa" eventType="touchUpInside" id="4KK-ep-kyP"/>
-                                    <segue destination="thr-Rt-On8" kind="show" identifier="SelectSubjectColor" id="d4J-a5-UkR"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="ZgX-tH-qmZ">
@@ -100,6 +99,8 @@
                     </view>
                     <connections>
                         <outlet property="teacherNameField" destination="mOt-FG-dsw" id="BSY-89-mfa"/>
+                        <segue destination="thr-Rt-On8" kind="show" identifier="SelectSubjectColor" id="ukR-Dd-ijj"/>
+                        <segue destination="3kf-ZV-E6t" kind="show" identifier="BackEditSubject" id="2cT-4b-Rum"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ngq-Mp-hhM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -113,6 +114,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGY-R9-I7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1441" y="122"/>
+        </scene>
+        <!--EditSubject-->
+        <scene sceneID="c4G-Hg-hg0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditSubject" id="3kf-ZV-E6t" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dHm-yn-zmx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1410" y="75"/>
         </scene>
     </scenes>
     <resources>

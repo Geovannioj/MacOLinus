@@ -1,16 +1,16 @@
 //
-//  CreateTeacherViewController.swift
+//  EditSubjectTeacherViewController.swift
 //  MiniChallenge
 //
-//  Created by Miguel Pimentel on 23/05/17.
+//  Created by Miguel Pimentel on 24/05/17.
 //  Copyright © 2017 Luis Gustavo Avelino de Lima Jacinto. All rights reserved.
 //
 
 import UIKit
 
-class CreateTeacherViewController: UIViewController {
+class EditSubjectTeacherViewController: UIViewController {
     
-    @IBOutlet weak var teacherNameField: UITextField!
+    @IBOutlet weak var newTeacherName: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +25,16 @@ class CreateTeacherViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Config
+
+    // MARK: - Config Layout
+    
     
     func configLayout() {
         
         assignBackground()
         assignBlackStatusBar()
+        
+       newTeacherName.text = SingletonSubject.sharedInstance.subject.teacher.name
         
     }
     
@@ -53,29 +57,17 @@ class CreateTeacherViewController: UIViewController {
         UIApplication.shared.statusBarStyle = .default
         
     }
-   
-    // MARK: - Navigation
-    
+
     @IBAction func nextScreenPressed(_ sender: Any) {
         
-         setTeacherName()
-        
-         performSegue(withIdentifier: "SelectSubjectColor", sender: Any?.self)
-//         performSegue(withIdentifier: "BackEditSubject", sender: Any?.self)
-//        
+        setNewContent()
+        performSegue(withIdentifier: "BackToEditSubject", sender: Any?.self)
+    
     }
     
-    func setTeacherName() {
+    func setNewContent() {
         
-        let newTeacher = Teacher()
-        
-        if !(teacherNameField.text?.isEmpty)! {
-            
-            newTeacher.name = teacherNameField.text!
-        }
-        
-        SingletonSubject.sharedInstance.subject.teacher = newTeacher
+        SingletonSubject.sharedInstance.subject.teacher.name = newTeacherName.text!
     }
 
-    
 }

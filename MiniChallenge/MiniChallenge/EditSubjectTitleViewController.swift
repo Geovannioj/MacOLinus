@@ -1,17 +1,18 @@
 //
-//  CreateTeacherViewController.swift
+//  EditSubjectTitleViewController.swift
 //  MiniChallenge
 //
-//  Created by Miguel Pimentel on 23/05/17.
+//  Created by Miguel Pimentel on 24/05/17.
 //  Copyright © 2017 Luis Gustavo Avelino de Lima Jacinto. All rights reserved.
 //
 
 import UIKit
 
-class CreateTeacherViewController: UIViewController {
-    
-    @IBOutlet weak var teacherNameField: UITextField!
+class EditSubjectTitleViewController: UIViewController {
 
+    @IBOutlet weak var newSubectTitleLabel: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,15 +23,30 @@ class CreateTeacherViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Config
+
+    
+    // MARK: - Helpers
+    
+    internal func cleanBuffer () {
+        
+        SingletonSubject.sharedInstance.subject = Subject()
+    }
+    
+    
+    
+    // MARK: - Config Layout
+    
     
     func configLayout() {
         
         assignBackground()
         assignBlackStatusBar()
+        
+        newSubectTitleLabel.text = SingletonSubject.sharedInstance.subject.title
         
     }
     
@@ -53,29 +69,16 @@ class CreateTeacherViewController: UIViewController {
         UIApplication.shared.statusBarStyle = .default
         
     }
-   
-    // MARK: - Navigation
     
     @IBAction func nextScreenPressed(_ sender: Any) {
         
-         setTeacherName()
-        
-         performSegue(withIdentifier: "SelectSubjectColor", sender: Any?.self)
-//         performSegue(withIdentifier: "BackEditSubject", sender: Any?.self)
-//        
+        setNewContent()
+        performSegue(withIdentifier: "BackToEditSubject", sender: Any?.self)
     }
     
-    func setTeacherName() {
-        
-        let newTeacher = Teacher()
-        
-        if !(teacherNameField.text?.isEmpty)! {
-            
-            newTeacher.name = teacherNameField.text!
-        }
-        
-        SingletonSubject.sharedInstance.subject.teacher = newTeacher
-    }
-
     
+    func setNewContent() {
+        
+        SingletonSubject.sharedInstance.subject.title = newSubectTitleLabel.text!
+    }
 }

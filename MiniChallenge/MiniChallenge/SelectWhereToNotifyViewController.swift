@@ -94,7 +94,9 @@ class SelectWhereToNotifyViewController: UIViewController, MKMapViewDelegate, CL
         let longitudeDelta: CLLocationDegrees = 0.05
         
         let span = MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
+        
         let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+       
         let region = MKCoordinateRegion(center: location, span: span)
         
         self.map.setRegion(region, animated: true)
@@ -109,6 +111,9 @@ class SelectWhereToNotifyViewController: UIViewController, MKMapViewDelegate, CL
     
     func longpress(gestureRecognizer: UIGestureRecognizer) {
         
+//        
+//        gestureRecognizer.
+        
         let touchPoint = gestureRecognizer.location(in: self.map)
         
         let coordinate = map.convert(touchPoint, toCoordinateFrom: self.map)
@@ -118,11 +123,10 @@ class SelectWhereToNotifyViewController: UIViewController, MKMapViewDelegate, CL
         
         annotation.coordinate = coordinate
         
-        annotation.title = "New place"
+        annotation.title = "Place"
         annotation.subtitle = "Just a description"
         
         map.addAnnotation(annotation)
-        
     }
 
     // MARK: - Navigation
@@ -138,11 +142,15 @@ class SelectWhereToNotifyViewController: UIViewController, MKMapViewDelegate, CL
     
     func geolocalizatedNotification() {
         
+        let newLatitude = -15.793524
+        let newLongitude = -47.882706
+        
         let latitude = coordinateToNotify.latitude
         let longitude = coordinateToNotify.longitude
         
-        let center = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        let region = CLCircularRegion(center: center, radius: 2000.0, identifier: "Geolocalizated Notification")
+        let center = CLLocationCoordinate2D(latitude: newLatitude, longitude: newLongitude)
+        
+        let region = CLCircularRegion(center: center, radius: 500.0, identifier: "Geolocalizated Notification")
         region.notifyOnEntry = true
         region.notifyOnExit = false
         

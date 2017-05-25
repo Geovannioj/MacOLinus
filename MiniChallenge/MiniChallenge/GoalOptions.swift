@@ -38,6 +38,10 @@ class GoalOptions: UIViewController {
             if let toCreateUserGoal = segue.destination as? CreateGoal {
                 toCreateUserGoal.goalType = "Ler o Livro"
             }
+        } else if segue.identifier == "customGoal" {
+            if let toCreateUserGoal = segue.destination as? CreateGoal {
+                toCreateUserGoal.goalType = "Qual a sua meta ?"
+            }
         }
     }
 
@@ -53,10 +57,7 @@ class GoalOptions: UIViewController {
         performSegue(withIdentifier: "readABook", sender: Any?.self)
     }
     
-    /*@IBAction func customGoalPressed(_ sender: Any) {
-        performSegue(withIdentifier: "createANewGoal", sender: Any?.self)
-    }*/
-    
-    
-
+    @IBAction func customGoalPressed(_ sender: Any) {
+        performSegue(withIdentifier: "customGoal", sender: Any?.self)
+    }
 }

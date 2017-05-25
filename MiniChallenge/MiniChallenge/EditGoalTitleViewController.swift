@@ -1,17 +1,18 @@
 //
-//  CreateTeacherViewController.swift
+//  EditGoalTitleViewController.swift
 //  MiniChallenge
 //
-//  Created by Miguel Pimentel on 23/05/17.
+//  Created by Miguel Pimentel on 25/05/17.
 //  Copyright © 2017 Luis Gustavo Avelino de Lima Jacinto. All rights reserved.
 //
 
 import UIKit
 
-class CreateTeacherViewController: UIViewController {
-    
-    @IBOutlet weak var teacherNameField: UITextField!
+class EditGoalTitleViewController: UIViewController {
 
+    @IBOutlet weak var newGoalTitle: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,18 +26,19 @@ class CreateTeacherViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Config
     
     func configLayout() {
         
         assignBackground()
         assignBlackStatusBar()
+     
         
+        newGoalTitle.text = GoalService.sharedInstance.user_goal.title
     }
     
     func assignBackground() {
         
-        let background = UIImage(named: "greenPatternWithBoy")
+        let background = UIImage(named: "PurplePatternWithBoy")
         
         var imageView : UIImageView!
         imageView = UIImageView(frame: view.bounds)
@@ -53,29 +55,30 @@ class CreateTeacherViewController: UIViewController {
         UIApplication.shared.statusBarStyle = .default
         
     }
-   
-    // MARK: - Navigation
+    
     
     @IBAction func nextScreenPressed(_ sender: Any) {
         
-         setTeacherName()
+        setNewContent()
         
-         performSegue(withIdentifier: "SelectSubjectColor", sender: Any?.self)
-//         performSegue(withIdentifier: "BackEditSubject", sender: Any?.self)
-//        
+        performSegue(withIdentifier: "backToEditGoal", sender: Any?.self)
     }
     
-    func setTeacherName() {
+    func setNewContent() {
         
-        let newTeacher = Teacher()
+        GoalService.sharedInstance.user_goal.title = newGoalTitle.text!
         
-        if !(teacherNameField.text?.isEmpty)! {
-            
-            newTeacher.name = teacherNameField.text!
-        }
-        
-        SingletonSubject.sharedInstance.subject.teacher = newTeacher
     }
+    
 
-    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

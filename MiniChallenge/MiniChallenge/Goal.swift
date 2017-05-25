@@ -7,6 +7,8 @@ class Goal: NSObject, NSCoding {
     var title: String = ""
     var goalDescription: String = ""
     var time: Date = Date()
+    var index: Int = -1
+    var done: Bool = false
     
     // MARK: - Path to user goals
     

@@ -44,9 +44,6 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
                     customBlack,
                     customViolet ]
         
-        for i in 0...10 {
-            print(SingletonSubject.sharedInstance.subject.teacher.name)
-        }
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -115,6 +112,8 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
         cell.layer.borderWidth = 5
         cell.layer.borderColor = UIColor.black.cgColor
         
+        SingletonSubject.sharedInstance.subject.color = colors[indexPath.row]
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -123,9 +122,64 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
         
         cell.layer.borderWidth = 0
     }
- 
 
     
+    // MARK: - Persist Data
+    
+    func saveSubjects() {
+        
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        
+        archiver.encode(SingletonSubject.sharedInstance.subjects, forKey: "Subjects")
+        archiver.finishEncoding()
+        
+        data.write(to: dataFilePath(), atomically: true)
+        
+    }
+    
+    func loadSubjects() {
+        
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            SingletonSubject.sharedInstance.subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
+            unarchiver.finishDecoding()
+        }
+    }
+    
+    func documentsDirectory() -> URL {
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        return paths[0]
+    }
+    
+    func dataFilePath() -> URL {
+        
+        return documentsDirectory().appendingPathComponent("Subjects.plist")
+        
+    }
+    
+    // MARK: - Navigation
+    
+    @IBAction func nextScreenPressed(_ sender: Any) {
+        
+        createSubject()
+        saveSubjects()
+        
+        performSegue(withIdentifier: "SubjectCreated", sender: Any?.self)
+    }
+    
+    func createSubject() {
+        
+        let newSubject = SingletonSubject.sharedInstance.subject
+        SingletonSubject.sharedInstance.subjects.append(newSubject)
+    }
+    
+    
+
     
     
 }

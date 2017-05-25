@@ -27,13 +27,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrI-Bk-jzW">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="DEe-jD-qx5">
                                         <rect key="frame" x="153.5" y="32" width="69" height="21"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crie metas e alcanse seus objetivos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rbb-ji-MWc">
-                                        <rect key="frame" x="80.5" y="56" width="215.5" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rbb-ji-MWc">
+                                        <rect key="frame" x="187.5" y="56" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -44,12 +44,12 @@
                                     <constraint firstItem="Rbb-ji-MWc" firstAttribute="centerX" secondItem="hrI-Bk-jzW" secondAttribute="centerX" id="5qr-4k-nox"/>
                                     <constraint firstItem="DEe-jD-qx5" firstAttribute="centerX" secondItem="hrI-Bk-jzW" secondAttribute="centerX" id="QH2-S5-U1i"/>
                                     <constraint firstItem="Rbb-ji-MWc" firstAttribute="top" secondItem="DEe-jD-qx5" secondAttribute="bottom" constant="3" id="SUN-iB-4RZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="Rbb-ji-MWc" secondAttribute="bottom" constant="27" id="tfy-A0-5n4"/>
+                                    <constraint firstAttribute="bottom" secondItem="Rbb-ji-MWc" secondAttribute="bottom" constant="48" id="tfy-A0-5n4"/>
                                     <constraint firstItem="DEe-jD-qx5" firstAttribute="top" secondItem="hrI-Bk-jzW" secondAttribute="top" constant="32" id="uai-0p-Xjy"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6E-bQ-Zux">
-                                <rect key="frame" x="0.0" y="110" width="375" height="126"/>
+                                <rect key="frame" x="0.0" y="122" width="375" height="126"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="126" id="R4n-hb-Jq8"/>
                                 </constraints>
@@ -61,7 +61,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qic-3c-32M">
-                                <rect key="frame" x="0.0" y="279" width="375" height="388"/>
+                                <rect key="frame" x="0.0" y="266" width="375" height="401"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.40459585190000003" green="0.41695094110000003" blue="0.89097839590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -104,32 +104,34 @@
                                     <outlet property="delegate" destination="fgV-0O-sdI" id="LMY-qG-5jt"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezc-Lc-FTm">
-                                <rect key="frame" x="0.0" y="244" width="375" height="5"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bLF-ye-Om2">
+                                <rect key="frame" x="127" y="63" width="121" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.40459585190000003" green="0.41695094110000003" blue="0.89097839590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <segments>
+                                    <segment title="Metas"/>
+                                    <segment title="Feitas"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="hrI-Bk-jzW" secondAttribute="trailing" constant="-16" id="70B-tk-OtQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qic-3c-32M" secondAttribute="trailing" constant="-16" id="Cqn-nL-gOD"/>
-                            <constraint firstItem="C6E-bQ-Zux" firstAttribute="top" secondItem="hrI-Bk-jzW" secondAttribute="bottom" constant="10" id="NuH-xI-N7Q"/>
+                            <constraint firstItem="C6E-bQ-Zux" firstAttribute="top" secondItem="hrI-Bk-jzW" secondAttribute="bottom" constant="18" id="NuH-xI-N7Q"/>
                             <constraint firstItem="hrI-Bk-jzW" firstAttribute="top" secondItem="E0C-E8-edS" secondAttribute="bottom" constant="-20" id="VK0-aj-pld"/>
                             <constraint firstItem="C6E-bQ-Zux" firstAttribute="centerX" secondItem="hrI-Bk-jzW" secondAttribute="centerX" id="Vc9-RO-M59"/>
                             <constraint firstItem="Qic-3c-32M" firstAttribute="leading" secondItem="vID-gI-Li8" secondAttribute="leadingMargin" constant="-16" id="Xdl-NQ-2Bs"/>
                             <constraint firstItem="C6E-bQ-Zux" firstAttribute="leading" secondItem="vID-gI-Li8" secondAttribute="leadingMargin" constant="-16" id="b3F-3H-V3D"/>
                             <constraint firstItem="u4H-yx-voF" firstAttribute="top" secondItem="Qic-3c-32M" secondAttribute="bottom" id="czu-5a-YMr"/>
                             <constraint firstItem="hrI-Bk-jzW" firstAttribute="leading" secondItem="vID-gI-Li8" secondAttribute="leadingMargin" constant="-16" id="pDP-cC-7Qy"/>
-                            <constraint firstItem="Qic-3c-32M" firstAttribute="top" secondItem="C6E-bQ-Zux" secondAttribute="bottom" constant="43" id="qDq-Ai-L5i"/>
+                            <constraint firstItem="Qic-3c-32M" firstAttribute="top" secondItem="C6E-bQ-Zux" secondAttribute="bottom" constant="18" id="qDq-Ai-L5i"/>
                             <constraint firstAttribute="trailingMargin" secondItem="C6E-bQ-Zux" secondAttribute="trailing" constant="-16" id="z9D-dN-jJh"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Qic-3c-32M" id="Yxj-ev-APH"/>
+                        <segue destination="nRI-N5-hMk" kind="show" identifier="EditGoal" id="doS-KG-mrI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8xh-sy-RFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -142,7 +144,15 @@
                 <viewControllerPlaceholder storyboardIdentifier="CreateGoal" storyboardName="GoalOptions" id="uTU-Y6-BPz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nir-l7-wdY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="297" y="121"/>
+            <point key="canvasLocation" x="292" y="100"/>
+        </scene>
+        <!--EditGoal-->
+        <scene sceneID="asf-GA-Zyf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditGoal" id="nRI-N5-hMk" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="io4-ew-Qdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="273" y="145"/>
         </scene>
     </scenes>
     <resources>

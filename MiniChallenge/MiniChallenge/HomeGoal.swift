@@ -70,16 +70,20 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return true
         }
         
-        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Done")!)) {
+        
+        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
+            
+            GoalService.sharedInstance.user_goal = GoalService.sharedInstance.user_goals[indexPath.row]
+            GoalService.sharedInstance.user_goal.index = indexPath.row
+            
+            self.performSegue(withIdentifier: "EditGoal", sender: Any?.self)
             
             return true
         }
         
-        
-        
-        cell.rightButtons = [doneButton, deleteButton]
-        cell.rightSwipeSettings.transition = .border
+        cell.leftButtons = [editButton]
+        cell.leftSwipeSettings.transition = .border
         
         let doneLaterButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Adiar")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
@@ -87,21 +91,22 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return true
         }
         
-        let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "edit")!)) {
+        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
+
             (sender: MGSwipeTableCell!) -> Bool in
             
             return true
         }
         
-        cell.leftButtons = [editButton, doneLaterButton]
-        cell.leftSwipeSettings.transition = .border
-        
+        cell.rightButtons = [doneButton, deleteButton]
+        cell.rightSwipeSettings.transition = .border
      
         return cell;
     }
     
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
         return UIView()
     }
     
