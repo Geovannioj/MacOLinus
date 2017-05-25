@@ -70,8 +70,9 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
                 
                 activityToEdit?.title = self.taskTitle
                 EditActivityController.activityPassed.title = self.taskTitle
+                print("Aquiiiiiiiiiiii")
+                print(SingletonActivity.sharedInstance.tasks[indexActivityArray].title)
                 performSegue(withIdentifier: "GoBackToEditScreen", sender: Any?.self)
-            
             }else{
                 
                 SingletonActivity.sharedInstance.task.title = taskTitle

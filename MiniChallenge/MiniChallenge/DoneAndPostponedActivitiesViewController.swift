@@ -26,6 +26,11 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         //set done and postponed activitiesarrays
+        
+        controllerPlist.loadReminders()
+        
+        print("Bem aquiiiiiiiiiiii")
+        print(SingletonActivity.sharedInstance.tasks[indexActivity].title)
         checkActivities(activities: SingletonActivity.sharedInstance.tasks)
         
         let nib = UINib(nibName: "DoneAndPostponedActivities", bundle: nil)
@@ -38,7 +43,11 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         super.viewDidAppear(animated)
         activitiesTableView.reloadData()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        activitiesTableView.beginUpdates()
+        activitiesTableView.endUpdates()
+
+    }
     func checkActivities(activities:[Reminder]){
         for currentActivity in activities{
             if currentActivity.status == 0{

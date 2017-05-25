@@ -18,7 +18,7 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
     
     var cellText = ["Tarefa", "Matéria", "Horário"]
     static var activityPassed = Reminder()
-    var activityToBeSaved = Reminder()
+    //var activityToBeSaved = Reminder()
     var indexActivityToEdit: Int = -1
     var segueReceived = ""
     
@@ -60,8 +60,6 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
         
         SingletonActivity.sharedInstance.tasks[indexActivityToEdit] = EditActivityController.activityPassed
         
-        print("Atividade")
-        print(EditActivityController.activityPassed.title)
         
         SingletonActivity.sharedInstance.tasks[indexActivityToEdit].scheduleNotification()
         controlerPList.saveReminders()
@@ -79,10 +77,12 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func cancelBtnAction(_ sender: Any) {
         
         if(self.segueReceived == "EditActivity"){
+            print("Aqui ta errado")
             performSegue(withIdentifier: "BackToDone", sender: Any.self)
         }else if segueReceived == "EditActivityByDaily"{
             performSegue(withIdentifier: "GoToDailyCalendar", sender: Any.self)
         }else{
+            print("Aqui da certo")
             performSegue(withIdentifier: "BackToCalendar", sender: Any?.self)
         }
     }
@@ -171,6 +171,10 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
         }else if segue.identifier == "BackToCalendar"{
             if let backToCalendar = segue.destination as? CalendarViewController{
                 backToCalendar.indexActivity = indexActivityToEdit
+            }
+        }else if segue.identifier == "BackToDone"{
+            if let backToDone = segue.destination as? DoneAndPostponedActivitiesViewController{
+                backToDone.indexActivity = indexActivityToEdit
             }
         }
     }
