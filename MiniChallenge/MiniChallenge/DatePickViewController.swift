@@ -22,6 +22,7 @@ class DatePickViewController: UIViewController {
     var isGrantedNotificationAccess:Bool = false
     var activityToEdit: Reminder?
     var segueRecived: String = ""
+    var auxSegue: String = ""
     var indexActivityToEdit: Int = -1
     
     
@@ -115,6 +116,7 @@ class DatePickViewController: UIViewController {
             
             if let goBackToEditScreen = segue.destination as? EditActivityController{
                 goBackToEditScreen.indexActivityToEdit = indexActivityToEdit
+                goBackToEditScreen.segueReceived = auxSegue
             
             }
         }else if segue.identifier == "backToSubjectScreen"{
