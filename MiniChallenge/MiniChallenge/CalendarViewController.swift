@@ -58,10 +58,18 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         setUpCalendar()
         
         loadReminders()
+        activities = SingletonActivity.sharedInstance.tasks
         
+        //ficar de olho nesta, pois activities é onde o Singleton é repassado para esta classe!
+        //Pode gerar um bug!
         activities = getToDoAndPostponedActivities(activities: SingletonActivity.sharedInstance.tasks)
-        activities = sortActivities()
         
+        
+        
+        //activities = sortActivities() ->> esta linha está limpando o array na parte de feitos
+        //não deve ficar sem comentar
+        // apenas uma nota para não ser esquecida
+        // depois de discutir com o time APAGAR!
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
@@ -224,6 +232,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         var sortedArray : [Reminder] = []
         sortedArray = activities.sorted(by: { $0.time.compare($1.time) == ComparisonResult.orderedAscending})
+        SingletonActivity.sharedInstance.tasks = sortedArray
+        controlerPList.saveReminders()
         
         return sortedArray
     }
@@ -311,7 +321,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         //done button
-        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
+        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Done")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
             self.showAnimationMovedToDone()

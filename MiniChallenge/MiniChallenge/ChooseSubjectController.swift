@@ -71,8 +71,16 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     }
     
     @IBAction func nextScreenWithOutSubjectAction(_ sender: Any) {
-        SingletonActivity.sharedInstance.task.subject = Subject()
-        performSegue(withIdentifier: "GoToDateScreenWithOutSubject", sender: Any?.self)
+        if segueRecived == "ChooseSubjectController"{
+            
+            EditActivityController.activityPassed.subject = Subject()
+            performSegue(withIdentifier: "GoToEditScreen2", sender: Any?.self)
+            
+        }else{
+            SingletonActivity.sharedInstance.task.subject = Subject()
+            performSegue(withIdentifier: "GoToDateScreenWithOutSubject", sender: Any?.self)
+        }
+        
     }
     
     @IBAction func createSubjectAction(_ sender: Any){
