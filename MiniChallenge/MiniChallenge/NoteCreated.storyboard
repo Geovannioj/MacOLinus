@@ -1,7 +1,129 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lSa-Ta-tik">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Display-Bold.otf">
+            <string>SFUIDisplay-Bold</string>
+        </array>
+        <array key="SF-UI-Display-Light.otf">
+            <string>SFUIDisplay-Light</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Note Created View Controller-->
+        <scene sceneID="3pN-1X-ttt">
+            <objects>
+                <viewController id="lSa-Ta-tik" customClass="NoteCreatedViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y9G-sj-LO5"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wda-Q8-IIi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="brG-7G-Iqn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gh-m7-IPq">
+                                <rect key="frame" x="26" y="49" width="48" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A nota" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaZ-IB-zal">
+                                <rect key="frame" x="36" y="89" width="72" height="29"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="foi adicionada com sucesso !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdl-Kr-uMd">
+                                <rect key="frame" x="36" y="131" width="339" height="29"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hao-Ia-tmb">
+                                <rect key="frame" x="23" y="98" width="8" height="8"/>
+                                <color key="backgroundColor" red="1" green="0.47842687369999998" blue="0.4926418662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="8" id="j3n-lL-9pz"/>
+                                    <constraint firstAttribute="height" constant="8" id="qZZ-0J-r7i"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <color key="highlightedColor" red="1" green="0.47842687369999998" blue="0.4926418662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqQ-HX-SZb">
+                                <rect key="frame" x="302" y="190" width="44" height="44"/>
+                                <state key="normal" image="redButton"/>
+                                <connections>
+                                    <action selector="nextScreenPressed:" destination="lSa-Ta-tik" eventType="touchUpInside" id="joo-2S-QUO"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="AdB-Iy-Yft">
+                                <rect key="frame" x="153.5" y="32" width="68" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="Vp5-eJ-5ZV"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-pd-RBM">
+                                <rect key="frame" x="116" y="89" width="174" height="29"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="24"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AdB-Iy-Yft" firstAttribute="top" secondItem="brG-7G-Iqn" secondAttribute="topMargin" constant="32" id="0Bc-9F-rAy"/>
+                            <constraint firstItem="bdl-Kr-uMd" firstAttribute="leading" secondItem="brG-7G-Iqn" secondAttribute="leadingMargin" constant="20" id="35N-fI-AQf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9gh-m7-IPq" secondAttribute="trailing" constant="285" id="7xs-Qk-zSg"/>
+                            <constraint firstItem="eaZ-IB-zal" firstAttribute="leading" secondItem="brG-7G-Iqn" secondAttribute="leadingMargin" constant="20" id="86m-nw-YeP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gGb-pd-RBM" secondAttribute="trailing" constant="69" id="8UY-jv-LfO"/>
+                            <constraint firstItem="hao-Ia-tmb" firstAttribute="leading" secondItem="brG-7G-Iqn" secondAttribute="leadingMargin" constant="7" id="AL1-SK-1N4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bdl-Kr-uMd" secondAttribute="trailing" constant="-16" id="CcV-eL-Mav"/>
+                            <constraint firstItem="gGb-pd-RBM" firstAttribute="leading" secondItem="eaZ-IB-zal" secondAttribute="trailing" constant="8" id="Cki-iu-HvA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bqQ-HX-SZb" secondAttribute="trailing" constant="13" id="FA2-Hq-5A2"/>
+                            <constraint firstItem="eaZ-IB-zal" firstAttribute="top" secondItem="9gh-m7-IPq" secondAttribute="bottom" constant="23" id="FGB-dP-sYk"/>
+                            <constraint firstItem="bqQ-HX-SZb" firstAttribute="leading" secondItem="brG-7G-Iqn" secondAttribute="leadingMargin" constant="286" id="IQz-zY-kNF"/>
+                            <constraint firstItem="AdB-Iy-Yft" firstAttribute="centerX" secondItem="brG-7G-Iqn" secondAttribute="centerX" id="P9M-hR-uKc"/>
+                            <constraint firstItem="9gh-m7-IPq" firstAttribute="top" secondItem="y9G-sj-LO5" secondAttribute="bottom" constant="29" id="Vgw-OR-8ov"/>
+                            <constraint firstItem="gGb-pd-RBM" firstAttribute="top" secondItem="AdB-Iy-Yft" secondAttribute="bottom" constant="36" id="WV1-FU-l8J"/>
+                            <constraint firstItem="bdl-Kr-uMd" firstAttribute="top" secondItem="gGb-pd-RBM" secondAttribute="bottom" constant="13" id="XBe-7l-FtX"/>
+                            <constraint firstItem="9gh-m7-IPq" firstAttribute="top" secondItem="AdB-Iy-Yft" secondAttribute="bottom" constant="-4" id="eSa-Zs-ZEd"/>
+                            <constraint firstItem="9gh-m7-IPq" firstAttribute="leading" secondItem="brG-7G-Iqn" secondAttribute="leadingMargin" constant="10" id="eWZ-pQ-MG5"/>
+                            <constraint firstItem="eaZ-IB-zal" firstAttribute="leading" secondItem="hao-Ia-tmb" secondAttribute="trailing" constant="5" id="r9M-Ab-TaB"/>
+                            <constraint firstItem="bqQ-HX-SZb" firstAttribute="top" secondItem="bdl-Kr-uMd" secondAttribute="bottom" constant="29.5" id="sNV-3R-Hj9"/>
+                            <constraint firstItem="hao-Ia-tmb" firstAttribute="top" secondItem="9gh-m7-IPq" secondAttribute="bottom" constant="32" id="xbt-d1-KaO"/>
+                            <constraint firstItem="bdl-Kr-uMd" firstAttribute="top" secondItem="eaZ-IB-zal" secondAttribute="bottom" constant="13" id="xxw-Ew-0V0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="noteTitleLabel" destination="gGb-pd-RBM" id="hM7-bF-TJH"/>
+                        <segue destination="ebd-HV-eT8" kind="show" identifier="backToHomeNotes" id="QcG-77-NcK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="05V-EV-uJG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-270" y="100"/>
+        </scene>
+        <!--HomeNotes-->
+        <scene sceneID="Y3e-vh-V4m">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeNotes" id="ebd-HV-eT8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Frl-Ol-YWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="503" y="100"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pengoBlack" width="69" height="21"/>
+        <image name="redButton" width="44" height="44"/>
+    </resources>
 </document>

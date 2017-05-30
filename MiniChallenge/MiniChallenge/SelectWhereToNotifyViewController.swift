@@ -145,8 +145,6 @@ class SelectWhereToNotifyViewController: UIViewController, MKMapViewDelegate, CL
         let newLatitude = -15.793524
         let newLongitude = -47.882706
         
-        let latitude = coordinateToNotify.latitude
-        let longitude = coordinateToNotify.longitude
         
         let center = CLLocationCoordinate2D(latitude: newLatitude, longitude: newLongitude)
         

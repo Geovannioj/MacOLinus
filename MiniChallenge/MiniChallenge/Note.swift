@@ -1,3 +1,11 @@
+//
+//  Note.swift
+//  Note
+//
+//  Created by Miguel Pimentel on 29/05/17.
+//  Copyright © 2017 BEPiD. All rights reserved.
+//
+
 import Foundation
 import UIKit
 
@@ -25,6 +33,10 @@ class Note: NSObject, NSCoding {
     init(title: String, noteDescription: String) {
         self.title = title
         self.noteDescription = noteDescription
+    }
+    
+    override init() {
+        super.init()
     }
     
     // Update methods

@@ -18,12 +18,6 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         loadSubjects()
         
-        
-        for aux in SingletonSubject.sharedInstance.subjects {
-            print(aux.title)
-            
-        }
-
         // Do any additional setup after loading the view.
     }
     
@@ -99,6 +93,17 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
        
         return UIView()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let subjectSelected = SingletonSubject.sharedInstance.subjects[indexPath.row]
+       
+        SingletonSubject.sharedInstance.subject = subjectSelected
+        SingletonSubject.sharedInstance.index  = indexPath.row
+        
+        performSegue(withIdentifier: "HomeNotes", sender: Any?.self)
+        
     }
     
     

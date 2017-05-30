@@ -12,7 +12,7 @@
         <!--Show Notes View Controller-->
         <scene sceneID="HCV-yF-RqR">
             <objects>
-                <viewController id="Od9-iN-wfe" customClass="showNotesViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Od9-iN-wfe" customClass="showNotesViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9LB-Ox-Nib"/>
                         <viewControllerLayoutGuide type="bottom" id="fSj-za-fIo"/>
@@ -26,7 +26,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="78" id="I9L-08-b5C" customClass="ShowNotesTableViewCell" customModule="Note" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="78" id="I9L-08-b5C" customClass="ShowNotesTableViewCell" customModule="MiniChallenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I9L-08-b5C" id="66P-Iu-0SK">
