@@ -210,10 +210,10 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         //delete button
         let deleteButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "delete")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
+            let getActivitityPosition = DoneAndPostponedActivitiesViewController.getActivityID(activity: activity)
+            SingletonActivity.sharedInstance.tasks.remove(at: getActivitityPosition)
             self.toDoActivities.remove(at: indexPath.row)
-            SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
-            let indexPaths = [indexPath]
-            tableView.deleteRows(at: indexPaths, with: .automatic)
+            tableView.deleteRows(at: [indexPath], with: .fade)
             self.controllerPlist.saveReminders()
             return true
         }
