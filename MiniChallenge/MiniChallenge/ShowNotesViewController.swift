@@ -1,5 +1,5 @@
 //
-//  CreateNoteViewController.swift
+//  showNotesViewController.swift
 //  Note
 //
 //  Created by Miguel Pimentel on 29/05/17.
@@ -8,13 +8,14 @@
 
 import UIKit
 
-class CreateNoteViewController: UIViewController {
+class showNotesViewController: UIViewController, UITabBarDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var noteTitleTextField: UITextField!
-    @IBOutlet weak var noteText: UITextView!
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadNotes()
 
         // Do any additional setup after loading the view.
     }
@@ -25,27 +26,30 @@ class CreateNoteViewController: UIViewController {
     }
     
     
-    func setContent() {
-        
-        NoteService.sharedInstance.note.title = noteTitleTextField.text!
-        NoteService.sharedInstance.note.noteDescription = noteText.text!
     
-        let newNote = NoteService.sharedInstance.note
-        
-        NoteService.sharedInstance.notes.append(newNote)
-        
-        saveNotes()
+ 
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return NoteService.sharedInstance.notes.count
     }
-    
-    
     
     @IBAction func nextScreenPressed(_ sender: Any) {
         
-        setContent()
+        performSegue(withIdentifier: "CreateNote", sender: Any?.self)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        performSegue(withIdentifier: "showNotes", sender: Any?.self)
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ShowNotesTableViewCell
+
+        cell.noteTitleLabe.text = NoteService.sharedInstance.notes[indexPath.row].title
+        cell.noteText.text = NoteService.sharedInstance.notes[indexPath.row].noteDescription
+        
+        cell.noteTitleLabe.layer.cornerRadius = 3
+        
+        return cell
     }
     
     func saveNotes() {
@@ -78,4 +82,18 @@ class CreateNoteViewController: UIViewController {
     func dataFilePath() -> URL {
         return documentsDirectory().appendingPathComponent("Notes.plist")
     }
+
+
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

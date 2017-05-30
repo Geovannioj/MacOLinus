@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Display-Regular.otf">
+            <string>SFUIDisplay-Regular</string>
+        </array>
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="0He-LE-QLN">
+            <objects>
+                <viewController storyboardIdentifier="First" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5kZ-V9-s0H" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C66-6c-ob4"/>
+                        <viewControllerLayoutGuide type="bottom" id="apb-fh-2y4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BQo-yC-Tc7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="krq-bE-NOZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="lpU-q2-uvC">
+                                        <rect key="frame" x="153" y="32" width="69" height="21"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9f-8u-dsJ">
+                                        <rect key="frame" x="22" y="25" width="78" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                        <state key="normal" title="Matérias">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="lpU-q2-uvC" firstAttribute="centerX" secondItem="krq-bE-NOZ" secondAttribute="centerX" id="Itc-2G-y2E"/>
+                                    <constraint firstItem="lpU-q2-uvC" firstAttribute="top" secondItem="krq-bE-NOZ" secondAttribute="top" constant="32" id="YzG-cj-i41"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxF-OC-KXd">
+                                <rect key="frame" x="26" y="124" width="15" height="15"/>
+                                <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Administração" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjz-Bz-uFi">
+                                <rect key="frame" x="49" y="124" width="226" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="226" id="gnZ-ay-EAB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                                <color key="textColor" red="0.47445547580000003" green="0.47454106810000002" blue="0.47445005179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FUE-dw-aPC">
+                                <rect key="frame" x="69" y="162" width="239" height="29"/>
+                                <segments>
+                                    <segment title="Tarefas"/>
+                                    <segment title="Anotações"/>
+                                    <segment title="Faltas"/>
+                                </segments>
+                                <color key="tintColor" red="0.055538594720000001" green="0.88168424369999998" blue="0.78111153840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f0t-fY-1uc">
+                                <rect key="frame" x="123" y="256" width="128" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ax3-iY-P31">
+                                        <rect key="frame" x="8" y="8" width="112" height="112"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="60"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FUE-dw-aPC" firstAttribute="leading" secondItem="BQo-yC-Tc7" secondAttribute="leadingMargin" constant="53" id="7zn-90-Qzc"/>
+                            <constraint firstAttribute="trailing" secondItem="f0t-fY-1uc" secondAttribute="trailing" constant="124" id="8lZ-OC-eiD"/>
+                            <constraint firstItem="f0t-fY-1uc" firstAttribute="top" secondItem="FUE-dw-aPC" secondAttribute="bottom" constant="66" id="8on-zs-nVt"/>
+                            <constraint firstItem="DxF-OC-KXd" firstAttribute="leading" secondItem="BQo-yC-Tc7" secondAttribute="leadingMargin" constant="10" id="A5Y-pu-mmk"/>
+                            <constraint firstItem="apb-fh-2y4" firstAttribute="top" secondItem="DxF-OC-KXd" secondAttribute="bottom" constant="528" id="BP2-YI-XG1"/>
+                            <constraint firstItem="FUE-dw-aPC" firstAttribute="top" secondItem="rjz-Bz-uFi" secondAttribute="bottom" constant="18" id="BWh-qz-C4Z"/>
+                            <constraint firstItem="rjz-Bz-uFi" firstAttribute="leading" secondItem="DxF-OC-KXd" secondAttribute="trailing" constant="8" symbolic="YES" id="FPR-ED-qSy"/>
+                            <constraint firstItem="DxF-OC-KXd" firstAttribute="top" secondItem="rjz-Bz-uFi" secondAttribute="top" id="KAo-u5-0aI"/>
+                            <constraint firstItem="apb-fh-2y4" firstAttribute="top" secondItem="f0t-fY-1uc" secondAttribute="bottom" constant="283" id="LH9-4k-sCo"/>
+                            <constraint firstItem="krq-bE-NOZ" firstAttribute="leading" secondItem="BQo-yC-Tc7" secondAttribute="leadingMargin" constant="-16" id="Ute-jX-zvV"/>
+                            <constraint firstItem="f0t-fY-1uc" firstAttribute="leading" secondItem="BQo-yC-Tc7" secondAttribute="leadingMargin" constant="107" id="Wza-A7-8RU"/>
+                            <constraint firstItem="rjz-Bz-uFi" firstAttribute="top" secondItem="krq-bE-NOZ" secondAttribute="bottom" constant="20" id="Zux-AP-JSV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rjz-Bz-uFi" secondAttribute="trailing" constant="84" id="ai7-Yx-I81"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="krq-bE-NOZ" secondAttribute="trailing" constant="-16" id="uu3-es-KTW"/>
+                            <constraint firstItem="rjz-Bz-uFi" firstAttribute="centerY" secondItem="DxF-OC-KXd" secondAttribute="centerY" constant="2.5" id="uwg-7c-WtB"/>
+                            <constraint firstItem="krq-bE-NOZ" firstAttribute="top" secondItem="C66-6c-ob4" secondAttribute="bottom" constant="-20" id="z3a-s6-IPp"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G9k-zr-GyL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="296.80000000000001" y="187.55622188905548"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pengoBlack" width="69" height="21"/>
+    </resources>
+</document>

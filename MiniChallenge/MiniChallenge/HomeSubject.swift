@@ -20,7 +20,6 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         loadSubjects()
         
-        
         self.tabBarItem.selectedImage = UIImage(named: "Subjects Fill")?.withRenderingMode(.alwaysOriginal)
         self.tabBarItem.image = UIImage(named: "subject line")?.withRenderingMode(.alwaysOriginal)
         
@@ -30,7 +29,6 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
             print(aux.title)
             
         }
-
         // Do any additional setup after loading the view.
     }
     
@@ -111,8 +109,19 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         return UIView()
     }
     
-         // MARK: - Persist Data
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let subjectSelected = SingletonSubject.sharedInstance.subjects[indexPath.row]
+       
+        SingletonSubject.sharedInstance.subject = subjectSelected
+        SingletonSubject.sharedInstance.index  = indexPath.row
+        
+        performSegue(withIdentifier: "HomeNotes", sender: Any?.self)
+        
+    }
     
+    // MARK: - Persist Data
     
     func saveSubjects() {
         

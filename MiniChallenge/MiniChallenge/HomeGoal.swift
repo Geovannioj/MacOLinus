@@ -13,13 +13,17 @@ import MGSwipeTableCell
 class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let purpleColor = UIColor(colorLiteralRed: 0.4078, green: 0.4314, blue: 0.8784, alpha: 1)
+    var doneGoals = [Goal]()
+    var goals = [Goal]()
     
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         loadUserGoals()
+        loadContent()
         
         self.tabBarItem.image = UIImage(named: "Goal Line")?.withRenderingMode(.alwaysOriginal)
         self.tabBarItem.selectedImage = UIImage(named: "goals fill")?.withRenderingMode(.alwaysOriginal)
@@ -141,5 +145,24 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func dataFilePath() -> URL {
         return documentsDirectory().appendingPathComponent("UserGoals.plist")
+    }
+    
+    func loadContent() {
+        
+        goals = GoalService.sharedInstance.user_goals
+    
+        verifyIfActivityIsDone()
+        
+    }
+    
+    
+    func verifyIfActivityIsDone() {
+        
+        for goal in goals {
+            
+            if !goal.done {
+                doneGoals.append(goal)
+            }
+        }
     }
 }

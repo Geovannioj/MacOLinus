@@ -43,18 +43,6 @@
                                     <constraint firstItem="wCL-ID-fjh" firstAttribute="top" secondItem="Ndw-Co-UFS" secondAttribute="top" constant="32" id="oeI-00-I2f"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HxO-0r-h8D">
-                                <rect key="frame" x="0.0" y="110" width="375" height="126"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="126" id="NOW-KK-dnP"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="createSubjectButton">
-                                    <color key="titleColor" red="0.24964994190000001" green="0.062413342300000001" blue="0.2381774187" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="sVB-YR-NZ0" kind="show" id="Q2a-VI-y9z"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XLk-wo-evI">
                                 <rect key="frame" x="0.0" y="251" width="375" height="367"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -116,6 +104,19 @@
                                     <outlet property="delegate" destination="2zr-vg-P1N" id="xy6-jw-qvE"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HxO-0r-h8D">
+                                <rect key="frame" x="24" y="114" width="327" height="109"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="109" id="NOW-KK-dnP"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="createSubjectButton">
+                                    <color key="titleColor" red="0.24964994190000001" green="0.062413342300000001" blue="0.2381774187" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.091242633759975433" green="0.039225485175848007" blue="0.022034836933016777" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="sVB-YR-NZ0" kind="show" id="Q2a-VI-y9z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -124,12 +125,12 @@
                             <constraint firstItem="npW-3d-b5U" firstAttribute="top" secondItem="XLk-wo-evI" secondAttribute="bottom" id="J4f-Pb-Dub"/>
                             <constraint firstItem="Ndw-Co-UFS" firstAttribute="top" secondItem="JwU-Cw-lTy" secondAttribute="bottom" constant="-20" id="LR4-bI-giN"/>
                             <constraint firstItem="Ndw-Co-UFS" firstAttribute="leading" secondItem="wpQ-RM-SRZ" secondAttribute="leadingMargin" constant="-16" id="S6J-df-nUm"/>
-                            <constraint firstItem="XLk-wo-evI" firstAttribute="top" secondItem="HxO-0r-h8D" secondAttribute="bottom" constant="15" id="WDh-G9-COg"/>
-                            <constraint firstItem="HxO-0r-h8D" firstAttribute="leading" secondItem="wpQ-RM-SRZ" secondAttribute="leadingMargin" constant="-16" id="a9w-Ra-lXN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="HxO-0r-h8D" secondAttribute="trailing" constant="-16" id="nSZ-EW-G9l"/>
+                            <constraint firstItem="XLk-wo-evI" firstAttribute="top" secondItem="HxO-0r-h8D" secondAttribute="bottom" constant="28" id="WDh-G9-COg"/>
+                            <constraint firstItem="HxO-0r-h8D" firstAttribute="leading" secondItem="wpQ-RM-SRZ" secondAttribute="leadingMargin" constant="8" id="a9w-Ra-lXN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HxO-0r-h8D" secondAttribute="trailing" constant="8" id="nSZ-EW-G9l"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ndw-Co-UFS" secondAttribute="trailing" constant="-16" id="t1y-cT-dw3"/>
                             <constraint firstItem="XLk-wo-evI" firstAttribute="leading" secondItem="wpQ-RM-SRZ" secondAttribute="leadingMargin" constant="-16" id="tE4-BQ-qb3"/>
-                            <constraint firstItem="HxO-0r-h8D" firstAttribute="top" secondItem="Ndw-Co-UFS" secondAttribute="bottom" constant="10" id="tNM-AR-aP6"/>
+                            <constraint firstItem="HxO-0r-h8D" firstAttribute="top" secondItem="Ndw-Co-UFS" secondAttribute="bottom" constant="14" id="tNM-AR-aP6"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Disciplinas" image="subject line" selectedImage="Subjects Fill" id="7IA-Wm-3cq"/>
@@ -137,6 +138,7 @@
                     <connections>
                         <outlet property="tableView" destination="XLk-wo-evI" id="GHJ-Wb-d4W"/>
                         <segue destination="BEI-Mo-AP0" kind="show" identifier="EditSubject" id="Wgb-ps-PUI"/>
+                        <segue destination="UDJ-gg-Q2V" kind="show" identifier="HomeNotes" id="MH6-b7-FeH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ac-Zg-BQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -158,6 +160,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXS-1m-L5D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="233" y="143"/>
+        </scene>
+        <!--HomeNotes-->
+        <scene sceneID="CMy-hY-fiX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeNotes" id="UDJ-gg-Q2V" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="63v-K7-PxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="243" y="215"/>
         </scene>
     </scenes>
     <resources>
