@@ -20,8 +20,15 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
     
     let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
    
+    
     @IBOutlet weak var activitiesSegment: UISegmentedControl!
     @IBOutlet weak var activitiesTableView: UITableView!
+    
+    @IBOutlet weak var alertNotificationView: UIView!
+    @IBOutlet weak var alertNotificationLabel: UILabel!
+    @IBOutlet weak var alertNotificationConstraint: NSLayoutConstraint!
+    static var sentActivityToPostponePreviously : Bool = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,15 +44,28 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         activitiesTableView.register(nib, forCellReuseIdentifier: "DoneAndPostponedActivities")
         
         self.activitiesTableView.register(UITableViewCell.self, forCellReuseIdentifier:"DoneAndPostponedActivities")
+        
+        self.alertNotificationConstraint.constant += self.view.bounds.width
+        
+        self.alertNotificationView.layer.borderColor = redColor.cgColor
+        self.alertNotificationView.layer.borderWidth = 1
+        self.alertNotificationView.layer.cornerRadius = 14
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         activitiesTableView.reloadData()
+        
+        if DoneAndPostponedActivitiesViewController.sentActivityToPostponePreviously {
+            ShowMovedAnimation(to: "Movida para Adiados")
+            self.view.layoutIfNeeded()
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         activitiesTableView.beginUpdates()
         activitiesTableView.endUpdates()
+        
+        
 
     }
     func checkActivities(activities:[Reminder]){
@@ -143,6 +163,9 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         let undoButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "undo")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             //set status to toDo(=0)
+            
+            self.ShowMovedAnimation(to: "Em andamento")
+            
             self.doneActivities[indexPath.row].status = 0
             self.toDoActivities.append(self.doneActivities[indexPath.row])
             self.doneActivities.remove(at: indexPath.row)
@@ -164,9 +187,12 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         }
         
         //done button
-        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Done")!)) {
+        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             //set status to done(=1)
+            
+            self.ShowMovedAnimation(to: "Movida para Feitos")
+            
             if(self.activitiesSegment.selectedSegmentIndex == 2){
                 self.postponedActivities[indexPath.row].status = 1
                 self.doneActivities.append(self.postponedActivities[indexPath.row])
@@ -185,6 +211,9 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         //postpone button
         let postponeButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Postpone")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
+            
+            DoneAndPostponedActivitiesViewController.sentActivityToPostponePreviously = true
+            
             self.toDoActivities[indexPath.row].status = 2
             
             self.indexActivity = DoneAndPostponedActivitiesViewController.getActivityID(activity: activity)
@@ -286,5 +315,51 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         return cell
     }
 
+    func ShowMovedAnimation(to movedTo: String){
+    
+        self.alertNotificationLabel.text = movedTo
+        
+        UIView.animate(withDuration: 1, delay: 0, animations: {
+            self.alertNotificationConstraint.constant -= self.view.bounds.width
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        UIView.animate(withDuration: 1, delay: 2.0, animations: {
+            self.alertNotificationConstraint.constant += self.view.bounds.width
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        
+        if movedTo == "Movida para Adiados" {
+            DoneAndPostponedActivitiesViewController.sentActivityToPostponePreviously = false
+        }
+    }
+    
+    
+//    func showAnimationMovedToDone(){
+//        
+//        self.alertNotificationLabel.text = "Movida para Feitos"
+//        UIView.animate(withDuration: 1, delay: 0, animations: {
+//            self.alertNotificationConstraint.constant -= self.view.bounds.width
+//            self.view.layoutIfNeeded()
+//        }, completion: nil)
+//        UIView.animate(withDuration: 1, delay: 2.0, animations: {
+//            self.alertNotificationConstraint.constant += self.view.bounds.width
+//            self.view.layoutIfNeeded()
+//        }, completion: nil)
+//    }
+//    
+//    func showAnimationMovedToPostPoned(){
+//        
+//        self.alertNotificationLabel.text = "Movida para Adiados"
+//        UIView.animate(withDuration: 1, delay: 0, animations: {
+//            self.alertNotificationConstraint.constant -= self.view.bounds.width
+//            self.view.layoutIfNeeded()
+//        }, completion: nil)
+//        UIView.animate(withDuration: 1, delay: 2.0, animations: {
+//            self.alertNotificationConstraint.constant += self.view.bounds.width
+//            self.view.layoutIfNeeded()
+//        }, completion: nil)
+//        
+//        DoneAndPostponedActivitiesViewController.sentActivityToPostponePreviously = false
+//    }
 
 }
