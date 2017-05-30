@@ -113,6 +113,9 @@
                                     <segment title="Feitas"/>
                                 </segments>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="segmentControlChanged:" destination="fgV-0O-sdI" eventType="valueChanged" id="hTh-WN-u0T"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -131,6 +134,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="segmentControl" destination="bLF-ye-Om2" id="bzw-k2-EJH"/>
                         <outlet property="tableView" destination="Qic-3c-32M" id="Yxj-ev-APH"/>
                         <segue destination="nRI-N5-hMk" kind="show" identifier="EditGoal" id="doS-KG-mrI"/>
                     </connections>

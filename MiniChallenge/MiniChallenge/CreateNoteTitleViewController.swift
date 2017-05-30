@@ -10,8 +10,13 @@ import UIKit
 
 class CreateNoteTitleViewController: UIViewController {
 
+    @IBOutlet weak var noteTitleField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configLayout()
 
         // Do any additional setup after loading the view.
     }
@@ -21,15 +26,47 @@ class CreateNoteTitleViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func configLayout() {
+        
+        assignBackground()
+        assignBlackStatusBar()
+        
     }
-    */
+    
+    func assignBackground() {
+        
+        let background = UIImage(named: "greenPatternWithBoy")
+        
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIViewContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubview(toBack: imageView)
+    }
+    
+    func assignBlackStatusBar() {
+        
+        UIApplication.shared.statusBarStyle = .default
+        
+    }
+    
+    func addNoteTitleToSubject() {
+        
+       NoteService.sharedInstance.note.title = noteTitleField.text!
+        
+    }
+    
 
+    @IBAction func nextScreenPressed(_ sender: Any) {
+        
+        addNoteTitleToSubject()
+        
+        performSegue(withIdentifier: "CreateNoteContent", sender: Any?.self)
+    
+    
+    }
+  
 }

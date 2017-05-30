@@ -13,13 +13,17 @@ import MGSwipeTableCell
 class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
+    var doneGoals = [Goal]()
+    var goals = [Goal]()
     
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         loadUserGoals()
+        loadContent()
         
         
         // Do any additional setup after loading the view.
@@ -132,5 +136,24 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func dataFilePath() -> URL {
         return documentsDirectory().appendingPathComponent("UserGoals.plist")
+    }
+    
+    func loadContent() {
+        
+        goals = GoalService.sharedInstance.user_goals
+    
+        verifyIfActivityIsDone()
+        
+    }
+    
+    
+    func verifyIfActivityIsDone() {
+        
+        for goal in goals {
+            
+            if !goal.done {
+                doneGoals.append(goal)
+            }
+        }
     }
 }
