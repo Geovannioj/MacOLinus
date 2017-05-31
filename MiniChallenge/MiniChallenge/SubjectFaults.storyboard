@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5kZ-V9-s0H">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,10 +18,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Subject Faults View Controller-->
         <scene sceneID="0He-LE-QLN">
             <objects>
-                <viewController storyboardIdentifier="First" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5kZ-V9-s0H" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="First" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5kZ-V9-s0H" customClass="SubjectFaultsViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C66-6c-ob4"/>
                         <viewControllerLayoutGuide type="bottom" id="apb-fh-2y4"/>
@@ -70,7 +70,16 @@
                                 <color key="textColor" red="0.47445547580000003" green="0.47454106810000002" blue="0.47445005179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FUE-dw-aPC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Faltas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qc-V9-aGL">
+                                <rect key="frame" x="154" y="218" width="226" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="226" id="yPB-E5-09T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                                <color key="textColor" red="0.42337524890899658" green="0.42749518156051636" blue="0.42744249105453491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="FUE-dw-aPC">
                                 <rect key="frame" x="69" y="162" width="239" height="29"/>
                                 <segments>
                                     <segment title="Tarefas"/>
@@ -78,41 +87,80 @@
                                     <segment title="Faltas"/>
                                 </segments>
                                 <color key="tintColor" red="0.055538594720000001" green="0.88168424369999998" blue="0.78111153840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="segmentControlChanged:" destination="5kZ-V9-s0H" eventType="valueChanged" id="Gio-ol-Rlt"/>
+                                </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f0t-fY-1uc">
-                                <rect key="frame" x="123" y="256" width="128" height="128"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ax3-iY-P31">
-                                        <rect key="frame" x="8" y="8" width="112" height="112"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="60"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6w-0S-Wdi">
+                                <rect key="frame" x="237" y="247" width="70" height="231"/>
                                 <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="0.43121758103370667" green="0.43533876538276672" blue="0.43528473377227783" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="faultAdded:" destination="5kZ-V9-s0H" eventType="touchUpInside" id="toA-Sj-Uij"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vOL-UN-6Gd">
+                                <rect key="frame" x="69" y="247" width="60" height="230"/>
+                                <color key="backgroundColor" red="0.58673429489135742" green="0.95919972658157349" blue="0.89074879884719849" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="r5c-qk-3Ce"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <state key="normal" title="-">
+                                    <color key="titleColor" red="0.43121758103370667" green="0.43533876538276672" blue="0.43528473377227783" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="faultRemoved:" destination="5kZ-V9-s0H" eventType="touchUpInside" id="8Sy-bj-TAL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9k-Ef-Gqb">
+                                <rect key="frame" x="127" y="247" width="110" height="230"/>
+                                <color key="backgroundColor" red="0.43121758100000002" green="0.43533876539999999" blue="0.43528473379999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="TIN-YD-df8"/>
+                                    <constraint firstAttribute="width" constant="110" id="iW4-9a-ahj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="1qc-V9-aGL" firstAttribute="centerX" secondItem="R6w-0S-Wdi" secondAttribute="centerX" constant="-5" id="5vl-9q-gog"/>
                             <constraint firstItem="FUE-dw-aPC" firstAttribute="leading" secondItem="BQo-yC-Tc7" secondAttribute="leadingMargin" constant="53" id="7zn-90-Qzc"/>
-                            <constraint firstAttribute="trailing" secondItem="f0t-fY-1uc" secondAttribute="trailing" constant="124" id="8lZ-OC-eiD"/>
-                            <constraint firstItem="f0t-fY-1uc" firstAttribute="top" secondItem="FUE-dw-aPC" secondAttribute="bottom" constant="66" id="8on-zs-nVt"/>
                             <constraint firstItem="DxF-OC-KXd" firstAttribute="leading" secondItem="BQo-yC-Tc7" secondAttribute="leadingMargin" constant="10" id="A5Y-pu-mmk"/>
                             <constraint firstItem="apb-fh-2y4" firstAttribute="top" secondItem="DxF-OC-KXd" secondAttribute="bottom" constant="528" id="BP2-YI-XG1"/>
                             <constraint firstItem="FUE-dw-aPC" firstAttribute="top" secondItem="rjz-Bz-uFi" secondAttribute="bottom" constant="18" id="BWh-qz-C4Z"/>
+                            <constraint firstItem="R9k-Ef-Gqb" firstAttribute="bottom" secondItem="R6w-0S-Wdi" secondAttribute="bottom" constant="-1" id="Bum-SN-e4S"/>
+                            <constraint firstItem="vOL-UN-6Gd" firstAttribute="leading" secondItem="FUE-dw-aPC" secondAttribute="leading" id="CPC-s7-ew3"/>
                             <constraint firstItem="rjz-Bz-uFi" firstAttribute="leading" secondItem="DxF-OC-KXd" secondAttribute="trailing" constant="8" symbolic="YES" id="FPR-ED-qSy"/>
+                            <constraint firstItem="1qc-V9-aGL" firstAttribute="top" secondItem="FUE-dw-aPC" secondAttribute="bottom" constant="28" id="JKF-aj-Qfm"/>
                             <constraint firstItem="DxF-OC-KXd" firstAttribute="top" secondItem="rjz-Bz-uFi" secondAttribute="top" id="KAo-u5-0aI"/>
-                            <constraint firstItem="apb-fh-2y4" firstAttribute="top" secondItem="f0t-fY-1uc" secondAttribute="bottom" constant="283" id="LH9-4k-sCo"/>
+                            <constraint firstItem="R6w-0S-Wdi" firstAttribute="leading" secondItem="R9k-Ef-Gqb" secondAttribute="trailing" id="TpK-L2-yAC"/>
                             <constraint firstItem="krq-bE-NOZ" firstAttribute="leading" secondItem="BQo-yC-Tc7" secondAttribute="leadingMargin" constant="-16" id="Ute-jX-zvV"/>
-                            <constraint firstItem="f0t-fY-1uc" firstAttribute="leading" secondItem="BQo-yC-Tc7" secondAttribute="leadingMargin" constant="107" id="Wza-A7-8RU"/>
                             <constraint firstItem="rjz-Bz-uFi" firstAttribute="top" secondItem="krq-bE-NOZ" secondAttribute="bottom" constant="20" id="Zux-AP-JSV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rjz-Bz-uFi" secondAttribute="trailing" constant="84" id="ai7-Yx-I81"/>
+                            <constraint firstItem="R9k-Ef-Gqb" firstAttribute="leading" secondItem="BQo-yC-Tc7" secondAttribute="leading" constant="127" id="fU2-vb-Lp6"/>
+                            <constraint firstItem="R9k-Ef-Gqb" firstAttribute="bottom" secondItem="vOL-UN-6Gd" secondAttribute="bottom" id="fcL-Te-RRa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1qc-V9-aGL" secondAttribute="trailing" constant="-21" id="kSI-Dx-541"/>
+                            <constraint firstItem="R9k-Ef-Gqb" firstAttribute="top" secondItem="1qc-V9-aGL" secondAttribute="bottom" constant="8" symbolic="YES" id="nkc-FS-eqS"/>
+                            <constraint firstItem="R6w-0S-Wdi" firstAttribute="top" secondItem="1qc-V9-aGL" secondAttribute="bottom" constant="8" id="uD4-F3-0Hr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="krq-bE-NOZ" secondAttribute="trailing" constant="-16" id="uu3-es-KTW"/>
                             <constraint firstItem="rjz-Bz-uFi" firstAttribute="centerY" secondItem="DxF-OC-KXd" secondAttribute="centerY" constant="2.5" id="uwg-7c-WtB"/>
+                            <constraint firstItem="R9k-Ef-Gqb" firstAttribute="top" secondItem="vOL-UN-6Gd" secondAttribute="top" id="vRJ-Cj-1Tr"/>
                             <constraint firstItem="krq-bE-NOZ" firstAttribute="top" secondItem="C66-6c-ob4" secondAttribute="bottom" constant="-20" id="z3a-s6-IPp"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="numberOfFaults" destination="R9k-Ef-Gqb" id="ZDf-Fz-Hbx"/>
+                        <outlet property="segmentControl" destination="FUE-dw-aPC" id="uXA-ms-AbP"/>
+                        <outlet property="subjectColor" destination="DxF-OC-KXd" id="6D7-gA-Afh"/>
+                        <outlet property="subjectTitle" destination="rjz-Bz-uFi" id="ttc-Zy-NwM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9k-zr-GyL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

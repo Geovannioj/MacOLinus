@@ -12,6 +12,8 @@ class Subject: NSObject, NSCoding {
     var color: UIColor = UIColor()
     var teacher: Teacher = Teacher()
     var notes = [Note]()
+    var faults: Int = -1
+    
     
     //    var note: Note = Note()
     //
@@ -111,18 +113,23 @@ class Subject: NSObject, NSCoding {
     // MARK: - Persist subject
     
     required init(coder decoder: NSCoder) {
+        
         self.title = decoder.decodeObject(forKey: "title") as? String ?? ""
         self.place = decoder.decodeObject(forKey: "place") as? String ?? ""
         self.color = decoder.decodeObject(forKey: "color") as? UIColor ?? UIColor.black
         self.teacher.name =  decoder.decodeObject(forKey: "teacherName") as? String ?? ""
         self.notes = decoder.decodeObject(forKey: "notes") as? [Note] ?? [Note]()
+        self.faults = decoder.decodeObject(forKey: "faults") as? Int ?? 0
     }
     
     func encode(with coder: NSCoder) {
+        
         coder.encode(title, forKey: "title")
         coder.encode(place, forKey: "place")
         coder.encode(color, forKey: "color")
         coder.encode(teacher.name, forKey: "teacherName")
         coder.encode(notes, forKey: "notes")
+        coder.encode(faults, forKey: "faults")
     }
+    
 }

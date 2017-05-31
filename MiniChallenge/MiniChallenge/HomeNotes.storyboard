@@ -15,6 +15,14 @@
         </array>
     </customFonts>
     <scenes>
+        <!--SubjectFaults-->
+        <scene sceneID="cGj-qK-FSs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SubjectFaults" id="hPC-ce-CWa" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rdO-XO-LVV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="660" y="251"/>
+        </scene>
         <!--Home Notes View Controller-->
         <scene sceneID="Qez-F2-v3c">
             <objects>
@@ -157,6 +165,9 @@
                                     <segment title="Faltas"/>
                                 </segments>
                                 <color key="tintColor" red="0.055538594722747803" green="0.88168424367904663" blue="0.78111153841018677" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="SegmentControlChanged:" destination="kgK-Rx-FDp" eventType="valueChanged" id="VeL-85-as0"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -179,10 +190,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="segmentControl" destination="ZRj-tk-Ncm" id="qGO-yO-Mx1"/>
                         <outlet property="subjectColorLabel" destination="oZn-xz-IGZ" id="MYe-ec-GYs"/>
                         <outlet property="subjectTitleLabel" destination="2oz-Wr-c6E" id="sfU-Fk-z6x"/>
                         <segue destination="fMz-Ny-WkN" kind="show" identifier="CreateNoteTitle" id="WEd-a4-9P5"/>
                         <segue destination="avh-hN-kJN" kind="show" identifier="PresentNotes" id="5K0-Z7-gjM"/>
+                        <segue destination="hPC-ce-CWa" kind="show" identifier="SubjectFault" id="8Qd-Kc-Y0d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lty-Fa-ixl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -203,7 +216,7 @@
                 <viewControllerPlaceholder storyboardName="PresentNotes" id="avh-hN-kJN" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="616-pC-7SH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="649" y="191"/>
+            <point key="canvasLocation" x="620" y="193"/>
         </scene>
     </scenes>
     <resources>

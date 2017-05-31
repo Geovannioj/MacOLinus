@@ -37,10 +37,15 @@ class CreateGoal: UIViewController {
         assignBlackStatusBar()
         assignBackground()
         
-        createSpecficGoal.text = goalType
         
+        if goalType != "" {
+            createSpecficGoal.text = goalType
+        } else {
+            createSpecficGoal.text = "Qual a sua meta ?"
+        }
     }
     
+
     
     func assignBlackStatusBar() {
         

@@ -16,7 +16,6 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var doneGoals = [Goal]()
     var goals = [Goal]()
     
-    @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -24,7 +23,6 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         loadUserGoals()
         loadContent()
-        
         
         // Do any additional setup after loading the view.
     }
@@ -70,6 +68,8 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
             return true
         }
         
+        cell.rightButtons = [deleteButton]
+        cell.rightSwipeSettings.transition = .border
         
         let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "11")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
@@ -85,16 +85,6 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.leftButtons = [editButton]
         cell.leftSwipeSettings.transition = .border
         
-        
-        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Done")!)) {
-            (sender: MGSwipeTableCell!) -> Bool in
-            
-            return true
-        }
-        
-        cell.rightButtons = [doneButton, deleteButton]
-        cell.rightSwipeSettings.transition = .border
-     
         return cell;
     }
     
@@ -142,18 +132,6 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         goals = GoalService.sharedInstance.user_goals
     
-        verifyIfActivityIsDone()
-        
     }
-    
-    
-    func verifyIfActivityIsDone() {
-        
-        for goal in goals {
-            
-            if !goal.done {
-                doneGoals.append(goal)
-            }
-        }
-    }
+
 }

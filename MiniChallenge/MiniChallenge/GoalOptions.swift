@@ -40,7 +40,7 @@ class GoalOptions: UIViewController {
             }
         } else if segue.identifier == "customGoal" {
             if let toCreateUserGoal = segue.destination as? CreateGoal {
-                toCreateUserGoal.goalType = "Qual a sua meta ?"
+                toCreateUserGoal.goalType = ""
             }
         }
     }

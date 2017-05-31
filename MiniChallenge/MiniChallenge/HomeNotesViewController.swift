@@ -10,9 +10,12 @@ import UIKit
 
 class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    
     @IBOutlet weak var subjectTitleLabel: UILabel!
     @IBOutlet weak var subjectColorLabel: UILabel!
 
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,9 +35,19 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Actions
+    
+    
     @IBAction func createNotePressed(_ sender: Any) {
         
         performSegue(withIdentifier: "CreateNoteTitle", sender: Any?.self)
+    }
+    
+    @IBAction func SegmentControlChanged(_ sender: Any) {
+        
+        if segmentControl.selectedSegmentIndex == 2 {
+            performSegue(withIdentifier: "SubjectFault", sender: Any?.self)
+        }
     }
     
     

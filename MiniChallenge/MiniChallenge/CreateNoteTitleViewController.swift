@@ -68,7 +68,4 @@ class CreateNoteTitleViewController: UIViewController {
         UIApplication.shared.statusBarStyle = .default
         
     }
-    
-  
-  
 }
