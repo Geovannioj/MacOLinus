@@ -115,7 +115,7 @@ class Subject: NSObject, NSCoding {
         self.place = decoder.decodeObject(forKey: "place") as? String ?? ""
         self.color = decoder.decodeObject(forKey: "color") as? UIColor ?? UIColor.black
         self.teacher.name =  decoder.decodeObject(forKey: "teacherName") as? String ?? ""
-
+        self.notes = decoder.decodeObject(forKey: "notes") as? [Note] ?? [Note]()
     }
     
     func encode(with coder: NSCoder) {
@@ -123,5 +123,6 @@ class Subject: NSObject, NSCoding {
         coder.encode(place, forKey: "place")
         coder.encode(color, forKey: "color")
         coder.encode(teacher.name, forKey: "teacherName")
+        coder.encode(notes, forKey: "notes")
     }
 }

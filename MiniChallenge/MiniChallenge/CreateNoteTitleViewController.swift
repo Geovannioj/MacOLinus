@@ -12,7 +12,6 @@ class CreateNoteTitleViewController: UIViewController {
 
     @IBOutlet weak var noteTitleField: UITextField!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +24,23 @@ class CreateNoteTitleViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
+    @IBAction func nextScreenPressed(_ sender: Any) {
+        
+        addNoteTitleToSubject()
+        performSegue(withIdentifier: "CreateNoteContent", sender: Any?.self)
+    }
+    
+    // MARK: - Setting Content
+    
+    func addNoteTitleToSubject() {
+        
+        NoteService.sharedInstance.note.title = noteTitleField.text!
+        
+    }
+    
+    // MARK: - Layout Config
     
     func configLayout() {
         
@@ -53,20 +69,6 @@ class CreateNoteTitleViewController: UIViewController {
         
     }
     
-    func addNoteTitleToSubject() {
-        
-       NoteService.sharedInstance.note.title = noteTitleField.text!
-        
-    }
-    
-
-    @IBAction func nextScreenPressed(_ sender: Any) {
-        
-        addNoteTitleToSubject()
-        
-        performSegue(withIdentifier: "CreateNoteContent", sender: Any?.self)
-    
-    
-    }
+  
   
 }

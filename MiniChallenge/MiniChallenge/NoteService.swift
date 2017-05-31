@@ -13,6 +13,7 @@ class NoteService {
     
     var notes = [Note]()
     var note = Note()
+    var index: Int = -1
     
     static let sharedInstance = NoteService()
     
