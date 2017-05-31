@@ -21,8 +21,6 @@ class SubjectFaultsViewController: UIViewController {
         
         loadSubjects()
         
-       print(SingletonSubject.sharedInstance.subject.faults)
-        
         setup()
 
         // Do any additional setup after loading the view.
@@ -46,8 +44,18 @@ class SubjectFaultsViewController: UIViewController {
 
     @IBAction func segmentControlChanged(_ sender: Any) {
         
+       
         if segmentControl.selectedSegmentIndex == 1 {
-            setFaults()
+            
+            let subjectWithFault = SingletonSubject.sharedInstance.subject
+            let index = SingletonSubject.sharedInstance.index
+            
+            if Int(numberOfFaults.text!) != nil {
+                subjectWithFault.faults = Int(numberOfFaults.text!)!
+            }
+            
+            SingletonSubject.sharedInstance.subjects[index] = subjectWithFault
+            saveSubjects()
         }
     }
     

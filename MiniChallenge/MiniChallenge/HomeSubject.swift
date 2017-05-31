@@ -67,6 +67,10 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
             return true
         }
         
+        cell.rightButtons = [deleteButton]
+        cell.rightSwipeSettings.transition = .border
+        
+        
         let editButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "11")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
@@ -77,12 +81,7 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
 
             return true
         }
-        
-   
-        cell.rightButtons = [deleteButton]
-        cell.rightSwipeSettings.transition = .border
-        
-    
+      
         cell.leftButtons = [editButton]
         cell.leftSwipeSettings.transition = .border
         

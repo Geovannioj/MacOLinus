@@ -37,13 +37,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pressione para ser notificado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Wv-bY-7zK">
-                                <rect key="frame" x="36" y="89" width="312.5" height="28"/>
+                                <rect key="frame" x="36" y="89" width="324" height="29"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="em um local específico" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIp-Jz-LSP">
-                                <rect key="frame" x="36" y="130" width="315" height="31.5"/>
+                                <rect key="frame" x="36" y="131" width="315" height="32.5"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="27"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -60,7 +60,7 @@
                                 <color key="highlightedColor" red="0.98884028199999996" green="0.83359497790000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffK-M3-Mbq">
-                                <rect key="frame" x="302" y="191.5" width="44" height="44"/>
+                                <rect key="frame" x="302" y="193.5" width="44" height="44"/>
                                 <state key="normal" image="redButton"/>
                                 <connections>
                                     <action selector="nextScreenPressed:" destination="X3n-Mm-EA9" eventType="touchUpInside" id="JeB-hX-6EG"/>
@@ -74,7 +74,7 @@
                                 </constraints>
                             </imageView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MoH-xR-0Gs">
-                                <rect key="frame" x="0.0" y="258.5" width="375" height="409.5"/>
+                                <rect key="frame" x="0.0" y="260.5" width="375" height="407.5"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -104,6 +104,7 @@
                     </view>
                     <connections>
                         <outlet property="map" destination="MoH-xR-0Gs" id="dAz-hm-PpT"/>
+                        <segue destination="iD6-e5-tmu" kind="show" identifier="CreateGeolocalizatedNotification" id="GFk-kD-AKg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G2d-V7-oUv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -116,7 +117,15 @@
                 <viewControllerPlaceholder storyboardName="SelectDate" id="FC3-PC-Ndd" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JoP-Xb-VCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3130" y="121"/>
+            <point key="canvasLocation" x="3129" y="101"/>
+        </scene>
+        <!--CreateGeolocalizatedNotification-->
+        <scene sceneID="9iW-Qa-6AI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateGeolocalizatedNotification" id="iD6-e5-tmu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CPH-6y-IK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3182" y="146"/>
         </scene>
     </scenes>
     <resources>

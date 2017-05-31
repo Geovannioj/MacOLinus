@@ -22,11 +22,6 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
         setupLayout()
         loadSubjects()
         
-        for aux in SingletonSubject.sharedInstance.subjects[SingletonSubject.sharedInstance.index].notes {
-            
-            print(aux.title)
-        }
-        
         // Do any additional setup after loading the view.
     }
 
@@ -82,10 +77,8 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let index = SingletonSubject.sharedInstance.index
-        
-        SingletonSubject.sharedInstance.subject = SingletonSubject.sharedInstance.subjects[index]
+      
+        SingletonSubject.sharedInstance.subject = SingletonSubject.sharedInstance.subjects[indexPath.row]
         NoteService.sharedInstance.index = indexPath.row
         
         performSegue(withIdentifier: "PresentNotes", sender: Any?.self)

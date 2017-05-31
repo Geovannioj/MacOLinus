@@ -43,7 +43,6 @@ class Subject: NSObject, NSCoding {
         self.schedule.append(schedule)
         self.color = color
         self.teacher = teacher
-        //        self.note = note
     }
     
     init(title: String, teacher: Teacher, color: UIColor) {
@@ -59,7 +58,6 @@ class Subject: NSObject, NSCoding {
         self.icon = UIImage()
         self.color = UIColor()
         self.teacher = Teacher()
-        //        self.note = Note()
     }
     
     init(title: String, address: String) {
