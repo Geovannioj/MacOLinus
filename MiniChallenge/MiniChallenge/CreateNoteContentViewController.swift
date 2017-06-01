@@ -22,39 +22,22 @@ class CreateNoteContentViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     func addContentToNote() {
-        
+
         let index = SingletonSubject.sharedInstance.index
-        
-        NoteService.sharedInstance.note.noteDescription = noteContentText.text!
         let newNote = NoteService.sharedInstance.note
         
-        SingletonSubject.sharedInstance.subject.notes.append(newNote)
-        let addedNotes = SingletonSubject.sharedInstance.subject
-    
-        SingletonSubject.sharedInstance.subjects[index] = addedNotes
+        SingletonSubject.sharedInstance.subjects[index].notes.append(newNote)
+        
+        saveSubjects()
 
-    
     }
     
     @IBAction func newNoteRequested(_ sender: Any) {
         
         addContentToNote()
         performSegue(withIdentifier: "NoteCreated", sender: Any?.self)
-        saveSubjects()
-        
     }
     
     
@@ -95,9 +78,5 @@ class CreateNoteContentViewController: UIViewController {
         return documentsDirectory().appendingPathComponent("Subjects.plist")
         
     }
-
-    
-   
-    
 
 }

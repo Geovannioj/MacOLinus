@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="iqd-Fj-dCt">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Display-Regular.otf">
+            <string>SFUIDisplay-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Create Geolocalizated Notification View Controller-->
+        <scene sceneID="xMg-hQ-fGT">
+            <objects>
+                <viewController id="iqd-Fj-dCt" customClass="CreateGeolocalizatedNotificationViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ySl-eL-mTN"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ddg-Nn-0mT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UuH-d7-BHg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="5uI-n2-84x">
+                                <rect key="frame" x="154" y="32" width="68" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="Ppv-sY-FmJ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeh-bS-zWG">
+                                <rect key="frame" x="23" y="49" width="48" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="A notificação geolocalizada permite que o usuário ao chegar ao local escolhido seja lembrado de realizar suas tarefas" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQy-xv-qkF">
+                                <rect key="frame" x="36" y="74" width="307" height="225"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nha-4g-XMY">
+                                <rect key="frame" x="299" y="311" width="44" height="44"/>
+                                <state key="normal" image="yellowButton"/>
+                                <connections>
+                                    <action selector="NextScreenPressed:" destination="iqd-Fj-dCt" eventType="touchUpInside" id="Oyk-RN-SYz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ddg-Nn-0mT" firstAttribute="top" secondItem="Nha-4g-XMY" secondAttribute="bottom" constant="312" id="5tP-kX-jai"/>
+                            <constraint firstItem="cQy-xv-qkF" firstAttribute="leading" secondItem="UuH-d7-BHg" secondAttribute="leadingMargin" constant="20" id="9RX-hP-pPj"/>
+                            <constraint firstItem="cQy-xv-qkF" firstAttribute="top" secondItem="jeh-bS-zWG" secondAttribute="bottom" constant="8" id="Agj-hX-25i"/>
+                            <constraint firstItem="Nha-4g-XMY" firstAttribute="trailing" secondItem="cQy-xv-qkF" secondAttribute="trailing" id="Ffk-uH-8vO"/>
+                            <constraint firstItem="jeh-bS-zWG" firstAttribute="top" secondItem="5uI-n2-84x" secondAttribute="bottom" constant="-4" id="JEZ-2i-0by"/>
+                            <constraint firstItem="jeh-bS-zWG" firstAttribute="leading" secondItem="UuH-d7-BHg" secondAttribute="leadingMargin" constant="7" id="TgE-1z-8z7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Nha-4g-XMY" secondAttribute="trailing" constant="16" id="UMe-je-tdn"/>
+                            <constraint firstItem="jeh-bS-zWG" firstAttribute="top" secondItem="ySl-eL-mTN" secondAttribute="bottom" constant="29" id="WQ9-7R-yk8"/>
+                            <constraint firstItem="5uI-n2-84x" firstAttribute="top" secondItem="UuH-d7-BHg" secondAttribute="topMargin" constant="32" id="WXZ-Fw-pby"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jeh-bS-zWG" secondAttribute="trailing" constant="288" id="Wcd-kR-9uM"/>
+                            <constraint firstItem="Nha-4g-XMY" firstAttribute="leading" secondItem="UuH-d7-BHg" secondAttribute="leadingMargin" constant="283" id="fK5-rv-Pzl"/>
+                            <constraint firstItem="5uI-n2-84x" firstAttribute="centerX" secondItem="UuH-d7-BHg" secondAttribute="centerX" id="iCQ-rh-ukY"/>
+                            <constraint firstItem="Nha-4g-XMY" firstAttribute="top" secondItem="cQy-xv-qkF" secondAttribute="bottom" constant="12" id="xau-AB-jlK"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1hn-5S-m04" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1244" y="919.79010494752629"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Pengo" width="69" height="21"/>
+        <image name="yellowButton" width="44" height="44"/>
+    </resources>
+</document>

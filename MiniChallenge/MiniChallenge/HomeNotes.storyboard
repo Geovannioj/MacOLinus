@@ -15,6 +15,14 @@
         </array>
     </customFonts>
     <scenes>
+        <!--SubjectFaults-->
+        <scene sceneID="cGj-qK-FSs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SubjectFaults" id="hPC-ce-CWa" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rdO-XO-LVV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="660" y="251"/>
+        </scene>
         <!--Home Notes View Controller-->
         <scene sceneID="Qez-F2-v3c">
             <objects>
@@ -56,7 +64,7 @@
                                     <constraint firstItem="6Ol-LM-xE9" firstAttribute="centerX" secondItem="msT-De-SvH" secondAttribute="centerX" id="s7w-z5-Bkq"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AMW-Mi-FNj">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AMW-Mi-FNj">
                                 <rect key="frame" x="0.0" y="251" width="375" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -69,7 +77,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rih-FD-TiR" id="zPl-2Z-q1n">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="93.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2u6-V9-97j">
@@ -157,6 +165,9 @@
                                     <segment title="Faltas"/>
                                 </segments>
                                 <color key="tintColor" red="0.055538594722747803" green="0.88168424367904663" blue="0.78111153841018677" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="SegmentControlChanged:" destination="kgK-Rx-FDp" eventType="valueChanged" id="VeL-85-as0"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -179,9 +190,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="segmentControl" destination="ZRj-tk-Ncm" id="qGO-yO-Mx1"/>
                         <outlet property="subjectColorLabel" destination="oZn-xz-IGZ" id="MYe-ec-GYs"/>
                         <outlet property="subjectTitleLabel" destination="2oz-Wr-c6E" id="sfU-Fk-z6x"/>
                         <segue destination="fMz-Ny-WkN" kind="show" identifier="CreateNoteTitle" id="WEd-a4-9P5"/>
+                        <segue destination="avh-hN-kJN" kind="show" identifier="PresentNotes" id="5K0-Z7-gjM"/>
+                        <segue destination="hPC-ce-CWa" kind="show" identifier="SubjectFault" id="8Qd-Kc-Y0d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lty-Fa-ixl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -195,6 +209,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xy3-0G-xyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="620" y="126"/>
+        </scene>
+        <!--PresentNotes-->
+        <scene sceneID="Rkd-ZV-Fx3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PresentNotes" id="avh-hN-kJN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="616-pC-7SH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="620" y="193"/>
         </scene>
     </scenes>
     <resources>

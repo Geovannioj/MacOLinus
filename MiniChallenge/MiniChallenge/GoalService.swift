@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class GoalService {
 
@@ -14,6 +15,7 @@ class GoalService {
     var user_goal = Goal()
     var doneUserGoals = [Goal]()
     var index: Int = -1
+    var coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     
     static let sharedInstance = GoalService()
     

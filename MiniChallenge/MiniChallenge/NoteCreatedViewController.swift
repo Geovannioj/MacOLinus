@@ -60,9 +60,19 @@ class NoteCreatedViewController: UIViewController {
     
     @IBAction func nextScreenPressed(_ sender: Any) {
         
+        cleanBuffer()
         performSegue(withIdentifier: "backToHomeNotes", sender: Any?.self)
     
     
+    }
+    
+    func cleanBuffer() {
+        
+        NoteService.sharedInstance.note.noteDescription = ""
+        NoteService.sharedInstance.note.title = ""
+        NoteService.sharedInstance.notes = [Note]()
+        NoteService.sharedInstance.index = -1
+        
     }
 
     /*
