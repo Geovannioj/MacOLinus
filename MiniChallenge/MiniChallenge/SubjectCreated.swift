@@ -40,6 +40,10 @@ class SubjectCreated: UIViewController {
      
     }
     
+    @IBAction func doneCreatingSubject(_ sender: Any){
+        CalendarViewController.pushedFromHomeSubject = true
+    }
+    
     func assignBackground() {
         
         let background = UIImage(named: "greenPatternWithBoy")

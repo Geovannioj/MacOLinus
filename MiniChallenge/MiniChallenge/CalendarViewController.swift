@@ -14,7 +14,7 @@ let redColor = UIColor(red: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
 let purpleColor = UIColor(colorLiteralRed: 0.4078, green: 0.4314, blue: 0.8784, alpha: 1)
 
 
-class CalendarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class CalendarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var alertNotificationPositionConstraint: NSLayoutConstraint!
     @IBOutlet weak var alertNotificationView: UIView!
@@ -30,6 +30,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var addActivityButton: UIButton!
     
+    static var pushedFromHomeSubject : Bool = false
+    static var pushedFromHomeGoal : Bool = false
     static var sendActivityToPostpone : Bool  = false
     
     //General Attributes
@@ -104,6 +106,12 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         if CalendarViewController.sendActivityToPostpone {
             showAnimationMovedToPostPoned()
         }
+        
+        if CalendarViewController.pushedFromHomeSubject {
+            tabBarController?.selectedIndex = 1
+        } else if CalendarViewController.pushedFromHomeGoal {
+            tabBarController?.selectedIndex = 2
+        }
     }
 
     func documentsDirectory() -> URL{
@@ -112,7 +120,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         return paths[0]
     }
     
-
     func dataFilePath() -> URL {
         return documentsDirectory().appendingPathComponent("Reminders.plist")
     }
