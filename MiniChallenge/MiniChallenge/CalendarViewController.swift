@@ -315,7 +315,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         //done button
-        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
+        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Done")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
             self.showAnimationMovedToDone()
@@ -336,13 +336,13 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             let deletingAlert = UIAlertController(title: "Excluindo atividade", message: "você deseja excluir a atividade: \(activity.title)", preferredStyle: .alert)
             
             let deleteButton = UIAlertAction(title: "Deletar", style: UIAlertActionStyle.cancel, handler: { action in
-                self.activities.remove(at: indexPath.row)
-                SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
-                let indexPaths = [indexPath]
-                tableView.deleteRows(at: indexPaths, with: .automatic)
-                self.controlerPList.saveReminders()
                 
-                self.calendarView.reloadData()
+                let activityID = DoneAndPostponedActivitiesViewController.getActivityID(activity: self.activities[indexPath.row])
+                
+                SingletonActivity.sharedInstance.tasks.remove(at: activityID)
+                self.controlerPList.saveReminders()
+                self.activities.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
             })
             
             let cancelButton = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default, handler: { (action) -> Void in

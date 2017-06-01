@@ -73,7 +73,7 @@
                 <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="Reminders" id="A8p-aa-tlV" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCc-GE-P0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="-328"/>
+            <point key="canvasLocation" x="-211" y="-505"/>
         </scene>
         <!--DoneAndPostponedActivities-->
         <scene sceneID="x3p-Mi-6Uo">
@@ -81,7 +81,7 @@
                 <viewControllerPlaceholder storyboardName="DoneAndPostponedActivities" referencedIdentifier="DoneAndPostponedActivities" id="Kaw-xl-6FA" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tHr-fG-WmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135" y="-290"/>
+            <point key="canvasLocation" x="172" y="-270"/>
         </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="WA6-Fd-ru4">
@@ -159,7 +159,7 @@
                                                 <rect key="frame" x="345" y="17" width="20" height="34"/>
                                                 <state key="normal" image="list [#1496]"/>
                                                 <connections>
-                                                    <segue destination="Kaw-xl-6FA" kind="presentation" id="swP-6r-dSA"/>
+                                                    <segue destination="Kaw-xl-6FA" kind="presentation" id="imk-Qg-ndX"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -454,7 +454,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cff-D3-dVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-676.81159420289862" y="-228.2608695652174"/>
+            <point key="canvasLocation" x="-714" y="-238"/>
         </scene>
         <!--Daily Calendar View Controller-->
         <scene sceneID="U6g-Fe-jOj">

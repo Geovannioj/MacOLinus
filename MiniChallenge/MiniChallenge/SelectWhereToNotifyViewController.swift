@@ -27,7 +27,7 @@ class SelectWhereToNotifyViewController: UIViewController, MKMapViewDelegate, CL
             didAllow, error in
             
         })
-        
+        setupMap()
         setConfig()
 
         // Do any additional setup after loading the view.
@@ -94,25 +94,20 @@ class SelectWhereToNotifyViewController: UIViewController, MKMapViewDelegate, CL
         let longitudeDelta: CLLocationDegrees = 0.05
         
         let span = MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
-        
         let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-       
         let region = MKCoordinateRegion(center: location, span: span)
         
         self.map.setRegion(region, animated: true)
         
-        let uilpgr = UILongPressGestureRecognizer(target: self, action: #selector(SelectWhereToNotifyViewController.longpress(gestureRecognizer:)))
+        let selectedPlace = UILongPressGestureRecognizer(target: self, action: #selector(SelectWhereToNotifyViewController.longpress(gestureRecognizer:)))
         
-        uilpgr.minimumPressDuration = 1.5
+        selectedPlace.minimumPressDuration = 2.0
         
-        map.addGestureRecognizer(uilpgr)
+        map.addGestureRecognizer(selectedPlace)
         
     }
     
     func longpress(gestureRecognizer: UIGestureRecognizer) {
-        
-//        
-//        gestureRecognizer.
         
         let touchPoint = gestureRecognizer.location(in: self.map)
         
@@ -120,11 +115,12 @@ class SelectWhereToNotifyViewController: UIViewController, MKMapViewDelegate, CL
         let annotation = MKPointAnnotation()
         
         coordinateToNotify = coordinate
+        GoalService.sharedInstance.coordinate = coordinate
         
         annotation.coordinate = coordinate
-        
-        annotation.title = "Place"
-        annotation.subtitle = "Just a description"
+
+        annotation.title = "Pengo"
+        annotation.subtitle = "Place that will be notified"
         
         map.addAnnotation(annotation)
     }
@@ -133,44 +129,10 @@ class SelectWhereToNotifyViewController: UIViewController, MKMapViewDelegate, CL
     
     @IBAction func nextScreenPressed(_ sender: Any) {
         
-        geolocalizatedNotification()
-        
-        performSegue(withIdentifier: "SelectDate", sender: Any?.self)
+        performSegue(withIdentifier: "CreateGeolocalizatedNotification", sender: Any?.self)
     }
     
-    // MARK - Notification
-    
-    func geolocalizatedNotification() {
-        
-        let newLatitude = -15.793524
-        let newLongitude = -47.882706
-        
-        let latitude = coordinateToNotify.latitude
-        let longitude = coordinateToNotify.longitude
-        
-        let center = CLLocationCoordinate2D(latitude: newLatitude, longitude: newLongitude)
-        
-        let region = CLCircularRegion(center: center, radius: 500.0, identifier: "Geolocalizated Notification")
-        region.notifyOnEntry = true
-        region.notifyOnExit = false
-        
-        let trigger = UNLocationNotificationTrigger(region: region, repeats: true)
-    
-        let content = UNMutableNotificationContent()
-        content.title = "fvaefv"
-        content.body = "vafadvavadvfdavadv"
-        content.sound = UNNotificationSound.default()
-        
-        let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
-        
-//        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        UNUserNotificationCenter.current().add(request) {(error) in
-            if let error = error {
-                print("Uh oh! We had an error: \(error)")
-            }
-        }
-        
-    }
+
 
     
 

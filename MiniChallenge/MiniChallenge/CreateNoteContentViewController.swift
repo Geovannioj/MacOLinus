@@ -1,17 +1,16 @@
 //
-//  CreateNoteViewController.swift
-//  Note
+//  CreateNoteContentViewController.swift
+//  MiniChallenge
 //
-//  Created by Miguel Pimentel on 29/05/17.
-//  Copyright © 2017 BEPiD. All rights reserved.
+//  Created by Miguel Pimentel on 30/05/17.
+//  Copyright © 2017 Luis Gustavo Avelino de Lima Jacinto. All rights reserved.
 //
 
 import UIKit
 
-class CreateNoteViewController: UIViewController {
-    
-    @IBOutlet weak var noteTitleTextField: UITextField!
-    @IBOutlet weak var noteText: UITextView!
+class CreateNoteContentViewController: UIViewController {
+
+    @IBOutlet weak var noteContentText: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,59 +22,61 @@ class CreateNoteViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    func setContent() {
-        
-        NoteService.sharedInstance.note.title = noteTitleTextField.text!
-        NoteService.sharedInstance.note.noteDescription = noteText.text!
-    
+
+    func addContentToNote() {
+
+        let index = SingletonSubject.sharedInstance.index
         let newNote = NoteService.sharedInstance.note
         
-        NoteService.sharedInstance.notes.append(newNote)
+        SingletonSubject.sharedInstance.subjects[index].notes.append(newNote)
         
-        saveNotes()
+        saveSubjects()
+
+    }
     
+    @IBAction func newNoteRequested(_ sender: Any) {
+        
+        addContentToNote()
+        performSegue(withIdentifier: "NoteCreated", sender: Any?.self)
     }
     
     
+    // MARK: - Persist Data
     
-    @IBAction func nextScreenPressed(_ sender: Any) {
-        
-        setContent()
-        
-        performSegue(withIdentifier: "showNotes", sender: Any?.self)
-        
-    }
-    
-    func saveNotes() {
+    func saveSubjects() {
         
         let data = NSMutableData()
         let archiver = NSKeyedArchiver(forWritingWith: data)
         
-        archiver.encode(NoteService.sharedInstance.notes, forKey: "Notes")
+        archiver.encode(SingletonSubject.sharedInstance.subjects, forKey: "Subjects")
         archiver.finishEncoding()
         
         data.write(to: dataFilePath(), atomically: true)
+        
     }
     
-    func loadNotes() {
+    func loadSubjects() {
+        
         let path = dataFilePath()
         
         if let data = try? Data(contentsOf: path){
             let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
-            NoteService.sharedInstance.notes = unarchiver.decodeObject(forKey: "Notes") as! [Note]
+            SingletonSubject.sharedInstance.subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
             unarchiver.finishDecoding()
         }
     }
     
     func documentsDirectory() -> URL {
+        
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
         return paths[0]
     }
     
-    
     func dataFilePath() -> URL {
-        return documentsDirectory().appendingPathComponent("Notes.plist")
+        
+        return documentsDirectory().appendingPathComponent("Subjects.plist")
+        
     }
+
 }

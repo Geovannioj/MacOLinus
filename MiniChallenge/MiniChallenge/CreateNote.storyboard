@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Jx-sf-BS1">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Create Note View Controller-->
+        <scene sceneID="YuW-t7-1aU">
+            <objects>
+                <viewController id="4Jx-sf-BS1" customClass="CreateNoteViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pYD-jm-Xc5"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xy2-qo-qCy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="65B-xU-MIo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NK9-zH-Ucy">
+                                <rect key="frame" x="0.0" y="68" width="375" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mKo-lj-hJv">
+                                <rect key="frame" x="0.0" y="219" width="375" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2w-fv-EVJ">
+                                <rect key="frame" x="152" y="462" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="nextScreenPressed:" destination="4Jx-sf-BS1" eventType="touchUpInside" id="Gvs-aF-jkT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="noteText" destination="mKo-lj-hJv" id="ocE-Hy-SHG"/>
+                        <outlet property="noteTitleTextField" destination="NK9-zH-Ucy" id="NXz-JC-mXz"/>
+                        <segue destination="r9Z-UA-J7a" kind="showDetail" identifier="showNotes" id="Voe-Xt-yH4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="34d-y0-5PR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="-36.431784107946029"/>
+        </scene>
+        <!--showNotes-->
+        <scene sceneID="Eh8-nV-Uyq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="showNotes" id="r9Z-UA-J7a" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kay-yN-Cq4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="793" y="-37"/>
+        </scene>
+    </scenes>
+</document>
