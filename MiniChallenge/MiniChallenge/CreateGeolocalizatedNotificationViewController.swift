@@ -53,6 +53,23 @@ class CreateGeolocalizatedNotificationViewController: UIViewController, CLLocati
     }
     
     
+//    func asnas(id: Int, completion: (()->())?) {
+//        completion?()
+////        completilocationManager(<#T##manager: CLLocationManager##CLLocationManager#>, didExitRegion: <#T##CLRegion#>){}
+//    }
+//    
+//    func a() {
+//        asnas(id: 1, completion: {
+//            print("aaaa")
+//            
+//            //completilocationManager(<#T##manager: CLLocationManager##CLLocationManager#>, didExitRegion: <#T##CLRegion#>){}
+//
+//        
+//        
+//        })
+//        
+//    }
+    
     
     func assignBlackStatusBar() {
         

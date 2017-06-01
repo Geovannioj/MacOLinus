@@ -10,6 +10,8 @@ import UIKit
 
 class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
     @IBOutlet weak var subjectTitleLabel: UILabel!
@@ -22,12 +24,25 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
         setupLayout()
         loadSubjects()
         
+            for aux in SingletonSubject.sharedInstance.subject.notes {
+            
+            print(aux.title)
+            print(aux.noteDescription)
+            
+        }
+        
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        tableView.reloadData()
     }
     
     // MARK: - Actions
@@ -78,7 +93,6 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       
-        SingletonSubject.sharedInstance.subject = SingletonSubject.sharedInstance.subjects[indexPath.row]
         NoteService.sharedInstance.index = indexPath.row
         
         performSegue(withIdentifier: "PresentNotes", sender: Any?.self)

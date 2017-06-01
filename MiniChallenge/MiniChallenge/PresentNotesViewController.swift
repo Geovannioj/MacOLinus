@@ -42,7 +42,7 @@ class PresentNotesViewController: UIViewController {
         let noteText = SingletonSubject.sharedInstance.subjects[subjectIndex].notes[noteIndex].noteDescription
         
         noteTitle.text = noteName
-        noteContent.text = noteText
+        noteContent.text = NoteService.sharedInstance.note.noteDescription
     }
 
 }

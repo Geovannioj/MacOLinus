@@ -12,7 +12,7 @@ class Subject: NSObject, NSCoding {
     var color: UIColor = UIColor()
     var teacher: Teacher = Teacher()
     var notes = [Note]()
-    var faults: Int = -1
+    var faults: Int64 = 0
     
     
     //    var note: Note = Note()
@@ -117,7 +117,7 @@ class Subject: NSObject, NSCoding {
         self.color = decoder.decodeObject(forKey: "color") as? UIColor ?? UIColor.black
         self.teacher.name =  decoder.decodeObject(forKey: "teacherName") as? String ?? ""
         self.notes = decoder.decodeObject(forKey: "notes") as? [Note] ?? [Note]()
-        self.faults = decoder.decodeObject(forKey: "faults") as? Int ?? 0
+        self.faults = decoder.decodeInt64(forKey: "faults")
     }
     
     func encode(with coder: NSCoder) {

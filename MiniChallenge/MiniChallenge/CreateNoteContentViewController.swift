@@ -26,10 +26,19 @@ class CreateNoteContentViewController: UIViewController {
     func addContentToNote() {
 
         let index = SingletonSubject.sharedInstance.index
+        
+        NoteService.sharedInstance.notes = SingletonSubject.sharedInstance.subjects[index].notes
+        NoteService.sharedInstance.note.noteDescription = noteContentText.text!
+        
         let newNote = NoteService.sharedInstance.note
         
-        SingletonSubject.sharedInstance.subjects[index].notes.append(newNote)
+        var notes = NoteService.sharedInstance.notes
+        notes.append(newNote)
+           
+        // Set in Subject
         
+        SingletonSubject.sharedInstance.subjects[index].notes = notes
+  
         saveSubjects()
 
     }
