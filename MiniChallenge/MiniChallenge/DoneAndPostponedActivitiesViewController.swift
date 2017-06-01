@@ -28,9 +28,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         //set done and postponed activitiesarrays
         
         controllerPlist.loadReminders()
-        
-        print("Bem aquiiiiiiiiiiii")
-        print(SingletonActivity.sharedInstance.tasks[indexActivity].title)
+    
         checkActivities(activities: SingletonActivity.sharedInstance.tasks)
         
         let nib = UINib(nibName: "DoneAndPostponedActivities", bundle: nil)
