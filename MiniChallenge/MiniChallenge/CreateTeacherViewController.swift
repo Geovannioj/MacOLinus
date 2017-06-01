@@ -12,6 +12,9 @@ class CreateTeacherViewController: UIViewController {
     
     @IBOutlet weak var teacherNameField: UITextField!
 
+    var segueData:String?
+    var auxSegue:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -75,6 +78,15 @@ class CreateTeacherViewController: UIViewController {
         }
         
         SingletonSubject.sharedInstance.subject.teacher = newTeacher
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "SelectSubjectColor" {
+            if let nextScreen = segue.destination as? SelectSubjectColorViewController {
+                nextScreen.segueData = segueData
+            }
+        }
     }
 
     

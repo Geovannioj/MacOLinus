@@ -24,14 +24,17 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     var auxSegue:String = ""
     var segueRecived: String = ""
     var indexActivity: Int = 0//-1
+    var homeSubject = HomeSubject()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "Pink Pattern.png")!)
         
-        subjects = returnSubjects()
-    
+        homeSubject.loadSubjects()
+        
+        subjects = SingletonSubject.sharedInstance.subjects
+        
         subjectsTableView.delegate = self
         subjectsTableView.dataSource = self
         
@@ -116,7 +119,7 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
         
         if segue.identifier == "GoToAddSubject" {
             
-            if let toAddSubject = segue.destination as? SubjectViewController{
+            if let toAddSubject = segue.destination as? CreateSubject{
                 toAddSubject.segueData = self.segueRecived
             
             }
@@ -166,35 +169,18 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
             unarchiver.finishDecoding()
         }
     }
-    
-    
-    
-    internal func returnSubjects() -> [Subject] {
+    func dataFilePath() -> URL {
         
-        let path = dataFilePath()
+        return documentsDirectory().appendingPathComponent("Subjects.plist")
         
-        if let data = try? Data(contentsOf: path){
-            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
-            subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
-            unarchiver.finishDecoding()
-            
-        }
-        
-        return subjects
     }
-    
-    internal func documentsDirectory() -> URL {
+    func documentsDirectory() -> URL {
         
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         
         return paths[0]
     }
+
     
-    
-    internal func dataFilePath() -> URL {
-        
-        return documentsDirectory().appendingPathComponent("Subjects.plist")
-        
-    }
 
 }

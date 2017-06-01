@@ -25,6 +25,9 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
     let customBlack = UIColor(colorLiteralRed: 0.2902, green: 0.3294, blue: 0.3686, alpha: 1.0)
     let customViolet = UIColor(colorLiteralRed: 0.7804, green: 0.2549, blue: 0.4863, alpha: 1.0)
     
+    var segueData:String?
+    var auxSegue:String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -172,6 +175,14 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
         performSegue(withIdentifier: "SubjectCreated", sender: Any?.self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+       if segue.identifier ==  "SubjectCreated"{
+            if let nextScreen = segue.destination as? SubjectCreated {
+                nextScreen.segueData = segueData
+            }
+        }
+    }
     func createSubject() {
         
         let newSubject = SingletonSubject.sharedInstance.subject
