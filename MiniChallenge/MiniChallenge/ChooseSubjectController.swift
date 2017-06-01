@@ -116,7 +116,7 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
         
         if segue.identifier == "GoToAddSubject" {
             
-            if let toAddSubject = segue.destination as? SubjectViewController{
+            if let toAddSubject = segue.destination as? CreateSubject{
                 toAddSubject.segueData = self.segueRecived
             
             }
