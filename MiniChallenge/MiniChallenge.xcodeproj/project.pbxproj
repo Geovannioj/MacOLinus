@@ -109,7 +109,6 @@
 		BF77E5411EC394A9007845B2 /* ControllerPList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E4EF1EC394A9007845B2 /* ControllerPList.swift */; };
 		BF77E5441EC394A9007845B2 /* DoneAndPostponedActivitiesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF77E4F21EC394A9007845B2 /* DoneAndPostponedActivitiesTableViewCell.xib */; };
 		BF77E54C1EC394A9007845B2 /* HomeGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E4FA1EC394A9007845B2 /* HomeGoalViewController.swift */; };
-		BF77E54D1EC394A9007845B2 /* MiniChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF77E4FB1EC394A9007845B2 /* MiniChallenge.xcdatamodeld */; };
 		BF77E5511EC394A9007845B2 /* SF-UI-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BF77E5001EC394A9007845B2 /* SF-UI-Display-Black.otf */; };
 		BF77E5521EC394A9007845B2 /* SF-UI-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BF77E5011EC394A9007845B2 /* SF-UI-Display-Bold.otf */; };
 		BF77E5531EC394A9007845B2 /* SF-UI-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = BF77E5021EC394A9007845B2 /* SF-UI-Display-Heavy.otf */; };
@@ -134,7 +133,6 @@
 		BF77E5671EC394A9007845B2 /* SingletonDayActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E5161EC394A9007845B2 /* SingletonDayActivity.swift */; };
 		BF77E56C1EC394A9007845B2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E51B1EC394A9007845B2 /* User.swift */; };
 		D4C988981EA7D33B008DC591 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C988971EA7D33B008DC591 /* Goal.swift */; };
-		D4C9889B1EA7D566008DC591 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9889A1EA7D566008DC591 /* Activity.swift */; };
 		D4C9889D1EA7DF4F008DC591 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9889C1EA7DF4F008DC591 /* Reminder.swift */; };
 /* End PBXBuildFile section */
 
@@ -144,44 +142,44 @@
 		6E15E5111EA6B8130027AAFD /* MiniChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E15E5141EA6B8130027AAFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E15E51C1EA6B8130027AAFD /* MiniChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MiniChallenge.xcdatamodel; sourceTree = "<group>"; };
-		6E15E5231EA6B8130027AAFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = MiniChallenge/Info.plist; sourceTree = "<group>"; };
+		6E15E5231EA6B8130027AAFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E15E5291EA6B9B30027AAFD /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		6E15E52B1EA6CB9D0027AAFD /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		6E15E52E1EA6CC8E0027AAFD /* Teacher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
-		6E1E4BBC1EE03A0100C65683 /* CreateGeolocalizatedNotification.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CreateGeolocalizatedNotification.storyboard; path = MiniChallenge/CreateGeolocalizatedNotification.storyboard; sourceTree = "<group>"; };
-		6E1E4BBD1EE03A0100C65683 /* CreateGeolocalizatedNotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateGeolocalizatedNotificationViewController.swift; path = MiniChallenge/CreateGeolocalizatedNotificationViewController.swift; sourceTree = "<group>"; };
-		6E1E4BBE1EE03A0100C65683 /* CreateNote.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CreateNote.storyboard; path = MiniChallenge/CreateNote.storyboard; sourceTree = "<group>"; };
-		6E1E4BBF1EE03A0100C65683 /* CreateNoteContent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CreateNoteContent.storyboard; path = MiniChallenge/CreateNoteContent.storyboard; sourceTree = "<group>"; };
-		6E1E4BC01EE03A0100C65683 /* CreateNoteContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateNoteContentViewController.swift; path = MiniChallenge/CreateNoteContentViewController.swift; sourceTree = "<group>"; };
-		6E1E4BC11EE03A0100C65683 /* CreateNoteTitle.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CreateNoteTitle.storyboard; path = MiniChallenge/CreateNoteTitle.storyboard; sourceTree = "<group>"; };
-		6E1E4BC21EE03A0100C65683 /* CreateNoteTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateNoteTitleViewController.swift; path = MiniChallenge/CreateNoteTitleViewController.swift; sourceTree = "<group>"; };
-		6E1E4BC31EE03A0100C65683 /* EditGoal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = EditGoal.storyboard; path = MiniChallenge/EditGoal.storyboard; sourceTree = "<group>"; };
-		6E1E4BC41EE03A0100C65683 /* EditGoalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditGoalTableViewCell.swift; path = MiniChallenge/EditGoalTableViewCell.swift; sourceTree = "<group>"; };
-		6E1E4BC51EE03A0100C65683 /* EditGoalTitle.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = EditGoalTitle.storyboard; path = MiniChallenge/EditGoalTitle.storyboard; sourceTree = "<group>"; };
-		6E1E4BC61EE03A0100C65683 /* EditGoalTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditGoalTitleViewController.swift; path = MiniChallenge/EditGoalTitleViewController.swift; sourceTree = "<group>"; };
-		6E1E4BC71EE03A0100C65683 /* EditGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditGoalViewController.swift; path = MiniChallenge/EditGoalViewController.swift; sourceTree = "<group>"; };
-		6E1E4BC81EE03A0100C65683 /* EditSubject.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = EditSubject.storyboard; path = MiniChallenge/EditSubject.storyboard; sourceTree = "<group>"; };
-		6E1E4BC91EE03A0100C65683 /* EditSubjectColor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = EditSubjectColor.storyboard; path = MiniChallenge/EditSubjectColor.storyboard; sourceTree = "<group>"; };
-		6E1E4BCA1EE03A0100C65683 /* EditSubjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditSubjectTableViewCell.swift; path = MiniChallenge/EditSubjectTableViewCell.swift; sourceTree = "<group>"; };
-		6E1E4BCB1EE03A0100C65683 /* EditSubjectTeacher.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = EditSubjectTeacher.storyboard; path = MiniChallenge/EditSubjectTeacher.storyboard; sourceTree = "<group>"; };
-		6E1E4BCC1EE03A0100C65683 /* EditSubjectTeacherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditSubjectTeacherViewController.swift; path = MiniChallenge/EditSubjectTeacherViewController.swift; sourceTree = "<group>"; };
-		6E1E4BCD1EE03A0100C65683 /* EditSubjectTitle.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = EditSubjectTitle.storyboard; path = MiniChallenge/EditSubjectTitle.storyboard; sourceTree = "<group>"; };
-		6E1E4BCE1EE03A0100C65683 /* EditSubjectTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditSubjectTitleViewController.swift; path = MiniChallenge/EditSubjectTitleViewController.swift; sourceTree = "<group>"; };
-		6E1E4BCF1EE03A0100C65683 /* EditSubjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditSubjectViewController.swift; path = MiniChallenge/EditSubjectViewController.swift; sourceTree = "<group>"; };
-		6E1E4BD01EE03A0100C65683 /* HomeNotes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = HomeNotes.storyboard; path = MiniChallenge/HomeNotes.storyboard; sourceTree = "<group>"; };
-		6E1E4BD11EE03A0100C65683 /* HomeNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeNotesTableViewCell.swift; path = MiniChallenge/HomeNotesTableViewCell.swift; sourceTree = "<group>"; };
-		6E1E4BD21EE03A0100C65683 /* HomeNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeNotesViewController.swift; path = MiniChallenge/HomeNotesViewController.swift; sourceTree = "<group>"; };
-		6E1E4BEA1EE03A0D00C65683 /* NoteCreated.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = NoteCreated.storyboard; path = MiniChallenge/NoteCreated.storyboard; sourceTree = "<group>"; };
-		6E1E4BEB1EE03A0D00C65683 /* NoteCreatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteCreatedViewController.swift; path = MiniChallenge/NoteCreatedViewController.swift; sourceTree = "<group>"; };
-		6E1E4BEC1EE03A0D00C65683 /* NoteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteService.swift; path = MiniChallenge/NoteService.swift; sourceTree = "<group>"; };
-		6E1E4BED1EE03A0D00C65683 /* PresentNotes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PresentNotes.storyboard; path = MiniChallenge/PresentNotes.storyboard; sourceTree = "<group>"; };
-		6E1E4BEE1EE03A0D00C65683 /* PresentNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PresentNotesViewController.swift; path = MiniChallenge/PresentNotesViewController.swift; sourceTree = "<group>"; };
-		6E1E4BEF1EE03A0D00C65683 /* showNotes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = showNotes.storyboard; path = MiniChallenge/showNotes.storyboard; sourceTree = "<group>"; };
-		6E1E4BF01EE03A0D00C65683 /* ShowNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowNotesTableViewCell.swift; path = MiniChallenge/ShowNotesTableViewCell.swift; sourceTree = "<group>"; };
-		6E1E4BF11EE03A0D00C65683 /* ShowNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowNotesViewController.swift; path = MiniChallenge/ShowNotesViewController.swift; sourceTree = "<group>"; };
-		6E1E4BF21EE03A0D00C65683 /* ShowSubject.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ShowSubject.storyboard; path = MiniChallenge/ShowSubject.storyboard; sourceTree = "<group>"; };
-		6E1E4BF31EE03A0D00C65683 /* SubjectFaults.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SubjectFaults.storyboard; path = MiniChallenge/SubjectFaults.storyboard; sourceTree = "<group>"; };
-		6E1E4BF41EE03A0D00C65683 /* SubjectFaultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubjectFaultsViewController.swift; path = MiniChallenge/SubjectFaultsViewController.swift; sourceTree = "<group>"; };
+		6E1E4BBC1EE03A0100C65683 /* CreateGeolocalizatedNotification.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateGeolocalizatedNotification.storyboard; sourceTree = "<group>"; };
+		6E1E4BBD1EE03A0100C65683 /* CreateGeolocalizatedNotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGeolocalizatedNotificationViewController.swift; sourceTree = "<group>"; };
+		6E1E4BBE1EE03A0100C65683 /* CreateNote.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateNote.storyboard; sourceTree = "<group>"; };
+		6E1E4BBF1EE03A0100C65683 /* CreateNoteContent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateNoteContent.storyboard; sourceTree = "<group>"; };
+		6E1E4BC01EE03A0100C65683 /* CreateNoteContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNoteContentViewController.swift; sourceTree = "<group>"; };
+		6E1E4BC11EE03A0100C65683 /* CreateNoteTitle.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateNoteTitle.storyboard; sourceTree = "<group>"; };
+		6E1E4BC21EE03A0100C65683 /* CreateNoteTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNoteTitleViewController.swift; sourceTree = "<group>"; };
+		6E1E4BC31EE03A0100C65683 /* EditGoal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditGoal.storyboard; sourceTree = "<group>"; };
+		6E1E4BC41EE03A0100C65683 /* EditGoalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditGoalTableViewCell.swift; sourceTree = "<group>"; };
+		6E1E4BC51EE03A0100C65683 /* EditGoalTitle.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditGoalTitle.storyboard; sourceTree = "<group>"; };
+		6E1E4BC61EE03A0100C65683 /* EditGoalTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditGoalTitleViewController.swift; sourceTree = "<group>"; };
+		6E1E4BC71EE03A0100C65683 /* EditGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditGoalViewController.swift; sourceTree = "<group>"; };
+		6E1E4BC81EE03A0100C65683 /* EditSubject.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditSubject.storyboard; sourceTree = "<group>"; };
+		6E1E4BC91EE03A0100C65683 /* EditSubjectColor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditSubjectColor.storyboard; sourceTree = "<group>"; };
+		6E1E4BCA1EE03A0100C65683 /* EditSubjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSubjectTableViewCell.swift; sourceTree = "<group>"; };
+		6E1E4BCB1EE03A0100C65683 /* EditSubjectTeacher.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditSubjectTeacher.storyboard; sourceTree = "<group>"; };
+		6E1E4BCC1EE03A0100C65683 /* EditSubjectTeacherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSubjectTeacherViewController.swift; sourceTree = "<group>"; };
+		6E1E4BCD1EE03A0100C65683 /* EditSubjectTitle.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditSubjectTitle.storyboard; sourceTree = "<group>"; };
+		6E1E4BCE1EE03A0100C65683 /* EditSubjectTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSubjectTitleViewController.swift; sourceTree = "<group>"; };
+		6E1E4BCF1EE03A0100C65683 /* EditSubjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSubjectViewController.swift; sourceTree = "<group>"; };
+		6E1E4BD01EE03A0100C65683 /* HomeNotes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeNotes.storyboard; sourceTree = "<group>"; };
+		6E1E4BD11EE03A0100C65683 /* HomeNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNotesTableViewCell.swift; sourceTree = "<group>"; };
+		6E1E4BD21EE03A0100C65683 /* HomeNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNotesViewController.swift; sourceTree = "<group>"; };
+		6E1E4BEA1EE03A0D00C65683 /* NoteCreated.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NoteCreated.storyboard; sourceTree = "<group>"; };
+		6E1E4BEB1EE03A0D00C65683 /* NoteCreatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCreatedViewController.swift; sourceTree = "<group>"; };
+		6E1E4BEC1EE03A0D00C65683 /* NoteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteService.swift; sourceTree = "<group>"; };
+		6E1E4BED1EE03A0D00C65683 /* PresentNotes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PresentNotes.storyboard; sourceTree = "<group>"; };
+		6E1E4BEE1EE03A0D00C65683 /* PresentNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentNotesViewController.swift; sourceTree = "<group>"; };
+		6E1E4BEF1EE03A0D00C65683 /* showNotes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = showNotes.storyboard; sourceTree = "<group>"; };
+		6E1E4BF01EE03A0D00C65683 /* ShowNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowNotesTableViewCell.swift; sourceTree = "<group>"; };
+		6E1E4BF11EE03A0D00C65683 /* ShowNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowNotesViewController.swift; sourceTree = "<group>"; };
+		6E1E4BF21EE03A0D00C65683 /* ShowSubject.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShowSubject.storyboard; sourceTree = "<group>"; };
+		6E1E4BF31EE03A0D00C65683 /* SubjectFaults.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SubjectFaults.storyboard; sourceTree = "<group>"; };
+		6E1E4BF41EE03A0D00C65683 /* SubjectFaultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectFaultsViewController.swift; sourceTree = "<group>"; };
 		6EB66EA51EB9174D00A16F1D /* DayActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayActivityTableViewCell.swift; sourceTree = "<group>"; };
 		6EB66EA61EB9174D00A16F1D /* DayActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayActivityTableViewCell.xib; sourceTree = "<group>"; };
 		774B8E3577BCA297B347D437 /* Pods-MiniChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiniChallenge/Pods-MiniChallenge.release.xcconfig"; sourceTree = "<group>"; };
@@ -203,7 +201,7 @@
 		BF762CBF1ED47336004E423B /* SelectGoalDatetime.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SelectGoalDatetime.storyboard; sourceTree = "<group>"; };
 		BF762CC01ED47336004E423B /* SelectGoalDatetime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectGoalDatetime.swift; sourceTree = "<group>"; };
 		BF762CC11ED47336004E423B /* ShowSubjectsActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowSubjectsActivity.swift; sourceTree = "<group>"; };
-		BF762CC21ED47336004E423B /* SingletonPassedDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingletonPassedDate.swift; path = MiniChallenge/SingletonPassedDate.swift; sourceTree = "<group>"; };
+		BF762CC21ED47336004E423B /* SingletonPassedDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingletonPassedDate.swift; sourceTree = "<group>"; };
 		BF762CCC1ED47532004E423B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF762CCE1ED47686004E423B /* ColorsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF762CCF1ED47686004E423B /* CreateTeacher.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateTeacher.storyboard; sourceTree = "<group>"; };
@@ -212,8 +210,8 @@
 		BF762CD51ED4769A004E423B /* SelectGoalDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectGoalDateViewController.swift; sourceTree = "<group>"; };
 		BF762CD61ED4769A004E423B /* SelectSubjectColor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SelectSubjectColor.storyboard; sourceTree = "<group>"; };
 		BF762CD71ED4769A004E423B /* SelectSubjectColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSubjectColorViewController.swift; sourceTree = "<group>"; };
-		BF762CD81ED4769A004E423B /* SelectWhereToNotify.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SelectWhereToNotify.storyboard; path = MiniChallenge/SelectWhereToNotify.storyboard; sourceTree = "<group>"; };
-		BF762CD91ED4769A004E423B /* SelectWhereToNotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectWhereToNotifyViewController.swift; path = MiniChallenge/SelectWhereToNotifyViewController.swift; sourceTree = "<group>"; };
+		BF762CD81ED4769A004E423B /* SelectWhereToNotify.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SelectWhereToNotify.storyboard; sourceTree = "<group>"; };
+		BF762CD91ED4769A004E423B /* SelectWhereToNotifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectWhereToNotifyViewController.swift; sourceTree = "<group>"; };
 		BF77E4CA1EC394A9007845B2 /* Calendar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Calendar.storyboard; sourceTree = "<group>"; };
 		BF77E4CB1EC394A9007845B2 /* CreateSubject.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateSubject.storyboard; sourceTree = "<group>"; };
 		BF77E4CC1EC394A9007845B2 /* CreateSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateSubject.swift; sourceTree = "<group>"; };
@@ -244,9 +242,7 @@
 		BF77E4ED1EC394A9007845B2 /* ChooseSubjectController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseSubjectController.swift; sourceTree = "<group>"; };
 		BF77E4EF1EC394A9007845B2 /* ControllerPList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerPList.swift; sourceTree = "<group>"; };
 		BF77E4F21EC394A9007845B2 /* DoneAndPostponedActivitiesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoneAndPostponedActivitiesTableViewCell.xib; sourceTree = "<group>"; };
-		BF77E4F41EC394A9007845B2 /* EditScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditScreen.swift; sourceTree = "<group>"; };
 		BF77E4FA1EC394A9007845B2 /* HomeGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeGoalViewController.swift; sourceTree = "<group>"; };
-		BF77E4FC1EC394A9007845B2 /* MiniChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MiniChallenge.xcdatamodel; sourceTree = "<group>"; };
 		BF77E5001EC394A9007845B2 /* SF-UI-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Black.otf"; sourceTree = "<group>"; };
 		BF77E5011EC394A9007845B2 /* SF-UI-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Bold.otf"; sourceTree = "<group>"; };
 		BF77E5021EC394A9007845B2 /* SF-UI-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Heavy.otf"; sourceTree = "<group>"; };
@@ -268,11 +264,9 @@
 		BF77E5121EC394A9007845B2 /* SF-UI-Text-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-RegularItalic.otf"; sourceTree = "<group>"; };
 		BF77E5131EC394A9007845B2 /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
 		BF77E5141EC394A9007845B2 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
-		BF77E5151EC394A9007845B2 /* ShowActivities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowActivities.swift; sourceTree = "<group>"; };
 		BF77E5161EC394A9007845B2 /* SingletonDayActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingletonDayActivity.swift; sourceTree = "<group>"; };
 		BF77E51B1EC394A9007845B2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D4C988971EA7D33B008DC591 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
-		D4C9889A1EA7D566008DC591 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		D4C9889C1EA7DF4F008DC591 /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -308,44 +302,6 @@
 		6E15E5081EA6B8130027AAFD = {
 			isa = PBXGroup;
 			children = (
-				6E1E4BEA1EE03A0D00C65683 /* NoteCreated.storyboard */,
-				6E1E4BEB1EE03A0D00C65683 /* NoteCreatedViewController.swift */,
-				6E1E4BEC1EE03A0D00C65683 /* NoteService.swift */,
-				6E1E4BED1EE03A0D00C65683 /* PresentNotes.storyboard */,
-				6E1E4BEE1EE03A0D00C65683 /* PresentNotesViewController.swift */,
-				6E1E4BEF1EE03A0D00C65683 /* showNotes.storyboard */,
-				6E1E4BF01EE03A0D00C65683 /* ShowNotesTableViewCell.swift */,
-				6E1E4BF11EE03A0D00C65683 /* ShowNotesViewController.swift */,
-				6E1E4BF21EE03A0D00C65683 /* ShowSubject.storyboard */,
-				6E1E4BF31EE03A0D00C65683 /* SubjectFaults.storyboard */,
-				6E1E4BF41EE03A0D00C65683 /* SubjectFaultsViewController.swift */,
-				6E1E4BBC1EE03A0100C65683 /* CreateGeolocalizatedNotification.storyboard */,
-				6E1E4BBD1EE03A0100C65683 /* CreateGeolocalizatedNotificationViewController.swift */,
-				6E1E4BBE1EE03A0100C65683 /* CreateNote.storyboard */,
-				6E1E4BBF1EE03A0100C65683 /* CreateNoteContent.storyboard */,
-				6E1E4BC01EE03A0100C65683 /* CreateNoteContentViewController.swift */,
-				6E1E4BC11EE03A0100C65683 /* CreateNoteTitle.storyboard */,
-				6E1E4BC21EE03A0100C65683 /* CreateNoteTitleViewController.swift */,
-				6E1E4BC31EE03A0100C65683 /* EditGoal.storyboard */,
-				6E1E4BC41EE03A0100C65683 /* EditGoalTableViewCell.swift */,
-				6E1E4BC51EE03A0100C65683 /* EditGoalTitle.storyboard */,
-				6E1E4BC61EE03A0100C65683 /* EditGoalTitleViewController.swift */,
-				6E1E4BC71EE03A0100C65683 /* EditGoalViewController.swift */,
-				6E1E4BC81EE03A0100C65683 /* EditSubject.storyboard */,
-				6E1E4BC91EE03A0100C65683 /* EditSubjectColor.storyboard */,
-				6E1E4BCA1EE03A0100C65683 /* EditSubjectTableViewCell.swift */,
-				6E1E4BCB1EE03A0100C65683 /* EditSubjectTeacher.storyboard */,
-				6E1E4BCC1EE03A0100C65683 /* EditSubjectTeacherViewController.swift */,
-				6E1E4BCD1EE03A0100C65683 /* EditSubjectTitle.storyboard */,
-				6E1E4BCE1EE03A0100C65683 /* EditSubjectTitleViewController.swift */,
-				6E1E4BCF1EE03A0100C65683 /* EditSubjectViewController.swift */,
-				6E1E4BD01EE03A0100C65683 /* HomeNotes.storyboard */,
-				6E1E4BD11EE03A0100C65683 /* HomeNotesTableViewCell.swift */,
-				6E1E4BD21EE03A0100C65683 /* HomeNotesViewController.swift */,
-				BF762CC21ED47336004E423B /* SingletonPassedDate.swift */,
-				BF762CD81ED4769A004E423B /* SelectWhereToNotify.storyboard */,
-				BF762CD91ED4769A004E423B /* SelectWhereToNotifyViewController.swift */,
-				6E15E5231EA6B8130027AAFD /* Info.plist */,
 				6E15E5131EA6B8130027AAFD /* MiniChallenge */,
 				6E15E5121EA6B8130027AAFD /* Products */,
 				40892D91CC5E95419A9F7AD6 /* Pods */,
@@ -376,29 +332,111 @@
 		6E15E52D1EA6CC7A0027AAFD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BF762CCE1ED47686004E423B /* ColorsCollectionViewCell.swift */,
-				BF762CA81ED47320004E423B /* GoalCellsTableViewCell.swift */,
-				D4C9889C1EA7DF4F008DC591 /* Reminder.swift */,
-				6E15E52B1EA6CB9D0027AAFD /* Note.swift */,
-				6E15E5291EA6B9B30027AAFD /* Subject.swift */,
-				6E15E52E1EA6CC8E0027AAFD /* Teacher.swift */,
-				D4C988971EA7D33B008DC591 /* Goal.swift */,
-				D4C9889A1EA7D566008DC591 /* Activity.swift */,
-				BF77E4EB1EC394A9007845B2 /* CalendarCell.swift */,
-				BF77E51B1EC394A9007845B2 /* User.swift */,
-				BF77E4E41EC394A9007845B2 /* ActivityTableViewCell.swift */,
-				BF77E4D81EC394A9007845B2 /* SubjectTableViewCell.swift */,
+				6E1E4C081EE0502C00C65683 /* Teacher */,
+				6E1E4C071EE04FF400C65683 /* User */,
+				6E1E4C061EE04FDA00C65683 /* Note */,
+				6E1E4C051EE04FD500C65683 /* Reminder */,
+				6E1E4C041EE04FD200C65683 /* Goal */,
+				6E1E4C031EE04FC900C65683 /* Calendar */,
+				6E1E4C021EE04FBB00C65683 /* Subject */,
 				BF1C9D431EC4F12500707BFF /* DataModel */,
 			);
 			name = Model;
 			sourceTree = "<group>";
 		};
+		6E1E4C001EE04E9D00C65683 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				6E1E4BBE1EE03A0100C65683 /* CreateNote.storyboard */,
+				6E1E4BBF1EE03A0100C65683 /* CreateNoteContent.storyboard */,
+				6E1E4BC11EE03A0100C65683 /* CreateNoteTitle.storyboard */,
+				6E1E4BEA1EE03A0D00C65683 /* NoteCreated.storyboard */,
+				6E1E4BEF1EE03A0D00C65683 /* showNotes.storyboard */,
+				6E1E4BED1EE03A0D00C65683 /* PresentNotes.storyboard */,
+				6E1E4BD01EE03A0100C65683 /* HomeNotes.storyboard */,
+			);
+			name = Notes;
+			sourceTree = "<group>";
+		};
+		6E1E4C011EE04F0600C65683 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				6E1E4BEB1EE03A0D00C65683 /* NoteCreatedViewController.swift */,
+				6E1E4BEE1EE03A0D00C65683 /* PresentNotesViewController.swift */,
+				6E1E4BF01EE03A0D00C65683 /* ShowNotesTableViewCell.swift */,
+				6E1E4BF11EE03A0D00C65683 /* ShowNotesViewController.swift */,
+				6E1E4BC01EE03A0100C65683 /* CreateNoteContentViewController.swift */,
+				6E1E4BC21EE03A0100C65683 /* CreateNoteTitleViewController.swift */,
+				6E1E4BD11EE03A0100C65683 /* HomeNotesTableViewCell.swift */,
+				6E1E4BD21EE03A0100C65683 /* HomeNotesViewController.swift */,
+			);
+			name = Notes;
+			sourceTree = "<group>";
+		};
+		6E1E4C021EE04FBB00C65683 /* Subject */ = {
+			isa = PBXGroup;
+			children = (
+				6E15E5291EA6B9B30027AAFD /* Subject.swift */,
+			);
+			name = Subject;
+			sourceTree = "<group>";
+		};
+		6E1E4C031EE04FC900C65683 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				BF762CC21ED47336004E423B /* SingletonPassedDate.swift */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		6E1E4C041EE04FD200C65683 /* Goal */ = {
+			isa = PBXGroup;
+			children = (
+				D4C988971EA7D33B008DC591 /* Goal.swift */,
+			);
+			name = Goal;
+			sourceTree = "<group>";
+		};
+		6E1E4C051EE04FD500C65683 /* Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				D4C9889C1EA7DF4F008DC591 /* Reminder.swift */,
+			);
+			name = Reminder;
+			sourceTree = "<group>";
+		};
+		6E1E4C061EE04FDA00C65683 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				6E15E52B1EA6CB9D0027AAFD /* Note.swift */,
+				6E1E4BEC1EE03A0D00C65683 /* NoteService.swift */,
+			);
+			name = Note;
+			sourceTree = "<group>";
+		};
+		6E1E4C071EE04FF400C65683 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				BF77E51B1EC394A9007845B2 /* User.swift */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		6E1E4C081EE0502C00C65683 /* Teacher */ = {
+			isa = PBXGroup;
+			children = (
+				6E15E52E1EA6CC8E0027AAFD /* Teacher.swift */,
+			);
+			name = Teacher;
+			sourceTree = "<group>";
+		};
 		6EB66E861EB8F9CB00A16F1D /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				BF77E4E41EC394A9007845B2 /* ActivityTableViewCell.swift */,
+				BF77E4EB1EC394A9007845B2 /* CalendarCell.swift */,
 				BF762CA71ED47320004E423B /* EditActivityController.swift */,
 				6EB66EA51EB9174D00A16F1D /* DayActivityTableViewCell.swift */,
-				6EB66EA61EB9174D00A16F1D /* DayActivityTableViewCell.xib */,
 				BF77E4DC1EC394A9007845B2 /* CalendarViewController.swift */,
 				BF77E4DE1EC394A9007845B2 /* DailyCalendarViewController.swift */,
 			);
@@ -408,6 +446,7 @@
 		6EB66E871EB8F9DC00A16F1D /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				6EB66EA61EB9174D00A16F1D /* DayActivityTableViewCell.xib */,
 				BF762CA61ED47320004E423B /* EditActivity.storyboard */,
 				BF77E4CA1EC394A9007845B2 /* Calendar.storyboard */,
 			);
@@ -417,6 +456,7 @@
 		ADD876AF1EAF897500C45032 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6E1E4C011EE04F0600C65683 /* Notes */,
 				BF762CE01ED47DB1004E423B /* MissedClasses */,
 				BF1C9D421EC4F0ED00707BFF /* Goal */,
 				BF1C9D401EC4F02900707BFF /* DoneAndPostPoned */,
@@ -432,6 +472,7 @@
 		ADD876B01EAF898000C45032 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6E1E4C001EE04E9D00C65683 /* Notes */,
 				BF762CE11ED47DDB004E423B /* MissedClasses */,
 				BF1C9D411EC4F0B500707BFF /* DoneAndPostponed */,
 				BF1C9D3C1EC4EEBC00707BFF /* OnBoarding */,
@@ -446,6 +487,13 @@
 		ADD876B71EAF8AEA00C45032 /* Subject */ = {
 			isa = PBXGroup;
 			children = (
+				BF762CCE1ED47686004E423B /* ColorsCollectionViewCell.swift */,
+				BF77E4D81EC394A9007845B2 /* SubjectTableViewCell.swift */,
+				6E1E4BF41EE03A0D00C65683 /* SubjectFaultsViewController.swift */,
+				6E1E4BCA1EE03A0100C65683 /* EditSubjectTableViewCell.swift */,
+				6E1E4BCC1EE03A0100C65683 /* EditSubjectTeacherViewController.swift */,
+				6E1E4BCE1EE03A0100C65683 /* EditSubjectTitleViewController.swift */,
+				6E1E4BCF1EE03A0100C65683 /* EditSubjectViewController.swift */,
 				BF762CD71ED4769A004E423B /* SelectSubjectColorViewController.swift */,
 				BF762CC11ED47336004E423B /* ShowSubjectsActivity.swift */,
 				BF762CD01ED47686004E423B /* CreateTeacherViewController.swift */,
@@ -472,8 +520,6 @@
 			isa = PBXGroup;
 			children = (
 				BF77E5161EC394A9007845B2 /* SingletonDayActivity.swift */,
-				BF77E5151EC394A9007845B2 /* ShowActivities.swift */,
-				BF77E4F41EC394A9007845B2 /* EditScreen.swift */,
 				BF77E4EF1EC394A9007845B2 /* ControllerPList.swift */,
 				BF77E4DF1EC394A9007845B2 /* DatePickViewController.swift */,
 				BF77E4D31EC394A9007845B2 /* SingletonActivity.swift */,
@@ -502,6 +548,12 @@
 		BF1C9D3A1EC4EE5F00707BFF /* Subject */ = {
 			isa = PBXGroup;
 			children = (
+				6E1E4BF31EE03A0D00C65683 /* SubjectFaults.storyboard */,
+				6E1E4BF21EE03A0D00C65683 /* ShowSubject.storyboard */,
+				6E1E4BC91EE03A0100C65683 /* EditSubjectColor.storyboard */,
+				6E1E4BC81EE03A0100C65683 /* EditSubject.storyboard */,
+				6E1E4BCB1EE03A0100C65683 /* EditSubjectTeacher.storyboard */,
+				6E1E4BCD1EE03A0100C65683 /* EditSubjectTitle.storyboard */,
 				BF762CD61ED4769A004E423B /* SelectSubjectColor.storyboard */,
 				BF762CCF1ED47686004E423B /* CreateTeacher.storyboard */,
 				BF77E4CE1EC394A9007845B2 /* HomeSubject.storyboard */,
@@ -515,6 +567,10 @@
 		BF1C9D3B1EC4EEA100707BFF /* Goal */ = {
 			isa = PBXGroup;
 			children = (
+				6E1E4BC31EE03A0100C65683 /* EditGoal.storyboard */,
+				6E1E4BC51EE03A0100C65683 /* EditGoalTitle.storyboard */,
+				6E1E4BBC1EE03A0100C65683 /* CreateGeolocalizatedNotification.storyboard */,
+				BF762CD81ED4769A004E423B /* SelectWhereToNotify.storyboard */,
 				BF762CD41ED4769A004E423B /* SelectDate.storyboard */,
 				BF762CAE1ED47320004E423B /* HomeGoal.storyboard */,
 				BF762CAB1ED47320004E423B /* GoalOptions.storyboard */,
@@ -563,6 +619,11 @@
 		BF1C9D421EC4F0ED00707BFF /* Goal */ = {
 			isa = PBXGroup;
 			children = (
+				6E1E4BBD1EE03A0100C65683 /* CreateGeolocalizatedNotificationViewController.swift */,
+				6E1E4BC41EE03A0100C65683 /* EditGoalTableViewCell.swift */,
+				6E1E4BC61EE03A0100C65683 /* EditGoalTitleViewController.swift */,
+				6E1E4BC71EE03A0100C65683 /* EditGoalViewController.swift */,
+				BF762CD91ED4769A004E423B /* SelectWhereToNotifyViewController.swift */,
 				BF762CD51ED4769A004E423B /* SelectGoalDateViewController.swift */,
 				BF762CAF1ED47320004E423B /* HomeGoal.swift */,
 				BF762CAA1ED47320004E423B /* GoalCreated.swift */,
@@ -579,7 +640,6 @@
 			isa = PBXGroup;
 			children = (
 				6E15E51B1EA6B8130027AAFD /* MiniChallenge.xcdatamodeld */,
-				BF77E4FB1EC394A9007845B2 /* MiniChallenge.xcdatamodeld */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -587,6 +647,7 @@
 		BF1C9D441EC4F1E100707BFF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6E15E5231EA6B8130027AAFD /* Info.plist */,
 				BF762CCC1ED47532004E423B /* Assets.xcassets */,
 				BF1C9D451EC4F1EC00707BFF /* Fonts */,
 			);
@@ -624,6 +685,7 @@
 		BF762CE01ED47DB1004E423B /* MissedClasses */ = {
 			isa = PBXGroup;
 			children = (
+				BF762CA81ED47320004E423B /* GoalCellsTableViewCell.swift */,
 				BF762CBD1ED47336004E423B /* MissedClassViewController.swift */,
 			);
 			name = MissedClasses;
@@ -851,7 +913,6 @@
 				6E1E4BE81EE03A0100C65683 /* HomeNotesTableViewCell.swift in Sources */,
 				6E1E4BFC1EE03A0D00C65683 /* ShowNotesViewController.swift in Sources */,
 				6E15E52F1EA6CC8E0027AAFD /* Teacher.swift in Sources */,
-				BF77E54D1EC394A9007845B2 /* MiniChallenge.xcdatamodeld in Sources */,
 				6E1E4BD71EE03A0100C65683 /* CreateNoteContentViewController.swift in Sources */,
 				BF77E5331EC394A9007845B2 /* DoneAndPostponedActivitiesTableViewCell.swift in Sources */,
 				BF762CC91ED47336004E423B /* ShowSubjectsActivity.swift in Sources */,
@@ -880,7 +941,6 @@
 				BF77E5291EC394A9007845B2 /* SubjectCreated.swift in Sources */,
 				BF77E5261EC394A9007845B2 /* SingletonSubject.swift in Sources */,
 				BF77E5251EC394A9007845B2 /* SingletonActivity.swift in Sources */,
-				D4C9889B1EA7D566008DC591 /* Activity.swift in Sources */,
 				BF762CD31ED47686004E423B /* CreateTeacherViewController.swift in Sources */,
 				D4C988981EA7D33B008DC591 /* Goal.swift in Sources */,
 				BF77E54C1EC394A9007845B2 /* HomeGoalViewController.swift in Sources */,
@@ -1043,16 +1103,6 @@
 				6E15E51C1EA6B8130027AAFD /* MiniChallenge.xcdatamodel */,
 			);
 			currentVersion = 6E15E51C1EA6B8130027AAFD /* MiniChallenge.xcdatamodel */;
-			path = MiniChallenge.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		BF77E4FB1EC394A9007845B2 /* MiniChallenge.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				BF77E4FC1EC394A9007845B2 /* MiniChallenge.xcdatamodel */,
-			);
-			currentVersion = BF77E4FC1EC394A9007845B2 /* MiniChallenge.xcdatamodel */;
 			path = MiniChallenge.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
