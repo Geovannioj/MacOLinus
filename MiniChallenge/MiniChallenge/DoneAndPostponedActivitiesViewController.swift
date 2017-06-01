@@ -239,11 +239,29 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         //delete button
         let deleteButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "delete")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
-            self.toDoActivities.remove(at: indexPath.row)
-            SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
-            let indexPaths = [indexPath]
-            tableView.deleteRows(at: indexPaths, with: .automatic)
-            self.controllerPlist.saveReminders()
+            
+            let deletingAlert = UIAlertController(title: "Excluindo atividade", message: "você deseja excluir a atividade: \(activity.title)", preferredStyle: .alert)
+            
+            let deleteButton = UIAlertAction(title: "Deletar", style: UIAlertActionStyle.cancel, handler: { action in
+                
+                self.toDoActivities.remove(at: indexPath.row)
+                SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
+                let indexPaths = [indexPath]
+                tableView.deleteRows(at: indexPaths, with: .automatic)
+                self.controllerPlist.saveReminders()
+                
+            })
+            
+            let cancelButton = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+                //Do nothing
+            })
+            
+            deletingAlert.addAction(deleteButton)
+            deletingAlert.addAction(cancelButton)
+            
+            
+            self.present(deletingAlert, animated: true, completion: nil)
+            
             return true
         }
         
