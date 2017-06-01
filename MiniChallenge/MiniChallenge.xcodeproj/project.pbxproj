@@ -13,10 +13,43 @@
 		6E15E52A1EA6B9B30027AAFD /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15E5291EA6B9B30027AAFD /* Subject.swift */; };
 		6E15E52C1EA6CB9D0027AAFD /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15E52B1EA6CB9D0027AAFD /* Note.swift */; };
 		6E15E52F1EA6CC8E0027AAFD /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E15E52E1EA6CC8E0027AAFD /* Teacher.swift */; };
+		6E1E4BD31EE03A0100C65683 /* CreateGeolocalizatedNotification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BBC1EE03A0100C65683 /* CreateGeolocalizatedNotification.storyboard */; };
+		6E1E4BD41EE03A0100C65683 /* CreateGeolocalizatedNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BBD1EE03A0100C65683 /* CreateGeolocalizatedNotificationViewController.swift */; };
+		6E1E4BD51EE03A0100C65683 /* CreateNote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BBE1EE03A0100C65683 /* CreateNote.storyboard */; };
+		6E1E4BD61EE03A0100C65683 /* CreateNoteContent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BBF1EE03A0100C65683 /* CreateNoteContent.storyboard */; };
+		6E1E4BD71EE03A0100C65683 /* CreateNoteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BC01EE03A0100C65683 /* CreateNoteContentViewController.swift */; };
+		6E1E4BD81EE03A0100C65683 /* CreateNoteTitle.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BC11EE03A0100C65683 /* CreateNoteTitle.storyboard */; };
+		6E1E4BD91EE03A0100C65683 /* CreateNoteTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BC21EE03A0100C65683 /* CreateNoteTitleViewController.swift */; };
+		6E1E4BDA1EE03A0100C65683 /* EditGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BC31EE03A0100C65683 /* EditGoal.storyboard */; };
+		6E1E4BDB1EE03A0100C65683 /* EditGoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BC41EE03A0100C65683 /* EditGoalTableViewCell.swift */; };
+		6E1E4BDC1EE03A0100C65683 /* EditGoalTitle.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BC51EE03A0100C65683 /* EditGoalTitle.storyboard */; };
+		6E1E4BDD1EE03A0100C65683 /* EditGoalTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BC61EE03A0100C65683 /* EditGoalTitleViewController.swift */; };
+		6E1E4BDE1EE03A0100C65683 /* EditGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BC71EE03A0100C65683 /* EditGoalViewController.swift */; };
+		6E1E4BDF1EE03A0100C65683 /* EditSubject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BC81EE03A0100C65683 /* EditSubject.storyboard */; };
+		6E1E4BE01EE03A0100C65683 /* EditSubjectColor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BC91EE03A0100C65683 /* EditSubjectColor.storyboard */; };
+		6E1E4BE11EE03A0100C65683 /* EditSubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BCA1EE03A0100C65683 /* EditSubjectTableViewCell.swift */; };
+		6E1E4BE21EE03A0100C65683 /* EditSubjectTeacher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BCB1EE03A0100C65683 /* EditSubjectTeacher.storyboard */; };
+		6E1E4BE31EE03A0100C65683 /* EditSubjectTeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BCC1EE03A0100C65683 /* EditSubjectTeacherViewController.swift */; };
+		6E1E4BE41EE03A0100C65683 /* EditSubjectTitle.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BCD1EE03A0100C65683 /* EditSubjectTitle.storyboard */; };
+		6E1E4BE51EE03A0100C65683 /* EditSubjectTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BCE1EE03A0100C65683 /* EditSubjectTitleViewController.swift */; };
+		6E1E4BE61EE03A0100C65683 /* EditSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BCF1EE03A0100C65683 /* EditSubjectViewController.swift */; };
+		6E1E4BE71EE03A0100C65683 /* HomeNotes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BD01EE03A0100C65683 /* HomeNotes.storyboard */; };
+		6E1E4BE81EE03A0100C65683 /* HomeNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BD11EE03A0100C65683 /* HomeNotesTableViewCell.swift */; };
+		6E1E4BE91EE03A0100C65683 /* HomeNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BD21EE03A0100C65683 /* HomeNotesViewController.swift */; };
+		6E1E4BF51EE03A0D00C65683 /* NoteCreated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BEA1EE03A0D00C65683 /* NoteCreated.storyboard */; };
+		6E1E4BF61EE03A0D00C65683 /* NoteCreatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BEB1EE03A0D00C65683 /* NoteCreatedViewController.swift */; };
+		6E1E4BF71EE03A0D00C65683 /* NoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BEC1EE03A0D00C65683 /* NoteService.swift */; };
+		6E1E4BF81EE03A0D00C65683 /* PresentNotes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BED1EE03A0D00C65683 /* PresentNotes.storyboard */; };
+		6E1E4BF91EE03A0D00C65683 /* PresentNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BEE1EE03A0D00C65683 /* PresentNotesViewController.swift */; };
+		6E1E4BFA1EE03A0D00C65683 /* showNotes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BEF1EE03A0D00C65683 /* showNotes.storyboard */; };
+		6E1E4BFB1EE03A0D00C65683 /* ShowNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BF01EE03A0D00C65683 /* ShowNotesTableViewCell.swift */; };
+		6E1E4BFC1EE03A0D00C65683 /* ShowNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BF11EE03A0D00C65683 /* ShowNotesViewController.swift */; };
+		6E1E4BFD1EE03A0D00C65683 /* ShowSubject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BF21EE03A0D00C65683 /* ShowSubject.storyboard */; };
+		6E1E4BFE1EE03A0D00C65683 /* SubjectFaults.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BF31EE03A0D00C65683 /* SubjectFaults.storyboard */; };
+		6E1E4BFF1EE03A0D00C65683 /* SubjectFaultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BF41EE03A0D00C65683 /* SubjectFaultsViewController.swift */; };
 		6EB66EA71EB9174D00A16F1D /* DayActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB66EA51EB9174D00A16F1D /* DayActivityTableViewCell.swift */; };
 		6EB66EA81EB9174D00A16F1D /* DayActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EB66EA61EB9174D00A16F1D /* DayActivityTableViewCell.xib */; };
 		ADD876B41EAF8A6600C45032 /* CreateNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD876B31EAF8A6600C45032 /* CreateNoteViewController.swift */; };
-		BF1C9D491EC4F2D300707BFF /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = BF1C9D471EC4F2D300707BFF /* Base.lproj */; };
 		BF762CB01ED47320004E423B /* CreateGoal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF762CA41ED47320004E423B /* CreateGoal.storyboard */; };
 		BF762CB11ED47320004E423B /* CreateGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF762CA51ED47320004E423B /* CreateGoal.swift */; };
 		BF762CB21ED47320004E423B /* EditActivity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF762CA61ED47320004E423B /* EditActivity.storyboard */; };
@@ -75,7 +108,6 @@
 		BF77E53F1EC394A9007845B2 /* ChooseSubjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E4ED1EC394A9007845B2 /* ChooseSubjectController.swift */; };
 		BF77E5411EC394A9007845B2 /* ControllerPList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E4EF1EC394A9007845B2 /* ControllerPList.swift */; };
 		BF77E5441EC394A9007845B2 /* DoneAndPostponedActivitiesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF77E4F21EC394A9007845B2 /* DoneAndPostponedActivitiesTableViewCell.xib */; };
-		BF77E5461EC394A9007845B2 /* EditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E4F41EC394A9007845B2 /* EditScreen.swift */; };
 		BF77E54C1EC394A9007845B2 /* HomeGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E4FA1EC394A9007845B2 /* HomeGoalViewController.swift */; };
 		BF77E54D1EC394A9007845B2 /* MiniChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF77E4FB1EC394A9007845B2 /* MiniChallenge.xcdatamodeld */; };
 		BF77E5511EC394A9007845B2 /* SF-UI-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = BF77E5001EC394A9007845B2 /* SF-UI-Display-Black.otf */; };
@@ -99,7 +131,6 @@
 		BF77E5631EC394A9007845B2 /* SF-UI-Text-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BF77E5121EC394A9007845B2 /* SF-UI-Text-RegularItalic.otf */; };
 		BF77E5641EC394A9007845B2 /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BF77E5131EC394A9007845B2 /* SF-UI-Text-Semibold.otf */; };
 		BF77E5651EC394A9007845B2 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BF77E5141EC394A9007845B2 /* SF-UI-Text-SemiboldItalic.otf */; };
-		BF77E5661EC394A9007845B2 /* ShowActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E5151EC394A9007845B2 /* ShowActivities.swift */; };
 		BF77E5671EC394A9007845B2 /* SingletonDayActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E5161EC394A9007845B2 /* SingletonDayActivity.swift */; };
 		BF77E56C1EC394A9007845B2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E51B1EC394A9007845B2 /* User.swift */; };
 		D4C988981EA7D33B008DC591 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C988971EA7D33B008DC591 /* Goal.swift */; };
@@ -117,11 +148,44 @@
 		6E15E5291EA6B9B30027AAFD /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		6E15E52B1EA6CB9D0027AAFD /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		6E15E52E1EA6CC8E0027AAFD /* Teacher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
+		6E1E4BBC1EE03A0100C65683 /* CreateGeolocalizatedNotification.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CreateGeolocalizatedNotification.storyboard; path = MiniChallenge/CreateGeolocalizatedNotification.storyboard; sourceTree = "<group>"; };
+		6E1E4BBD1EE03A0100C65683 /* CreateGeolocalizatedNotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateGeolocalizatedNotificationViewController.swift; path = MiniChallenge/CreateGeolocalizatedNotificationViewController.swift; sourceTree = "<group>"; };
+		6E1E4BBE1EE03A0100C65683 /* CreateNote.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CreateNote.storyboard; path = MiniChallenge/CreateNote.storyboard; sourceTree = "<group>"; };
+		6E1E4BBF1EE03A0100C65683 /* CreateNoteContent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CreateNoteContent.storyboard; path = MiniChallenge/CreateNoteContent.storyboard; sourceTree = "<group>"; };
+		6E1E4BC01EE03A0100C65683 /* CreateNoteContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateNoteContentViewController.swift; path = MiniChallenge/CreateNoteContentViewController.swift; sourceTree = "<group>"; };
+		6E1E4BC11EE03A0100C65683 /* CreateNoteTitle.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CreateNoteTitle.storyboard; path = MiniChallenge/CreateNoteTitle.storyboard; sourceTree = "<group>"; };
+		6E1E4BC21EE03A0100C65683 /* CreateNoteTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateNoteTitleViewController.swift; path = MiniChallenge/CreateNoteTitleViewController.swift; sourceTree = "<group>"; };
+		6E1E4BC31EE03A0100C65683 /* EditGoal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = EditGoal.storyboard; path = MiniChallenge/EditGoal.storyboard; sourceTree = "<group>"; };
+		6E1E4BC41EE03A0100C65683 /* EditGoalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditGoalTableViewCell.swift; path = MiniChallenge/EditGoalTableViewCell.swift; sourceTree = "<group>"; };
+		6E1E4BC51EE03A0100C65683 /* EditGoalTitle.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = EditGoalTitle.storyboard; path = MiniChallenge/EditGoalTitle.storyboard; sourceTree = "<group>"; };
+		6E1E4BC61EE03A0100C65683 /* EditGoalTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditGoalTitleViewController.swift; path = MiniChallenge/EditGoalTitleViewController.swift; sourceTree = "<group>"; };
+		6E1E4BC71EE03A0100C65683 /* EditGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditGoalViewController.swift; path = MiniChallenge/EditGoalViewController.swift; sourceTree = "<group>"; };
+		6E1E4BC81EE03A0100C65683 /* EditSubject.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = EditSubject.storyboard; path = MiniChallenge/EditSubject.storyboard; sourceTree = "<group>"; };
+		6E1E4BC91EE03A0100C65683 /* EditSubjectColor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = EditSubjectColor.storyboard; path = MiniChallenge/EditSubjectColor.storyboard; sourceTree = "<group>"; };
+		6E1E4BCA1EE03A0100C65683 /* EditSubjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditSubjectTableViewCell.swift; path = MiniChallenge/EditSubjectTableViewCell.swift; sourceTree = "<group>"; };
+		6E1E4BCB1EE03A0100C65683 /* EditSubjectTeacher.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = EditSubjectTeacher.storyboard; path = MiniChallenge/EditSubjectTeacher.storyboard; sourceTree = "<group>"; };
+		6E1E4BCC1EE03A0100C65683 /* EditSubjectTeacherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditSubjectTeacherViewController.swift; path = MiniChallenge/EditSubjectTeacherViewController.swift; sourceTree = "<group>"; };
+		6E1E4BCD1EE03A0100C65683 /* EditSubjectTitle.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = EditSubjectTitle.storyboard; path = MiniChallenge/EditSubjectTitle.storyboard; sourceTree = "<group>"; };
+		6E1E4BCE1EE03A0100C65683 /* EditSubjectTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditSubjectTitleViewController.swift; path = MiniChallenge/EditSubjectTitleViewController.swift; sourceTree = "<group>"; };
+		6E1E4BCF1EE03A0100C65683 /* EditSubjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditSubjectViewController.swift; path = MiniChallenge/EditSubjectViewController.swift; sourceTree = "<group>"; };
+		6E1E4BD01EE03A0100C65683 /* HomeNotes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = HomeNotes.storyboard; path = MiniChallenge/HomeNotes.storyboard; sourceTree = "<group>"; };
+		6E1E4BD11EE03A0100C65683 /* HomeNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeNotesTableViewCell.swift; path = MiniChallenge/HomeNotesTableViewCell.swift; sourceTree = "<group>"; };
+		6E1E4BD21EE03A0100C65683 /* HomeNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeNotesViewController.swift; path = MiniChallenge/HomeNotesViewController.swift; sourceTree = "<group>"; };
+		6E1E4BEA1EE03A0D00C65683 /* NoteCreated.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = NoteCreated.storyboard; path = MiniChallenge/NoteCreated.storyboard; sourceTree = "<group>"; };
+		6E1E4BEB1EE03A0D00C65683 /* NoteCreatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteCreatedViewController.swift; path = MiniChallenge/NoteCreatedViewController.swift; sourceTree = "<group>"; };
+		6E1E4BEC1EE03A0D00C65683 /* NoteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteService.swift; path = MiniChallenge/NoteService.swift; sourceTree = "<group>"; };
+		6E1E4BED1EE03A0D00C65683 /* PresentNotes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = PresentNotes.storyboard; path = MiniChallenge/PresentNotes.storyboard; sourceTree = "<group>"; };
+		6E1E4BEE1EE03A0D00C65683 /* PresentNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PresentNotesViewController.swift; path = MiniChallenge/PresentNotesViewController.swift; sourceTree = "<group>"; };
+		6E1E4BEF1EE03A0D00C65683 /* showNotes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = showNotes.storyboard; path = MiniChallenge/showNotes.storyboard; sourceTree = "<group>"; };
+		6E1E4BF01EE03A0D00C65683 /* ShowNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowNotesTableViewCell.swift; path = MiniChallenge/ShowNotesTableViewCell.swift; sourceTree = "<group>"; };
+		6E1E4BF11EE03A0D00C65683 /* ShowNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowNotesViewController.swift; path = MiniChallenge/ShowNotesViewController.swift; sourceTree = "<group>"; };
+		6E1E4BF21EE03A0D00C65683 /* ShowSubject.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ShowSubject.storyboard; path = MiniChallenge/ShowSubject.storyboard; sourceTree = "<group>"; };
+		6E1E4BF31EE03A0D00C65683 /* SubjectFaults.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SubjectFaults.storyboard; path = MiniChallenge/SubjectFaults.storyboard; sourceTree = "<group>"; };
+		6E1E4BF41EE03A0D00C65683 /* SubjectFaultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubjectFaultsViewController.swift; path = MiniChallenge/SubjectFaultsViewController.swift; sourceTree = "<group>"; };
 		6EB66EA51EB9174D00A16F1D /* DayActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayActivityTableViewCell.swift; sourceTree = "<group>"; };
 		6EB66EA61EB9174D00A16F1D /* DayActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayActivityTableViewCell.xib; sourceTree = "<group>"; };
 		774B8E3577BCA297B347D437 /* Pods-MiniChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-MiniChallenge/Pods-MiniChallenge.release.xcconfig"; sourceTree = "<group>"; };
 		ADD876B31EAF8A6600C45032 /* CreateNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNoteViewController.swift; sourceTree = "<group>"; };
-		BF1C9D471EC4F2D300707BFF /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = ../../../../../../Downloads/Base.lproj; sourceTree = "<group>"; };
 		BF762CA41ED47320004E423B /* CreateGoal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateGoal.storyboard; sourceTree = "<group>"; };
 		BF762CA51ED47320004E423B /* CreateGoal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGoal.swift; sourceTree = "<group>"; };
 		BF762CA61ED47320004E423B /* EditActivity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditActivity.storyboard; sourceTree = "<group>"; };
@@ -244,11 +308,44 @@
 		6E15E5081EA6B8130027AAFD = {
 			isa = PBXGroup;
 			children = (
+				6E1E4BEA1EE03A0D00C65683 /* NoteCreated.storyboard */,
+				6E1E4BEB1EE03A0D00C65683 /* NoteCreatedViewController.swift */,
+				6E1E4BEC1EE03A0D00C65683 /* NoteService.swift */,
+				6E1E4BED1EE03A0D00C65683 /* PresentNotes.storyboard */,
+				6E1E4BEE1EE03A0D00C65683 /* PresentNotesViewController.swift */,
+				6E1E4BEF1EE03A0D00C65683 /* showNotes.storyboard */,
+				6E1E4BF01EE03A0D00C65683 /* ShowNotesTableViewCell.swift */,
+				6E1E4BF11EE03A0D00C65683 /* ShowNotesViewController.swift */,
+				6E1E4BF21EE03A0D00C65683 /* ShowSubject.storyboard */,
+				6E1E4BF31EE03A0D00C65683 /* SubjectFaults.storyboard */,
+				6E1E4BF41EE03A0D00C65683 /* SubjectFaultsViewController.swift */,
+				6E1E4BBC1EE03A0100C65683 /* CreateGeolocalizatedNotification.storyboard */,
+				6E1E4BBD1EE03A0100C65683 /* CreateGeolocalizatedNotificationViewController.swift */,
+				6E1E4BBE1EE03A0100C65683 /* CreateNote.storyboard */,
+				6E1E4BBF1EE03A0100C65683 /* CreateNoteContent.storyboard */,
+				6E1E4BC01EE03A0100C65683 /* CreateNoteContentViewController.swift */,
+				6E1E4BC11EE03A0100C65683 /* CreateNoteTitle.storyboard */,
+				6E1E4BC21EE03A0100C65683 /* CreateNoteTitleViewController.swift */,
+				6E1E4BC31EE03A0100C65683 /* EditGoal.storyboard */,
+				6E1E4BC41EE03A0100C65683 /* EditGoalTableViewCell.swift */,
+				6E1E4BC51EE03A0100C65683 /* EditGoalTitle.storyboard */,
+				6E1E4BC61EE03A0100C65683 /* EditGoalTitleViewController.swift */,
+				6E1E4BC71EE03A0100C65683 /* EditGoalViewController.swift */,
+				6E1E4BC81EE03A0100C65683 /* EditSubject.storyboard */,
+				6E1E4BC91EE03A0100C65683 /* EditSubjectColor.storyboard */,
+				6E1E4BCA1EE03A0100C65683 /* EditSubjectTableViewCell.swift */,
+				6E1E4BCB1EE03A0100C65683 /* EditSubjectTeacher.storyboard */,
+				6E1E4BCC1EE03A0100C65683 /* EditSubjectTeacherViewController.swift */,
+				6E1E4BCD1EE03A0100C65683 /* EditSubjectTitle.storyboard */,
+				6E1E4BCE1EE03A0100C65683 /* EditSubjectTitleViewController.swift */,
+				6E1E4BCF1EE03A0100C65683 /* EditSubjectViewController.swift */,
+				6E1E4BD01EE03A0100C65683 /* HomeNotes.storyboard */,
+				6E1E4BD11EE03A0100C65683 /* HomeNotesTableViewCell.swift */,
+				6E1E4BD21EE03A0100C65683 /* HomeNotesViewController.swift */,
 				BF762CC21ED47336004E423B /* SingletonPassedDate.swift */,
 				BF762CD81ED4769A004E423B /* SelectWhereToNotify.storyboard */,
 				BF762CD91ED4769A004E423B /* SelectWhereToNotifyViewController.swift */,
 				6E15E5231EA6B8130027AAFD /* Info.plist */,
-				BF1C9D471EC4F2D300707BFF /* Base.lproj */,
 				6E15E5131EA6B8130027AAFD /* MiniChallenge */,
 				6E15E5121EA6B8130027AAFD /* Products */,
 				40892D91CC5E95419A9F7AD6 /* Pods */,
@@ -609,14 +706,20 @@
 				BF762CB71ED47320004E423B /* GoalOptions.storyboard in Resources */,
 				BF77E5641EC394A9007845B2 /* SF-UI-Text-Semibold.otf in Resources */,
 				BF77E51D1EC394A9007845B2 /* CreateSubject.storyboard in Resources */,
+				6E1E4BDF1EE03A0100C65683 /* EditSubject.storyboard in Resources */,
+				6E1E4BDA1EE03A0100C65683 /* EditGoal.storyboard in Resources */,
 				BF77E55B1EC394A9007845B2 /* SF-UI-Text-BoldItalic.otf in Resources */,
 				BF77E5441EC394A9007845B2 /* DoneAndPostponedActivitiesTableViewCell.xib in Resources */,
 				BF77E5561EC394A9007845B2 /* SF-UI-Display-Regular.otf in Resources */,
 				BF77E55E1EC394A9007845B2 /* SF-UI-Text-Light.otf in Resources */,
 				BF77E55F1EC394A9007845B2 /* SF-UI-Text-LightItalic.otf in Resources */,
+				6E1E4BF81EE03A0D00C65683 /* PresentNotes.storyboard in Resources */,
+				6E1E4BFE1EE03A0D00C65683 /* SubjectFaults.storyboard in Resources */,
+				6E1E4BD31EE03A0100C65683 /* CreateGeolocalizatedNotification.storyboard in Resources */,
 				BF77E5591EC394A9007845B2 /* SF-UI-Display-Ultralight.otf in Resources */,
 				BF77E5371EC394A9007845B2 /* ActivityTableViewCell.xib in Resources */,
-				BF1C9D491EC4F2D300707BFF /* Base.lproj in Resources */,
+				6E1E4BFD1EE03A0D00C65683 /* ShowSubject.storyboard in Resources */,
+				6E1E4BF51EE03A0D00C65683 /* NoteCreated.storyboard in Resources */,
 				BF77E5621EC394A9007845B2 /* SF-UI-Text-Regular.otf in Resources */,
 				BF77E5321EC394A9007845B2 /* DoneAndPostponedActivities.storyboard in Resources */,
 				BF762CCD1ED47532004E423B /* Assets.xcassets in Resources */,
@@ -624,25 +727,34 @@
 				BF762CC41ED47336004E423B /* MissedClasses.storyboard in Resources */,
 				BF762CB21ED47320004E423B /* EditActivity.storyboard in Resources */,
 				BF77E51C1EC394A9007845B2 /* Calendar.storyboard in Resources */,
+				6E1E4BD51EE03A0100C65683 /* CreateNote.storyboard in Resources */,
 				BF77E5601EC394A9007845B2 /* SF-UI-Text-Medium.otf in Resources */,
 				BF762CC71ED47336004E423B /* SelectGoalDatetime.storyboard in Resources */,
 				BF762CD21ED47686004E423B /* CreateTeacher.storyboard in Resources */,
 				BF762CDE1ED4769A004E423B /* SelectWhereToNotify.storyboard in Resources */,
 				BF77E55D1EC394A9007845B2 /* SF-UI-Text-HeavyItalic.otf in Resources */,
+				6E1E4BE21EE03A0100C65683 /* EditSubjectTeacher.storyboard in Resources */,
 				BF77E5201EC394A9007845B2 /* HomeSubject.storyboard in Resources */,
+				6E1E4BDC1EE03A0100C65683 /* EditGoalTitle.storyboard in Resources */,
 				BF77E5631EC394A9007845B2 /* SF-UI-Text-RegularItalic.otf in Resources */,
 				BF762CBA1ED47320004E423B /* HomeGoal.storyboard in Resources */,
 				BF77E55A1EC394A9007845B2 /* SF-UI-Text-Bold.otf in Resources */,
 				BF77E5281EC394A9007845B2 /* SubjectCreated.storyboard in Resources */,
 				BF77E5551EC394A9007845B2 /* SF-UI-Display-Medium.otf in Resources */,
+				6E1E4BD61EE03A0100C65683 /* CreateNoteContent.storyboard in Resources */,
 				BF77E5611EC394A9007845B2 /* SF-UI-Text-MediumItalic.otf in Resources */,
 				BF77E5571EC394A9007845B2 /* SF-UI-Display-Semibold.otf in Resources */,
+				6E1E4BD81EE03A0100C65683 /* CreateNoteTitle.storyboard in Resources */,
+				6E1E4BE41EE03A0100C65683 /* EditSubjectTitle.storyboard in Resources */,
 				BF762CDA1ED4769A004E423B /* SelectDate.storyboard in Resources */,
 				BF77E5511EC394A9007845B2 /* SF-UI-Display-Black.otf in Resources */,
+				6E1E4BE71EE03A0100C65683 /* HomeNotes.storyboard in Resources */,
+				6E1E4BE01EE03A0100C65683 /* EditSubjectColor.storyboard in Resources */,
 				BF77E5651EC394A9007845B2 /* SF-UI-Text-SemiboldItalic.otf in Resources */,
 				BF77E5531EC394A9007845B2 /* SF-UI-Display-Heavy.otf in Resources */,
 				BF77E5271EC394A9007845B2 /* Subject.storyboard in Resources */,
 				BF77E55C1EC394A9007845B2 /* SF-UI-Text-Heavy.otf in Resources */,
+				6E1E4BFA1EE03A0D00C65683 /* showNotes.storyboard in Resources */,
 				BF77E51F1EC394A9007845B2 /* Goal.storyboard in Resources */,
 				BF77E5521EC394A9007845B2 /* SF-UI-Display-Bold.otf in Resources */,
 				BF77E5241EC394A9007845B2 /* Reminders.storyboard in Resources */,
@@ -707,32 +819,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E1E4BDD1EE03A0100C65683 /* EditGoalTitleViewController.swift in Sources */,
 				BF762CB41ED47320004E423B /* GoalCellsTableViewCell.swift in Sources */,
 				BF762CB31ED47320004E423B /* EditActivityController.swift in Sources */,
 				BF77E5411EC394A9007845B2 /* ControllerPList.swift in Sources */,
+				6E1E4BFB1EE03A0D00C65683 /* ShowNotesTableViewCell.swift in Sources */,
 				BF77E52E1EC394A9007845B2 /* CalendarViewController.swift in Sources */,
 				BF77E52A1EC394A9007845B2 /* SubjectTableViewCell.swift in Sources */,
+				6E1E4BE51EE03A0100C65683 /* EditSubjectTitleViewController.swift in Sources */,
 				BF762CBB1ED47320004E423B /* HomeGoal.swift in Sources */,
+				6E1E4BF91EE03A0D00C65683 /* PresentNotesViewController.swift in Sources */,
 				BF77E52C1EC394A9007845B2 /* TempController.swift in Sources */,
 				BF762CDD1ED4769A004E423B /* SelectSubjectColorViewController.swift in Sources */,
 				BF77E5311EC394A9007845B2 /* DatePickViewController.swift in Sources */,
 				BF77E5671EC394A9007845B2 /* SingletonDayActivity.swift in Sources */,
 				BF77E5361EC394A9007845B2 /* ActivityTableViewCell.swift in Sources */,
 				BF762CC81ED47336004E423B /* SelectGoalDatetime.swift in Sources */,
+				6E1E4BF71EE03A0D00C65683 /* NoteService.swift in Sources */,
 				BF762CB81ED47320004E423B /* GoalOptions.swift in Sources */,
 				ADD876B41EAF8A6600C45032 /* CreateNoteViewController.swift in Sources */,
+				6E1E4BFF1EE03A0D00C65683 /* SubjectFaultsViewController.swift in Sources */,
 				6EB66EA71EB9174D00A16F1D /* DayActivityTableViewCell.swift in Sources */,
 				BF762CCA1ED47336004E423B /* SingletonPassedDate.swift in Sources */,
+				6E1E4BD41EE03A0100C65683 /* CreateGeolocalizatedNotificationViewController.swift in Sources */,
+				6E1E4BD91EE03A0100C65683 /* CreateNoteTitleViewController.swift in Sources */,
+				6E1E4BE91EE03A0100C65683 /* HomeNotesViewController.swift in Sources */,
 				BF762CB61ED47320004E423B /* GoalCreated.swift in Sources */,
 				BF762CC51ED47336004E423B /* MissedClassViewController.swift in Sources */,
 				BF77E52B1EC394A9007845B2 /* SubjectViewController.swift in Sources */,
 				BF762CDF1ED4769A004E423B /* SelectWhereToNotifyViewController.swift in Sources */,
+				6E1E4BE81EE03A0100C65683 /* HomeNotesTableViewCell.swift in Sources */,
+				6E1E4BFC1EE03A0D00C65683 /* ShowNotesViewController.swift in Sources */,
 				6E15E52F1EA6CC8E0027AAFD /* Teacher.swift in Sources */,
 				BF77E54D1EC394A9007845B2 /* MiniChallenge.xcdatamodeld in Sources */,
+				6E1E4BD71EE03A0100C65683 /* CreateNoteContentViewController.swift in Sources */,
 				BF77E5331EC394A9007845B2 /* DoneAndPostponedActivitiesTableViewCell.swift in Sources */,
 				BF762CC91ED47336004E423B /* ShowSubjectsActivity.swift in Sources */,
 				BF762CB11ED47320004E423B /* CreateGoal.swift in Sources */,
 				BF77E5301EC394A9007845B2 /* DailyCalendarViewController.swift in Sources */,
+				6E1E4BDB1EE03A0100C65683 /* EditGoalTableViewCell.swift in Sources */,
 				6E15E52C1EA6CB9D0027AAFD /* Note.swift in Sources */,
 				BF762CD11ED47686004E423B /* ColorsCollectionViewCell.swift in Sources */,
 				6E15E52A1EA6B9B30027AAFD /* Subject.swift in Sources */,
@@ -741,9 +866,13 @@
 				BF77E51E1EC394A9007845B2 /* CreateSubject.swift in Sources */,
 				BF77E5211EC394A9007845B2 /* HomeSubject.swift in Sources */,
 				BF77E53D1EC394A9007845B2 /* CalendarCell.swift in Sources */,
+				6E1E4BE61EE03A0100C65683 /* EditSubjectViewController.swift in Sources */,
 				BF762CB91ED47320004E423B /* GoalService.swift in Sources */,
 				6E15E5151EA6B8130027AAFD /* AppDelegate.swift in Sources */,
 				BF77E52D1EC394A9007845B2 /* AddTitleController.swift in Sources */,
+				6E1E4BE11EE03A0100C65683 /* EditSubjectTableViewCell.swift in Sources */,
+				6E1E4BF61EE03A0D00C65683 /* NoteCreatedViewController.swift in Sources */,
+				6E1E4BE31EE03A0100C65683 /* EditSubjectTeacherViewController.swift in Sources */,
 				BF77E5231EC394A9007845B2 /* OnboardingViewController.swift in Sources */,
 				BF77E56C1EC394A9007845B2 /* User.swift in Sources */,
 				BF77E53F1EC394A9007845B2 /* ChooseSubjectController.swift in Sources */,
@@ -755,9 +884,8 @@
 				BF762CD31ED47686004E423B /* CreateTeacherViewController.swift in Sources */,
 				D4C988981EA7D33B008DC591 /* Goal.swift in Sources */,
 				BF77E54C1EC394A9007845B2 /* HomeGoalViewController.swift in Sources */,
-				BF77E5461EC394A9007845B2 /* EditScreen.swift in Sources */,
-				BF77E5661EC394A9007845B2 /* ShowActivities.swift in Sources */,
 				BF762CDB1ED4769A004E423B /* SelectGoalDateViewController.swift in Sources */,
+				6E1E4BDE1EE03A0100C65683 /* EditGoalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

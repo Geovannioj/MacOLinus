@@ -13,20 +13,14 @@ class Subject: NSObject, NSCoding {
     var teacher: Teacher = Teacher()
     var missedClasses = [NSDate]()
     var notes = [Note]()
-    var faults: Int = -1
-
-    //    var note: Note = Note()
-    //
-    
+    var faults: Int64 = 0
     
     // MARK: - Path to persist data
     
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("subjects")
     
-    
     // MARK: - Constructors
-    
     
     override init() {
         super.init()
@@ -68,47 +62,12 @@ class Subject: NSObject, NSCoding {
         self.place = address
     }
     
-   
-    
-    
     init(title: String, place: String, teacher: String) {
         
         self.title = title
         self.place = place
         self.teacher =  Teacher(name: teacher)
         
-    }
-    
-    // MARK: - Helpers
-    
-    //update methods
-    func updateTitle(newTitle: String) {
-        self.title = newTitle
-    }
-    
-    func updatePlace(newPlace: String) {
-        self.place = newPlace
-    }
-    
-    func updateIcon(newIcon: UIImage) {
-        self.icon = newIcon
-    }
-    
-    func updateSchedule(oldShedule: Date, newSchedule: Date) {
-        let indexOfOldSchedule = self.schedule.index(of: oldShedule)
-        self.schedule[indexOfOldSchedule!] = newSchedule
-    }
-    
-    func updateColor(newColor: UIColor) {
-        self.color = newColor
-    }
-    
-    func updateTeacher(newTecher: Teacher) {
-        self.teacher = newTecher
-    }
-    
-    func updateNote(newNote: Note) {
-        //        self.note = newNote
     }
     
     // MARK: - Persist subject
@@ -120,7 +79,7 @@ class Subject: NSObject, NSCoding {
         self.color = decoder.decodeObject(forKey: "color") as? UIColor ?? UIColor.black
         self.teacher.name =  decoder.decodeObject(forKey: "teacherName") as? String ?? ""
         self.notes = decoder.decodeObject(forKey: "notes") as? [Note] ?? [Note]()
-        self.faults = decoder.decodeObject(forKey: "faults") as? Int ?? 0
+        self.faults = decoder.decodeInt64(forKey: "faults")
     }
     
     func encode(with coder: NSCoder) {

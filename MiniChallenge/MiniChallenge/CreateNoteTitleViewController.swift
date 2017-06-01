@@ -26,6 +26,8 @@ class CreateNoteTitleViewController: UIViewController {
     }
     
 
+    
+
     @IBAction func nextScreenPressed(_ sender: Any) {
         
         addNoteTitleToSubject()

@@ -19,6 +19,8 @@ class SubjectFaultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    
+        
         loadSubjects()
         
         setup()
@@ -50,8 +52,8 @@ class SubjectFaultsViewController: UIViewController {
             let subjectWithFault = SingletonSubject.sharedInstance.subject
             let index = SingletonSubject.sharedInstance.index
             
-            if Int(numberOfFaults.text!) != nil {
-                subjectWithFault.faults = Int(numberOfFaults.text!)!
+            if Int64(numberOfFaults.text!) != nil {
+                subjectWithFault.faults = Int64(numberOfFaults.text!)!
             }
             
             SingletonSubject.sharedInstance.subjects[index] = subjectWithFault
@@ -61,7 +63,7 @@ class SubjectFaultsViewController: UIViewController {
     
     @IBAction func faultAdded(_ sender: Any) {
         
-        if var faults = Int(numberOfFaults.text!) {
+        if var faults = Int64(numberOfFaults.text!) {
             faults = faults + 1
             numberOfFaults.text = String(describing: faults)
         }
@@ -69,7 +71,7 @@ class SubjectFaultsViewController: UIViewController {
     
     @IBAction func faultRemoved(_ sender: Any) {
         
-        if var faults = Int(numberOfFaults.text!) {
+        if var faults = Int64(numberOfFaults.text!) {
             
             if faults > 0 {
                 faults = faults - 1
@@ -89,7 +91,7 @@ class SubjectFaultsViewController: UIViewController {
         let index = SingletonSubject.sharedInstance.index
         
         if Int(numberOfFaults.text!) != nil {
-            subjectWithFault.faults = Int(numberOfFaults.text!)!
+            subjectWithFault.faults = Int64(numberOfFaults.text!)!
         }
         
         SingletonSubject.sharedInstance.subjects[index] = subjectWithFault
