@@ -104,8 +104,7 @@
                                 <rect key="frame" x="315" y="430" width="44" height="44"/>
                                 <state key="normal" image="redButton"/>
                                 <connections>
-                                    <action selector="nextScreenPressed:" destination="wQf-Sy-c7X" eventType="touchUpInside" id="ZXc-Pb-S3e"/>
-                                    <segue destination="KGk-S5-4bK" kind="show" identifier="SubjectCreated" id="ipB-gY-vhs"/>
+                                    <action selector="nextScreenPressed:" destination="wQf-Sy-c7X" eventType="touchUpInside" id="PPo-jN-FSZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -132,6 +131,9 @@
                             <constraint firstItem="wnG-y7-Orq" firstAttribute="leading" secondItem="fWk-ny-OsF" secondAttribute="trailing" constant="5" id="r8o-Sq-mOh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="KGk-S5-4bK" kind="presentation" identifier="SubjectCreated" id="Asm-0L-JBL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcX-KN-e4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
