@@ -66,7 +66,7 @@ class SubjectCreated: UIViewController {
 
     @IBAction func nextScreenBtn(_ sender: Any) {
         
-        if segueData == "AddActivity"{
+        if segueData == "AddActivity" || segueData == "ChooseSubjectController" {
             
             performSegue(withIdentifier: "BackToChooseSubject", sender: Any?.self)
             
