@@ -185,7 +185,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         }
         
         //done button
-        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
+        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Done")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             //set status to done(=1)
             
