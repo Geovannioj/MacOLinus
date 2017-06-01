@@ -315,7 +315,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         //done button
-        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "Done")!)) {
+        let doneButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "done")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
             self.showAnimationMovedToDone()
