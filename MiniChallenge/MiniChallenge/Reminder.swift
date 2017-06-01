@@ -42,7 +42,7 @@ class Reminder: NSObject, NSCoding {
         reminderDescription = aDecoder.decodeObject(forKey: "description") as! String
         time = aDecoder.decodeObject(forKey: "time") as! Date
         if aDecoder.decodeObject(forKey: "Subject") != nil {
-           subject = aDecoder.decodeObject(forKey: "Subject") as! Subject
+           subject = (aDecoder.decodeObject(forKey: "Subject") as! Subject)
         }
         status = aDecoder.decodeInteger(forKey: "Status")
         super.init()
