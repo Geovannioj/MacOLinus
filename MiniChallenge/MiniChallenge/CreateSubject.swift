@@ -12,6 +12,8 @@ class CreateSubject: UIViewController {
     
     @IBOutlet weak var subjectField: UITextField!
     
+    var segueData:String?
+    var auxSegue:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,17 +54,17 @@ class CreateSubject: UIViewController {
         }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        
-//        if segue.identifier == "SubjectCreated" {
-//            
-//            if let toNextScreen = segue.destination as? SubjectCreated {
-//                toNextScreen.subjectName = subjectField.text!
-//            }
-//            
-//        }
-//    }
-//    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "CreateTeacher" {
+            
+            if let toNextScreen = segue.destination as? CreateTeacherViewController {
+                toNextScreen.segueData = segueData
+            }
+            
+        }
+    }
+    
     
     func assignSubjectColor() -> UIColor {
         

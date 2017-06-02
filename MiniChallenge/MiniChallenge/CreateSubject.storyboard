@@ -18,7 +18,7 @@
         <!--Create Subject-->
         <scene sceneID="Mzx-PL-1Gf">
             <objects>
-                <viewController id="F9j-RJ-gHw" customClass="CreateSubject" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateSubject" id="F9j-RJ-gHw" customClass="CreateSubject" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yjZ-R1-zoF"/>
                         <viewControllerLayoutGuide type="bottom" id="uyw-uF-1O0"/>
