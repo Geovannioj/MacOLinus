@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="73U-ox-Kwp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="73U-ox-Kwp">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -42,6 +42,13 @@
                                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49N-Sr-Dss">
+                                        <rect key="frame" x="31" y="27" width="61" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Cancelar">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.40459585190000003" green="0.41695094110000003" blue="0.89097839590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -119,6 +126,7 @@
                         <segue destination="vv8-0I-LbM" kind="show" identifier="startAProject" id="GbF-89-Jwk"/>
                         <segue destination="vv8-0I-LbM" kind="show" identifier="readABook" id="nsm-w4-xsX"/>
                         <segue destination="vv8-0I-LbM" kind="show" identifier="customGoal" id="saa-C2-tK3"/>
+                        <segue destination="TPk-pa-3I5" kind="show" id="pIJ-VG-zhH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hz7-D3-81v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -132,6 +140,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0vO-pz-IR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="392" y="-22"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="hM8-ew-BIl">
+            <objects>
+                <viewControllerPlaceholder id="TPk-pa-3I5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KPD-Tf-9jE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="392" y="196"/>
         </scene>
     </scenes>
     <resources>

@@ -14,6 +14,10 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
     let formFields = ["Matéria", "Professor","Cor"]
     var fields = ["", "", ""]
     
+    @IBAction func cancelPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "cancelEdit", sender: Any?.self)
+    }
 
     
     override func viewDidLoad() {
@@ -38,7 +42,7 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

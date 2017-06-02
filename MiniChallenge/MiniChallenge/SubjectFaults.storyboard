@@ -36,13 +36,15 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="lpU-q2-uvC">
                                         <rect key="frame" x="153" y="32" width="69" height="21"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9f-8u-dsJ">
-                                        <rect key="frame" x="22" y="25" width="78" height="34"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AH6-ry-2sS">
+                                        <rect key="frame" x="20" y="27" width="60" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                         <state key="normal" title="Matérias">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="backToHomeSubject:" destination="5kZ-V9-s0H" eventType="touchUpInside" id="w0A-fp-XGR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -163,11 +165,38 @@
                         <outlet property="segmentControl" destination="FUE-dw-aPC" id="uXA-ms-AbP"/>
                         <outlet property="subjectColor" destination="DxF-OC-KXd" id="6D7-gA-Afh"/>
                         <outlet property="subjectTitle" destination="rjz-Bz-uFi" id="ttc-Zy-NwM"/>
+                        <segue destination="36m-41-cdf" kind="show" identifier="HomeNotes" id="U1B-39-jgM"/>
+                        <segue destination="6Dz-sC-Rty" kind="show" identifier="backToHomeSubjects" id="b5B-cC-WAY"/>
+                        <segue destination="o1l-dv-SWV" kind="show" identifier="HomeTasks" id="NZN-dv-AXv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9k-zr-GyL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="296.80000000000001" y="187.55622188905548"/>
+        </scene>
+        <!--HomeNotes-->
+        <scene sceneID="LVf-MB-p4B">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeNotes" id="36m-41-cdf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gmd-YU-0ps" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="996" y="187"/>
+        </scene>
+        <!--HomeSubject-->
+        <scene sceneID="Eug-8R-LxO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeSubject" id="6Dz-sC-Rty" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ig-Gt-rSq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="996" y="104"/>
+        </scene>
+        <!--HomeNotes-->
+        <scene sceneID="KW3-4e-ZjY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeNotes" id="o1l-dv-SWV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FFG-wX-WRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="994" y="275"/>
         </scene>
     </scenes>
     <resources>

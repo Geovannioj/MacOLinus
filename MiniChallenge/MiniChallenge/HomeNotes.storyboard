@@ -21,7 +21,23 @@
                 <viewControllerPlaceholder storyboardName="SubjectFaults" id="hPC-ce-CWa" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rdO-XO-LVV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="660" y="251"/>
+            <point key="canvasLocation" x="620" y="266"/>
+        </scene>
+        <!--HomeTasks-->
+        <scene sceneID="RuZ-3H-sHK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeTasks" id="UY1-Ad-aRA" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="No4-KA-Axk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="598" y="-11"/>
+        </scene>
+        <!--HomeSubject-->
+        <scene sceneID="vy1-nu-MgQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeSubject" id="98o-SJ-7at" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QPt-Ip-0Qu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="608" y="57"/>
         </scene>
         <!--Home Notes View Controller-->
         <scene sceneID="Qez-F2-v3c">
@@ -41,18 +57,22 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="6Ol-LM-xE9">
                                         <rect key="frame" x="153" y="32" width="69" height="21"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8N-Fz-SFQ">
-                                        <rect key="frame" x="22" y="25" width="78" height="34"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egC-5y-QS2">
+                                        <rect key="frame" x="23" y="34" width="80" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                         <state key="normal" title="Matérias">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="backToHomeSubjectPressed:" destination="kgK-Rx-FDp" eventType="touchUpInside" id="j13-Dr-Fzx"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xmn-D1-eNF">
-                                        <rect key="frame" x="308" y="35" width="46" height="30"/>
+                                        <rect key="frame" x="268" y="35" width="78" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Adicionar">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="createNotePressed:" destination="kgK-Rx-FDp" eventType="touchUpInside" id="4CK-II-gXW"/>
                                         </connections>
@@ -197,6 +217,8 @@
                         <segue destination="fMz-Ny-WkN" kind="show" identifier="CreateNoteTitle" id="WEd-a4-9P5"/>
                         <segue destination="avh-hN-kJN" kind="show" identifier="PresentNotes" id="5K0-Z7-gjM"/>
                         <segue destination="hPC-ce-CWa" kind="show" identifier="SubjectFault" id="8Qd-Kc-Y0d"/>
+                        <segue destination="UY1-Ad-aRA" kind="show" identifier="HomeTasks" id="Ksr-ev-f5D"/>
+                        <segue destination="98o-SJ-7at" kind="show" identifier="backToHomeSubjects" id="fbq-sg-xe0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lty-Fa-ixl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -217,7 +239,7 @@
                 <viewControllerPlaceholder storyboardName="PresentNotes" id="avh-hN-kJN" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="616-pC-7SH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="193"/>
+            <point key="canvasLocation" x="620" y="195"/>
         </scene>
     </scenes>
     <resources>

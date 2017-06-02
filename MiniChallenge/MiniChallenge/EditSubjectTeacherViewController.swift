@@ -57,6 +57,10 @@ class EditSubjectTeacherViewController: UIViewController {
         UIApplication.shared.statusBarStyle = .default
         
     }
+    @IBAction func backPressed(_ sender: Any) {
+            performSegue(withIdentifier: "backToEditSubject", sender: Any?.self)
+
+    }
 
     @IBAction func nextScreenPressed(_ sender: Any) {
         

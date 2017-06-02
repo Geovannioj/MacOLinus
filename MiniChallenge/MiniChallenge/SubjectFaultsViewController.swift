@@ -58,6 +58,11 @@ class SubjectFaultsViewController: UIViewController {
             
             SingletonSubject.sharedInstance.subjects[index] = subjectWithFault
             saveSubjects()
+            
+            performSegue(withIdentifier: "HomeNotes", sender: Any?.self)
+
+        } else if segmentControl.selectedSegmentIndex == 0 {
+            performSegue(withIdentifier: "HomeTasks", sender: Any?.self)
         }
     }
     
@@ -69,6 +74,10 @@ class SubjectFaultsViewController: UIViewController {
         }
     }
     
+    @IBAction func backToHomeSubject(_ sender: Any) {
+        
+        performSegue(withIdentifier: "backToHomeSubjects", sender: Any?.self)
+    }
     @IBAction func faultRemoved(_ sender: Any) {
         
         if var faults = Int64(numberOfFaults.text!) {

@@ -67,7 +67,7 @@
                                     <segue destination="FC3-PC-Ndd" kind="show" identifier="SelectDate" id="DDV-X3-1QC"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="2Xm-6D-yxZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="2Xm-6D-yxZ">
                                 <rect key="frame" x="153" y="32" width="69" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="69" id="1t2-eg-ed7"/>
@@ -76,6 +76,11 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MoH-xR-0Gs">
                                 <rect key="frame" x="0.0" y="260.5" width="375" height="407.5"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOZ-f1-MDQ">
+                                <rect key="frame" x="26" y="28" width="61" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancelar"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -129,7 +134,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Pengo" width="69" height="21"/>
+        <image name="pengoWhite" width="69" height="21"/>
         <image name="redButton" width="44" height="44"/>
     </resources>
 </document>

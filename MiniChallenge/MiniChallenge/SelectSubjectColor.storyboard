@@ -27,12 +27,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gk1-PV-txd">
-                                <rect key="frame" x="26" y="49" width="48" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escolha uma cor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnG-y7-Orq">
                                 <rect key="frame" x="36" y="89" width="262" height="29"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
@@ -108,30 +102,40 @@
                                     <segue destination="KGk-S5-4bK" kind="show" identifier="SubjectCreated" id="ipB-gY-vhs"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jq-gt-fdW">
+                                <rect key="frame" x="39" y="51" width="41" height="30"/>
+                                <state key="normal" title="Voltar">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backPressed:" destination="wQf-Sy-c7X" eventType="touchUpInside" id="dul-kR-Rkf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="lws-1f-8FV" secondAttribute="bottom" constant="255" id="2Df-Ph-IVp"/>
+                            <constraint firstItem="wnG-y7-Orq" firstAttribute="top" secondItem="5jq-gt-fdW" secondAttribute="bottom" constant="8" id="2eb-Hn-UYU"/>
                             <constraint firstItem="BaD-p9-npB" firstAttribute="leading" secondItem="fSs-td-THF" secondAttribute="leadingMargin" constant="299" id="37V-wP-uAd"/>
-                            <constraint firstItem="Gk1-PV-txd" firstAttribute="top" secondItem="9Ps-cU-gpk" secondAttribute="bottom" constant="29" id="Bnj-Sa-nJU"/>
-                            <constraint firstItem="Gk1-PV-txd" firstAttribute="top" secondItem="u2N-FN-EO7" secondAttribute="bottom" constant="-4" id="CFd-zf-8Cc"/>
+                            <constraint firstItem="fWk-ny-OsF" firstAttribute="top" secondItem="5jq-gt-fdW" secondAttribute="bottom" constant="17" id="98a-vC-jOd"/>
                             <constraint firstItem="fWk-ny-OsF" firstAttribute="leading" secondItem="fSs-td-THF" secondAttribute="leadingMargin" constant="7" id="E3v-Ue-ExU"/>
-                            <constraint firstItem="wnG-y7-Orq" firstAttribute="top" secondItem="Gk1-PV-txd" secondAttribute="bottom" constant="23" id="KoW-r9-RWN"/>
                             <constraint firstItem="u2N-FN-EO7" firstAttribute="centerX" secondItem="fSs-td-THF" secondAttribute="centerX" id="PuR-xr-xbH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wnG-y7-Orq" secondAttribute="trailing" constant="61" id="QHa-bY-uZ5"/>
-                            <constraint firstItem="Gk1-PV-txd" firstAttribute="leading" secondItem="fSs-td-THF" secondAttribute="leadingMargin" constant="10" id="SsY-Wi-mIz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lws-1f-8FV" secondAttribute="trailing" constant="-17" id="V1p-o2-7q5"/>
-                            <constraint firstItem="fWk-ny-OsF" firstAttribute="top" secondItem="Gk1-PV-txd" secondAttribute="bottom" constant="32" id="Xqx-3t-w7J"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Gk1-PV-txd" secondAttribute="trailing" constant="285" id="Ygu-r5-qtz"/>
                             <constraint firstItem="u2N-FN-EO7" firstAttribute="top" secondItem="fSs-td-THF" secondAttribute="topMargin" constant="32" id="ZpV-FU-tkW"/>
                             <constraint firstItem="wnG-y7-Orq" firstAttribute="leading" secondItem="fSs-td-THF" secondAttribute="leadingMargin" constant="20" id="aKT-LQ-hjO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BaD-p9-npB" secondAttribute="trailing" id="dGU-uN-buf"/>
                             <constraint firstItem="HO8-yQ-XKq" firstAttribute="top" secondItem="BaD-p9-npB" secondAttribute="bottom" constant="193" id="eG5-Jl-d0q"/>
                             <constraint firstItem="lws-1f-8FV" firstAttribute="top" secondItem="wnG-y7-Orq" secondAttribute="bottom" constant="8" id="fSy-6M-aI6"/>
+                            <constraint firstItem="5jq-gt-fdW" firstAttribute="top" secondItem="9Ps-cU-gpk" secondAttribute="bottom" constant="31" id="kU4-ap-o0s"/>
                             <constraint firstAttribute="leadingMargin" secondItem="lws-1f-8FV" secondAttribute="leading" constant="15" id="o2k-7f-7WP"/>
                             <constraint firstItem="wnG-y7-Orq" firstAttribute="leading" secondItem="fWk-ny-OsF" secondAttribute="trailing" constant="5" id="r8o-Sq-mOh"/>
+                            <constraint firstItem="5jq-gt-fdW" firstAttribute="leading" secondItem="fSs-td-THF" secondAttribute="leadingMargin" constant="23" id="wVk-2I-mkK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="JKw-aJ-9Aw" kind="show" identifier="backToCreateTeacher" id="aId-ca-V44"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcX-KN-e4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -143,7 +147,15 @@
                 <viewControllerPlaceholder storyboardName="SubjectCreated" id="KGk-S5-4bK" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fwd-UG-97I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1274" y="122"/>
+            <point key="canvasLocation" x="1273" y="100"/>
+        </scene>
+        <!--CreateTeacher-->
+        <scene sceneID="Lcv-hR-6wp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateTeacher" id="JKw-aJ-9Aw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JAV-OU-j4H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1267" y="142"/>
         </scene>
     </scenes>
     <resources>

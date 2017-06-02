@@ -55,6 +55,11 @@ class CreateSubject: UIViewController {
         performSegue(withIdentifier: "CreateTeacher", sender: Any?.self)
     }
     
+
+    @IBAction func cancelPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "cancelSubject", sender: Any?.self)
+    }
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        
 //        if segue.identifier == "SubjectCreated" {

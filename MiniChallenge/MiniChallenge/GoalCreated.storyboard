@@ -30,14 +30,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Trq-PX-dzN">
-                                <rect key="frame" x="26" y="49" width="48" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="A meta " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHL-ag-dgv">
-                                <rect key="frame" x="36" y="89" width="80.5" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A meta " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHL-ag-dgv">
+                                <rect key="frame" x="36" y="90.5" width="80.5" height="27.5"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -67,7 +61,7 @@
                                     <segue destination="cUm-gH-Dd5" kind="show" identifier="goalCreated" id="H3U-er-Mwh"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="L3v-7f-NCV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="L3v-7f-NCV">
                                 <rect key="frame" x="153" y="32" width="69" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="69" id="d55-et-aCN"/>
@@ -82,18 +76,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Trq-PX-dzN" secondAttribute="trailing" constant="285" id="2dq-yc-DCv"/>
-                            <constraint firstItem="HHL-ag-dgv" firstAttribute="top" secondItem="Trq-PX-dzN" secondAttribute="bottom" constant="23" id="31D-G8-DAo"/>
-                            <constraint firstItem="Trq-PX-dzN" firstAttribute="top" secondItem="L3v-7f-NCV" secondAttribute="bottom" constant="-4" id="5TJ-p4-XbE"/>
                             <constraint firstItem="0J8-De-xsU" firstAttribute="top" secondItem="PHK-jT-3cS" secondAttribute="bottom" constant="29.5" id="8xZ-TT-vFm"/>
                             <constraint firstItem="L3v-7f-NCV" firstAttribute="top" secondItem="fNW-yv-bvf" secondAttribute="topMargin" constant="32" id="9za-4h-QBS"/>
                             <constraint firstItem="PHK-jT-3cS" firstAttribute="top" secondItem="9h6-3N-Tpc" secondAttribute="bottom" constant="13" id="Bge-c3-lqN"/>
-                            <constraint firstItem="bew-RY-uae" firstAttribute="top" secondItem="Trq-PX-dzN" secondAttribute="bottom" constant="32" id="JIg-dv-tkS"/>
                             <constraint firstItem="PHK-jT-3cS" firstAttribute="top" secondItem="HHL-ag-dgv" secondAttribute="bottom" constant="13" id="MdY-l1-9bE"/>
                             <constraint firstItem="9h6-3N-Tpc" firstAttribute="top" secondItem="L3v-7f-NCV" secondAttribute="bottom" constant="36" id="MxD-FL-LdE"/>
                             <constraint firstItem="9h6-3N-Tpc" firstAttribute="leading" secondItem="HHL-ag-dgv" secondAttribute="trailing" constant="15" id="Pwz-ke-lGK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9h6-3N-Tpc" secondAttribute="trailing" constant="69" id="THA-E8-76V"/>
-                            <constraint firstItem="Trq-PX-dzN" firstAttribute="leading" secondItem="fNW-yv-bvf" secondAttribute="leadingMargin" constant="10" id="Wip-ZY-BUB"/>
                             <constraint firstItem="HHL-ag-dgv" firstAttribute="leading" secondItem="fNW-yv-bvf" secondAttribute="leadingMargin" constant="20" id="YOt-lI-S9Q"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PHK-jT-3cS" secondAttribute="trailing" constant="8" id="a6b-Ku-MF8"/>
                             <constraint firstItem="HHL-ag-dgv" firstAttribute="leading" secondItem="bew-RY-uae" secondAttribute="trailing" constant="5" id="bZA-hQ-Zm2"/>
@@ -102,7 +91,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="0J8-De-xsU" secondAttribute="trailing" constant="13" id="m4U-Rr-fK2"/>
                             <constraint firstItem="bew-RY-uae" firstAttribute="leading" secondItem="fNW-yv-bvf" secondAttribute="leadingMargin" constant="7" id="pUG-3o-1qB"/>
                             <constraint firstItem="L3v-7f-NCV" firstAttribute="centerX" secondItem="fNW-yv-bvf" secondAttribute="centerX" id="rYJ-un-qgA"/>
-                            <constraint firstItem="Trq-PX-dzN" firstAttribute="top" secondItem="yzN-2y-WYi" secondAttribute="bottom" constant="29" id="sim-sn-fO8"/>
                         </constraints>
                     </view>
                     <connections>
@@ -123,7 +111,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Pengo" width="69" height="21"/>
+        <image name="pengoWhite" width="69" height="21"/>
         <image name="redButton" width="44" height="44"/>
     </resources>
 </document>

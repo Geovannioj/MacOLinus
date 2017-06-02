@@ -10,6 +10,10 @@ import UIKit
 
 class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBAction func backToHomeSubjectPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "backToHomeSubjects", sender: Any?.self)
+    }
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var segmentControl: UISegmentedControl!
@@ -41,7 +45,9 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        loadSubjects()
         tableView.reloadData()
     }
     
@@ -57,6 +63,8 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         if segmentControl.selectedSegmentIndex == 2 {
             performSegue(withIdentifier: "SubjectFault", sender: Any?.self)
+        } else if segmentControl.selectedSegmentIndex == 0 {
+            performSegue(withIdentifier: "HomeTasks", sender: Any?.self)
         }
     }
     
@@ -68,7 +76,6 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return SingletonSubject.sharedInstance.subject.notes.count
         
     }
@@ -76,6 +83,7 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeNotesTableViewCell
         
         let index = SingletonSubject.sharedInstance.index
@@ -112,6 +120,7 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
         data.write(to: dataFilePath(), atomically: true)
         
     }
+    
     
     func loadSubjects() {
         

@@ -10,6 +10,11 @@ import UIKit
 
 class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    @IBAction func backPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "backToCreateTeacher", sender: Any?.self)
+    }
+  
     var colors = [UIColor]()
     
     let customRed = UIColor(colorLiteralRed: 1.0000, green: 0.3412, blue: 0.4392, alpha: 1.0)

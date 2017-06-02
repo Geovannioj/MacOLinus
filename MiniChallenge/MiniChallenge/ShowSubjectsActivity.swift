@@ -11,12 +11,25 @@ import UIKit
 
 class ShowSubjectsActivity: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    
     @IBOutlet weak var subjectsActivityTableView: UITableView!
     @IBOutlet weak var subjectNameLbl: UILabel!
     @IBOutlet weak var subjectColorLBl: UILabel!
-    @IBOutlet weak var backButton: UIButton!
     
     
+    @IBAction func segmenteControlChanged(_ sender: Any) {
+        if segmentControl.selectedSegmentIndex == 1{
+            performSegue(withIdentifier: "HomeNotes", sender: Any?.self)
+        } else if segmentControl.selectedSegmentIndex == 2 {
+            performSegue(withIdentifier: "SubjectFaults", sender: Any?.self)
+        }
+    }
+    
+    @IBAction func backToHomeSubejct(_ sender: Any) {
+    
+         performSegue(withIdentifier: "BackToSubjectsHome", sender: Any?.self)
+    }
     var subjectReceived:Subject?
     var subjectsActivity: [Reminder] = []
     var receivedArray: [Reminder] = []
@@ -26,7 +39,12 @@ class ShowSubjectsActivity: UIViewController, UITableViewDataSource, UITableView
         
         subjectsActivity = receivedArray
         
-        subjectNameLbl.text = subjectReceived?.title
+        if  let subjectName = subjectReceived?.title {
+            
+            subjectNameLbl.text = subjectReceived?.title
+            
+        }
+        
         subjectColorLBl.backgroundColor = subjectReceived?.color
         
         subjectsActivityTableView.delegate = self
@@ -83,11 +101,5 @@ class ShowSubjectsActivity: UIViewController, UITableViewDataSource, UITableView
         
         return cell
 
-    }
-    
-    @IBAction func backBtnAction(_ sender: Any) {
-        
-        performSegue(withIdentifier: "BackToSubjectsHome", sender: Any?.self)
-        
     }
 }

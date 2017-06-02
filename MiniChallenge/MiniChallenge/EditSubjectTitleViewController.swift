@@ -20,6 +20,10 @@ class EditSubjectTitleViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func backPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "backToEditSubject", sender: Any?.self)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

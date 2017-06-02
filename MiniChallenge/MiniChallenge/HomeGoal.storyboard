@@ -30,7 +30,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrI-Bk-jzW">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="DEe-jD-qx5">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="DEe-jD-qx5">
                                         <rect key="frame" x="153.5" y="32" width="69" height="21"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rbb-ji-MWc">
@@ -151,10 +151,10 @@
     </scenes>
     <resources>
         <image name="Goal Line" width="26" height="26"/>
-        <image name="Pengo" width="69" height="21"/>
         <image name="clockIcon" width="14" height="14"/>
         <image name="createUserGoals" width="375" height="126"/>
         <image name="goals fill" width="24" height="25"/>
         <image name="listIcon" width="13" height="13"/>
+        <image name="pengoWhite" width="69" height="21"/>
     </resources>
 </document>
