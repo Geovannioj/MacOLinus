@@ -11,6 +11,8 @@ import UIKit
 class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     var colors = [UIColor]()
+    var aColorWasSelected = false
+    @IBOutlet weak var validation: UILabel!
     
     let customRed = UIColor(colorLiteralRed: 1.0000, green: 0.3412, blue: 0.4392, alpha: 1.0)
     let customYellow = UIColor(colorLiteralRed: 1.0000, green: 0.8275, blue: 0.4392, alpha: 1.0)
@@ -28,6 +30,7 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        validation.isHidden = true
         
         configLayout()
         
@@ -107,6 +110,7 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        aColorWasSelected = true
         let cell = collectionView.cellForItem(at: indexPath) as! ColorsCollectionViewCell
         
         cell.layer.borderWidth = 5
@@ -166,10 +170,13 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
     
     @IBAction func nextScreenPressed(_ sender: Any) {
         
-        createSubject()
-        saveSubjects()
-        
-        performSegue(withIdentifier: "SubjectCreated", sender: Any?.self)
+        if aColorWasSelected{
+            createSubject()
+            saveSubjects()
+            performSegue(withIdentifier: "SubjectCreated", sender: Any?.self)
+        }else{
+            validation.isHidden = false
+        }
     }
     
     func createSubject() {

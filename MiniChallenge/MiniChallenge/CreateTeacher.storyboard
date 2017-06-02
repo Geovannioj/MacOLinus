@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wEI-v4-pIa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wEI-v4-pIa">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -74,6 +74,15 @@
                                     <constraint firstAttribute="width" constant="68" id="uMw-IM-cMU"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O nome do professor deve ser preenchido!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6Q-lv-Wzh">
+                                <rect key="frame" x="35" y="202" width="242" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="RbO-3u-LNQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.03920602426" green="0.039221249520000001" blue="0.039205066859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -87,6 +96,8 @@
                             <constraint firstItem="ZgX-tH-qmZ" firstAttribute="top" secondItem="cYg-hy-OHy" secondAttribute="topMargin" constant="32" id="Eew-1B-inV"/>
                             <constraint firstItem="ByZ-Bl-cqd" firstAttribute="top" secondItem="4Mb-b5-qZi" secondAttribute="bottom" constant="32" id="R6X-Ly-xVN"/>
                             <constraint firstItem="mOt-FG-dsw" firstAttribute="top" secondItem="FXx-zO-wlw" secondAttribute="bottom" constant="17.666666666666671" id="RqO-pe-OXc"/>
+                            <constraint firstItem="BMW-3k-HGK" firstAttribute="leading" secondItem="b6Q-lv-Wzh" secondAttribute="trailing" constant="25" id="S5d-kY-xkV"/>
+                            <constraint firstItem="b6Q-lv-Wzh" firstAttribute="centerY" secondItem="BMW-3k-HGK" secondAttribute="centerY" id="cw6-Mi-LSb"/>
                             <constraint firstItem="BMW-3k-HGK" firstAttribute="leading" secondItem="cYg-hy-OHy" secondAttribute="leadingMargin" constant="286" id="kV9-8P-1Pm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FXx-zO-wlw" secondAttribute="trailing" constant="61" id="mWt-5w-aIh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Mb-b5-qZi" secondAttribute="trailing" constant="285" id="ouN-4Z-mab"/>
@@ -99,8 +110,9 @@
                     </view>
                     <connections>
                         <outlet property="teacherNameField" destination="mOt-FG-dsw" id="BSY-89-mfa"/>
-                        <segue destination="thr-Rt-On8" kind="show" identifier="SelectSubjectColor" id="ukR-Dd-ijj"/>
+                        <outlet property="validation" destination="b6Q-lv-Wzh" id="xpW-kv-rkr"/>
                         <segue destination="3kf-ZV-E6t" kind="show" identifier="BackEditSubject" id="2cT-4b-Rum"/>
+                        <segue destination="thr-Rt-On8" kind="presentation" identifier="SelectSubjectColor" id="2jn-gT-dG1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ngq-Mp-hhM" userLabel="First Responder" sceneMemberID="firstResponder"/>

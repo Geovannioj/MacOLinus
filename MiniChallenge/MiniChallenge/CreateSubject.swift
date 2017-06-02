@@ -9,8 +9,6 @@
 import UIKit
 
 class CreateSubject: UIViewController {
-
-
     
     @IBOutlet weak var subjectField: UITextField!
     
@@ -19,6 +17,7 @@ class CreateSubject: UIViewController {
         super.viewDidLoad()
 
         configLayout()
+        validation.isHidden = true
         
         // Do any additional setup after loading the view.
     }
@@ -36,23 +35,21 @@ class CreateSubject: UIViewController {
     }
     
     
+    @IBOutlet weak var validation: UILabel!
     
     
     @IBAction func newSubjectRequired(_ sender: Any) {
-       
         
-        if subjectField.text != "" {
+        if subjectField.text != ""{
 
             SingletonSubject.sharedInstance.subject.title = subjectField.text!
             SingletonSubject.sharedInstance.subject.color = assignSubjectColor()
+            
+            performSegue(withIdentifier: "CreateTeacher", sender: Any?.self)
          
+        }else{
+            validation.isHidden = false
         }
-        
-//        SingletonSubject.sharedInstance.subjects.append(newSubject)
-//        
-//        saveSubjects()
-     
-        performSegue(withIdentifier: "CreateTeacher", sender: Any?.self)
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

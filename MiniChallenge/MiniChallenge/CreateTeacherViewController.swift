@@ -14,7 +14,7 @@ class CreateTeacherViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        validation.isHidden = true
         configLayout()
 
         // Do any additional setup after loading the view.
@@ -31,7 +31,6 @@ class CreateTeacherViewController: UIViewController {
         
         assignBackground()
         assignBlackStatusBar()
-        
     }
     
     func assignBackground() {
@@ -58,13 +57,17 @@ class CreateTeacherViewController: UIViewController {
     
     @IBAction func nextScreenPressed(_ sender: Any) {
         
-         setTeacherName()
-        
-         performSegue(withIdentifier: "SelectSubjectColor", sender: Any?.self)
+         if teacherNameField.text != ""{
+            setTeacherName()
+            performSegue(withIdentifier: "SelectSubjectColor", sender: Any?.self)
+         }else{
+            validation.isHidden = false
+        }
 //         performSegue(withIdentifier: "BackEditSubject", sender: Any?.self)
 //        
     }
     
+    @IBOutlet weak var validation: UILabel!
     func setTeacherName() {
         
         let newTeacher = Teacher()

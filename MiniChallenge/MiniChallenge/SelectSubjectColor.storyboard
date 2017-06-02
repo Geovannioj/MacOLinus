@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wQf-Sy-c7X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wQf-Sy-c7X">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -105,9 +105,18 @@
                                 <state key="normal" image="redButton"/>
                                 <connections>
                                     <action selector="nextScreenPressed:" destination="wQf-Sy-c7X" eventType="touchUpInside" id="ZXc-Pb-S3e"/>
-                                    <segue destination="KGk-S5-4bK" kind="show" identifier="SubjectCreated" id="ipB-gY-vhs"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uma cor tem que ser escolhida!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUI-cd-JEm">
+                                <rect key="frame" x="93" y="442" width="197" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="197" id="8EG-U7-f9S"/>
+                                    <constraint firstAttribute="height" constant="21" id="PQR-eE-5EI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.03920602426" green="0.039221249520000001" blue="0.039205066859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -127,11 +136,17 @@
                             <constraint firstItem="wnG-y7-Orq" firstAttribute="leading" secondItem="fSs-td-THF" secondAttribute="leadingMargin" constant="20" id="aKT-LQ-hjO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BaD-p9-npB" secondAttribute="trailing" id="dGU-uN-buf"/>
                             <constraint firstItem="HO8-yQ-XKq" firstAttribute="top" secondItem="BaD-p9-npB" secondAttribute="bottom" constant="193" id="eG5-Jl-d0q"/>
+                            <constraint firstItem="BaD-p9-npB" firstAttribute="leading" secondItem="fUI-cd-JEm" secondAttribute="trailing" constant="25" id="fQN-A9-VJE"/>
                             <constraint firstItem="lws-1f-8FV" firstAttribute="top" secondItem="wnG-y7-Orq" secondAttribute="bottom" constant="8" id="fSy-6M-aI6"/>
                             <constraint firstAttribute="leadingMargin" secondItem="lws-1f-8FV" secondAttribute="leading" constant="15" id="o2k-7f-7WP"/>
                             <constraint firstItem="wnG-y7-Orq" firstAttribute="leading" secondItem="fWk-ny-OsF" secondAttribute="trailing" constant="5" id="r8o-Sq-mOh"/>
+                            <constraint firstItem="fUI-cd-JEm" firstAttribute="centerY" secondItem="BaD-p9-npB" secondAttribute="centerY" id="sXe-LU-SPU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="validation" destination="fUI-cd-JEm" id="nuO-Jp-22x"/>
+                        <segue destination="KGk-S5-4bK" kind="presentation" identifier="SubjectCreated" id="OOQ-nj-M03"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcX-KN-e4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
