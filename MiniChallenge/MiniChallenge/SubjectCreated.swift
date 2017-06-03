@@ -12,6 +12,9 @@ class SubjectCreated: UIViewController {
     
     @IBOutlet weak var subjectCreatedLabel: UILabel!
  
+    var segueData:String?
+    var auxSegue:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
             
@@ -64,6 +67,28 @@ class SubjectCreated: UIViewController {
         
     }
     
+
+    @IBAction func nextScreenBtn(_ sender: Any) {
+        
+        if segueData == "AddActivity" || segueData == "ChooseSubjectController" {
+            
+            performSegue(withIdentifier: "BackToChooseSubject", sender: Any?.self)
+            
+        }else {
+            
+            performSegue(withIdentifier: "HomeSubject", sender: Any?.self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
+        if segue.identifier == "BackToChooseSubject"{
+        
+            if let backScreen = segue.destination as? ChooseSubjectController{
+                backScreen.segueRecived = self.segueData!
+            }
+        }
+    }
     //MARK: - Persist Data
     
     func loadSubjects()  {

@@ -12,9 +12,12 @@ class CreateTeacherViewController: UIViewController {
     
     @IBOutlet weak var teacherNameField: UITextField!
 
+    var segueData:String?
+    var auxSegue:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        validation.isHidden = true
         configLayout()
 
         // Do any additional setup after loading the view.
@@ -31,7 +34,6 @@ class CreateTeacherViewController: UIViewController {
         
         assignBackground()
         assignBlackStatusBar()
-        
     }
     
     func assignBackground() {
@@ -58,13 +60,17 @@ class CreateTeacherViewController: UIViewController {
     
     @IBAction func nextScreenPressed(_ sender: Any) {
         
-         setTeacherName()
-        
-         performSegue(withIdentifier: "SelectSubjectColor", sender: Any?.self)
+         if teacherNameField.text != ""{
+            setTeacherName()
+            performSegue(withIdentifier: "SelectSubjectColor", sender: Any?.self)
+         }else{
+            validation.isHidden = false
+        }
 //         performSegue(withIdentifier: "BackEditSubject", sender: Any?.self)
 //        
     }
     
+    @IBOutlet weak var validation: UILabel!
     func setTeacherName() {
         
         let newTeacher = Teacher()
@@ -75,6 +81,15 @@ class CreateTeacherViewController: UIViewController {
         }
         
         SingletonSubject.sharedInstance.subject.teacher = newTeacher
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "SelectSubjectColor" {
+            if let nextScreen = segue.destination as? SelectSubjectColorViewController {
+                nextScreen.segueData = segueData
+            }
+        }
     }
 
     

@@ -26,7 +26,7 @@ class CreateGeolocalizatedNotificationViewController: UIViewController, CLLocati
         
         locationManager.requestAlwaysAuthorization()
         
-        let currentRegion = CLCircularRegion(center: CLLocationCoordinate2D(latitude: -15.988929, longitude: -48.044930), radius: 200, identifier: "Home")
+        let currentRegion = CLCircularRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), radius: 200, identifier: "Home")
         locationManager.startMonitoring(for: currentRegion)
         
         locationManager.requestWhenInUseAuthorization()
@@ -128,7 +128,7 @@ class CreateGeolocalizatedNotificationViewController: UIViewController, CLLocati
         geolocalizatedNotification()
     }
     
-    func locationManager(_ manager: CLLocationManager!, didFailWithError error: NSError!) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         NSLog("\(error)")
     }
 

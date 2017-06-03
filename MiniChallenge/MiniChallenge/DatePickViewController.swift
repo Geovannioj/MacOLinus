@@ -37,9 +37,9 @@ class DatePickViewController: UIViewController {
             activityToEdit = SingletonActivity.sharedInstance.tasks[indexActivityToEdit]
         }
         
-        if let activity = activityToEdit{
-            datePicker.date = (activityToEdit?.time)!
-        }
+        //if let activity = activityToEdit{
+          //  datePicker.date = (activityToEdit?.time)!
+        //}
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { (granted,error) in
             self.isGrantedNotificationAccess = granted

@@ -13,6 +13,7 @@ import UIKit
 class CreateGoal: UIViewController {
     
     
+    @IBOutlet weak var validation: UILabel!
     var goalType: String  = ""
 
     @IBOutlet weak var createSpecficGoal: UILabel!
@@ -20,7 +21,7 @@ class CreateGoal: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.validation.isHidden = true
         setConfig()
 
         // Do any additional setup after loading the view.
@@ -76,9 +77,10 @@ class CreateGoal: UIViewController {
             
             newUserGoal.title = goalType + " " + UserGoalFIeld.text!
             GoalService.sharedInstance.user_goal = newUserGoal
+            performSegue(withIdentifier: "SelectDate", sender: Any?.self)
+        }else{
+            validation.isHidden = false
         }
-        
-        performSegue(withIdentifier: "SelectDate", sender: Any?.self)
     
     }
 

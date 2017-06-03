@@ -9,16 +9,17 @@
 import UIKit
 
 class CreateSubject: UIViewController {
-
-
     
     @IBOutlet weak var subjectField: UITextField!
     
+    var segueData:String?
+    var auxSegue:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configLayout()
+        validation.isHidden = true
         
         // Do any additional setup after loading the view.
     }
@@ -36,36 +37,34 @@ class CreateSubject: UIViewController {
     }
     
     
+    @IBOutlet weak var validation: UILabel!
     
     
     @IBAction func newSubjectRequired(_ sender: Any) {
-       
         
-        if subjectField.text != "" {
+        if subjectField.text != ""{
 
             SingletonSubject.sharedInstance.subject.title = subjectField.text!
             SingletonSubject.sharedInstance.subject.color = assignSubjectColor()
+            
+            performSegue(withIdentifier: "CreateTeacher", sender: Any?.self)
          
+        }else{
+            validation.isHidden = false
         }
-        
-//        SingletonSubject.sharedInstance.subjects.append(newSubject)
-//        
-//        saveSubjects()
-     
-        performSegue(withIdentifier: "CreateTeacher", sender: Any?.self)
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        
-//        if segue.identifier == "SubjectCreated" {
-//            
-//            if let toNextScreen = segue.destination as? SubjectCreated {
-//                toNextScreen.subjectName = subjectField.text!
-//            }
-//            
-//        }
-//    }
-//    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "CreateTeacher" {
+            
+            if let toNextScreen = segue.destination as? CreateTeacherViewController {
+                toNextScreen.segueData = segueData
+            }
+            
+        }
+    }
+    
     
     func assignSubjectColor() -> UIColor {
         
