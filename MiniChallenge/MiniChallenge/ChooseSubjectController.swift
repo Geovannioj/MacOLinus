@@ -44,13 +44,21 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     
     @IBAction func backButon(_ sender: Any){
         if segueRecived == "ChooseSubjectController"{
+            
             performSegue(withIdentifier: "GoToEditScreen2", sender: Any?.self)
+        
         }else if segueRecived == "AddActivity"{
+        
             performSegue(withIdentifier: "BackToAddTitle", sender: Any.self)
+        
         }else if segueRecived == "AddActivityByDaily"{
+        
             performSegue(withIdentifier: "BackToAddTitle", sender: Any.self)
+        
         }else if segueRecived == "AddActivityByDone"{
+        
             performSegue(withIdentifier: "BackToAddTitle", sender: Any.self)
+        
         }
     }
     

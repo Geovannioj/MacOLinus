@@ -69,6 +69,7 @@ class DatePickViewController: UIViewController {
                 performSegue(withIdentifier: "GoBackToEditScreen3", sender: Any?.self)
                 
             }else if (self.segueRecived == "GoToPostpone" || self.segueRecived == "GoToPostponeByDaily" || segueRecived == "GoToPostponeByDone"){
+                
                 let controlerPList = ControllerPList()
                 SingletonActivity.sharedInstance.tasks[self.indexActivityToEdit].time = datePicker.date
                 
@@ -77,11 +78,17 @@ class DatePickViewController: UIViewController {
                 controlerPList.saveReminders()
                 
                 if segueRecived == "GoToPostpone"{
+                
                     performSegue(withIdentifier: "GoToCalendar", sender: Any.self)
+                
                 }else if segueRecived == "GoToPostponeByDaily"{
+                
                     performSegue(withIdentifier: "GoToDailyCalendar", sender: Any.self)
+                
                 }else{
+                
                     performSegue(withIdentifier: "GoToDoneAndPostponed", sender: Any.self)
+                
                 }
             }else{
                 let controlerPList = ControllerPList()
@@ -97,11 +104,17 @@ class DatePickViewController: UIViewController {
             }
             
             if segueRecived == "AddActivity"{
+            
                 performSegue(withIdentifier: "GoToCalendar", sender: Any.self)
+            
             }else if segueRecived == "AddActivityByDaily"{
+            
                 performSegue(withIdentifier: "GoToDailyCalendar", sender: Any.self)
+            
             }else if segueRecived == "AddActivityByDone"{
+                
                 performSegue(withIdentifier: "GoToDoneAndPostponed", sender: Any.self)
+            
             }
         }else{
             //mensagem de erro avisnado que o horário deve ser maior que o atual
