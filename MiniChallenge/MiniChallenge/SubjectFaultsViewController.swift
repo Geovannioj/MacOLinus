@@ -18,11 +18,8 @@ class SubjectFaultsViewController: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    
-        
+
         loadSubjects()
-        
         setup()
 
         // Do any additional setup after loading the view.
@@ -37,9 +34,11 @@ class SubjectFaultsViewController: UIViewController {
     
     func setup() {
         
-        subjectColor.backgroundColor = SingletonSubject.sharedInstance.subject.color
-        subjectTitle.text = SingletonSubject.sharedInstance.subject.title
-        numberOfFaults.text = String(SingletonSubject.sharedInstance.subject.faults)
+        let index = SingletonSubject.sharedInstance.index
+        
+        subjectColor.backgroundColor = SingletonSubject.sharedInstance.subjects[index].color
+        subjectTitle.text = SingletonSubject.sharedInstance.subjects[index].title
+        numberOfFaults.text = String(SingletonSubject.sharedInstance.subjects[index].faults)
     }
     
     // MARK: - Actions
@@ -47,7 +46,7 @@ class SubjectFaultsViewController: UIViewController {
     @IBAction func segmentControlChanged(_ sender: Any) {
         
        
-        if segmentControl.selectedSegmentIndex == 1 {
+        if segmentControl.selectedSegmentIndex == 0 {
             
             let subjectWithFault = SingletonSubject.sharedInstance.subject
             let index = SingletonSubject.sharedInstance.index
@@ -59,25 +58,41 @@ class SubjectFaultsViewController: UIViewController {
             SingletonSubject.sharedInstance.subjects[index] = subjectWithFault
             saveSubjects()
             
+            performSegue(withIdentifier: "HomeTasks", sender: Any?.self)
+            
+        } else if segmentControl.selectedSegmentIndex == 1 {
+            
+            let index = SingletonSubject.sharedInstance.index
+            let subjectWithFault = SingletonSubject.sharedInstance.subjects[index]
+            
+            
+            if Int64(numberOfFaults.text!) != nil {
+                subjectWithFault.faults = Int64(numberOfFaults.text!)!
+            }
+            
+            SingletonSubject.sharedInstance.subjects[index] = subjectWithFault
+            saveSubjects()
+            
             performSegue(withIdentifier: "HomeNotes", sender: Any?.self)
 
-        } else if segmentControl.selectedSegmentIndex == 0 {
-            performSegue(withIdentifier: "HomeTasks", sender: Any?.self)
-        }
-    }
-    
-    @IBAction func faultAdded(_ sender: Any) {
-        
-        if var faults = Int64(numberOfFaults.text!) {
-            faults = faults + 1
-            numberOfFaults.text = String(describing: faults)
         }
     }
     
     @IBAction func backToHomeSubject(_ sender: Any) {
         
+        let subjectWithFault = SingletonSubject.sharedInstance.subject
+        let index = SingletonSubject.sharedInstance.index
+        
+        if Int64(numberOfFaults.text!) != nil {
+            subjectWithFault.faults = Int64(numberOfFaults.text!)!
+        }
+        
+        SingletonSubject.sharedInstance.subjects[index] = subjectWithFault
+        saveSubjects()
+        
         performSegue(withIdentifier: "backToHomeSubjects", sender: Any?.self)
     }
+    
     @IBAction func faultRemoved(_ sender: Any) {
         
         if var faults = Int64(numberOfFaults.text!) {
@@ -87,6 +102,14 @@ class SubjectFaultsViewController: UIViewController {
                 numberOfFaults.text = String(describing: faults)
         
             }
+        }
+    }
+    
+    @IBAction func faultAdded(_ sender: Any) {
+        
+        if var faults = Int64(numberOfFaults.text!) {
+            faults = faults + 1
+            numberOfFaults.text = String(describing: faults)
         }
     }
     

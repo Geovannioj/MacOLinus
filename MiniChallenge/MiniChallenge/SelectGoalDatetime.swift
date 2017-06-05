@@ -77,9 +77,7 @@ class SelectGoalDatetime: UIViewController {
         
         let date = datePicker.date
         scheduleNotification(at: date)
-        
-    
-    }
+     }
     
     //MARK: - Notification
     

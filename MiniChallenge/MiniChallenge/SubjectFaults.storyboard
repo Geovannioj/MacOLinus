@@ -167,7 +167,7 @@
                         <outlet property="subjectTitle" destination="rjz-Bz-uFi" id="ttc-Zy-NwM"/>
                         <segue destination="36m-41-cdf" kind="show" identifier="HomeNotes" id="U1B-39-jgM"/>
                         <segue destination="6Dz-sC-Rty" kind="show" identifier="backToHomeSubjects" id="b5B-cC-WAY"/>
-                        <segue destination="o1l-dv-SWV" kind="show" identifier="HomeTasks" id="NZN-dv-AXv"/>
+                        <segue destination="gwS-5S-vzI" kind="show" identifier="HomeTasks" id="luf-Yb-RPA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9k-zr-GyL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -182,6 +182,14 @@
             </objects>
             <point key="canvasLocation" x="996" y="187"/>
         </scene>
+        <!--HomeTasks-->
+        <scene sceneID="YTD-Ad-X86">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeTasks" id="gwS-5S-vzI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3En-B9-sB9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="985" y="261"/>
+        </scene>
         <!--HomeSubject-->
         <scene sceneID="Eug-8R-LxO">
             <objects>
@@ -189,14 +197,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ig-Gt-rSq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="996" y="104"/>
-        </scene>
-        <!--SubjectFaults-->
-        <scene sceneID="KW3-4e-ZjY">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SubjectFaults" id="o1l-dv-SWV" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FFG-wX-WRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="994" y="275"/>
         </scene>
     </scenes>
     <resources>
