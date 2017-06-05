@@ -14,8 +14,10 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         performSegue(withIdentifier: "backToHomeSubjects", sender: Any?.self)
     }
-    @IBOutlet weak var tableView: UITableView!
     
+    var notes = [Note]()
+    
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
     @IBOutlet weak var subjectTitleLabel: UILabel!
@@ -28,13 +30,17 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
         setupLayout()
         loadSubjects()
         
-            for aux in SingletonSubject.sharedInstance.subject.notes {
-            
-            print(aux.title)
-            print(aux.noteDescription)
-            
-        }
+        let index = SingletonSubject.sharedInstance.index
+        notes = SingletonSubject.sharedInstance.subjects[index].notes
         
+        tableView.reloadData()
+        
+            for aux in notes {
+            
+                print(aux.title)
+            }
+        
+    
         // Do any additional setup after loading the view.
     }
 
@@ -44,12 +50,7 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        loadSubjects()
-        tableView.reloadData()
-    }
+   
     
     // MARK: - Actions
     
@@ -61,9 +62,18 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBAction func SegmentControlChanged(_ sender: Any) {
         
+        let index = SingletonSubject.sharedInstance.index
+
+        
         if segmentControl.selectedSegmentIndex == 2 {
+            
+            SingletonSubject.sharedInstance.subjects[index].notes = notes
+            saveSubjects()
             performSegue(withIdentifier: "SubjectFault", sender: Any?.self)
         } else if segmentControl.selectedSegmentIndex == 0 {
+            
+            SingletonSubject.sharedInstance.subjects[index].notes = notes
+            saveSubjects()
             performSegue(withIdentifier: "HomeTasks", sender: Any?.self)
         }
     }
@@ -76,8 +86,8 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SingletonSubject.sharedInstance.subject.notes.count
         
+        return notes.count
     }
     
     
@@ -86,8 +96,7 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeNotesTableViewCell
         
-        let index = SingletonSubject.sharedInstance.index
-        cell.noteTitle.text = SingletonSubject.sharedInstance.subjects[index].notes[indexPath.row].title
+        cell.noteTitle.text = notes[indexPath.row].title
         
         return cell
     }

@@ -40,6 +40,9 @@
                                         <state key="normal" title="Anotações">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="backToHomeNotesPressed:" destination="cP6-VM-0Ou" eventType="touchUpInside" id="bya-jd-x3o"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -72,10 +75,11 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yJe-LF-FDZ">
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yJe-LF-FDZ">
                                 <rect key="frame" x="29" y="221" width="316" height="409"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.031240697950124741" green="0.039771281182765961" blue="0.010723752900958061" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.43121758103370667" green="0.43533876538276672" blue="0.43528473377227783" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -96,11 +100,20 @@
                     <connections>
                         <outlet property="noteContent" destination="yJe-LF-FDZ" id="qQp-lZ-pNI"/>
                         <outlet property="noteTitle" destination="E6x-25-plb" id="6A7-o4-jVC"/>
+                        <segue destination="IwV-Z9-bTU" kind="show" identifier="backToHomeNotes" id="Zdh-gy-mYy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3G5-Bs-KmF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-559" y="162"/>
+        </scene>
+        <!--HomeNotes-->
+        <scene sceneID="hE6-d3-lwu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeNotes" id="IwV-Z9-bTU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rJW-JC-BfI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="14" y="161"/>
         </scene>
     </scenes>
     <resources>

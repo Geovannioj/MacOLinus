@@ -46,6 +46,12 @@ class CreateNoteContentViewController: UIViewController {
     @IBAction func newNoteRequested(_ sender: Any) {
         
         addContentToNote()
+        loadSubjects()
+        
+        for aux in SingletonSubject.sharedInstance.subjects[SingletonSubject.sharedInstance.index].notes {
+            print(aux.title)
+        }
+        
         performSegue(withIdentifier: "NoteCreated", sender: Any?.self)
     }
     

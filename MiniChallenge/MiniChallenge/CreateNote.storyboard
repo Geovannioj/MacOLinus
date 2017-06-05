@@ -12,7 +12,7 @@
         <!--Create Note View Controller-->
         <scene sceneID="YuW-t7-1aU">
             <objects>
-                <viewController id="4Jx-sf-BS1" customClass="CreateNoteViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4Jx-sf-BS1" customClass="CreateNoteViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pYD-jm-Xc5"/>
                         <viewControllerLayoutGuide type="bottom" id="Xy2-qo-qCy"/>

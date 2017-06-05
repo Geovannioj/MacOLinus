@@ -18,6 +18,8 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        SingletonSubject.sharedInstance.subject = Subject()
+        
         loadSubjects()
         
         self.tabBarItem.selectedImage = UIImage(named: "Subjects Fill")?.withRenderingMode(.alwaysOriginal)
