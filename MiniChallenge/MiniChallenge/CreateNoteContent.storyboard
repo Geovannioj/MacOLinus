@@ -44,18 +44,21 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="4H5-Yo-saA">
                                         <rect key="frame" x="153" y="32" width="69" height="21"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usX-96-ogi">
-                                        <rect key="frame" x="22" y="25" width="78" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
-                                        <state key="normal" title="Matérias">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yuf-Ld-Keg">
+                                        <rect key="frame" x="21" y="27" width="41" height="30"/>
+                                        <state key="normal" title="Voltar">
+                                            <color key="titleColor" red="0.099203579127788544" green="0.039092682301998138" blue="0.025941237807273865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="9iR-uH-kiH" eventType="touchUpInside" id="doq-ja-yD0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="Yuf-Ld-Keg" firstAttribute="leading" secondItem="ze4-BA-Han" secondAttribute="leading" constant="21" id="3Hu-iV-hDI"/>
                                     <constraint firstItem="4H5-Yo-saA" firstAttribute="top" secondItem="ze4-BA-Han" secondAttribute="top" constant="32" id="MQv-9M-bre"/>
+                                    <constraint firstItem="Yuf-Ld-Keg" firstAttribute="top" secondItem="ze4-BA-Han" secondAttribute="top" constant="27" id="WvG-sU-geI"/>
                                     <constraint firstItem="4H5-Yo-saA" firstAttribute="centerX" secondItem="ze4-BA-Han" secondAttribute="centerX" id="vBy-6R-R5E"/>
                                 </constraints>
                             </view>
@@ -102,6 +105,7 @@
                     <connections>
                         <outlet property="noteContentText" destination="TQw-WA-b1T" id="dmE-Go-zka"/>
                         <segue destination="EFF-Wd-2yp" kind="show" identifier="NoteCreated" id="gel-3O-emf"/>
+                        <segue destination="UlV-hz-n9K" kind="show" identifier="CreateNoteTitle" id="wOT-X6-m19"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ptg-Db-JDe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -115,6 +119,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LTF-qp-H04" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="289" y="71"/>
+        </scene>
+        <!--CreateNoteTitle-->
+        <scene sceneID="Tsn-bZ-oA9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateNoteTitle" id="UlV-hz-n9K" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IcL-eG-LJG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304" y="139"/>
         </scene>
     </scenes>
     <resources>

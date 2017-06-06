@@ -42,6 +42,11 @@ class CreateNoteContentViewController: UIViewController {
         saveSubjects()
 
     }
+ 
+    @IBAction func backButtonPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "CreateNoteTitle", sender: Any?.self)
+    }
     
     @IBAction func newNoteRequested(_ sender: Any) {
         
