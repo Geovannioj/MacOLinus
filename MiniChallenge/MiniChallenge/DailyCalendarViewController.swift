@@ -75,9 +75,6 @@ class DailyCalendarViewController: UIViewController {
                 goToEdit.segueReceived = segue.identifier!
                 goToEdit.indexActivityToEdit = self.indexActivity
             }
-        }else if segue.identifier == "GoBackToCalendar"{
-            CalendarViewController.pushedFromHomeSubject = false
-            CalendarViewController.pushedFromHomeGoal = false
         }
     }
     

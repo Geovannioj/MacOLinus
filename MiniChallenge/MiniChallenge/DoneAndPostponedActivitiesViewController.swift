@@ -94,9 +94,6 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
                 goToDatePick.indexActivityToEdit = self.indexActivity
                 goToDatePick.segueRecived = segue.identifier!
             }
-        }else if segue.identifier == "BackToDoneAndPostponed"{
-            CalendarViewController.pushedFromHomeGoal = false
-            CalendarViewController.pushedFromHomeSubject = false
         }
     }
     
