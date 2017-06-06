@@ -27,6 +27,10 @@ class CreateNoteTitleViewController: UIViewController {
     
 
     
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "HomeNotes", sender: Any?.self)
+    }
+ 
 
     @IBAction func nextScreenPressed(_ sender: Any) {
         

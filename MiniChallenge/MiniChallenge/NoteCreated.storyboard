@@ -30,12 +30,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gh-m7-IPq">
-                                <rect key="frame" x="26" y="49" width="48" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A nota" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaZ-IB-zal">
                                 <rect key="frame" x="36" y="89" width="72" height="29"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
@@ -81,26 +75,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AdB-Iy-Yft" firstAttribute="top" secondItem="brG-7G-Iqn" secondAttribute="topMargin" constant="32" id="0Bc-9F-rAy"/>
                             <constraint firstItem="bdl-Kr-uMd" firstAttribute="leading" secondItem="brG-7G-Iqn" secondAttribute="leadingMargin" constant="20" id="35N-fI-AQf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9gh-m7-IPq" secondAttribute="trailing" constant="285" id="7xs-Qk-zSg"/>
                             <constraint firstItem="eaZ-IB-zal" firstAttribute="leading" secondItem="brG-7G-Iqn" secondAttribute="leadingMargin" constant="20" id="86m-nw-YeP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gGb-pd-RBM" secondAttribute="trailing" constant="69" id="8UY-jv-LfO"/>
                             <constraint firstItem="hao-Ia-tmb" firstAttribute="leading" secondItem="brG-7G-Iqn" secondAttribute="leadingMargin" constant="7" id="AL1-SK-1N4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bdl-Kr-uMd" secondAttribute="trailing" constant="-16" id="CcV-eL-Mav"/>
                             <constraint firstItem="gGb-pd-RBM" firstAttribute="leading" secondItem="eaZ-IB-zal" secondAttribute="trailing" constant="8" id="Cki-iu-HvA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bqQ-HX-SZb" secondAttribute="trailing" constant="13" id="FA2-Hq-5A2"/>
-                            <constraint firstItem="eaZ-IB-zal" firstAttribute="top" secondItem="9gh-m7-IPq" secondAttribute="bottom" constant="23" id="FGB-dP-sYk"/>
+                            <constraint firstItem="eaZ-IB-zal" firstAttribute="top" secondItem="y9G-sj-LO5" secondAttribute="bottom" constant="69" id="G2f-Jn-Bel"/>
                             <constraint firstItem="bqQ-HX-SZb" firstAttribute="leading" secondItem="brG-7G-Iqn" secondAttribute="leadingMargin" constant="286" id="IQz-zY-kNF"/>
+                            <constraint firstItem="hao-Ia-tmb" firstAttribute="top" secondItem="y9G-sj-LO5" secondAttribute="bottom" constant="78" id="M87-Vq-eIS"/>
                             <constraint firstItem="AdB-Iy-Yft" firstAttribute="centerX" secondItem="brG-7G-Iqn" secondAttribute="centerX" id="P9M-hR-uKc"/>
-                            <constraint firstItem="9gh-m7-IPq" firstAttribute="top" secondItem="y9G-sj-LO5" secondAttribute="bottom" constant="29" id="Vgw-OR-8ov"/>
                             <constraint firstItem="gGb-pd-RBM" firstAttribute="top" secondItem="AdB-Iy-Yft" secondAttribute="bottom" constant="36" id="WV1-FU-l8J"/>
                             <constraint firstItem="bdl-Kr-uMd" firstAttribute="top" secondItem="gGb-pd-RBM" secondAttribute="bottom" constant="13" id="XBe-7l-FtX"/>
-                            <constraint firstItem="9gh-m7-IPq" firstAttribute="top" secondItem="AdB-Iy-Yft" secondAttribute="bottom" constant="-4" id="eSa-Zs-ZEd"/>
-                            <constraint firstItem="9gh-m7-IPq" firstAttribute="leading" secondItem="brG-7G-Iqn" secondAttribute="leadingMargin" constant="10" id="eWZ-pQ-MG5"/>
                             <constraint firstItem="eaZ-IB-zal" firstAttribute="leading" secondItem="hao-Ia-tmb" secondAttribute="trailing" constant="5" id="r9M-Ab-TaB"/>
                             <constraint firstItem="bqQ-HX-SZb" firstAttribute="top" secondItem="bdl-Kr-uMd" secondAttribute="bottom" constant="29.5" id="sNV-3R-Hj9"/>
-                            <constraint firstItem="hao-Ia-tmb" firstAttribute="top" secondItem="9gh-m7-IPq" secondAttribute="bottom" constant="32" id="xbt-d1-KaO"/>
                             <constraint firstItem="bdl-Kr-uMd" firstAttribute="top" secondItem="eaZ-IB-zal" secondAttribute="bottom" constant="13" id="xxw-Ew-0V0"/>
                         </constraints>
                     </view>
@@ -111,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="05V-EV-uJG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-270" y="100"/>
+            <point key="canvasLocation" x="-271.19999999999999" y="99.400299850074973"/>
         </scene>
         <!--HomeNotes-->
         <scene sceneID="Y3e-vh-V4m">

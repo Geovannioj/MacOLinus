@@ -188,11 +188,38 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Fos-6C-9S2" id="hKC-K6-CQN"/>
+                        <segue destination="nb8-dd-haX" kind="show" id="tqN-mw-AAf"/>
+                        <segue destination="2PK-Hu-4Zr" kind="show" id="dJF-IM-4Gd"/>
+                        <segue destination="DVs-cH-HAB" kind="show" id="Tdc-Co-Hyr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3om-Nk-1Mf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-61.600000000000001" y="126.38680659670166"/>
+        </scene>
+        <!--SubjectFaults-->
+        <scene sceneID="f9f-n7-epf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SubjectFaults" id="nb8-dd-haX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Wx-JW-o7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="538" y="126"/>
+        </scene>
+        <!--HomeSubject-->
+        <scene sceneID="PY7-Np-pLC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeSubject" id="2PK-Hu-4Zr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fo5-ir-XLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="538" y="40"/>
+        </scene>
+        <!--HomeNotes-->
+        <scene sceneID="gNR-Uh-lno">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeNotes" id="DVs-cH-HAB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xlk-ci-Ned" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="527" y="217"/>
         </scene>
     </scenes>
     <resources>

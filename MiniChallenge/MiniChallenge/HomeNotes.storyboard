@@ -21,7 +21,15 @@
                 <viewControllerPlaceholder storyboardName="SubjectFaults" id="hPC-ce-CWa" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rdO-XO-LVV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="660" y="251"/>
+            <point key="canvasLocation" x="620" y="259"/>
+        </scene>
+        <!--HomeSubject-->
+        <scene sceneID="Tdb-9j-Cei">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeSubject" id="O14-ME-WPY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IrC-qL-qgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="608" y="344"/>
         </scene>
         <!--Home Notes View Controller-->
         <scene sceneID="Qez-F2-v3c">
@@ -41,18 +49,21 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="6Ol-LM-xE9">
                                         <rect key="frame" x="153" y="32" width="69" height="21"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8N-Fz-SFQ">
-                                        <rect key="frame" x="22" y="25" width="78" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8N-Fz-SFQ">
+                                        <rect key="frame" x="22" y="25" width="57" height="29"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                         <state key="normal" title="Matérias">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="subjectButtonPressed:" destination="kgK-Rx-FDp" eventType="touchUpInside" id="Qhg-Md-CNG"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xmn-D1-eNF">
-                                        <rect key="frame" x="308" y="35" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xmn-D1-eNF">
+                                        <rect key="frame" x="275" y="27" width="65" height="30"/>
+                                        <state key="normal" title="Adicionar">
+                                            <color key="titleColor" red="0.099203579127788544" green="0.039092682301998138" blue="0.025941237807273865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="createNotePressed:" destination="kgK-Rx-FDp" eventType="touchUpInside" id="4CK-II-gXW"/>
                                         </connections>
@@ -60,7 +71,11 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="l8N-Fz-SFQ" firstAttribute="leading" secondItem="msT-De-SvH" secondAttribute="leading" constant="22" id="4Vr-jC-AyQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xmn-D1-eNF" secondAttribute="trailing" constant="35" id="MQ9-SG-sQ8"/>
+                                    <constraint firstItem="l8N-Fz-SFQ" firstAttribute="top" secondItem="msT-De-SvH" secondAttribute="top" constant="25" id="ORG-Uq-9vL"/>
                                     <constraint firstItem="6Ol-LM-xE9" firstAttribute="top" secondItem="msT-De-SvH" secondAttribute="top" constant="32" id="Sac-KF-miW"/>
+                                    <constraint firstItem="Xmn-D1-eNF" firstAttribute="top" secondItem="msT-De-SvH" secondAttribute="top" constant="27" id="XJj-nf-wCg"/>
                                     <constraint firstItem="6Ol-LM-xE9" firstAttribute="centerX" secondItem="msT-De-SvH" secondAttribute="centerX" id="s7w-z5-Bkq"/>
                                 </constraints>
                             </view>
@@ -197,6 +212,7 @@
                         <segue destination="fMz-Ny-WkN" kind="show" identifier="CreateNoteTitle" id="WEd-a4-9P5"/>
                         <segue destination="avh-hN-kJN" kind="show" identifier="PresentNotes" id="5K0-Z7-gjM"/>
                         <segue destination="hPC-ce-CWa" kind="show" identifier="SubjectFault" id="8Qd-Kc-Y0d"/>
+                        <segue destination="O14-ME-WPY" kind="show" identifier="HomeSubject" id="J4B-wE-rCj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lty-Fa-ixl" userLabel="First Responder" sceneMemberID="firstResponder"/>

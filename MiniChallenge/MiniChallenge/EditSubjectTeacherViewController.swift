@@ -25,6 +25,10 @@ class EditSubjectTeacherViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func CancelButtonPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "EditSubject", sender: Any?.self)
+    }
 
     // MARK: - Config Layout
     
