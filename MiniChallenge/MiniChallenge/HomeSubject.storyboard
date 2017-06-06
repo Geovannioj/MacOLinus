@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2zr-vg-P1N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2zr-vg-P1N">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -115,7 +115,7 @@
                                     <color key="titleShadowColor" red="0.091242633759975433" green="0.039225485175848007" blue="0.022034836933016777" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="sVB-YR-NZ0" kind="show" id="Q2a-VI-y9z"/>
+                                    <segue destination="sVB-YR-NZ0" kind="presentation" id="9A1-AY-1SK"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -140,8 +140,8 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="XLk-wo-evI" id="GHJ-Wb-d4W"/>
-                        <segue destination="BEI-Mo-AP0" kind="show" identifier="EditSubject" id="Wgb-ps-PUI"/>
-                        <segue destination="UDJ-gg-Q2V" kind="show" identifier="HomeNotes" id="MH6-b7-FeH"/>
+                        <segue destination="BEI-Mo-AP0" kind="presentation" identifier="EditSubject" id="M2d-IB-pJK"/>
+                        <segue destination="UDJ-gg-Q2V" kind="presentation" identifier="HomeNotes" id="qKH-oK-YrE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ac-Zg-BQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -154,7 +154,7 @@
                 <viewControllerPlaceholder storyboardName="CreateSubject" id="sVB-YR-NZ0" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ID-JK-2sd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="232" y="99"/>
+            <point key="canvasLocation" x="244" y="94"/>
         </scene>
         <!--EditSubject-->
         <scene sceneID="qKz-fr-lho">
@@ -162,7 +162,7 @@
                 <viewControllerPlaceholder storyboardName="EditSubject" id="BEI-Mo-AP0" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXS-1m-L5D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="233" y="143"/>
+            <point key="canvasLocation" x="243" y="148"/>
         </scene>
         <!--HomeNotes-->
         <scene sceneID="CMy-hY-fiX">
@@ -170,7 +170,7 @@
                 <viewControllerPlaceholder storyboardName="HomeNotes" id="UDJ-gg-Q2V" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="63v-K7-PxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="243" y="215"/>
+            <point key="canvasLocation" x="244" y="213"/>
         </scene>
     </scenes>
     <resources>

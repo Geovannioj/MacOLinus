@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f1w-OC-WNv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f1w-OC-WNv">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,12 +30,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0D6-PM-A5w">
-                                <rect key="frame" x="26" y="49" width="48" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A matéria " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RxD-xw-QzV">
                                 <rect key="frame" x="36" y="89" width="112" height="29"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
@@ -64,7 +58,7 @@
                                 <state key="normal" image="redButton"/>
                                 <connections>
                                     <action selector="doneCreatingSubject:" destination="f1w-OC-WNv" eventType="touchUpInside" id="x6i-Ps-1oE"/>
-                                    <segue destination="BId-pP-3Dk" kind="show" id="eEC-6s-pBv"/>
+                                    <segue destination="BId-pP-3Dk" kind="presentation" id="cxw-CP-6A8"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="n48-JB-XhC">
@@ -83,19 +77,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="RxD-xw-QzV" firstAttribute="leading" secondItem="7Xh-CL-83k" secondAttribute="trailing" constant="5" id="8EO-lF-iNU"/>
-                            <constraint firstItem="RxD-xw-QzV" firstAttribute="top" secondItem="0D6-PM-A5w" secondAttribute="bottom" constant="23" id="CSH-p0-Fdc"/>
-                            <constraint firstItem="0D6-PM-A5w" firstAttribute="top" secondItem="QgZ-E5-OZd" secondAttribute="bottom" constant="29" id="Con-Df-mQR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0D6-PM-A5w" secondAttribute="trailing" constant="285" id="GdZ-Z6-Jh4"/>
+                            <constraint firstItem="7Xh-CL-83k" firstAttribute="top" secondItem="QgZ-E5-OZd" secondAttribute="bottom" constant="78" id="9VO-oZ-MPT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MLG-sQ-X7O" secondAttribute="trailing" constant="69" id="ICx-bu-ank"/>
                             <constraint firstItem="agO-qC-UM4" firstAttribute="top" secondItem="MLG-sQ-X7O" secondAttribute="bottom" constant="13" id="POY-gY-HE2"/>
                             <constraint firstItem="n48-JB-XhC" firstAttribute="top" secondItem="xKj-h1-XJw" secondAttribute="topMargin" constant="32" id="RHM-Xd-H3V"/>
                             <constraint firstItem="agO-qC-UM4" firstAttribute="leading" secondItem="xKj-h1-XJw" secondAttribute="leadingMargin" constant="20" id="Wu2-v9-yOs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="agO-qC-UM4" secondAttribute="trailing" constant="-16" id="eMI-Dx-ibK"/>
                             <constraint firstItem="7Xh-CL-83k" firstAttribute="leading" secondItem="xKj-h1-XJw" secondAttribute="leadingMargin" constant="7" id="gGg-oL-VP8"/>
-                            <constraint firstItem="0D6-PM-A5w" firstAttribute="leading" secondItem="xKj-h1-XJw" secondAttribute="leadingMargin" constant="10" id="gIZ-pk-NKo"/>
-                            <constraint firstItem="0D6-PM-A5w" firstAttribute="top" secondItem="n48-JB-XhC" secondAttribute="bottom" constant="-4" id="nES-vK-Dol"/>
                             <constraint firstItem="MLG-sQ-X7O" firstAttribute="top" secondItem="n48-JB-XhC" secondAttribute="bottom" constant="36" id="q9q-iE-Oc2"/>
-                            <constraint firstItem="7Xh-CL-83k" firstAttribute="top" secondItem="0D6-PM-A5w" secondAttribute="bottom" constant="32" id="qng-Ws-t82"/>
                             <constraint firstItem="nw1-eU-gYQ" firstAttribute="leading" secondItem="xKj-h1-XJw" secondAttribute="leadingMargin" constant="286" id="r99-u1-jIv"/>
                             <constraint firstItem="RxD-xw-QzV" firstAttribute="leading" secondItem="xKj-h1-XJw" secondAttribute="leadingMargin" constant="20" id="rFg-62-c0f"/>
                             <constraint firstItem="n48-JB-XhC" firstAttribute="centerX" secondItem="xKj-h1-XJw" secondAttribute="centerX" id="rZk-hY-Ifi"/>
@@ -128,7 +117,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="ChooseSubjectController" storyboardName="Reminders" referencedIdentifier="ChooseSubjectController" id="lci-Kh-q5n" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C1c-JM-vaK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2226" y="143"/>
+            <point key="canvasLocation" x="2249" y="142"/>
         </scene>
     </scenes>
     <resources>

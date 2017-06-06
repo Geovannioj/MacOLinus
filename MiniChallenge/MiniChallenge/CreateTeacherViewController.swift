@@ -28,6 +28,14 @@ class CreateTeacherViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
+    // MARK: - Config
+    
+    @IBAction func backToCreateSubject(_ sender: Any) {
+        
+        performSegue(withIdentifier: "CreateSubject", sender: Any?.self)
+    }
+    
     // MARK: - Config
     
     func configLayout() {

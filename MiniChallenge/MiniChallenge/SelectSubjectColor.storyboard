@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wQf-Sy-c7X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wQf-Sy-c7X">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -27,14 +27,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gk1-PV-txd">
-                                <rect key="frame" x="26" y="49" width="48" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escolha uma cor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnG-y7-Orq">
-                                <rect key="frame" x="36" y="89" width="262" height="29"/>
+                                <rect key="frame" x="36" y="89" width="262" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="6I8-tg-tRr"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -57,7 +54,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lws-1f-8FV">
-                                <rect key="frame" x="1" y="126" width="375" height="286"/>
+                                <rect key="frame" x="1" y="125" width="375" height="287"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="5" contentMode="scaleToFill" fixedFrame="YES" indicatorStyle="black" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="01a-PK-VSN">
                                         <rect key="frame" x="45" y="29" width="285" height="237"/>
@@ -117,27 +114,35 @@
                                 <color key="textColor" red="0.03920602426" green="0.039221249520000001" blue="0.039205066859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MnH-C0-neB">
+                                <rect key="frame" x="36" y="32" width="46" height="30"/>
+                                <state key="normal" title="Voltar">
+                                    <color key="titleColor" red="0.099203579127788544" green="0.039092682301998138" blue="0.025941237807273865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToCreateTeacher:" destination="wQf-Sy-c7X" eventType="touchUpInside" id="TSM-QS-8dg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="lws-1f-8FV" secondAttribute="bottom" constant="255" id="2Df-Ph-IVp"/>
                             <constraint firstItem="BaD-p9-npB" firstAttribute="leading" secondItem="fSs-td-THF" secondAttribute="leadingMargin" constant="299" id="37V-wP-uAd"/>
-                            <constraint firstItem="Gk1-PV-txd" firstAttribute="top" secondItem="9Ps-cU-gpk" secondAttribute="bottom" constant="29" id="Bnj-Sa-nJU"/>
-                            <constraint firstItem="Gk1-PV-txd" firstAttribute="top" secondItem="u2N-FN-EO7" secondAttribute="bottom" constant="-4" id="CFd-zf-8Cc"/>
                             <constraint firstItem="fWk-ny-OsF" firstAttribute="leading" secondItem="fSs-td-THF" secondAttribute="leadingMargin" constant="7" id="E3v-Ue-ExU"/>
-                            <constraint firstItem="wnG-y7-Orq" firstAttribute="top" secondItem="Gk1-PV-txd" secondAttribute="bottom" constant="23" id="KoW-r9-RWN"/>
+                            <constraint firstItem="fWk-ny-OsF" firstAttribute="top" secondItem="MnH-C0-neB" secondAttribute="bottom" constant="36" id="Gmu-4r-f9X"/>
+                            <constraint firstItem="MnH-C0-neB" firstAttribute="top" secondItem="9Ps-cU-gpk" secondAttribute="bottom" constant="12" id="ILe-1S-hT2"/>
                             <constraint firstItem="u2N-FN-EO7" firstAttribute="centerX" secondItem="fSs-td-THF" secondAttribute="centerX" id="PuR-xr-xbH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wnG-y7-Orq" secondAttribute="trailing" constant="61" id="QHa-bY-uZ5"/>
-                            <constraint firstItem="Gk1-PV-txd" firstAttribute="leading" secondItem="fSs-td-THF" secondAttribute="leadingMargin" constant="10" id="SsY-Wi-mIz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lws-1f-8FV" secondAttribute="trailing" constant="-17" id="V1p-o2-7q5"/>
-                            <constraint firstItem="fWk-ny-OsF" firstAttribute="top" secondItem="Gk1-PV-txd" secondAttribute="bottom" constant="32" id="Xqx-3t-w7J"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Gk1-PV-txd" secondAttribute="trailing" constant="285" id="Ygu-r5-qtz"/>
+                            <constraint firstItem="wnG-y7-Orq" firstAttribute="top" secondItem="MnH-C0-neB" secondAttribute="bottom" constant="27" id="Ver-eE-58b"/>
+                            <constraint firstItem="u2N-FN-EO7" firstAttribute="leading" secondItem="MnH-C0-neB" secondAttribute="trailing" constant="72" id="YeV-zk-uta"/>
                             <constraint firstItem="u2N-FN-EO7" firstAttribute="top" secondItem="fSs-td-THF" secondAttribute="topMargin" constant="32" id="ZpV-FU-tkW"/>
                             <constraint firstItem="wnG-y7-Orq" firstAttribute="leading" secondItem="fSs-td-THF" secondAttribute="leadingMargin" constant="20" id="aKT-LQ-hjO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BaD-p9-npB" secondAttribute="trailing" id="dGU-uN-buf"/>
                             <constraint firstItem="HO8-yQ-XKq" firstAttribute="top" secondItem="BaD-p9-npB" secondAttribute="bottom" constant="193" id="eG5-Jl-d0q"/>
                             <constraint firstItem="BaD-p9-npB" firstAttribute="leading" secondItem="fUI-cd-JEm" secondAttribute="trailing" constant="25" id="fQN-A9-VJE"/>
                             <constraint firstItem="lws-1f-8FV" firstAttribute="top" secondItem="wnG-y7-Orq" secondAttribute="bottom" constant="8" id="fSy-6M-aI6"/>
+                            <constraint firstItem="MnH-C0-neB" firstAttribute="leading" secondItem="fSs-td-THF" secondAttribute="leadingMargin" constant="20" id="kD1-ib-dlN"/>
                             <constraint firstAttribute="leadingMargin" secondItem="lws-1f-8FV" secondAttribute="leading" constant="15" id="o2k-7f-7WP"/>
                             <constraint firstItem="wnG-y7-Orq" firstAttribute="leading" secondItem="fWk-ny-OsF" secondAttribute="trailing" constant="5" id="r8o-Sq-mOh"/>
                             <constraint firstItem="fUI-cd-JEm" firstAttribute="centerY" secondItem="BaD-p9-npB" secondAttribute="centerY" id="sXe-LU-SPU"/>
@@ -146,11 +151,20 @@
                     <connections>
                         <outlet property="validation" destination="fUI-cd-JEm" id="nuO-Jp-22x"/>
                         <segue destination="KGk-S5-4bK" kind="presentation" identifier="SubjectCreated" id="OOQ-nj-M03"/>
+                        <segue destination="h4w-nQ-baF" kind="show" identifier="CreateTeacher" id="th6-mA-rcF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcX-KN-e4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="592.79999999999995" y="122.78860569715144"/>
+        </scene>
+        <!--CreateTeacher-->
+        <scene sceneID="SkX-4g-5Ub">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateTeacher" id="h4w-nQ-baF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NXd-Su-PC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1267" y="46"/>
         </scene>
         <!--SubjectCreated-->
         <scene sceneID="X1a-xz-4jG">

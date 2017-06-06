@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wEI-v4-pIa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wEI-v4-pIa">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -27,12 +27,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Mb-b5-qZi">
-                                <rect key="frame" x="26" y="49" width="48" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual  o seu Professor?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXx-zO-wlw">
                                 <rect key="frame" x="36" y="89" width="262" height="29"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
@@ -83,28 +77,35 @@
                                 <color key="textColor" red="0.03920602426" green="0.039221249520000001" blue="0.039205066859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MID-3M-73z">
+                                <rect key="frame" x="26" y="32" width="41" height="30"/>
+                                <state key="normal" title="Voltar">
+                                    <color key="titleColor" red="0.099203579127788544" green="0.039092682301998138" blue="0.025941237807273865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToCreateSubject:" destination="wEI-v4-pIa" eventType="touchUpInside" id="o6O-YW-cuK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="FXx-zO-wlw" firstAttribute="leading" secondItem="cYg-hy-OHy" secondAttribute="leadingMargin" constant="20" id="00J-sj-ehm"/>
-                            <constraint firstItem="4Mb-b5-qZi" firstAttribute="leading" secondItem="cYg-hy-OHy" secondAttribute="leadingMargin" constant="10" id="5Ra-mK-CyP"/>
+                            <constraint firstItem="MID-3M-73z" firstAttribute="top" secondItem="rNn-aR-Y5b" secondAttribute="bottom" constant="12" id="5An-xx-I2f"/>
                             <constraint firstItem="ZgX-tH-qmZ" firstAttribute="centerX" secondItem="cYg-hy-OHy" secondAttribute="centerX" id="6Ib-P7-7FF"/>
                             <constraint firstItem="BMW-3k-HGK" firstAttribute="top" secondItem="mOt-FG-dsw" secondAttribute="bottom" constant="10" id="6oc-9f-DxE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BMW-3k-HGK" secondAttribute="trailing" constant="13" id="7jf-gX-XwQ"/>
                             <constraint firstItem="FXx-zO-wlw" firstAttribute="leading" secondItem="ByZ-Bl-cqd" secondAttribute="trailing" constant="5" id="CIl-OB-P8v"/>
-                            <constraint firstItem="4Mb-b5-qZi" firstAttribute="top" secondItem="ZgX-tH-qmZ" secondAttribute="bottom" constant="-4" id="ELB-kh-Zdh"/>
                             <constraint firstItem="ZgX-tH-qmZ" firstAttribute="top" secondItem="cYg-hy-OHy" secondAttribute="topMargin" constant="32" id="Eew-1B-inV"/>
-                            <constraint firstItem="ByZ-Bl-cqd" firstAttribute="top" secondItem="4Mb-b5-qZi" secondAttribute="bottom" constant="32" id="R6X-Ly-xVN"/>
+                            <constraint firstItem="MID-3M-73z" firstAttribute="leading" secondItem="cYg-hy-OHy" secondAttribute="leadingMargin" constant="10" id="PQd-GD-Z3k"/>
                             <constraint firstItem="mOt-FG-dsw" firstAttribute="top" secondItem="FXx-zO-wlw" secondAttribute="bottom" constant="17.666666666666671" id="RqO-pe-OXc"/>
                             <constraint firstItem="BMW-3k-HGK" firstAttribute="leading" secondItem="b6Q-lv-Wzh" secondAttribute="trailing" constant="25" id="S5d-kY-xkV"/>
                             <constraint firstItem="b6Q-lv-Wzh" firstAttribute="centerY" secondItem="BMW-3k-HGK" secondAttribute="centerY" id="cw6-Mi-LSb"/>
                             <constraint firstItem="BMW-3k-HGK" firstAttribute="leading" secondItem="cYg-hy-OHy" secondAttribute="leadingMargin" constant="286" id="kV9-8P-1Pm"/>
+                            <constraint firstItem="ByZ-Bl-cqd" firstAttribute="top" secondItem="MID-3M-73z" secondAttribute="bottom" constant="36" id="lkz-sR-lCK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FXx-zO-wlw" secondAttribute="trailing" constant="61" id="mWt-5w-aIh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4Mb-b5-qZi" secondAttribute="trailing" constant="285" id="ouN-4Z-mab"/>
-                            <constraint firstItem="4Mb-b5-qZi" firstAttribute="top" secondItem="rNn-aR-Y5b" secondAttribute="bottom" constant="29" id="qNy-D7-Uyp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mOt-FG-dsw" secondAttribute="trailing" constant="-16" id="rl3-hv-5ks"/>
                             <constraint firstItem="mOt-FG-dsw" firstAttribute="leading" secondItem="cYg-hy-OHy" secondAttribute="leadingMargin" constant="-16" id="v7x-BM-mZk"/>
-                            <constraint firstItem="FXx-zO-wlw" firstAttribute="top" secondItem="4Mb-b5-qZi" secondAttribute="bottom" constant="23" id="whV-iF-kGt"/>
+                            <constraint firstItem="FXx-zO-wlw" firstAttribute="top" secondItem="MID-3M-73z" secondAttribute="bottom" constant="27" id="vB6-Ny-JeA"/>
                             <constraint firstItem="ByZ-Bl-cqd" firstAttribute="leading" secondItem="cYg-hy-OHy" secondAttribute="leadingMargin" constant="7" id="xZJ-ll-iAb"/>
                         </constraints>
                     </view>
@@ -113,6 +114,7 @@
                         <outlet property="validation" destination="b6Q-lv-Wzh" id="xpW-kv-rkr"/>
                         <segue destination="3kf-ZV-E6t" kind="show" identifier="BackEditSubject" id="2cT-4b-Rum"/>
                         <segue destination="thr-Rt-On8" kind="presentation" identifier="SelectSubjectColor" id="2jn-gT-dG1"/>
+                        <segue destination="My9-BR-l5D" kind="show" identifier="CreateSubject" id="mIE-2n-a38"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ngq-Mp-hhM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -125,7 +127,15 @@
                 <viewControllerPlaceholder storyboardName="SelectSubjectColor" id="thr-Rt-On8" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FGY-R9-I7s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1441" y="122"/>
+            <point key="canvasLocation" x="1439" y="116"/>
+        </scene>
+        <!--CreateSubject-->
+        <scene sceneID="ssG-rH-B4s">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateSubject" id="My9-BR-l5D" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Thd-5T-dhu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1417" y="184"/>
         </scene>
         <!--EditSubject-->
         <scene sceneID="c4G-Hg-hg0">
@@ -133,7 +143,7 @@
                 <viewControllerPlaceholder storyboardName="EditSubject" id="3kf-ZV-E6t" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHm-yn-zmx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1410" y="75"/>
+            <point key="canvasLocation" x="1403" y="49"/>
         </scene>
     </scenes>
     <resources>
