@@ -43,6 +43,10 @@ class SubjectCreated: UIViewController {
      
     }
     
+    @IBAction func doneCreatingSubject(_ sender: Any){
+        CalendarViewController.pushedFromHomeSubject = true
+    }
+    
     func assignBackground() {
         
         let background = UIImage(named: "greenPatternWithBoy")
@@ -66,7 +70,7 @@ class SubjectCreated: UIViewController {
 
     @IBAction func nextScreenBtn(_ sender: Any) {
         
-        if segueData == "AddActivity" || segueData == "ChooseSubjectController" {
+        if segueData == "AddActivity" || segueData == "ChooseSubjectController" || segueData == "AddActivityByDone" || segueData == "AddActivityByDaily"{
             
             performSegue(withIdentifier: "BackToChooseSubject", sender: Any?.self)
             

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2zr-vg-P1N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2zr-vg-P1N">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,6 +37,7 @@
                                 <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="wCL-ID-fjh" firstAttribute="centerX" secondItem="Ndw-Co-UFS" secondAttribute="centerX" id="7YG-io-vSO"/>
+                                    <constraint firstItem="xbr-Yd-Ccb" firstAttribute="top" secondItem="wCL-ID-fjh" secondAttribute="bottom" constant="3" id="OVS-8I-n0o"/>
                                     <constraint firstAttribute="bottom" secondItem="xbr-Yd-Ccb" secondAttribute="bottom" constant="27" id="Zjg-VV-qbq"/>
                                     <constraint firstItem="xbr-Yd-Ccb" firstAttribute="centerX" secondItem="Ndw-Co-UFS" secondAttribute="centerX" id="dbN-O0-pBH"/>
                                     <constraint firstItem="xbr-Yd-Ccb" firstAttribute="top" secondItem="wCL-ID-fjh" secondAttribute="bottom" constant="3" id="eFZ-nI-df5"/>
@@ -120,15 +121,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Ndw-Co-UFS" secondAttribute="trailing" id="1ti-D4-IsB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XLk-wo-evI" secondAttribute="trailing" constant="-16" id="3ME-5m-xyI"/>
+                            <constraint firstItem="HxO-0r-h8D" firstAttribute="top" secondItem="Ndw-Co-UFS" secondAttribute="bottom" constant="14" id="5xx-MB-TMe"/>
                             <constraint firstItem="HxO-0r-h8D" firstAttribute="centerX" secondItem="Ndw-Co-UFS" secondAttribute="centerX" id="GzB-Rr-68Y"/>
                             <constraint firstItem="npW-3d-b5U" firstAttribute="top" secondItem="XLk-wo-evI" secondAttribute="bottom" id="J4f-Pb-Dub"/>
                             <constraint firstItem="Ndw-Co-UFS" firstAttribute="top" secondItem="JwU-Cw-lTy" secondAttribute="bottom" constant="-20" id="LR4-bI-giN"/>
-                            <constraint firstItem="Ndw-Co-UFS" firstAttribute="leading" secondItem="wpQ-RM-SRZ" secondAttribute="leadingMargin" constant="-16" id="S6J-df-nUm"/>
+                            <constraint firstItem="Ndw-Co-UFS" firstAttribute="leading" secondItem="wpQ-RM-SRZ" secondAttribute="leading" id="PZ5-IS-Crj"/>
+                            <constraint firstItem="Ndw-Co-UFS" firstAttribute="top" secondItem="wpQ-RM-SRZ" secondAttribute="top" id="PaV-mH-xy1"/>
                             <constraint firstItem="XLk-wo-evI" firstAttribute="top" secondItem="HxO-0r-h8D" secondAttribute="bottom" constant="28" id="WDh-G9-COg"/>
                             <constraint firstItem="HxO-0r-h8D" firstAttribute="leading" secondItem="wpQ-RM-SRZ" secondAttribute="leadingMargin" constant="8" id="a9w-Ra-lXN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HxO-0r-h8D" secondAttribute="trailing" constant="8" id="nSZ-EW-G9l"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ndw-Co-UFS" secondAttribute="trailing" constant="-16" id="t1y-cT-dw3"/>
                             <constraint firstItem="XLk-wo-evI" firstAttribute="leading" secondItem="wpQ-RM-SRZ" secondAttribute="leadingMargin" constant="-16" id="tE4-BQ-qb3"/>
                             <constraint firstItem="HxO-0r-h8D" firstAttribute="top" secondItem="Ndw-Co-UFS" secondAttribute="bottom" constant="14" id="tNM-AR-aP6"/>
                         </constraints>

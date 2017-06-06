@@ -46,13 +46,21 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
     @IBAction func backButton(_ sender: Any){
         
         if segueRecived == "Reminders"{
+        
             performSegue(withIdentifier: "GoToEditScreen", sender: Any?.self)
+       
         }else if segueRecived == "AddActivity"{
+            
             performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
+        
         }else if segueRecived == "AddActivityByDaily"{
+        
             performSegue(withIdentifier: "GoToDailyCalendar", sender: Any.self)
+        
         }else if segueRecived == "AddActivityByDone"{
+        
             performSegue(withIdentifier: "GoToDoneAndPostponed", sender: Any.self)
+        
         }
     }
     

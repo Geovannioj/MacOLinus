@@ -18,7 +18,9 @@ class GoalCreated: UIViewController {
         
         saveUserGoals()
         
-        performSegue(withIdentifier: "goalCreated", sender: Any?.self)
+        CalendarViewController.pushedFromHomeGoal = true
+        
+//        performSegue(withIdentifier: "goalCreated", sender: Any?.self)
       
     }
     
