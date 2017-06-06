@@ -57,18 +57,24 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     var sendActivity = Reminder()
     var indexActivity: Int = -1
 
+    //variables used to filter calendar table views activities to month of the year
+    var currentMonth:Int = 0
+    var currentYear:Int = 0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCalendar()
-        
+        let calendar = Calendar.current
+        currentMonth = calendar.component(.month, from: currentDate! as Date)
+        currentYear = calendar.component(.year, from: currentDate! as Date)
+
         loadReminders()
-        
-        
         
         //ficar de olho nesta, pois activities é onde o Singleton é repassado para esta classe!
         //Pode gerar um bug!
+        //also get by the month of the year
         activities = getToDoAndPostponedActivities(activities: SingletonActivity.sharedInstance.tasks)
-        
         activities = sortActivities()
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
@@ -201,11 +207,33 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func moveToNextMonth(){
         calendarView.scrollToSegment(SegmentDestination.next)
+        if currentMonth == 12{
+            currentMonth = 1
+            currentYear += 1
+        }else{
+            currentMonth += 1
+        }
+        self.activities = getToDoAndPostponedActivities(activities: SingletonActivity.sharedInstance.tasks)
+        self.activities = sortActivities()
+        self.tableView.reloadData()
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
         calendarView.reloadData()
     }
     
     @IBAction func moveToPreviousMonth(){
         calendarView.scrollToSegment(SegmentDestination.previous)
+        if currentMonth == 1{
+            currentMonth = 12
+            currentYear -= 1
+        }else{
+            currentMonth -= 1
+        }
+        self.activities = getToDoAndPostponedActivities(activities: SingletonActivity.sharedInstance.tasks)
+        self.activities = sortActivities()
+        self.tableView.reloadData()
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
         calendarView.reloadData()
     }
     
@@ -240,12 +268,14 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     func getToDoAndPostponedActivities(activities: [Reminder]) -> [Reminder]{
         
         var toDoActivities: [Reminder] = []
+        let calendar = Calendar.current
         
         for activity in activities{
-            
             //get toDo or postponed Activities(status = 0 || status == 2)
             if(activity.status == 0 || activity.status == 2){
-                toDoActivities.append(activity)
+                if calendar.component(.month, from: activity.time) == currentMonth && calendar.component(.year, from: activity.time) == currentYear{
+                    toDoActivities.append(activity)
+                }
             }
         }
         
