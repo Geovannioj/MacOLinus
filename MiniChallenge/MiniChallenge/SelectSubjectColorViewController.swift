@@ -53,6 +53,10 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    @IBAction func backToCreateTeacher(_ sender: Any) {
+        
+        performSegue(withIdentifier: "CreateTeacher", sender: Any?.self)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -29,6 +29,16 @@ class CreateSubject: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Actions
+    
+ 
+    @IBAction func backToHomeSubject(_ sender: Any) {
+        
+        performSegue(withIdentifier: "HomeSubject", sender: Any?.self)
+    }
+    
+    
+    
     // MARK: - Helpers
     
     internal func cleanBuffer () {

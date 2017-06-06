@@ -154,7 +154,7 @@
                 <viewControllerPlaceholder storyboardName="CreateSubject" id="sVB-YR-NZ0" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ID-JK-2sd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="232" y="99"/>
+            <point key="canvasLocation" x="244" y="94"/>
         </scene>
         <!--EditSubject-->
         <scene sceneID="qKz-fr-lho">
@@ -162,7 +162,7 @@
                 <viewControllerPlaceholder storyboardName="EditSubject" id="BEI-Mo-AP0" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXS-1m-L5D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="233" y="143"/>
+            <point key="canvasLocation" x="243" y="148"/>
         </scene>
         <!--HomeNotes-->
         <scene sceneID="CMy-hY-fiX">
@@ -170,7 +170,7 @@
                 <viewControllerPlaceholder storyboardName="HomeNotes" id="UDJ-gg-Q2V" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="63v-K7-PxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="243" y="215"/>
+            <point key="canvasLocation" x="244" y="213"/>
         </scene>
     </scenes>
     <resources>
