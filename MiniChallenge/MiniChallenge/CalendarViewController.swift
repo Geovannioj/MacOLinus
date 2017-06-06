@@ -61,14 +61,12 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     var currentMonth:Int = 0
     var currentYear:Int = 0
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCalendar()
         let calendar = Calendar.current
         currentMonth = calendar.component(.month, from: currentDate! as Date)
         currentYear = calendar.component(.year, from: currentDate! as Date)
-
         loadReminders()
         
         //ficar de olho nesta, pois activities é onde o Singleton é repassado para esta classe!
@@ -643,9 +641,39 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        let calendar = Calendar.current
+        let dates = visibleDates.monthDates.map { $0.date }
+        
+        
+        if currentMonth == 12{
+            if calendar.component(.month, from: dates[15]) == 1{
+                currentMonth = 1
+                currentYear += 1
+            }else{
+                currentMonth = 11
+            }
+        }else if currentMonth == 1{
+            if calendar.component(.month, from: dates[15]) == 12{
+                currentMonth = 12
+                currentYear -= 1
+            }else{
+                currentMonth = 2
+            }
+        }else{
+            currentMonth = calendar.component(.month, from: dates[15])
+        }
+        print(currentMonth)
+        print(currentYear)
+        
+        self.activities = getToDoAndPostponedActivities(activities: SingletonActivity.sharedInstance.tasks)
+        self.activities = sortActivities()
+        self.tableView.reloadData()
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
         handleMonthAndYearText(from: visibleDates)
         calendarView.reloadData()
     }
+    
 }
 
 
