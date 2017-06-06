@@ -68,14 +68,25 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         let deleteButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "delete")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
-            SingletonSubject.sharedInstance.subjects.remove(at: indexPath.row)
+            let deletingAlert = UIAlertController(title: "Excluindo disciplina", message: "Você deseja excluir a disciplina: \(SingletonSubject.sharedInstance.subjects[indexPath.row].title) ?", preferredStyle: .alert)
             
-            let indexPaths = [indexPath]
-            tableView.deleteRows(at: indexPaths, with: .automatic)
-            tableView.reloadData()
-
-            self.saveSubjects()
+            let deleteButton = UIAlertAction(title: "Deletar", style: UIAlertActionStyle.cancel, handler: { action in
+                
+                SingletonSubject.sharedInstance.subjects.remove(at: indexPath.row)
+                let indexPaths = [indexPath]
+                tableView.deleteRows(at: indexPaths, with: .automatic)
+                tableView.reloadData()
+                self.saveSubjects()
+            })
             
+            let cancelButton = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+                //Do nothing
+            })
+            
+            deletingAlert.addAction(deleteButton)
+            deletingAlert.addAction(cancelButton)
+            
+            self.present(deletingAlert, animated: true, completion: nil)
             return true
         }
         

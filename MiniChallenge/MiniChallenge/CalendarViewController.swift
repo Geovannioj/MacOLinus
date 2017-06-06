@@ -340,7 +340,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         let deleteButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "delete")!)) {
             (sender: MGSwipeTableCell!) -> Bool in
             
-            let deletingAlert = UIAlertController(title: "Excluindo atividade", message: "você deseja excluir a atividade: \(activity.title)", preferredStyle: .alert)
+            let deletingAlert = UIAlertController(title: "Excluindo a atividade", message: "Você deseja excluir a atividade: \(activity.title) ?", preferredStyle: .alert)
             
             let deleteButton = UIAlertAction(title: "Deletar", style: UIAlertActionStyle.cancel, handler: { action in
                 
