@@ -44,7 +44,7 @@ class SubjectCreated: UIViewController {
     }
     
     @IBAction func doneCreatingSubject(_ sender: Any){
-        CalendarViewController.pushedFromHomeSubject = true
+       
     }
     
     func assignBackground() {
@@ -76,7 +76,8 @@ class SubjectCreated: UIViewController {
             
         }else {
             
-            performSegue(withIdentifier: "HomeSubject", sender: Any?.self)
+             CalendarViewController.pushedFromHomeSubject = true
+
         }
     }
     

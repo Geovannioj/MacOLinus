@@ -57,7 +57,7 @@
                                 <rect key="frame" x="302" y="190" width="44" height="44"/>
                                 <state key="normal" image="redButton"/>
                                 <connections>
-                                    <action selector="doneCreatingSubject:" destination="f1w-OC-WNv" eventType="touchUpInside" id="x6i-Ps-1oE"/>
+                                    <action selector="nextScreenBtn:" destination="f1w-OC-WNv" eventType="touchUpInside" id="Ypy-5c-Ean"/>
                                     <segue destination="BId-pP-3Dk" kind="presentation" id="cxw-CP-6A8"/>
                                 </connections>
                             </button>

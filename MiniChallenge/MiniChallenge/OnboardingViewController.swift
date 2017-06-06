@@ -52,8 +52,8 @@ class OnboardingViewController: UIViewController, PaperOnboardingDataSource, Pap
         item.superview?.superview?.bringSubview(toFront: skipButton)
 
         if index == 0{
-            skipLabel.isHidden = false
-            skipButton.isHidden = false
+            skipLabel.isHidden = true
+            skipButton.isHidden = true
         }else if index == 1{
             skipLabel.isHidden = false
             skipButton.isHidden = false
