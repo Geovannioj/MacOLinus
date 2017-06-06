@@ -446,6 +446,7 @@
 		6EB66E871EB8F9DC00A16F1D /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				BF77E4E51EC394A9007845B2 /* ActivityTableViewCell.xib */,
 				6EB66EA61EB9174D00A16F1D /* DayActivityTableViewCell.xib */,
 				BF762CA61ED47320004E423B /* EditActivity.storyboard */,
 				BF77E4CA1EC394A9007845B2 /* Calendar.storyboard */,
@@ -532,7 +533,6 @@
 			isa = PBXGroup;
 			children = (
 				BF77E4D21EC394A9007845B2 /* Reminders.storyboard */,
-				BF77E4E51EC394A9007845B2 /* ActivityTableViewCell.xib */,
 			);
 			name = Reminder;
 			sourceTree = "<group>";
@@ -603,7 +603,6 @@
 			children = (
 				BF77E4E11EC394A9007845B2 /* DoneAndPostponedActivitiesTableViewCell.swift */,
 				BF77E4E21EC394A9007845B2 /* DoneAndPostponedActivitiesViewController.swift */,
-				BF77E4E01EC394A9007845B2 /* DoneAndPostponedActivities.storyboard */,
 			);
 			name = DoneAndPostPoned;
 			sourceTree = "<group>";
@@ -611,6 +610,7 @@
 		BF1C9D411EC4F0B500707BFF /* DoneAndPostponed */ = {
 			isa = PBXGroup;
 			children = (
+				BF77E4E01EC394A9007845B2 /* DoneAndPostponedActivities.storyboard */,
 				BF77E4F21EC394A9007845B2 /* DoneAndPostponedActivitiesTableViewCell.xib */,
 			);
 			name = DoneAndPostponed;

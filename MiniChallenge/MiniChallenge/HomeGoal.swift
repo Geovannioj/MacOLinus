@@ -35,6 +35,12 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        CalendarViewController.pushedFromHomeGoal = false
+        CalendarViewController.pushedFromHomeSubject = false
+    }
+    
     // TableView Protocol
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

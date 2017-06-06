@@ -111,6 +111,9 @@ class AddTitleController: UIViewController, UITextFieldDelegate {
                 dataToSubject.activityToEdit?.title = self.taskTitleTextField.text!
                 dataToSubject.segueRecived = self.segueRecived
             }
+        }else if segue.identifier == "GoToCalendar"{
+            CalendarViewController.pushedFromHomeSubject = false
+            CalendarViewController.pushedFromHomeGoal = false
         }
     }
     

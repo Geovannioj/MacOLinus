@@ -387,7 +387,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
             deletingAlert.addAction(deleteButton)
             deletingAlert.addAction(cancelButton)
             
-            
             self.present(deletingAlert, animated: true, completion: nil)
             
             return true
@@ -434,7 +433,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         cell.leftSwipeSettings.transition = .border
         cell.rightButtons = [doneButton, postponeButton]
         cell.rightSwipeSettings.transition = .border
-        
         
         return cell
 
@@ -662,8 +660,6 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         }else{
             currentMonth = calendar.component(.month, from: dates[15])
         }
-        print(currentMonth)
-        print(currentYear)
         
         self.activities = getToDoAndPostponedActivities(activities: SingletonActivity.sharedInstance.tasks)
         self.activities = sortActivities()

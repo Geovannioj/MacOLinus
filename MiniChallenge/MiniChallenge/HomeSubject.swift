@@ -37,6 +37,12 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        CalendarViewController.pushedFromHomeGoal = false
+        CalendarViewController.pushedFromHomeSubject = false
+    }
+    
     
     //MARK: - TableView Protocol
     
