@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f1w-OC-WNv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f1w-OC-WNv">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -57,7 +57,7 @@
                                 <rect key="frame" x="302" y="190" width="44" height="44"/>
                                 <state key="normal" image="redButton"/>
                                 <connections>
-                                    <action selector="doneCreatingSubject:" destination="f1w-OC-WNv" eventType="touchUpInside" id="x6i-Ps-1oE"/>
+                                    <action selector="nextScreenBtn:" destination="f1w-OC-WNv" eventType="touchUpInside" id="Ypy-5c-Ean"/>
                                     <segue destination="BId-pP-3Dk" kind="presentation" id="cxw-CP-6A8"/>
                                 </connections>
                             </button>
