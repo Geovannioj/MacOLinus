@@ -17,7 +17,8 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var subjectTitleLabel: UILabel!
     @IBOutlet weak var subjectColorLabel: UILabel!
 
-   
+    var filteredActivities = [Reminder]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -97,6 +98,15 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         performSegue(withIdentifier: "PresentNotes", sender: Any?.self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "HomeTasks" {
+            if let nextScreen = segue.destination as? ShowSubjectsActivity {
+                nextScreen.subjectsActivity = self.filteredActivities
+            }
+        }
+    }
+
     
     // MARK: - Persist Data
     
