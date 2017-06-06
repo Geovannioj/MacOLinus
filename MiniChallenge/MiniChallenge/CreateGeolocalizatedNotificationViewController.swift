@@ -52,6 +52,10 @@ class CreateGeolocalizatedNotificationViewController: UIViewController, CLLocati
         assignBackground()    
     }
     
+    @IBAction func nextScreenPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "HomeGoal", sender: Any?.self)
+    }
     
 //    func asnas(id: Int, completion: (()->())?) {
 //        completion?()
