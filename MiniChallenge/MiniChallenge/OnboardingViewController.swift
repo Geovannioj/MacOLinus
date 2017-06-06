@@ -5,209 +5,114 @@
 //  Created by Miguel Pimentel on 29/04/17.
 //  Copyright © 2017 Luis Gustavo Avelino de Lima Jacinto. All rights reserved.
 //
+//
 
 import UIKit
+import paper_onboarding
 
-class OnboardingViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+class OnboardingViewController: UIViewController, PaperOnboardingDataSource, PaperOnboardingDelegate, UIGestureRecognizerDelegate{
+    
+    var window: UIWindow?
+    @IBOutlet weak var skipLabel: UILabel!
+    
+    @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var onboarding: UIView!
+    
+    @IBAction func goToCalendar(_ sender: Any) {
+        performSegue(withIdentifier: "GoToCalendar", sender: Any?.self)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    func onboardingWillTransitonToIndex(_ index: Int) {
+        
+    }
+    
+    func onboardingDidTransitonToIndex(_ index: Int) {
+        
+    }
+    
+    func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
+        
+        item.superview?.superview?.addSubview(skipLabel)
+        item.superview?.superview?.addSubview(skipButton)
+        item.superview?.superview?.bringSubview(toFront: skipButton)
 
+        if index == 0{
+            skipLabel.isHidden = false
+            skipButton.isHidden = false
+        }else if index == 1{
+            skipLabel.isHidden = false
+            skipButton.isHidden = false
+            skipLabel.textColor = UIColor.white
+            skipLabel.text = "Pular"
+            skipButton.backgroundColor = UIColor(patternImage: UIImage(named: "skipButton1")!)
+        }else if index == 2{
+            skipLabel.textColor = UIColor.white
+            skipLabel.text = "Pular"
+            skipButton.backgroundColor = UIColor(patternImage: UIImage(named: "skipButton2")!)
+        }else{
+            skipLabel.text = "Começar"
+            skipLabel.textColor = UIColor.black
+            skipButton.backgroundColor = UIColor(patternImage: UIImage(named: "skipButton3")!)
+        }
+    }
 
-//    import UIKit
-//    import paper_onboarding
-//    
-//    
-//    class OnboardingViewController: UIViewController, PaperOnboardingDataSource, PaperOnboardingDelegate {
-//        
-//        @IBOutlet weak var onboardingView: OnBoardingView!
-//        
-//        override func viewDidLoad() {
-//            super.viewDidLoad()
-//            // Do any additional setup after loading the view, typically from a nib.
-//            onboardingView.dataSource = self
-//            onboardingView.delegate = self
-//            
-//            
-//        }
-//        
-//        
-//        func onboardingItemsCount() -> Int {
-//            let onboardingPages = 4
-//            
-//            return onboardingPages
-//            
-//        }
-//        
-//        
-//        func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo {
-//            
-//            let backgroundColorOne = UIColor(red: 0.2902, green: 0.3765, blue: 0.8588, alpha: 1)
-//            let backgroundColorTwo = UIColor(red: 0.9804, green: 0.8196, blue: 0.1882, alpha: 1)
-//            let backgroundColorThree = UIColor(red: 0.2784, green: 0.9020, blue: 0.7686, alpha: 1)
-//            let backgroundColorFour = UIColor(red: 0.9725, green: 0.4627, blue: 0.4549, alpha: 1)
-//            
-//            
-//            let titleFont = UIFont(name: "AvenirNext-Bold", size: 24)!
-//            let textFont = UIFont(name: "AvenirNext-Regular", size: 18)!
-//            
-//            
-//            var onboardingPages = [OnboardingItemInfo]()
-//            
-//            
-//            let firstPage = OnboardingItemInfo("Pengo", "Calendar is amazing", "hwduiweduwhiuhdueiwhduedewdeedwebd", "", backgroundColorOne, UIColor.white, UIColor.white, titleFont, textFont)
-//            
-//            let secondPage = OnboardingItemInfo("Pengo", "Calendar is amazing", "hwduiweduwhiuhdueiwhduedewdeedwebd", "", backgroundColorTwo, UIColor.white, UIColor.white, titleFont, textFont)
-//            
-//            let thirdPage = OnboardingItemInfo("Pengo", "Calendar is amazing", "hwduiweduwhiuhdueiwhduedewdeedwebd", "", backgroundColorThree, UIColor.white, UIColor.white, titleFont, textFont)
-//            
-//            
-//            let fourthPage = OnboardingItemInfo("Pengo", "Calendar is amazing", "hwduiweduwhiuhdueiwhduedewdeedwebd", "", backgroundColorFour, UIColor.white, UIColor.white, titleFont, textFont)
-//            
-//            onboardingPages.append(firstPage)
-//            onboardingPages.append(secondPage)
-//            onboardingPages.append(thirdPage)
-//            onboardingPages.append(fourthPage)
-//            
-//            return onboardingPages[index]
-//            
-//        }
-//        
-//        
-//        
-//        func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
-//            
-//            
-//            
-//        }
-//        
-//        func onboardingWillTransitonToIndex(_ index: Int) {
-//            //
-//            //        if index  == 1 {
-//            //            if self.getStartedButton.alpha == 1 {
-//            //                UIView.animate(withDuration: 0.2, animations: {
-//            //                  self.getStartedButton.alpha = 0
-//            //                })
-//            //            }
-//            //        }
-//            
-//            
-//        }
-//        
-//        func onboardingDidTransitonToIndex(_ index: Int) {
-//            
-//            // It has to create a button to execute
-//            
-//            //        if index == 2  {
-//            //            UIView.animate(withDuration: 0.4, animations: {
-//            //                self.getStartedButton.alpha = 1 })
-//            //        }
-//        }
-//        
-//        override func didReceiveMemoryWarning() {
-//            super.didReceiveMemoryWarning()
-//            // Dispose of any resources that can be recreated.
-//        }
-//        
-//        
-//    }
-//    
-//    import UIKit
-//    import paper_onboarding
-//    
-//    
-//    class ViewController: UIViewController, PaperOnboardingDataSource, PaperOnboardingDelegate {
-//        
-//        @IBOutlet weak var onboardingView: OnBoardingView!
-//        
-//        override func viewDidLoad() {
-//            super.viewDidLoad()
-//            
-//            // Do any additional setup after loading the view, typically from a nib.
-//            onboardingView.dataSource = self
-//            onboardingView.delegate = self
-//            
-//            
-//        }
-//        
-//        
-//        func onboardingItemsCount() -> Int {
-//            let onboardingPages = 4
-//            
-//            return onboardingPages
-//            
-//        }
-//        
-//        
-//        func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo {
-//            
-//            
-//            var onboardingPages = [OnboardingItemInfo]()
-//            
-//            let customPurple = UIColor(red: 0.2902, green: 0.3765, blue: 0.8588, alpha: 1)
-//            let customYellow = UIColor(red: 0.9804, green: 0.8196, blue: 0.1882, alpha: 1)
-//            let customGreen = UIColor(red: 0.2784, green: 0.9020, blue: 0.7686, alpha: 1)
-//            let customRed = UIColor(red: 0.9725, green: 0.4627, blue: 0.4549, alpha: 1)
-//            
-//            
-//            let titleFont = UIFont(name: "AvenirNext-Bold", size: 24)!
-//            let textFont = UIFont(name: "AvenirNext-Regular", size: 18)!
-//            
-//            
-//            
-//            let firstPage = OnboardingItemInfo("Onboard 1", "", "O pengo app foi feito especialmente para estudantes se organizarem de forma simples e intuitiva", "", customYellow, UIColor.white, UIColor.white, titleFont, textFont)
-//            
-//            let secondPage = OnboardingItemInfo("Bitmap", "", "Todas sua tarefas organizadas de forma simples.", "", customRed, UIColor.white, UIColor.white, titleFont, textFont)
-//            
-//            let thirdPage = OnboardingItemInfo("Bitmap1", "", "Defina metas e conquiste seus objetivos!", "", customPurple, UIColor.white, UIColor.white, titleFont, textFont)
-//            
-//            
-//            let fourthPage = OnboardingItemInfo("Bitmap2", "", "Organize suas atividades de acordo com as matérias do seu curso.", "", customGreen, UIColor.white, UIColor.white, titleFont, textFont)
-//            
-//            onboardingPages.append(firstPage)
-//            onboardingPages.append(secondPage)
-//            onboardingPages.append(thirdPage)
-//            onboardingPages.append(fourthPage)
-//            
-//            return onboardingPages[index]
-//            
-//        }
-//        
-//        
-//        
-//        func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
-//            
-//            
-//            
-//        }
-//        
-//        func onboardingWillTransitonToIndex(_ index: Int) {
-//            
-//            
-//        }
-//        
-//        func onboardingDidTransitonToIndex(_ index: Int) {
-//            
-//        }
-//        
-//        override func didReceiveMemoryWarning() {
-//            super.didReceiveMemoryWarning()
-//            // Dispose of any resources that can be recreated.
-//        }
-//        
-//        
-//    }
+    func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo {
+        
+        let backgroundColorOne = UIColor(patternImage: UIImage(named: "OnboardingBackground1")!)
+        let backgroundColorTwo = UIColor(patternImage: UIImage(named: "Pink Pattern")!)
+        let backgroundColorThree = UIColor(patternImage: UIImage(named: "purplePattern")!)
+        let backgroundColorFour = UIColor(patternImage: UIImage(named: "greenPattern")!)
+        let titleFont = UIFont(name: "AvenirNext-Bold", size: 24)!
+        let textFont = UIFont(name: "AvenirNext-Regular", size: 18)!
+        
+        var onboardingPages = [OnboardingItemInfo]()
+        
+        let firstPage = OnboardingItemInfo("pengoOnboarding1", "", "O Pengo app foi feito especialmente para estudantes se organizarem de forma simples e intuitiva", "", backgroundColorOne, UIColor.white, UIColor.black, titleFont, textFont)
+        
+        let secondPage = OnboardingItemInfo("onboarding2", "", "Todas suas tarefas organizadas de forma simples", "", backgroundColorTwo, UIColor.white, UIColor.white, titleFont, textFont)
+        
+        let thirdPage = OnboardingItemInfo("onboarding3", "", "Defina metas e conquiste seus objetivos!", "", backgroundColorThree, UIColor.white, UIColor.white, titleFont, textFont)
+        
+        let fourthPage = OnboardingItemInfo("onboarding4", "", "Organize suas atividades de acordo com as matérias do seu curso", "", backgroundColorFour, UIColor.white, UIColor.black, titleFont, textFont)
+        
+        onboardingPages.append(firstPage)
+        onboardingPages.append(secondPage)
+        onboardingPages.append(thirdPage)
+        onboardingPages.append(fourthPage)
+        
+        return onboardingPages[index]
 
-
-
-
+    }
+    
+    func onboardingItemsCount() -> Int {
+        return 4
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        skipButton.touchesBegan(touches, with: event)
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if touch.view is UIButton{
+            goToCalendar(self)
+        }
+        return true
+    }
+    
 }
+

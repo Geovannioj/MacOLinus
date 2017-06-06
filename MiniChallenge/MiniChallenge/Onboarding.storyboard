@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Onboarding View Controller-->
+        <!--Data Source-->
         <scene sceneID="pVp-D2-Feo">
             <objects>
-                <viewController id="92z-Om-qOM" customClass="OnboardingViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Onboarding" id="92z-Om-qOM" customClass="OnboardingViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vd0-uE-bo0"/>
                         <viewControllerLayoutGuide type="bottom" id="ntk-h7-p4v"/>
@@ -22,23 +22,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DE1-o7-2jW">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5P-JF-M8K" customClass="PaperOnboarding" customModule="paper_onboarding">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjG-eq-2yZ">
+                                        <rect key="frame" x="304" y="577" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Bzm-UJ-Fcc"/>
+                                            <constraint firstAttribute="width" constant="44" id="CrH-yW-Ghb"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="goToCalendar:" destination="92z-Om-qOM" eventType="touchUpInside" id="mfW-Mk-yef"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pular" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zG9-ZU-Xhl">
+                                        <rect key="frame" x="307" y="626" width="39" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="zG9-ZU-Xhl" secondAttribute="bottom" constant="20" id="8ph-fC-ZuM"/>
+                                    <constraint firstAttribute="trailing" secondItem="xjG-eq-2yZ" secondAttribute="trailing" constant="27" id="Heq-pq-2yk"/>
+                                    <constraint firstItem="zG9-ZU-Xhl" firstAttribute="top" secondItem="xjG-eq-2yZ" secondAttribute="bottom" constant="5" id="KJS-yO-dwq"/>
+                                    <constraint firstItem="zG9-ZU-Xhl" firstAttribute="centerX" secondItem="xjG-eq-2yZ" secondAttribute="centerX" id="VKD-wx-6Te"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="92z-Om-qOM" id="lOk-EE-UFh"/>
+                                    <outlet property="delegate" destination="92z-Om-qOM" id="Mdc-dj-QdW"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="DE1-o7-2jW" firstAttribute="top" secondItem="Vd0-uE-bo0" secondAttribute="bottom" constant="-20" id="DJN-kX-Zvg"/>
-                            <constraint firstItem="DE1-o7-2jW" firstAttribute="leading" secondItem="BxC-uc-nQr" secondAttribute="leadingMargin" constant="-16" id="JCl-Yf-twR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="DE1-o7-2jW" secondAttribute="trailing" constant="-16" id="dIq-uj-PkC"/>
-                            <constraint firstItem="ntk-h7-p4v" firstAttribute="top" secondItem="DE1-o7-2jW" secondAttribute="bottom" id="zwK-oW-uzj"/>
+                            <constraint firstItem="ntk-h7-p4v" firstAttribute="top" secondItem="l5P-JF-M8K" secondAttribute="bottom" id="85V-KW-3F8"/>
+                            <constraint firstItem="l5P-JF-M8K" firstAttribute="trailing" secondItem="BxC-uc-nQr" secondAttribute="trailingMargin" constant="16" id="K87-TW-atK"/>
+                            <constraint firstItem="l5P-JF-M8K" firstAttribute="top" secondItem="Vd0-uE-bo0" secondAttribute="bottom" constant="-20" id="rsr-v8-zbp"/>
+                            <constraint firstItem="l5P-JF-M8K" firstAttribute="leading" secondItem="BxC-uc-nQr" secondAttribute="leadingMargin" constant="-16" id="zQG-2J-rsV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="onboarding" destination="l5P-JF-M8K" id="d8T-f8-H34"/>
+                        <outlet property="skipButton" destination="xjG-eq-2yZ" id="DkO-XF-vCU"/>
+                        <outlet property="skipLabel" destination="zG9-ZU-Xhl" id="mGz-de-9iS"/>
+                        <segue destination="65K-M9-ir9" kind="showDetail" identifier="GoToCalendar" id="MAz-7c-pOE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTm-X6-9jB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-650" y="-17"/>
+            <point key="canvasLocation" x="-650.39999999999998" y="-17.541229385307346"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="Cji-Ky-E8I">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Calendar" referencedIdentifier="Calendar" id="65K-M9-ir9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n5x-Me-ywR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="182" y="117"/>
         </scene>
     </scenes>
 </document>

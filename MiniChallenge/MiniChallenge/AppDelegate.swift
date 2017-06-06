@@ -29,8 +29,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let center = UNUserNotificationCenter.current()
         
         center.delegate = self
+
+        
+        if(isAppAlreadyLaunchedOnce()){
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let storyboard = UIStoryboard(name: "Calendar", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "Calendar")
+            self.window?.rootViewController = controller
+            self.window?.makeKeyAndVisible()
+        }else{
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "Onboarding")
+            self.window?.rootViewController = controller
+            self.window?.makeKeyAndVisible()
+        }
         
         return true
+    }
+    
+    func isAppAlreadyLaunchedOnce()->Bool{
+        let defaults = UserDefaults.standard
+        
+        if let isAppAlreadyLaunchedOnce = defaults.string(forKey: "isAppAlreadyLaunchedOnce"){
+            print("App already launched : \(isAppAlreadyLaunchedOnce)")
+            return true
+        }else{
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App launched first time")
+            return false
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
