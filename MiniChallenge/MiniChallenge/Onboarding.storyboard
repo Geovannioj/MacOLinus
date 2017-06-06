@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -26,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjG-eq-2yZ">
-                                        <rect key="frame" x="304" y="577" width="44" height="44"/>
+                                        <rect key="frame" x="301" y="66" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Bzm-UJ-Fcc"/>
                                             <constraint firstAttribute="width" constant="44" id="CrH-yW-Ghb"/>
@@ -36,7 +35,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pular" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zG9-ZU-Xhl">
-                                        <rect key="frame" x="307" y="626" width="39" height="21"/>
+                                        <rect key="frame" x="304" y="40" width="39" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -44,10 +43,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="zG9-ZU-Xhl" secondAttribute="bottom" constant="20" id="8ph-fC-ZuM"/>
-                                    <constraint firstAttribute="trailing" secondItem="xjG-eq-2yZ" secondAttribute="trailing" constant="27" id="Heq-pq-2yk"/>
-                                    <constraint firstItem="zG9-ZU-Xhl" firstAttribute="top" secondItem="xjG-eq-2yZ" secondAttribute="bottom" constant="5" id="KJS-yO-dwq"/>
-                                    <constraint firstItem="zG9-ZU-Xhl" firstAttribute="centerX" secondItem="xjG-eq-2yZ" secondAttribute="centerX" id="VKD-wx-6Te"/>
+                                    <constraint firstItem="zG9-ZU-Xhl" firstAttribute="centerX" secondItem="xjG-eq-2yZ" secondAttribute="centerX" id="970-cC-lT8"/>
+                                    <constraint firstAttribute="trailing" secondItem="xjG-eq-2yZ" secondAttribute="trailing" constant="30" id="EDP-am-u7P"/>
+                                    <constraint firstItem="xjG-eq-2yZ" firstAttribute="top" secondItem="zG9-ZU-Xhl" secondAttribute="bottom" constant="5" id="O0i-Gc-Gft"/>
+                                    <constraint firstItem="zG9-ZU-Xhl" firstAttribute="top" secondItem="l5P-JF-M8K" secondAttribute="top" constant="40" id="gs7-0h-fId"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="92z-Om-qOM" id="lOk-EE-UFh"/>
@@ -57,10 +56,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ntk-h7-p4v" firstAttribute="top" secondItem="l5P-JF-M8K" secondAttribute="bottom" id="85V-KW-3F8"/>
-                            <constraint firstItem="l5P-JF-M8K" firstAttribute="trailing" secondItem="BxC-uc-nQr" secondAttribute="trailingMargin" constant="16" id="K87-TW-atK"/>
-                            <constraint firstItem="l5P-JF-M8K" firstAttribute="top" secondItem="Vd0-uE-bo0" secondAttribute="bottom" constant="-20" id="rsr-v8-zbp"/>
-                            <constraint firstItem="l5P-JF-M8K" firstAttribute="leading" secondItem="BxC-uc-nQr" secondAttribute="leadingMargin" constant="-16" id="zQG-2J-rsV"/>
+                            <constraint firstItem="l5P-JF-M8K" firstAttribute="top" secondItem="BxC-uc-nQr" secondAttribute="top" id="Kkv-9r-0Ce"/>
+                            <constraint firstAttribute="trailing" secondItem="l5P-JF-M8K" secondAttribute="trailing" id="cIc-92-a0T"/>
+                            <constraint firstItem="l5P-JF-M8K" firstAttribute="leading" secondItem="BxC-uc-nQr" secondAttribute="leading" id="mda-6i-t4c"/>
+                            <constraint firstItem="ntk-h7-p4v" firstAttribute="top" secondItem="l5P-JF-M8K" secondAttribute="bottom" id="t9t-N3-9oc"/>
                         </constraints>
                     </view>
                     <connections>
