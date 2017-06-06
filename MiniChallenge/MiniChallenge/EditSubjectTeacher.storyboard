@@ -27,12 +27,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFB-yo-OLt">
-                                <rect key="frame" x="26" y="49" width="48" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual  o Professor?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hi0-HD-9PE">
                                 <rect key="frame" x="36" y="89" width="262" height="29"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
@@ -74,32 +68,40 @@
                                     <constraint firstAttribute="width" constant="68" id="uWE-JI-hgY"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LnR-gi-UtI">
+                                <rect key="frame" x="23" y="32" width="61" height="30"/>
+                                <state key="normal" title="Cancelar">
+                                    <color key="titleColor" red="0.099203579127788544" green="0.039092682301998138" blue="0.025941237807273865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="CancelButtonPressed:" destination="O8D-xO-ems" eventType="touchUpInside" id="kIp-UK-LaK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7Y6-Rt-DML" firstAttribute="top" secondItem="hi0-HD-9PE" secondAttribute="bottom" constant="17.666666666666671" id="7CM-Ok-M8b"/>
+                            <constraint firstItem="hi0-HD-9PE" firstAttribute="top" secondItem="LnR-gi-UtI" secondAttribute="bottom" constant="27" id="8Ja-D2-KHR"/>
                             <constraint firstItem="bOk-HH-lnO" firstAttribute="leading" secondItem="r62-Pw-VK7" secondAttribute="leadingMargin" constant="286" id="BV1-Qq-Mgh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="bFB-yo-OLt" secondAttribute="trailing" constant="285" id="EPh-xQ-q63"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bOk-HH-lnO" secondAttribute="trailing" constant="13" id="Fxh-Gk-nE2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7Y6-Rt-DML" secondAttribute="trailing" constant="-16" id="I7w-d1-UCI"/>
-                            <constraint firstItem="bFB-yo-OLt" firstAttribute="leading" secondItem="r62-Pw-VK7" secondAttribute="leadingMargin" constant="10" id="Io7-Fw-89j"/>
                             <constraint firstItem="d15-rx-rNa" firstAttribute="leading" secondItem="r62-Pw-VK7" secondAttribute="leadingMargin" constant="7" id="KnS-D9-len"/>
                             <constraint firstItem="bOk-HH-lnO" firstAttribute="top" secondItem="7Y6-Rt-DML" secondAttribute="bottom" constant="10" id="L7K-FB-alH"/>
                             <constraint firstItem="hi0-HD-9PE" firstAttribute="leading" secondItem="d15-rx-rNa" secondAttribute="trailing" constant="5" id="NWz-19-nn6"/>
                             <constraint firstItem="Abr-xs-kzl" firstAttribute="top" secondItem="r62-Pw-VK7" secondAttribute="topMargin" constant="32" id="OGy-4C-ac3"/>
-                            <constraint firstItem="hi0-HD-9PE" firstAttribute="top" secondItem="bFB-yo-OLt" secondAttribute="bottom" constant="23" id="TBU-Cz-tbX"/>
-                            <constraint firstItem="bFB-yo-OLt" firstAttribute="top" secondItem="08K-uN-0yA" secondAttribute="bottom" constant="29" id="Vop-cy-3fH"/>
+                            <constraint firstItem="LnR-gi-UtI" firstAttribute="top" secondItem="08K-uN-0yA" secondAttribute="bottom" constant="12" id="Qmd-Xw-ehU"/>
                             <constraint firstItem="hi0-HD-9PE" firstAttribute="leading" secondItem="r62-Pw-VK7" secondAttribute="leadingMargin" constant="20" id="aDU-Vp-3Ix"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hi0-HD-9PE" secondAttribute="trailing" constant="61" id="f42-4j-dc8"/>
                             <constraint firstItem="Abr-xs-kzl" firstAttribute="centerX" secondItem="r62-Pw-VK7" secondAttribute="centerX" id="hPA-26-7VI"/>
-                            <constraint firstItem="d15-rx-rNa" firstAttribute="top" secondItem="bFB-yo-OLt" secondAttribute="bottom" constant="32" id="laf-tc-RIJ"/>
+                            <constraint firstItem="LnR-gi-UtI" firstAttribute="leading" secondItem="r62-Pw-VK7" secondAttribute="leadingMargin" constant="7" id="irr-i0-kGM"/>
+                            <constraint firstItem="d15-rx-rNa" firstAttribute="top" secondItem="LnR-gi-UtI" secondAttribute="bottom" constant="36" id="p4m-iR-XAr"/>
                             <constraint firstItem="7Y6-Rt-DML" firstAttribute="leading" secondItem="r62-Pw-VK7" secondAttribute="leadingMargin" constant="-16" id="vbu-mh-kgh"/>
-                            <constraint firstItem="bFB-yo-OLt" firstAttribute="top" secondItem="Abr-xs-kzl" secondAttribute="bottom" constant="-4" id="zmB-il-HhW"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="newTeacherName" destination="7Y6-Rt-DML" id="X79-A7-2n7"/>
                         <segue destination="kyD-XY-47a" kind="show" identifier="BackToEditSubject" id="jcR-4o-ccj"/>
+                        <segue destination="Slo-pj-2FZ" kind="show" identifier="EditSubject" id="a5g-xD-eci"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PR9-dO-juE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -113,6 +115,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qdX-t2-TuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="161" y="114"/>
+        </scene>
+        <!--EditSubject-->
+        <scene sceneID="TBa-kJ-SiE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditSubject" id="Slo-pj-2FZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jMJ-aF-0Su" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160" y="167"/>
         </scene>
     </scenes>
     <resources>

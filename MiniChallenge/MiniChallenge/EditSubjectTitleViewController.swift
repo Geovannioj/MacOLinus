@@ -28,6 +28,10 @@ class EditSubjectTitleViewController: UIViewController {
     }
     
 
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "EditSubject", sender: Any?.self)
+    }
+    
     
     // MARK: - Helpers
     

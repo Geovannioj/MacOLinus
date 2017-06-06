@@ -36,19 +36,23 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="lpU-q2-uvC">
                                         <rect key="frame" x="153" y="32" width="69" height="21"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9f-8u-dsJ">
-                                        <rect key="frame" x="22" y="25" width="78" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9f-8u-dsJ">
+                                        <rect key="frame" x="22" y="25" width="57" height="29"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                         <state key="normal" title="Matérias">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="subjectButtonPressed:" destination="5kZ-V9-s0H" eventType="touchUpInside" id="GgY-gL-HSf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="lpU-q2-uvC" firstAttribute="centerX" secondItem="krq-bE-NOZ" secondAttribute="centerX" id="Itc-2G-y2E"/>
+                                    <constraint firstItem="o9f-8u-dsJ" firstAttribute="leading" secondItem="krq-bE-NOZ" secondAttribute="leading" constant="22" id="K7w-Wk-PMD"/>
                                     <constraint firstItem="lpU-q2-uvC" firstAttribute="top" secondItem="krq-bE-NOZ" secondAttribute="top" constant="32" id="YzG-cj-i41"/>
+                                    <constraint firstItem="o9f-8u-dsJ" firstAttribute="top" secondItem="krq-bE-NOZ" secondAttribute="top" constant="25" id="gnc-4n-Y30"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxF-OC-KXd">
@@ -163,11 +167,38 @@
                         <outlet property="segmentControl" destination="FUE-dw-aPC" id="uXA-ms-AbP"/>
                         <outlet property="subjectColor" destination="DxF-OC-KXd" id="6D7-gA-Afh"/>
                         <outlet property="subjectTitle" destination="rjz-Bz-uFi" id="ttc-Zy-NwM"/>
+                        <segue destination="nUP-zd-BOv" kind="show" identifier="HomeNotes" id="s6b-Is-0UE"/>
+                        <segue destination="TSG-QZ-wU4" kind="show" identifier="HomeSubject" id="PpU-H3-TeA"/>
+                        <segue destination="BIr-as-dHp" kind="show" id="uZj-Ks-lyZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9k-zr-GyL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="296.80000000000001" y="187.55622188905548"/>
+        </scene>
+        <!--HomeNotes-->
+        <scene sceneID="Sv0-P0-C5f">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeNotes" id="nUP-zd-BOv" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aNj-wP-iyu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="982" y="118"/>
+        </scene>
+        <!--HomeSubject-->
+        <scene sceneID="nLh-6f-rIb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeSubject" id="TSG-QZ-wU4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vGJ-qk-uw0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="990" y="187"/>
+        </scene>
+        <!--Storyboard Reference-->
+        <scene sceneID="vp0-3s-nuo">
+            <objects>
+                <viewControllerPlaceholder id="BIr-as-dHp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bwS-hm-XgC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1031" y="258"/>
         </scene>
     </scenes>
     <resources>

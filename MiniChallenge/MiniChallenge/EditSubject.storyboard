@@ -27,12 +27,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdN-9f-oCW">
-                                <rect key="frame" x="26" y="49" width="48" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="rEw-Hw-WJe">
                                 <rect key="frame" x="153.5" y="32" width="68" height="21"/>
                                 <constraints>
@@ -79,11 +73,19 @@
                                     <outlet property="delegate" destination="bb2-q5-Rbd" id="RMu-3P-z0e"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AC5-89-ASG">
-                                <rect key="frame" x="293" y="42" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vba-Yo-rh7">
+                                <rect key="frame" x="22" y="32" width="61" height="30"/>
+                                <state key="normal" title="Cancelar">
+                                    <color key="titleColor" red="0.099203579127788544" green="0.039092682301998138" blue="0.025941237807273865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="bb2-q5-Rbd" eventType="touchUpInside" id="8Qb-rN-Hlh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AC5-89-ASG">
+                                <rect key="frame" x="305" y="33" width="40" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Salvar">
                                     <color key="titleColor" red="0.086577527225017548" green="0.079168088734149933" blue="0.020614210516214371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -93,12 +95,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="sdN-9f-oCW" firstAttribute="top" secondItem="M5c-wT-mLu" secondAttribute="bottom" constant="29" id="2I0-Zv-FgH"/>
                             <constraint firstItem="rEw-Hw-WJe" firstAttribute="centerX" secondItem="d4X-I3-zZ4" secondAttribute="centerX" id="73O-Hi-yc3"/>
-                            <constraint firstItem="sdN-9f-oCW" firstAttribute="leading" secondItem="d4X-I3-zZ4" secondAttribute="leadingMargin" constant="10" id="Djh-Nb-hy8"/>
-                            <constraint firstItem="sdN-9f-oCW" firstAttribute="top" secondItem="rEw-Hw-WJe" secondAttribute="bottom" constant="-4" id="PJO-t2-ZiA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="sdN-9f-oCW" secondAttribute="trailing" constant="285" id="Xub-Kc-9uv"/>
+                            <constraint firstItem="AC5-89-ASG" firstAttribute="top" secondItem="M5c-wT-mLu" secondAttribute="bottom" constant="13" id="XeM-If-siJ"/>
                             <constraint firstItem="rEw-Hw-WJe" firstAttribute="top" secondItem="d4X-I3-zZ4" secondAttribute="topMargin" constant="32" id="cSV-B4-dXN"/>
+                            <constraint firstItem="Vba-Yo-rh7" firstAttribute="top" secondItem="M5c-wT-mLu" secondAttribute="bottom" constant="12" id="rRG-Le-27P"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Vba-Yo-rh7" secondAttribute="leading" constant="-6" id="sEA-D8-cXH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AC5-89-ASG" secondAttribute="trailing" constant="14" id="ud4-SF-zPd"/>
                         </constraints>
                     </view>
                     <connections>
@@ -106,6 +108,7 @@
                         <segue destination="Efj-Se-Qjg" kind="show" identifier="EditSubjectTitle" id="9ZD-lD-KdD"/>
                         <segue destination="ZUs-mF-cTH" kind="show" identifier="EditColor" id="fAb-Mw-PbP"/>
                         <segue destination="9JO-pD-re6" kind="show" identifier="BackToHome" id="c2q-sp-4Gv"/>
+                        <segue destination="Shn-gg-RNp" kind="show" identifier="HomeSubject" id="F9C-s3-3C5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NEn-bg-iGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -118,7 +121,7 @@
                 <viewControllerPlaceholder storyboardName="EditSubjectTeacher" id="TxH-fX-6rc" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0c-fa-SdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="490" y="184"/>
+            <point key="canvasLocation" x="490" y="190"/>
         </scene>
         <!--HomeSubject-->
         <scene sceneID="R0U-vc-bb6">
@@ -134,7 +137,7 @@
                 <viewControllerPlaceholder storyboardName="EditSubjectTitle" id="Efj-Se-Qjg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nI2-TN-krR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="473" y="124"/>
+            <point key="canvasLocation" x="476" y="128"/>
         </scene>
         <!--SelectSubjectColor-->
         <scene sceneID="nAX-dJ-5iL">
@@ -142,7 +145,15 @@
                 <viewControllerPlaceholder storyboardName="SelectSubjectColor" id="ZUs-mF-cTH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xwC-0E-Hqp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="492" y="246"/>
+            <point key="canvasLocation" x="490" y="259"/>
+        </scene>
+        <!--HomeSubject-->
+        <scene sceneID="SRz-3G-yza">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeSubject" id="Shn-gg-RNp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H8h-HD-qVG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="461" y="337"/>
         </scene>
     </scenes>
     <resources>

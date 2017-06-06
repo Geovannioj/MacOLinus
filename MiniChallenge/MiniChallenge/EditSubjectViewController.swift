@@ -133,6 +133,10 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
 
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "HomeSubject", sender: Any?.self)
+    }
     
     
     // MARK: - Persist Data

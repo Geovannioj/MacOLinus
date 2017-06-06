@@ -47,6 +47,10 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // MARK: - Actions
     
+    @IBAction func subjectButtonPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "HomeSubject", sender: Any?.self)
+    }
     
     @IBAction func createNotePressed(_ sender: Any) {
         

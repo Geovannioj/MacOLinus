@@ -22,7 +22,6 @@ class SubjectFaultsViewController: UIViewController {
     
         
         loadSubjects()
-        
         setup()
 
         // Do any additional setup after loading the view.
@@ -44,6 +43,11 @@ class SubjectFaultsViewController: UIViewController {
     
     // MARK: - Actions
 
+    @IBAction func subjectButtonPressed(_ sender: Any) {
+        
+      performSegue(withIdentifier: "HomeSubject", sender: Any?.self)
+    }
+    
     @IBAction func segmentControlChanged(_ sender: Any) {
         
        
@@ -58,6 +62,8 @@ class SubjectFaultsViewController: UIViewController {
             
             SingletonSubject.sharedInstance.subjects[index] = subjectWithFault
             saveSubjects()
+            
+            performSegue(withIdentifier: "HomeNotes", sender: Any?.self)
         }
     }
     
