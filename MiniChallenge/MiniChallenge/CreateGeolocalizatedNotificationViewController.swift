@@ -52,9 +52,30 @@ class CreateGeolocalizatedNotificationViewController: UIViewController, CLLocati
         assignBackground()    
     }
     
+    func saveUserGoals() {
+        
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        
+        archiver.encode(GoalService.sharedInstance.user_goals, forKey: "UserGoals")
+        archiver.finishEncoding()
+        
+        data.write(to: dataFilePath(), atomically: true)
+    }
+    
     @IBAction func nextScreenPressed(_ sender: Any) {
         
         performSegue(withIdentifier: "HomeGoal", sender: Any?.self)
+    }
+    
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("UserGoals.plist")
     }
     
 //    func asnas(id: Int, completion: (()->())?) {
