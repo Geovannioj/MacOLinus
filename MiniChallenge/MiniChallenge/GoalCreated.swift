@@ -11,18 +11,6 @@ import UIKit
 class GoalCreated: UIViewController {
     
     
-    @IBAction func newUserGoalRequested(_ sender: Any) {
-        
-        let newUserGoal = GoalService.sharedInstance.user_goal
-        GoalService.sharedInstance.user_goals.append(newUserGoal)
-        
-        saveUserGoals()
-        
-        CalendarViewController.pushedFromHomeGoal = true
-        
-//        performSegue(withIdentifier: "goalCreated", sender: Any?.self)
-      
-    }
     
     
     @IBOutlet weak var goalCreated: UILabel!
@@ -46,6 +34,11 @@ class GoalCreated: UIViewController {
         UIApplication.shared.statusBarStyle = .lightContent
         
     }
+    
+    @IBAction func nextScreenPressed(_ sender: Any) {
+        performSegue(withIdentifier: "HomeGoal", sender: Any?.self)
+    }
+    
     
     internal func assignBackground() {
         
