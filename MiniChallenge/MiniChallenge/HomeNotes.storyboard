@@ -211,7 +211,7 @@
                         <outlet property="tableView" destination="AMW-Mi-FNj" id="c9q-RI-vNm"/>
                         <segue destination="fMz-Ny-WkN" kind="show" identifier="CreateNoteTitle" id="WEd-a4-9P5"/>
                         <segue destination="avh-hN-kJN" kind="show" identifier="PresentNotes" id="5K0-Z7-gjM"/>
-                        <segue destination="hPC-ce-CWa" kind="show" identifier="SubjectFault" id="8Qd-Kc-Y0d"/>
+                        <segue destination="hPC-ce-CWa" kind="show" identifier="SubjectFault" animates="NO" id="8Qd-Kc-Y0d"/>
                         <segue destination="O14-ME-WPY" kind="show" identifier="HomeSubject" id="J4B-wE-rCj"/>
                     </connections>
                 </viewController>
