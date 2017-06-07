@@ -104,6 +104,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="editTableView" destination="1b6-yr-Pal" id="jgQ-Pp-hI6"/>
                         <segue destination="TxH-fX-6rc" kind="show" identifier="EditTeacher" id="TK2-DX-bLe"/>
                         <segue destination="Efj-Se-Qjg" kind="show" identifier="EditSubjectTitle" id="9ZD-lD-KdD"/>
                         <segue destination="ZUs-mF-cTH" kind="show" identifier="EditColor" id="fAb-Mw-PbP"/>

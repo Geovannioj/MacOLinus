@@ -11,14 +11,14 @@ import UIKit
 class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
+    @IBOutlet weak var editTableView: UITableView!
     let formFields = ["Matéria", "Professor","Cor"]
     var fields = ["", "", ""]
-    
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.editTableView.tableFooterView = UIView()
         configLayout()
         // Do any additional setup after loading the view.
     }

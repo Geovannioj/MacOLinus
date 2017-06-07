@@ -48,6 +48,12 @@ class SubjectFaultsViewController: UIViewController {
       performSegue(withIdentifier: "HomeSubject", sender: Any?.self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "HomeSubject"{
+            CalendarViewController.pushedFromHomeSubject = true
+        }
+    }
+    
     @IBAction func segmentControlChanged(_ sender: Any) {
         
        
