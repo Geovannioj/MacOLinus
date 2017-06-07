@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wQf-Sy-c7X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wQf-Sy-c7X">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -149,9 +149,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="goBackButton" destination="MnH-C0-neB" id="eir-2s-DFJ"/>
                         <outlet property="validation" destination="fUI-cd-JEm" id="nuO-Jp-22x"/>
                         <segue destination="KGk-S5-4bK" kind="presentation" identifier="SubjectCreated" id="OOQ-nj-M03"/>
                         <segue destination="h4w-nQ-baF" kind="show" identifier="CreateTeacher" id="th6-mA-rcF"/>
+                        <segue destination="RTC-af-vsv" kind="presentation" identifier="goToEditSubject" id="LS9-Ls-gZv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YcX-KN-e4v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -173,6 +175,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fwd-UG-97I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1274" y="122"/>
+        </scene>
+        <!--EditSubject-->
+        <scene sceneID="Spp-MJ-nC4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditSubject" id="RTC-af-vsv" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gdU-ej-bY3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1264" y="204"/>
         </scene>
     </scenes>
     <resources>

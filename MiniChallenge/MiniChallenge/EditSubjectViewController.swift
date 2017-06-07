@@ -132,6 +132,16 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
         performSegue(withIdentifier: "BackToHome", sender: Any?.self)
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "BackToHome" || segue.identifier == "HomeSubject"{
+            CalendarViewController.pushedFromHomeSubject = true
+        }else if segue.identifier == "EditColor"{
+            if let editColor = segue.destination as? SelectSubjectColorViewController{
+                editColor.segueReceived = segue.identifier!
+            }
+        }
+    }
 
     @IBAction func cancelButtonPressed(_ sender: Any) {
         

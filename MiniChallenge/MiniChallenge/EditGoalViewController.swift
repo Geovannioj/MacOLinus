@@ -70,6 +70,11 @@ class EditGoalViewController: UIViewController, UITableViewDelegate, UITableView
     }
     // MARK: - Setup
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "backToHomeGoal"{
+            CalendarViewController.pushedFromHomeGoal = true
+        }
+    }
     
     func configLayout() {
         

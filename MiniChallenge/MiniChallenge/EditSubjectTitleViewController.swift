@@ -12,10 +12,11 @@ class EditSubjectTitleViewController: UIViewController {
 
     @IBOutlet weak var newSubectTitleLabel: UITextField!
     
+    @IBOutlet weak var validationLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        validationLbl.isHidden = true
         configLayout()
 
         // Do any additional setup after loading the view.
@@ -76,8 +77,12 @@ class EditSubjectTitleViewController: UIViewController {
     
     @IBAction func nextScreenPressed(_ sender: Any) {
         
-        setNewContent()
-        performSegue(withIdentifier: "BackToEditSubject", sender: Any?.self)
+        if newSubectTitleLabel.text != ""{
+            setNewContent()
+            performSegue(withIdentifier: "BackToEditSubject", sender: Any?.self)
+        }else{
+            validationLbl.isHidden = false
+        }
     }
     
     
