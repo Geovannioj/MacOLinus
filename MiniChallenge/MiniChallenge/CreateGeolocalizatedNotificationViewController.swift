@@ -54,6 +54,12 @@ class CreateGeolocalizatedNotificationViewController: UIViewController, CLLocati
     
     @IBAction func nextScreenPressed(_ sender: Any) {
         
+        let newUserGoal = GoalService.sharedInstance.user_goal
+        GoalService.sharedInstance.user_goals.append(newUserGoal)
+        
+        saveUserGoals()
+        
+        
         performSegue(withIdentifier: "HomeGoal", sender: Any?.self)
     }
     
@@ -135,5 +141,41 @@ class CreateGeolocalizatedNotificationViewController: UIViewController, CLLocati
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         NSLog("\(error)")
     }
+    
+    
+    // MARK: - Persist Data
+    
+    func saveUserGoals() {
+        
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        
+        archiver.encode(GoalService.sharedInstance.user_goals, forKey: "UserGoals")
+        archiver.finishEncoding()
+        
+        data.write(to: dataFilePath(), atomically: true)
+    }
+    
+    func loadUserGoals() {
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            GoalService.sharedInstance.user_goals = unarchiver.decodeObject(forKey: "UserGoals") as! [Goal]
+            unarchiver.finishDecoding()
+        }
+    }
+    
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("UserGoals.plist")
+    }
+    
+
 
 }
