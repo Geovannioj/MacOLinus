@@ -50,7 +50,7 @@
                                         <rect key="frame" x="153" y="32" width="69" height="21"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8N-Fz-SFQ">
-                                        <rect key="frame" x="22" y="25" width="54" height="29"/>
+                                        <rect key="frame" x="22" y="25" width="57" height="29"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                         <state key="normal" title="Matérias">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
