@@ -114,6 +114,11 @@
                                     <color key="titleColor" red="0.24964994190000001" green="0.062413342300000001" blue="0.2381774187" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.091242633759975433" green="0.039225485175848007" blue="0.022034836933016777" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="sVB-YR-NZ0" kind="presentation" id="9A1-AY-1SK"/>
                                 </connections>

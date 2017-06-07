@@ -65,14 +65,25 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
             (sender: MGSwipeTableCell!) -> Bool in
             
             
-            GoalService.sharedInstance.user_goals.remove(at: indexPath.row)
+            let deletingAlert = UIAlertController(title: "Excluindo meta", message: "Você deseja excluir a meta: \(GoalService.sharedInstance.user_goals[indexPath.row].title) ?", preferredStyle: .alert)
             
-            let indexPaths = [indexPath]
-            tableView.deleteRows(at: indexPaths, with: .automatic)
-            tableView.reloadData()
+            let deleteButton = UIAlertAction(title: "Deletar", style: UIAlertActionStyle.cancel, handler: { action in
+                
+                GoalService.sharedInstance.user_goals.remove(at: indexPath.row)
+                self.saveUserGoals()
+                let indexPaths = [indexPath]
+                tableView.deleteRows(at: indexPaths, with: .fade)
+                tableView.reloadData()
+            })
             
-            self.saveUserGoals()
+            let cancelButton = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+                //Do nothing
+            })
             
+            deletingAlert.addAction(deleteButton)
+            deletingAlert.addAction(cancelButton)
+            
+            self.present(deletingAlert, animated: true, completion: nil)
             
             return true
         }

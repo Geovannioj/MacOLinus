@@ -47,6 +47,12 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // MARK: - Actions
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "HomeSubject"{
+            CalendarViewController.pushedFromHomeSubject = true
+        }
+    }
+    
     @IBAction func subjectButtonPressed(_ sender: Any) {
         
         performSegue(withIdentifier: "HomeSubject", sender: Any?.self)
