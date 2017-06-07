@@ -68,6 +68,12 @@ class CreateGeolocalizatedNotificationViewController: UIViewController, CLLocati
         performSegue(withIdentifier: "HomeGoal", sender: Any?.self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "HomeGoal"{
+            CalendarViewController.pushedFromHomeGoal = true
+        }
+    }
+    
     func documentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
