@@ -51,6 +51,14 @@ class SubjectFaultsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "HomeSubject"{
             CalendarViewController.pushedFromHomeSubject = true
+            let subjectWithFault = SingletonSubject.sharedInstance.subject
+            let index = SingletonSubject.sharedInstance.index
+            if Int64(numberOfFaults.text!) != nil {
+                subjectWithFault.faults = Int64(numberOfFaults.text!)!
+            }
+            SingletonSubject.sharedInstance.subjects[index] = subjectWithFault
+            saveSubjects()
+
         }
     }
     
