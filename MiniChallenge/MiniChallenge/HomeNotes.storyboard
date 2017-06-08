@@ -50,18 +50,18 @@
                                         <rect key="frame" x="153" y="32" width="69" height="21"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8N-Fz-SFQ">
-                                        <rect key="frame" x="22" y="25" width="57" height="29"/>
-                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
-                                        <state key="normal" title="Matérias">
+                                        <rect key="frame" x="22" y="25" width="75" height="35"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
+                                        <state key="normal" title="&lt; Matérias">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="subjectButtonPressed:" destination="kgK-Rx-FDp" eventType="touchUpInside" id="Qhg-Md-CNG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xmn-D1-eNF">
-                                        <rect key="frame" x="275" y="27" width="65" height="30"/>
-                                        <state key="normal" title="Adicionar">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xmn-D1-eNF">
+                                        <rect key="frame" x="321" y="27" width="19" height="31"/>
+                                        <state key="normal" image="addBlack">
                                             <color key="titleColor" red="0.099203579127788544" green="0.039092682301998138" blue="0.025941237807273865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -72,10 +72,12 @@
                                 <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="l8N-Fz-SFQ" firstAttribute="leading" secondItem="msT-De-SvH" secondAttribute="leading" constant="22" id="4Vr-jC-AyQ"/>
+                                    <constraint firstItem="l8N-Fz-SFQ" firstAttribute="centerY" secondItem="6Ol-LM-xE9" secondAttribute="centerY" id="9Vi-kz-uNU"/>
                                     <constraint firstAttribute="trailing" secondItem="Xmn-D1-eNF" secondAttribute="trailing" constant="35" id="MQ9-SG-sQ8"/>
                                     <constraint firstItem="l8N-Fz-SFQ" firstAttribute="top" secondItem="msT-De-SvH" secondAttribute="top" constant="25" id="ORG-Uq-9vL"/>
                                     <constraint firstItem="6Ol-LM-xE9" firstAttribute="top" secondItem="msT-De-SvH" secondAttribute="top" constant="32" id="Sac-KF-miW"/>
                                     <constraint firstItem="Xmn-D1-eNF" firstAttribute="top" secondItem="msT-De-SvH" secondAttribute="top" constant="27" id="XJj-nf-wCg"/>
+                                    <constraint firstItem="6Ol-LM-xE9" firstAttribute="centerY" secondItem="Xmn-D1-eNF" secondAttribute="centerY" id="ggo-NC-FEm"/>
                                     <constraint firstItem="6Ol-LM-xE9" firstAttribute="centerX" secondItem="msT-De-SvH" secondAttribute="centerX" id="s7w-z5-Bkq"/>
                                 </constraints>
                             </view>
@@ -238,6 +240,7 @@
     </scenes>
     <resources>
         <image name="ClipIcon" width="11" height="16"/>
+        <image name="addBlack" width="19" height="20"/>
         <image name="pengoBlack" width="69" height="21"/>
     </resources>
 </document>
