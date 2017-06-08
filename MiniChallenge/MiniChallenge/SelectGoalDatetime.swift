@@ -29,6 +29,14 @@ class SelectGoalDatetime: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+   
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "CreateGoal", sender: Any?.self)
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

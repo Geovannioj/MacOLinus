@@ -21,6 +21,11 @@ class GoalOptions: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "HomeGoal", sender: Any?.self)
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
