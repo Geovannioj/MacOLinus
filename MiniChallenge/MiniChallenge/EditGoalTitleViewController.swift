@@ -51,6 +51,11 @@ class EditGoalTitleViewController: UIViewController {
         self.view.sendSubview(toBack: imageView)
     }
     
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "EditGoal", sender: Any?.self)
+    }
+    
     func assignBlackStatusBar() {
         
         UIApplication.shared.statusBarStyle = .default

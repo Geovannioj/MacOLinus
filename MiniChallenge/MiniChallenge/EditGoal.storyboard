@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="b1H-fI-vbn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="b1H-fI-vbn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -35,14 +35,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="9Pd-ri-yyf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="9Pd-ri-yyf">
                                 <rect key="frame" x="153.5" y="32" width="68" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="tLd-sJ-OqQ"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i0S-GT-Bpl">
-                                <rect key="frame" x="0.0" y="111" width="375" height="83"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i0S-GT-Bpl">
+                                <rect key="frame" x="0.0" y="111" width="375" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -88,6 +88,9 @@
                                 <state key="normal" title="Cancelar">
                                     <color key="titleColor" red="0.086577527225017548" green="0.079168088734149933" blue="0.020614210516214371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="b1H-fI-vbn" eventType="touchUpInside" id="QxP-BD-ypZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZh-J4-fTU">
                                 <rect key="frame" x="293" y="41" width="46" height="30"/>
@@ -111,6 +114,7 @@
                         <segue destination="oDz-v5-1l5" kind="show" identifier="EditGoalTitle" id="cWf-1X-8wl"/>
                         <segue destination="8ZM-cE-RRu" kind="show" identifier="backToHomeGoal" id="1fW-kN-53e"/>
                         <segue destination="HE2-jN-xtv" kind="show" identifier="backToHomeGoal" id="aRE-Li-HiH"/>
+                        <segue destination="kuq-Ho-xvF" kind="show" identifier="HomeGoal" id="kYa-Ua-yCa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hvl-bf-rjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -133,8 +137,16 @@
             </objects>
             <point key="canvasLocation" x="372" y="184"/>
         </scene>
+        <!--HomeGoal-->
+        <scene sceneID="gLz-lD-QLu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeGoal" id="kuq-Ho-xvF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CRs-wg-m8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="364" y="259"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="pengoBlack" width="69" height="21"/>
+        <image name="pengoWhite" width="69" height="21"/>
     </resources>
 </document>

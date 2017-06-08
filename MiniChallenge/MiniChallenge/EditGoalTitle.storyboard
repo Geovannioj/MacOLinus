@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="R9i-7Y-aQO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="R9i-7Y-aQO">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -27,12 +27,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlU-z4-Cyw">
-                                <rect key="frame" x="26" y="49" width="48" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual a sua  meta?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qi-bq-tDz">
                                 <rect key="frame" x="36" y="89" width="262" height="29"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
@@ -80,6 +74,15 @@
                                 <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5a-hs-zNo">
+                                <rect key="frame" x="23" y="28" width="61" height="30"/>
+                                <state key="normal" title="Cancelar">
+                                    <color key="titleColor" red="0.099203579127788544" green="0.039092682301998138" blue="0.025941237807273865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="R9i-7Y-aQO" eventType="touchUpInside" id="gn4-tt-Yzf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -89,18 +92,16 @@
                             <constraint firstItem="2qi-bq-tDz" firstAttribute="leading" secondItem="56O-a3-DYG" secondAttribute="trailing" constant="5" id="4Yd-AQ-Img"/>
                             <constraint firstItem="h16-EE-zRK" firstAttribute="top" secondItem="wPC-bn-t8b" secondAttribute="bottom" constant="10" id="Bb3-bL-Rag"/>
                             <constraint firstItem="2qi-bq-tDz" firstAttribute="leading" secondItem="T2T-Cg-IGb" secondAttribute="leadingMargin" constant="20" id="FOO-Ig-400"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="DlU-z4-Cyw" secondAttribute="trailing" constant="285" id="HIh-ua-d0d"/>
                             <constraint firstItem="Y0Q-DW-hly" firstAttribute="top" secondItem="T2T-Cg-IGb" secondAttribute="topMargin" constant="32" id="JRT-xN-rQ3"/>
-                            <constraint firstItem="DlU-z4-Cyw" firstAttribute="leading" secondItem="T2T-Cg-IGb" secondAttribute="leadingMargin" constant="10" id="OLA-4b-xHL"/>
+                            <constraint firstItem="2qi-bq-tDz" firstAttribute="top" secondItem="a5a-hs-zNo" secondAttribute="bottom" constant="31" id="NSk-SJ-ZgY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2qi-bq-tDz" secondAttribute="trailing" constant="61" id="OfQ-Tr-qSj"/>
-                            <constraint firstItem="DlU-z4-Cyw" firstAttribute="top" secondItem="Y0Q-DW-hly" secondAttribute="bottom" constant="-4" id="XF0-a3-072"/>
-                            <constraint firstItem="DlU-z4-Cyw" firstAttribute="top" secondItem="MQX-YV-kcH" secondAttribute="bottom" constant="29" id="ZhB-hc-N8s"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wPC-bn-t8b" secondAttribute="trailing" constant="-16" id="aYi-7q-Apu"/>
+                            <constraint firstItem="a5a-hs-zNo" firstAttribute="leading" secondItem="T2T-Cg-IGb" secondAttribute="leadingMargin" constant="7" id="eN2-RF-CuF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="h16-EE-zRK" secondAttribute="trailing" constant="13" id="iYp-fg-oXz"/>
                             <constraint firstItem="Y0Q-DW-hly" firstAttribute="centerX" secondItem="T2T-Cg-IGb" secondAttribute="centerX" id="idA-bd-sEK"/>
                             <constraint firstItem="IL5-CW-1as" firstAttribute="centerY" secondItem="h16-EE-zRK" secondAttribute="centerY" id="kZE-HF-tTH"/>
-                            <constraint firstItem="56O-a3-DYG" firstAttribute="top" secondItem="DlU-z4-Cyw" secondAttribute="bottom" constant="32" id="ky2-HS-ZkE"/>
-                            <constraint firstItem="2qi-bq-tDz" firstAttribute="top" secondItem="DlU-z4-Cyw" secondAttribute="bottom" constant="23" id="oIa-5A-CNe"/>
+                            <constraint firstItem="56O-a3-DYG" firstAttribute="top" secondItem="a5a-hs-zNo" secondAttribute="bottom" constant="40" id="lkw-v8-UEY"/>
+                            <constraint firstItem="a5a-hs-zNo" firstAttribute="top" secondItem="MQX-YV-kcH" secondAttribute="bottom" constant="8" id="nAM-4U-yn0"/>
                             <constraint firstItem="56O-a3-DYG" firstAttribute="leading" secondItem="T2T-Cg-IGb" secondAttribute="leadingMargin" constant="7" id="rPK-Y1-02g"/>
                             <constraint firstItem="wPC-bn-t8b" firstAttribute="top" secondItem="2qi-bq-tDz" secondAttribute="bottom" constant="17.666666666666671" id="y9p-U9-sAV"/>
                         </constraints>
@@ -109,6 +110,7 @@
                         <outlet property="newGoalTitle" destination="wPC-bn-t8b" id="zaC-1j-Ipu"/>
                         <outlet property="validationLbl" destination="IL5-CW-1as" id="Fg4-WA-e4f"/>
                         <segue destination="XAf-qM-t8Y" kind="show" identifier="backToEditGoal" id="Z1P-Mb-QM6"/>
+                        <segue destination="ydR-kO-Azw" kind="show" identifier="EditGoal" id="Epo-t5-ZpA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JCL-D5-0CO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -122,6 +124,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cCZ-Ke-sWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="214" y="115"/>
+        </scene>
+        <!--EditGoal-->
+        <scene sceneID="LtJ-ZL-cGh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="EditGoal" id="ydR-kO-Azw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="teE-51-Xlr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="214" y="183"/>
         </scene>
     </scenes>
     <resources>

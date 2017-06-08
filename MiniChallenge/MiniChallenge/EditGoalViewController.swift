@@ -51,6 +51,11 @@ class EditGoalViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "HomeGoal", sender: Any?.self)
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       
         performSegue(withIdentifier: "EditGoalTitle", sender: Any?.self)
