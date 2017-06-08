@@ -16,11 +16,14 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var doneGoals = [Goal]()
     var goals = [Goal]()
     
+    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.addButton.clipsToBounds = true
+        self.addButton.layer.cornerRadius = 20
         loadUserGoals()
         loadContent()
 

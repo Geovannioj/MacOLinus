@@ -47,6 +47,8 @@ class GoalOptions: UIViewController {
             if let toCreateUserGoal = segue.destination as? CreateGoal {
                 toCreateUserGoal.goalType = ""
             }
+        }else if segue.identifier == "HomeGoal"{
+            CalendarViewController.pushedFromHomeGoal = true
         }
     }
 

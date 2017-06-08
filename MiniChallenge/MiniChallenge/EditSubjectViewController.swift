@@ -111,8 +111,6 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
     
         fields[0] = SingletonSubject.sharedInstance.subject.title
         fields[1] = SingletonSubject.sharedInstance.subject.teacher.name
-    
-        
         
     }
 
@@ -121,12 +119,13 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBAction func nextScreenPressed(_ sender: Any) {
         
+        /*
         let index = SingletonSubject.sharedInstance.index
         let editedSubject = SingletonSubject.sharedInstance.subjects[index]
         
         editedSubject.title = SingletonSubject.sharedInstance.subject.title
         editedSubject.teacher.name = SingletonSubject.sharedInstance.subject.teacher.name
-        
+        *///Nao sei o pq do motivo desse código, apenas adicionei a linha abaixo e o editar funcionou
         saveSubjects()
         
         performSegue(withIdentifier: "BackToHome", sender: Any?.self)

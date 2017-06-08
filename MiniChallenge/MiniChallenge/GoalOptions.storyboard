@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="73U-ox-Kwp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="73U-ox-Kwp">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -145,17 +145,17 @@
             </objects>
             <point key="canvasLocation" x="392" y="-22"/>
         </scene>
-        <!--HomeGoal-->
+        <!--Calendar-->
         <scene sceneID="FMt-7P-hdW">
             <objects>
-                <viewControllerPlaceholder storyboardName="HomeGoal" id="M8B-yU-KZn" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Calendar" id="M8B-yU-KZn" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WFP-cl-dZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="388" y="160"/>
         </scene>
     </scenes>
     <resources>
-        <image name="customGoalButton" width="375" height="107"/>
+        <image name="customGoalButton" width="374" height="108"/>
         <image name="pengoWhite" width="69" height="21"/>
         <image name="readABookButton" width="375" height="110"/>
         <image name="startANewProjectButton" width="375" height="113"/>

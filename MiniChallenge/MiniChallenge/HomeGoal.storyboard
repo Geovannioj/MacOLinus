@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fgV-0O-sdI">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,14 +19,14 @@
                         <viewControllerLayoutGuide type="bottom" id="u4H-yx-voF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vID-gI-Li8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrI-Bk-jzW">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="104"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="DEe-jD-qx5">
-                                        <rect key="frame" x="125.5" y="42" width="69" height="21"/>
+                                        <rect key="frame" x="153" y="42" width="69" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="69" id="H4V-et-oHu"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="T8p-Zg-Rxc"/>
@@ -35,7 +35,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vamos definir metas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pe-4d-L0F">
-                                        <rect key="frame" x="94.5" y="71" width="132" height="17"/>
+                                        <rect key="frame" x="122" y="71" width="132" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -51,20 +51,20 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qic-3c-32M">
-                                <rect key="frame" x="0.0" y="271" width="320" height="248"/>
+                                <rect key="frame" x="0.0" y="271" width="375" height="347"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.40459585190000003" green="0.41695094110000003" blue="0.89097839590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userGoals" rowHeight="78" id="249-Fb-11D" customClass="GoalCellsTableViewCell" customModule="MiniChallenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="78"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="249-Fb-11D" id="Tfe-lK-jv1" customClass="MGSwipeTableCell">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="77.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="77.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f55-SV-18I">
-                                                    <rect key="frame" x="47" y="18" width="140" height="21"/>
+                                                    <rect key="frame" x="47" y="18" width="195" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -76,13 +76,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listIcon" translatesAutoresizingMaskIntoConstraints="NO" id="A2P-5P-6Sj">
-                                                    <rect key="frame" x="285" y="20" width="13" height="17"/>
+                                                    <rect key="frame" x="340" y="20" width="13" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="13" id="Xhf-jd-Jfb"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="GIr-Kq-4p6">
-                                                    <rect key="frame" x="285" y="45" width="13" height="13"/>
+                                                    <rect key="frame" x="340" y="45" width="13" height="13"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="13" id="llW-8n-gpX"/>
                                                     </constraints>
@@ -114,9 +114,8 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6E-bQ-Zux">
-                                <rect key="frame" x="0.0" y="122" width="320" height="126"/>
+                                <rect key="frame" x="24" y="122" width="327" height="126"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="126" id="UMa-Gm-47v"/>
                                     <constraint firstAttribute="height" constant="126" id="ugl-wZ-qAm"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="createUserGoals">
@@ -132,10 +131,10 @@
                             <constraint firstItem="Qic-3c-32M" firstAttribute="leading" secondItem="vID-gI-Li8" secondAttribute="leading" id="4pY-4T-APi"/>
                             <constraint firstItem="u4H-yx-voF" firstAttribute="top" secondItem="Qic-3c-32M" secondAttribute="bottom" id="9ZQ-kx-3hn"/>
                             <constraint firstAttribute="trailing" secondItem="Qic-3c-32M" secondAttribute="trailing" id="Dag-CZ-jAx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="C6E-bQ-Zux" secondAttribute="trailing" constant="8" id="G4R-GJ-TuA"/>
+                            <constraint firstItem="C6E-bQ-Zux" firstAttribute="leading" secondItem="vID-gI-Li8" secondAttribute="leadingMargin" constant="8" id="LCd-Ez-GQF"/>
                             <constraint firstItem="hrI-Bk-jzW" firstAttribute="top" secondItem="vID-gI-Li8" secondAttribute="top" id="SRB-rM-tS2"/>
                             <constraint firstAttribute="trailing" secondItem="hrI-Bk-jzW" secondAttribute="trailing" id="ZAh-uY-GV4"/>
-                            <constraint firstItem="C6E-bQ-Zux" firstAttribute="leading" secondItem="vID-gI-Li8" secondAttribute="leading" id="dhM-aQ-oLA"/>
-                            <constraint firstAttribute="trailing" secondItem="C6E-bQ-Zux" secondAttribute="trailing" id="naC-8X-VMj"/>
                             <constraint firstItem="C6E-bQ-Zux" firstAttribute="top" secondItem="hrI-Bk-jzW" secondAttribute="bottom" constant="18" id="stN-fF-8vd"/>
                             <constraint firstItem="hrI-Bk-jzW" firstAttribute="leading" secondItem="vID-gI-Li8" secondAttribute="leading" id="uoP-0V-hcU"/>
                             <constraint firstItem="Qic-3c-32M" firstAttribute="top" secondItem="C6E-bQ-Zux" secondAttribute="bottom" constant="23" id="yXp-m4-DP1"/>
@@ -144,6 +143,7 @@
                     <tabBarItem key="tabBarItem" title="Metas" image="Goal Line" selectedImage="goals fill" id="BjW-ch-xME"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addButton" destination="C6E-bQ-Zux" id="cPH-82-cZ2"/>
                         <outlet property="tableView" destination="Qic-3c-32M" id="Yxj-ev-APH"/>
                         <segue destination="nRI-N5-hMk" kind="show" identifier="EditGoal" id="doS-KG-mrI"/>
                     </connections>

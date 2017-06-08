@@ -85,9 +85,9 @@ class EditSubjectTitleViewController: UIViewController {
         }
     }
     
-    
     func setNewContent() {
         
         SingletonSubject.sharedInstance.subject.title = newSubectTitleLabel.text!
     }
+
 }
