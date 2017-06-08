@@ -31,15 +31,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="krq-bE-NOZ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="lpU-q2-uvC">
                                         <rect key="frame" x="153" y="32" width="69" height="21"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9f-8u-dsJ">
-                                        <rect key="frame" x="22" y="25" width="57" height="29"/>
-                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
-                                        <state key="normal" title="Matérias">
+                                        <rect key="frame" x="22" y="25" width="75" height="35"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
+                                        <state key="normal" title="&lt; Matérias">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -51,12 +51,16 @@
                                 <constraints>
                                     <constraint firstItem="lpU-q2-uvC" firstAttribute="centerX" secondItem="krq-bE-NOZ" secondAttribute="centerX" id="Itc-2G-y2E"/>
                                     <constraint firstItem="o9f-8u-dsJ" firstAttribute="leading" secondItem="krq-bE-NOZ" secondAttribute="leading" constant="22" id="K7w-Wk-PMD"/>
+                                    <constraint firstItem="lpU-q2-uvC" firstAttribute="centerX" secondItem="krq-bE-NOZ" secondAttribute="centerX" id="RGg-KM-fT1"/>
+                                    <constraint firstAttribute="height" constant="85" id="Vgv-aH-LaE"/>
                                     <constraint firstItem="lpU-q2-uvC" firstAttribute="top" secondItem="krq-bE-NOZ" secondAttribute="top" constant="32" id="YzG-cj-i41"/>
                                     <constraint firstItem="o9f-8u-dsJ" firstAttribute="top" secondItem="krq-bE-NOZ" secondAttribute="top" constant="25" id="gnc-4n-Y30"/>
+                                    <constraint firstItem="lpU-q2-uvC" firstAttribute="centerY" secondItem="o9f-8u-dsJ" secondAttribute="centerY" id="lJs-cy-wGZ"/>
+                                    <constraint firstItem="lpU-q2-uvC" firstAttribute="centerY" secondItem="krq-bE-NOZ" secondAttribute="centerY" id="xa9-7k-iVF"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DxF-OC-KXd">
-                                <rect key="frame" x="26" y="124" width="15" height="15"/>
+                                <rect key="frame" x="26" y="105" width="15" height="34"/>
                                 <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -66,7 +70,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Administração" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjz-Bz-uFi">
-                                <rect key="frame" x="49" y="124" width="226" height="20"/>
+                                <rect key="frame" x="49" y="105" width="226" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="226" id="gnZ-ay-EAB"/>
                                 </constraints>
