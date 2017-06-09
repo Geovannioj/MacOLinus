@@ -39,6 +39,11 @@ class GoalCreated: UIViewController {
         performSegue(withIdentifier: "HomeGoal", sender: Any?.self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "HomeGoal"{
+            CalendarViewController.pushedFromHomeGoal = true
+        }
+    }
     
     internal func assignBackground() {
         
