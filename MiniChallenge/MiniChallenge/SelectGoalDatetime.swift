@@ -15,9 +15,12 @@ class SelectGoalDatetime: UIViewController {
     @IBOutlet weak var userGoalTitleLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
    
+    @IBOutlet weak var validationText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        validationText.isHidden = true
+        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {
             didAllow, error in
             
@@ -53,7 +56,7 @@ class SelectGoalDatetime: UIViewController {
     func assignBackground() {
         
         let background = UIImage(named: "PurplePatternWithBoy")
-        
+        validationText.backgroundColor = UIColor(patternImage: UIImage(named:"PurplePatternWithBoy")!)
         var imageView : UIImageView!
         imageView = UIImageView(frame: view.bounds)
         imageView.contentMode =  UIViewContentMode.scaleAspectFill
@@ -83,9 +86,13 @@ class SelectGoalDatetime: UIViewController {
    
     @IBAction func submitnewUserGoal(_ sender: Any) {
         
-        let date = datePicker.date
-        scheduleNotification(at: date)
-        
+        if datePicker.date > Date(){
+            let date = datePicker.date
+            scheduleNotification(at: date)
+            performSegue(withIdentifier: "GoalCreated", sender: Any?.self)
+        }else{
+            validationText.isHidden = false
+        }
     
     }
     
