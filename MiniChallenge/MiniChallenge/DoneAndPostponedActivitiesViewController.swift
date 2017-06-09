@@ -21,6 +21,7 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
     let redColor = UIColor(colorLiteralRed: 0.9804, green: 0.4588, blue: 0.4431, alpha: 1)
    
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activitiesSegment: UISegmentedControl!
     @IBOutlet weak var activitiesTableView: UITableView!
     
@@ -242,12 +243,11 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
             
             let deleteButton = UIAlertAction(title: "Deletar", style: UIAlertActionStyle.cancel, handler: { action in
                 
-                self.toDoActivities.remove(at: indexPath.row)
                 SingletonActivity.sharedInstance.tasks.remove(at: indexPath.row)
-                let indexPaths = [indexPath]
-                tableView.deleteRows(at: indexPaths, with: .automatic)
+                self.toDoActivities.remove(at: indexPath.row)
                 self.controllerPlist.saveReminders()
-                
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                self.tableView.reloadData()
             })
             
             let cancelButton = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default, handler: { (action) -> Void in
