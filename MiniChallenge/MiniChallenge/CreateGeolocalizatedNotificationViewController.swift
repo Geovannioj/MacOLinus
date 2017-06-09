@@ -52,6 +52,43 @@ class CreateGeolocalizatedNotificationViewController: UIViewController, CLLocati
         assignBackground()    
     }
     
+    func saveUserGoals() {
+        
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        
+        archiver.encode(GoalService.sharedInstance.user_goals, forKey: "UserGoals")
+        archiver.finishEncoding()
+        
+        data.write(to: dataFilePath(), atomically: true)
+    }
+    
+    @IBAction func nextScreenPressed(_ sender: Any) {
+        
+        let newUserGoal = GoalService.sharedInstance.user_goal
+        GoalService.sharedInstance.user_goals.append(newUserGoal)
+        
+        saveUserGoals()
+        
+        
+        performSegue(withIdentifier: "HomeGoal", sender: Any?.self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "HomeGoal"{
+            CalendarViewController.pushedFromHomeGoal = true
+        }
+    }
+    
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("UserGoals.plist")
+    }
     
 //    func asnas(id: Int, completion: (()->())?) {
 //        completion?()
@@ -131,5 +168,8 @@ class CreateGeolocalizatedNotificationViewController: UIViewController, CLLocati
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         NSLog("\(error)")
     }
+    
+    
+
 
 }

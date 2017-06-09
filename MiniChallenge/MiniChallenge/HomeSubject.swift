@@ -16,9 +16,13 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     @IBOutlet weak var tableView: UITableView!
   
+    @IBOutlet weak var addButton: UIButton!
     let greenColor = UIColor(red: 0.2824, green: 0.9098, blue: 0.7765, alpha: 1)
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.addButton.clipsToBounds = true
+        self.addButton.layer.cornerRadius = 20
         
         loadSubjects()
         

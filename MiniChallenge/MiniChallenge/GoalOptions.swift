@@ -21,6 +21,11 @@ class GoalOptions: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "HomeGoal", sender: Any?.self)
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -42,6 +47,8 @@ class GoalOptions: UIViewController {
             if let toCreateUserGoal = segue.destination as? CreateGoal {
                 toCreateUserGoal.goalType = ""
             }
+        }else if segue.identifier == "HomeGoal"{
+            CalendarViewController.pushedFromHomeGoal = true
         }
     }
 

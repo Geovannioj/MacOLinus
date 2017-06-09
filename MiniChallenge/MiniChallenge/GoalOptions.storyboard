@@ -26,14 +26,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="UJp-9Q-NgS">
-                                        <rect key="frame" x="172.66666666666666" y="32" width="69" height="21"/>
+                                        <rect key="frame" x="173" y="32" width="69" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="69" id="jJt-iV-737"/>
                                             <constraint firstAttribute="height" constant="21" id="zyV-ya-YUp"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crie metas e alcance seus objetivos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLE-pv-FgX">
-                                        <rect key="frame" x="90.666666666666686" y="58" width="232" height="17"/>
+                                        <rect key="frame" x="91" y="58" width="232" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="Hzh-st-REd"/>
                                             <constraint firstAttribute="width" constant="232" id="K5r-6a-fKS"/>
@@ -42,14 +42,25 @@
                                         <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37h-Dh-chH">
+                                        <rect key="frame" x="26" y="27" width="61" height="30"/>
+                                        <state key="normal" title="Cancelar">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelButtonPressed:" destination="73U-ox-Kwp" eventType="touchUpInside" id="tSJ-qy-jQe"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.40459585190000003" green="0.41695094110000003" blue="0.89097839590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="UJp-9Q-NgS" firstAttribute="top" secondItem="qef-2G-cGA" secondAttribute="top" constant="32" id="39V-PP-ded"/>
                                     <constraint firstItem="vLE-pv-FgX" firstAttribute="top" secondItem="UJp-9Q-NgS" secondAttribute="bottom" constant="5" id="FaF-Cc-UBr"/>
+                                    <constraint firstItem="37h-Dh-chH" firstAttribute="leading" secondItem="qef-2G-cGA" secondAttribute="leading" constant="26" id="GZZ-1i-1ZX"/>
                                     <constraint firstAttribute="height" constant="100" id="Nss-HN-2Oe"/>
                                     <constraint firstItem="UJp-9Q-NgS" firstAttribute="centerX" secondItem="vLE-pv-FgX" secondAttribute="centerX" id="gOd-aW-Rmt"/>
                                     <constraint firstItem="UJp-9Q-NgS" firstAttribute="centerX" secondItem="qef-2G-cGA" secondAttribute="centerX" id="oe1-lP-gnG"/>
+                                    <constraint firstItem="37h-Dh-chH" firstAttribute="top" secondItem="qef-2G-cGA" secondAttribute="top" constant="27" id="tjd-Ki-mfV"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6f-zy-VcR">
@@ -119,11 +130,12 @@
                         <segue destination="vv8-0I-LbM" kind="show" identifier="startAProject" id="GbF-89-Jwk"/>
                         <segue destination="vv8-0I-LbM" kind="show" identifier="readABook" id="nsm-w4-xsX"/>
                         <segue destination="vv8-0I-LbM" kind="show" identifier="customGoal" id="saa-C2-tK3"/>
+                        <segue destination="M8B-yU-KZn" kind="show" identifier="HomeGoal" id="Ew4-6A-f9O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hz7-D3-81v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-334" y="102"/>
+            <point key="canvasLocation" x="-334.78260869565219" y="101.90217391304348"/>
         </scene>
         <!--CreateGoal-->
         <scene sceneID="XZw-h8-SGJ">
@@ -133,9 +145,17 @@
             </objects>
             <point key="canvasLocation" x="392" y="-22"/>
         </scene>
+        <!--Calendar-->
+        <scene sceneID="FMt-7P-hdW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Calendar" id="M8B-yU-KZn" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WFP-cl-dZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="388" y="160"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="customGoalButton" width="375" height="107"/>
+        <image name="customGoalButton" width="374" height="108"/>
         <image name="pengoWhite" width="69" height="21"/>
         <image name="readABookButton" width="375" height="110"/>
         <image name="startANewProjectButton" width="375" height="113"/>

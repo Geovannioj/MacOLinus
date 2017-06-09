@@ -10,6 +10,8 @@ import UIKit
 
 class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    @IBOutlet weak var goBackButton: UIButton!
+    var segueReceived = ""
     var colors = [UIColor]()
     var aColorWasSelected = false
     @IBOutlet weak var validation: UILabel!
@@ -34,7 +36,6 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         validation.isHidden = true
-        
         configLayout()
         
         colors = [  customRed,
@@ -55,8 +56,13 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
     
     @IBAction func backToCreateTeacher(_ sender: Any) {
         
-        performSegue(withIdentifier: "CreateTeacher", sender: Any?.self)
+        if segueReceived == "EditColor"{
+            performSegue(withIdentifier: "goToEditSubject", sender: Any?.self)
+        }else{
+            performSegue(withIdentifier: "CreateTeacher", sender: Any?.self)
+        }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -177,10 +183,16 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
     
     @IBAction func nextScreenPressed(_ sender: Any) {
         
+        
         if aColorWasSelected{
-            createSubject()
-            saveSubjects()
-            performSegue(withIdentifier: "SubjectCreated", sender: Any?.self)
+            if segueReceived == "EditColor"{
+                saveSubjects()
+                performSegue(withIdentifier: "goToEditSubject", sender: Any?.self)
+            }else{
+                createSubject()
+                saveSubjects()
+                performSegue(withIdentifier: "SubjectCreated", sender: Any?.self)
+            }
         }else{
             validation.isHidden = false
         }
@@ -199,9 +211,5 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
         let newSubject = SingletonSubject.sharedInstance.subject
         SingletonSubject.sharedInstance.subjects.append(newSubject)
     }
-    
-    
-
-    
     
 }

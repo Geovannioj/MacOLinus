@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="N5s-HO-0Dy">
-
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="N5s-HO-0Dy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,14 +30,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Trq-PX-dzN">
-                                <rect key="frame" x="26" y="49" width="48" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="A meta " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHL-ag-dgv">
-                                <rect key="frame" x="36" y="89" width="80.5" height="29"/>
+                                <rect key="frame" x="36" y="91" width="80.5" height="27"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -65,9 +57,7 @@
                                 <rect key="frame" x="302" y="190" width="44" height="44"/>
                                 <state key="normal" image="redButton"/>
                                 <connections>
-                                    <action selector="doneCreatingGoal:" destination="N5s-HO-0Dy" eventType="touchUpInside" id="cDw-lg-gDP"/>
-                                    <action selector="newUserGoalRequested:" destination="N5s-HO-0Dy" eventType="touchUpInside" id="vGm-V9-edN"/>
-                                    <segue destination="cUm-gH-Dd5" kind="show" identifier="goalCreated" id="H3U-er-Mwh"/>
+                                    <action selector="nextScreenPressed:" destination="N5s-HO-0Dy" eventType="touchUpInside" id="8Nq-zr-vst"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="L3v-7f-NCV">
@@ -85,18 +75,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Trq-PX-dzN" secondAttribute="trailing" constant="285" id="2dq-yc-DCv"/>
-                            <constraint firstItem="HHL-ag-dgv" firstAttribute="top" secondItem="Trq-PX-dzN" secondAttribute="bottom" constant="23" id="31D-G8-DAo"/>
-                            <constraint firstItem="Trq-PX-dzN" firstAttribute="top" secondItem="L3v-7f-NCV" secondAttribute="bottom" constant="-4" id="5TJ-p4-XbE"/>
                             <constraint firstItem="0J8-De-xsU" firstAttribute="top" secondItem="PHK-jT-3cS" secondAttribute="bottom" constant="29.5" id="8xZ-TT-vFm"/>
                             <constraint firstItem="L3v-7f-NCV" firstAttribute="top" secondItem="fNW-yv-bvf" secondAttribute="topMargin" constant="32" id="9za-4h-QBS"/>
                             <constraint firstItem="PHK-jT-3cS" firstAttribute="top" secondItem="9h6-3N-Tpc" secondAttribute="bottom" constant="13" id="Bge-c3-lqN"/>
-                            <constraint firstItem="bew-RY-uae" firstAttribute="top" secondItem="Trq-PX-dzN" secondAttribute="bottom" constant="32" id="JIg-dv-tkS"/>
                             <constraint firstItem="PHK-jT-3cS" firstAttribute="top" secondItem="HHL-ag-dgv" secondAttribute="bottom" constant="13" id="MdY-l1-9bE"/>
                             <constraint firstItem="9h6-3N-Tpc" firstAttribute="top" secondItem="L3v-7f-NCV" secondAttribute="bottom" constant="36" id="MxD-FL-LdE"/>
                             <constraint firstItem="9h6-3N-Tpc" firstAttribute="leading" secondItem="HHL-ag-dgv" secondAttribute="trailing" constant="15" id="Pwz-ke-lGK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9h6-3N-Tpc" secondAttribute="trailing" constant="69" id="THA-E8-76V"/>
-                            <constraint firstItem="Trq-PX-dzN" firstAttribute="leading" secondItem="fNW-yv-bvf" secondAttribute="leadingMargin" constant="10" id="Wip-ZY-BUB"/>
                             <constraint firstItem="HHL-ag-dgv" firstAttribute="leading" secondItem="fNW-yv-bvf" secondAttribute="leadingMargin" constant="20" id="YOt-lI-S9Q"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PHK-jT-3cS" secondAttribute="trailing" constant="8" id="a6b-Ku-MF8"/>
                             <constraint firstItem="HHL-ag-dgv" firstAttribute="leading" secondItem="bew-RY-uae" secondAttribute="trailing" constant="5" id="bZA-hQ-Zm2"/>
@@ -105,16 +90,17 @@
                             <constraint firstAttribute="trailingMargin" secondItem="0J8-De-xsU" secondAttribute="trailing" constant="13" id="m4U-Rr-fK2"/>
                             <constraint firstItem="bew-RY-uae" firstAttribute="leading" secondItem="fNW-yv-bvf" secondAttribute="leadingMargin" constant="7" id="pUG-3o-1qB"/>
                             <constraint firstItem="L3v-7f-NCV" firstAttribute="centerX" secondItem="fNW-yv-bvf" secondAttribute="centerX" id="rYJ-un-qgA"/>
-                            <constraint firstItem="Trq-PX-dzN" firstAttribute="top" secondItem="yzN-2y-WYi" secondAttribute="bottom" constant="29" id="sim-sn-fO8"/>
+                            <constraint firstItem="bew-RY-uae" firstAttribute="top" secondItem="yzN-2y-WYi" secondAttribute="bottom" constant="78" id="yyv-7I-zx1"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="goalCreated" destination="9h6-3N-Tpc" id="hx8-bl-Cfl"/>
+                        <segue destination="cUm-gH-Dd5" kind="show" identifier="HomeGoal" id="ezo-ra-eci"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJj-qt-4fU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2381.5999999999999" y="121.88905547226388"/>
+            <point key="canvasLocation" x="2383" y="125"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="5k1-Fj-6dl">
@@ -122,7 +108,7 @@
                 <viewControllerPlaceholder storyboardName="Calendar" id="cUm-gH-Dd5" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rrg-lP-W4E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3087" y="121"/>
+            <point key="canvasLocation" x="3089" y="125"/>
         </scene>
     </scenes>
     <resources>

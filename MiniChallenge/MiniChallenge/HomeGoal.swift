@@ -16,11 +16,14 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var doneGoals = [Goal]()
     var goals = [Goal]()
     
+    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.addButton.clipsToBounds = true
+        self.addButton.layer.cornerRadius = 20
         loadUserGoals()
         loadContent()
 
@@ -65,14 +68,25 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
             (sender: MGSwipeTableCell!) -> Bool in
             
             
-            GoalService.sharedInstance.user_goals.remove(at: indexPath.row)
+            let deletingAlert = UIAlertController(title: "Excluindo meta", message: "Você deseja excluir a meta: \(GoalService.sharedInstance.user_goals[indexPath.row].title) ?", preferredStyle: .alert)
             
-            let indexPaths = [indexPath]
-            tableView.deleteRows(at: indexPaths, with: .automatic)
-            tableView.reloadData()
+            let deleteButton = UIAlertAction(title: "Deletar", style: UIAlertActionStyle.cancel, handler: { action in
+                
+                GoalService.sharedInstance.user_goals.remove(at: indexPath.row)
+                self.saveUserGoals()
+                let indexPaths = [indexPath]
+                tableView.deleteRows(at: indexPaths, with: .fade)
+                tableView.reloadData()
+            })
             
-            self.saveUserGoals()
+            let cancelButton = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+                //Do nothing
+            })
             
+            deletingAlert.addAction(deleteButton)
+            deletingAlert.addAction(cancelButton)
+            
+            self.present(deletingAlert, animated: true, completion: nil)
             
             return true
         }
@@ -95,6 +109,10 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.leftSwipeSettings.transition = .border
     
         return cell;
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     

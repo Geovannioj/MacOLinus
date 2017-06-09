@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kgK-Rx-FDp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kgK-Rx-FDp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="607" y="248"/>
         </scene>
-        <!--HomeSubject-->
+        <!--Calendar-->
         <scene sceneID="Tdb-9j-Cei">
             <objects>
-                <viewControllerPlaceholder storyboardName="HomeSubject" id="O14-ME-WPY" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Calendar" id="O14-ME-WPY" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IrC-qL-qgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="606" y="302"/>
@@ -44,24 +44,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="msT-De-SvH">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="6Ol-LM-xE9">
                                         <rect key="frame" x="153" y="32" width="69" height="21"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8N-Fz-SFQ">
-                                        <rect key="frame" x="22" y="25" width="57" height="29"/>
-                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
-                                        <state key="normal" title="Matérias">
+                                        <rect key="frame" x="22" y="25" width="75" height="35"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
+                                        <state key="normal" title="&lt; Matérias">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="subjectButtonPressed:" destination="kgK-Rx-FDp" eventType="touchUpInside" id="Qhg-Md-CNG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xmn-D1-eNF">
-                                        <rect key="frame" x="275" y="27" width="65" height="30"/>
-                                        <state key="normal" title="Adicionar">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xmn-D1-eNF">
+                                        <rect key="frame" x="321" y="27" width="19" height="31"/>
+                                        <state key="normal" image="addBlack">
                                             <color key="titleColor" red="0.099203579127788544" green="0.039092682301998138" blue="0.025941237807273865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -72,11 +72,16 @@
                                 <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="l8N-Fz-SFQ" firstAttribute="leading" secondItem="msT-De-SvH" secondAttribute="leading" constant="22" id="4Vr-jC-AyQ"/>
+                                    <constraint firstItem="6Ol-LM-xE9" firstAttribute="centerX" secondItem="msT-De-SvH" secondAttribute="centerX" id="7o5-Km-mgz"/>
+                                    <constraint firstItem="l8N-Fz-SFQ" firstAttribute="centerY" secondItem="6Ol-LM-xE9" secondAttribute="centerY" id="9Vi-kz-uNU"/>
+                                    <constraint firstItem="6Ol-LM-xE9" firstAttribute="centerX" secondItem="msT-De-SvH" secondAttribute="centerX" id="LNN-ip-O7e"/>
                                     <constraint firstAttribute="trailing" secondItem="Xmn-D1-eNF" secondAttribute="trailing" constant="35" id="MQ9-SG-sQ8"/>
                                     <constraint firstItem="l8N-Fz-SFQ" firstAttribute="top" secondItem="msT-De-SvH" secondAttribute="top" constant="25" id="ORG-Uq-9vL"/>
                                     <constraint firstItem="6Ol-LM-xE9" firstAttribute="top" secondItem="msT-De-SvH" secondAttribute="top" constant="32" id="Sac-KF-miW"/>
                                     <constraint firstItem="Xmn-D1-eNF" firstAttribute="top" secondItem="msT-De-SvH" secondAttribute="top" constant="27" id="XJj-nf-wCg"/>
+                                    <constraint firstItem="6Ol-LM-xE9" firstAttribute="centerY" secondItem="Xmn-D1-eNF" secondAttribute="centerY" id="ggo-NC-FEm"/>
                                     <constraint firstItem="6Ol-LM-xE9" firstAttribute="centerX" secondItem="msT-De-SvH" secondAttribute="centerX" id="s7w-z5-Bkq"/>
+                                    <constraint firstItem="6Ol-LM-xE9" firstAttribute="centerY" secondItem="msT-De-SvH" secondAttribute="centerY" id="vZS-XW-YpB"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AMW-Mi-FNj">
@@ -152,7 +157,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZn-xz-IGZ">
-                                <rect key="frame" x="26" y="123" width="15" height="15"/>
+                                <rect key="frame" x="26" y="107" width="15" height="15"/>
                                 <color key="backgroundColor" red="0.0030378024090000001" green="0.73686462639999994" blue="0.8299823999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -164,7 +169,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Administração" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oz-Wr-c6E">
-                                <rect key="frame" x="49" y="121" width="226" height="20"/>
+                                <rect key="frame" x="49" y="105" width="226" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="226" id="Upe-QC-kZ8"/>
                                 </constraints>
@@ -173,7 +178,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZRj-tk-Ncm">
-                                <rect key="frame" x="69" y="159" width="239" height="29"/>
+                                <rect key="frame" x="69" y="143" width="239" height="45"/>
                                 <segments>
                                     <segment title="Tarefas"/>
                                     <segment title="Anotações"/>
@@ -211,7 +216,7 @@
                         <outlet property="tableView" destination="AMW-Mi-FNj" id="c9q-RI-vNm"/>
                         <segue destination="fMz-Ny-WkN" kind="show" identifier="CreateNoteTitle" id="WEd-a4-9P5"/>
                         <segue destination="avh-hN-kJN" kind="show" identifier="PresentNotes" id="5K0-Z7-gjM"/>
-                        <segue destination="hPC-ce-CWa" kind="show" identifier="SubjectFault" id="8Qd-Kc-Y0d"/>
+                        <segue destination="hPC-ce-CWa" kind="show" identifier="SubjectFault" animates="NO" id="8Qd-Kc-Y0d"/>
                         <segue destination="O14-ME-WPY" kind="show" identifier="HomeSubject" id="J4B-wE-rCj"/>
                         <segue destination="2Qh-gc-CMo" kind="show" identifier="showActivities" id="EIA-0A-U1z"/>
                     </connections>
@@ -247,6 +252,7 @@
     </scenes>
     <resources>
         <image name="ClipIcon" width="11" height="16"/>
+        <image name="addBlack" width="19" height="20"/>
         <image name="pengoBlack" width="69" height="21"/>
     </resources>
 </document>

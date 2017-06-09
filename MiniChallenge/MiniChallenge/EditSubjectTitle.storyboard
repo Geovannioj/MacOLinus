@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YjG-d2-dqN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YjG-d2-dqN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -77,19 +77,30 @@
                                     <action selector="cancelButtonPressed:" destination="YjG-d2-dqN" eventType="touchUpInside" id="Dul-SE-4PF"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O nome da matéria deve ser preenchido!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yb-Z4-yxa">
+                                <rect key="frame" x="30.5" y="202" width="246.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="HPz-9z-tVZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.03920602426" green="0.039221249520000001" blue="0.039205066859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XJE-fe-tdb" firstAttribute="top" secondItem="XrQ-Ps-BVL" secondAttribute="bottom" constant="27" id="1O8-UA-OyF"/>
                             <constraint firstItem="USN-SI-Hw3" firstAttribute="top" secondItem="XrQ-Ps-BVL" secondAttribute="bottom" constant="36" id="5WJ-MN-AM1"/>
-                            <constraint firstItem="XrQ-Ps-BVL" firstAttribute="top" secondItem="Zb1-dj-iQc" secondAttribute="bottom" constant="12" id="8rJ-hi-aBh"/>
                             <constraint firstItem="wbN-cD-zyD" firstAttribute="leading" secondItem="gsw-n8-cr5" secondAttribute="leadingMargin" id="CRz-Yi-nWa"/>
+                            <constraint firstItem="nlF-mr-BSO" firstAttribute="leading" secondItem="7yb-Z4-yxa" secondAttribute="trailing" constant="25" id="FGV-hC-ytc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nlF-mr-BSO" secondAttribute="trailing" constant="13" id="LrX-Y5-4co"/>
                             <constraint firstItem="nlF-mr-BSO" firstAttribute="leading" secondItem="gsw-n8-cr5" secondAttribute="leadingMargin" constant="286" id="MNV-8C-1mN"/>
+                            <constraint firstItem="XrQ-Ps-BVL" firstAttribute="top" secondItem="Zb1-dj-iQc" secondAttribute="bottom" constant="12" id="MQb-pK-wlj"/>
                             <constraint firstItem="USN-SI-Hw3" firstAttribute="leading" secondItem="gsw-n8-cr5" secondAttribute="leadingMargin" constant="7" id="N0s-FH-RFD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wbN-cD-zyD" secondAttribute="trailing" id="PLt-nv-KsJ"/>
                             <constraint firstItem="XJE-fe-tdb" firstAttribute="leading" secondItem="USN-SI-Hw3" secondAttribute="trailing" constant="5" id="Ru6-Po-Qbi"/>
                             <constraint firstItem="wbN-cD-zyD" firstAttribute="top" secondItem="XJE-fe-tdb" secondAttribute="bottom" constant="17.666666666666671" id="Txo-Zl-dyQ"/>
+                            <constraint firstItem="7yb-Z4-yxa" firstAttribute="centerY" secondItem="nlF-mr-BSO" secondAttribute="centerY" id="W3C-0c-IAm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XJE-fe-tdb" secondAttribute="trailing" constant="61" id="cKm-jN-yJT"/>
                             <constraint firstItem="XJE-fe-tdb" firstAttribute="leading" secondItem="gsw-n8-cr5" secondAttribute="leadingMargin" constant="20" id="d0K-mQ-13W"/>
                             <constraint firstItem="nlF-mr-BSO" firstAttribute="top" secondItem="wbN-cD-zyD" secondAttribute="bottom" constant="10" id="gMB-Du-TST"/>
@@ -100,6 +111,7 @@
                     </view>
                     <connections>
                         <outlet property="newSubectTitleLabel" destination="wbN-cD-zyD" id="1v4-RY-hgG"/>
+                        <outlet property="validationLbl" destination="7yb-Z4-yxa" id="MrL-TO-MT7"/>
                         <segue destination="0XU-jQ-qHU" kind="show" identifier="BackToEditSubject" id="84W-gc-cut"/>
                         <segue destination="H0Z-tc-Fmt" kind="show" identifier="EditSubject" id="Nc6-tL-Wwb"/>
                     </connections>

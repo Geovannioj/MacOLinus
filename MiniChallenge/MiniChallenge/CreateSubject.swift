@@ -71,7 +71,8 @@ class CreateSubject: UIViewController {
             if let toNextScreen = segue.destination as? CreateTeacherViewController {
                 toNextScreen.segueData = segueData
             }
-            
+        }else if segue.identifier == "HomeSubject"{
+            CalendarViewController.pushedFromHomeSubject = true
         }
     }
     

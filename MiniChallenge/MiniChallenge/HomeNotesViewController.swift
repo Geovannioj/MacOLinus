@@ -49,6 +49,7 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // MARK: - Actions
     
+
     @IBAction func subjectButtonPressed(_ sender: Any) {
         
         performSegue(withIdentifier: "HomeSubject", sender: Any?.self)
@@ -112,7 +113,10 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
                 nextScreen.receivedArray = self.filteredActivities
                 nextScreen.subjectReceived = self.subjectReceived
             }
+        }else if segue.identifier == "HomeSubject"{
+            CalendarViewController.pushedFromHomeSubject = true
         }
+
     }
 
     

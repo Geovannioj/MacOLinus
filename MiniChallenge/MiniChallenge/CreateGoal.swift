@@ -46,6 +46,10 @@ class CreateGoal: UIViewController {
         }
     }
     
+    @IBAction func backButtonPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "GoalOptions", sender: Any?.self)
+    }
 
     
     func assignBlackStatusBar() {
@@ -77,11 +81,42 @@ class CreateGoal: UIViewController {
             
             newUserGoal.title = goalType + " " + UserGoalFIeld.text!
             GoalService.sharedInstance.user_goal = newUserGoal
+            
+            GoalService.sharedInstance.user_goals.append(newUserGoal)
+            saveUserGoals()
+            
             performSegue(withIdentifier: "SelectDate", sender: Any?.self)
         }else{
             validation.isHidden = false
         }
     
+    }
+    
+    
+    //MARK: - Persist Data
+    
+    func saveUserGoals() {
+        
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        
+        archiver.encode(GoalService.sharedInstance.user_goals, forKey: "UserGoals")
+        archiver.finishEncoding()
+        
+        data.write(to: dataFilePath(), atomically: true)
+    }
+    
+    
+    
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("UserGoals.plist")
+        
     }
 
 }

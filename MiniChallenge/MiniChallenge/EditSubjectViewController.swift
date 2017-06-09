@@ -11,14 +11,14 @@ import UIKit
 class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
+    @IBOutlet weak var editTableView: UITableView!
     let formFields = ["Matéria", "Professor","Cor"]
     var fields = ["", "", ""]
-    
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.editTableView.tableFooterView = UIView()
         configLayout()
         // Do any additional setup after loading the view.
     }
@@ -111,8 +111,6 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
     
         fields[0] = SingletonSubject.sharedInstance.subject.title
         fields[1] = SingletonSubject.sharedInstance.subject.teacher.name
-    
-        
         
     }
 
@@ -121,16 +119,27 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBAction func nextScreenPressed(_ sender: Any) {
         
+        /*
         let index = SingletonSubject.sharedInstance.index
         let editedSubject = SingletonSubject.sharedInstance.subjects[index]
         
         editedSubject.title = SingletonSubject.sharedInstance.subject.title
         editedSubject.teacher.name = SingletonSubject.sharedInstance.subject.teacher.name
-        
+        *///Nao sei o pq do motivo desse código, apenas adicionei a linha abaixo e o editar funcionou
         saveSubjects()
         
         performSegue(withIdentifier: "BackToHome", sender: Any?.self)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "BackToHome" || segue.identifier == "HomeSubject"{
+            CalendarViewController.pushedFromHomeSubject = true
+        }else if segue.identifier == "EditColor"{
+            if let editColor = segue.destination as? SelectSubjectColorViewController{
+                editColor.segueReceived = segue.identifier!
+            }
+        }
     }
 
     @IBAction func cancelButtonPressed(_ sender: Any) {

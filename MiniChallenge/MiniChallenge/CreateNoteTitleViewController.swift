@@ -12,9 +12,10 @@ class CreateNoteTitleViewController: UIViewController {
 
     @IBOutlet weak var noteTitleField: UITextField!
     
+    @IBOutlet weak var validationLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        validationLbl.isHidden = true
         configLayout()
 
         // Do any additional setup after loading the view.
@@ -33,9 +34,12 @@ class CreateNoteTitleViewController: UIViewController {
  
 
     @IBAction func nextScreenPressed(_ sender: Any) {
-        
-        addNoteTitleToSubject()
-        performSegue(withIdentifier: "CreateNoteContent", sender: Any?.self)
+        if noteTitleField.text != ""{
+            addNoteTitleToSubject()
+            performSegue(withIdentifier: "CreateNoteContent", sender: Any?.self)
+        }else{
+            validationLbl.isHidden = false
+        }
     }
     
     // MARK: - Setting Content

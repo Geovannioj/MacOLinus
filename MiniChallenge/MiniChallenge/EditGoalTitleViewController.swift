@@ -12,10 +12,11 @@ class EditGoalTitleViewController: UIViewController {
 
     @IBOutlet weak var newGoalTitle: UITextField!
     
+    @IBOutlet weak var validationLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        validationLbl.isHidden = true
         configLayout()
 
         // Do any additional setup after loading the view.
@@ -50,6 +51,11 @@ class EditGoalTitleViewController: UIViewController {
         self.view.sendSubview(toBack: imageView)
     }
     
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        
+        performSegue(withIdentifier: "EditGoal", sender: Any?.self)
+    }
+    
     func assignBlackStatusBar() {
         
         UIApplication.shared.statusBarStyle = .default
@@ -59,9 +65,13 @@ class EditGoalTitleViewController: UIViewController {
     
     @IBAction func nextScreenPressed(_ sender: Any) {
         
-        setNewContent()
         
-        performSegue(withIdentifier: "backToEditGoal", sender: Any?.self)
+        if newGoalTitle.text != ""{
+            setNewContent()
+            performSegue(withIdentifier: "backToEditGoal", sender: Any?.self)
+        }else{
+            validationLbl.isHidden = false
+        }
     }
     
     func setNewContent() {

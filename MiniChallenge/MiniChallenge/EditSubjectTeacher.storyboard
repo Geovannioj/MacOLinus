@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O8D-xO-ems">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O8D-xO-ems">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -77,6 +77,15 @@
                                     <action selector="CancelButtonPressed:" destination="O8D-xO-ems" eventType="touchUpInside" id="kIp-UK-LaK"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O nome do professor deve ser preenchido!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zr2-O0-6OR">
+                                <rect key="frame" x="35" y="201" width="242" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="VpC-ck-IA2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.03920602426" green="0.039221249520000001" blue="0.039205066859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -90,16 +99,19 @@
                             <constraint firstItem="hi0-HD-9PE" firstAttribute="leading" secondItem="d15-rx-rNa" secondAttribute="trailing" constant="5" id="NWz-19-nn6"/>
                             <constraint firstItem="Abr-xs-kzl" firstAttribute="top" secondItem="r62-Pw-VK7" secondAttribute="topMargin" constant="32" id="OGy-4C-ac3"/>
                             <constraint firstItem="LnR-gi-UtI" firstAttribute="top" secondItem="08K-uN-0yA" secondAttribute="bottom" constant="12" id="Qmd-Xw-ehU"/>
+                            <constraint firstItem="bOk-HH-lnO" firstAttribute="leading" secondItem="zr2-O0-6OR" secondAttribute="trailing" constant="25" id="Yan-qG-7XU"/>
                             <constraint firstItem="hi0-HD-9PE" firstAttribute="leading" secondItem="r62-Pw-VK7" secondAttribute="leadingMargin" constant="20" id="aDU-Vp-3Ix"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hi0-HD-9PE" secondAttribute="trailing" constant="61" id="f42-4j-dc8"/>
                             <constraint firstItem="Abr-xs-kzl" firstAttribute="centerX" secondItem="r62-Pw-VK7" secondAttribute="centerX" id="hPA-26-7VI"/>
                             <constraint firstItem="LnR-gi-UtI" firstAttribute="leading" secondItem="r62-Pw-VK7" secondAttribute="leadingMargin" constant="7" id="irr-i0-kGM"/>
                             <constraint firstItem="d15-rx-rNa" firstAttribute="top" secondItem="LnR-gi-UtI" secondAttribute="bottom" constant="36" id="p4m-iR-XAr"/>
                             <constraint firstItem="7Y6-Rt-DML" firstAttribute="leading" secondItem="r62-Pw-VK7" secondAttribute="leadingMargin" constant="-16" id="vbu-mh-kgh"/>
+                            <constraint firstItem="zr2-O0-6OR" firstAttribute="centerY" secondItem="bOk-HH-lnO" secondAttribute="centerY" id="xwb-TD-m1D"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="newTeacherName" destination="7Y6-Rt-DML" id="X79-A7-2n7"/>
+                        <outlet property="validationLbl" destination="zr2-O0-6OR" id="Rlb-C5-jnd"/>
                         <segue destination="kyD-XY-47a" kind="show" identifier="BackToEditSubject" id="jcR-4o-ccj"/>
                         <segue destination="Slo-pj-2FZ" kind="show" identifier="EditSubject" id="a5g-xD-eci"/>
                     </connections>

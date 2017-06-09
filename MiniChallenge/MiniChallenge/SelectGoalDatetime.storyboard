@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HlT-Ck-RBK">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -24,23 +24,17 @@
                         <viewControllerLayoutGuide type="bottom" id="lPW-6u-qmp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7Yl-As-TFu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JY-KQ-2HE">
-                                <rect key="frame" x="26" y="49" width="48" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Com que frequência ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdt-up-rNF">
-                                <rect key="frame" x="36" y="89" width="262" height="29"/>
+                                <rect key="frame" x="40" y="89" width="293" height="29"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXM-0s-VUv">
-                                <rect key="frame" x="23" y="98" width="8" height="8"/>
+                                <rect key="frame" x="27" y="98" width="8" height="8"/>
                                 <color key="backgroundColor" red="0.98884028199999996" green="0.83359497790000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="8" id="0bQ-yI-iBw"/>
@@ -50,8 +44,8 @@
                                 <color key="textColor" red="0.98884028199999996" green="0.83359497790000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="highlightedColor" red="0.98884028199999996" green="0.83359497790000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pengo" translatesAutoresizingMaskIntoConstraints="NO" id="dxC-fJ-lmJ">
-                                <rect key="frame" x="153.5" y="32" width="68" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="dxC-fJ-lmJ">
+                                <rect key="frame" x="173" y="32" width="68" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="AnL-CA-g1a"/>
                                 </constraints>
@@ -69,37 +63,54 @@
                                 <state key="normal" image="yellowButton"/>
                                 <connections>
                                     <action selector="submitnewUserGoal:" destination="HlT-Ck-RBK" eventType="touchUpInside" id="PoC-yS-AnI"/>
-                                    <segue destination="G5l-1v-Frb" kind="show" id="hKE-c2-yDL"/>
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="f6z-wT-eE0">
-                                <rect key="frame" x="0.0" y="277" width="375" height="164"/>
+                                <rect key="frame" x="0.0" y="277" width="414" height="164"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="516308104.49410999">
                                     <!--2017-05-12 18:55:04 +0000-->
                                 </date>
                                 <locale key="locale" localeIdentifier="pt_BR"/>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEw-sf-2J2">
+                                <rect key="frame" x="40" y="27" width="41" height="30"/>
+                                <state key="normal" title="Voltar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="HlT-Ck-RBK" eventType="touchUpInside" id="8so-AP-nBv"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="A data e hora devem ser maiores que as atuais!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oqK-uy-dRR">
+                                <rect key="frame" x="53" y="187" width="198" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dxC-fJ-lmJ" firstAttribute="top" secondItem="7Yl-As-TFu" secondAttribute="topMargin" constant="32" id="1a5-Ud-hVJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kdt-up-rNF" secondAttribute="trailing" constant="61" id="4J2-uw-wKq"/>
                             <constraint firstItem="EXM-0s-VUv" firstAttribute="leading" secondItem="7Yl-As-TFu" secondAttribute="leadingMargin" constant="7" id="5Ws-c6-zsV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="8JY-KQ-2HE" secondAttribute="trailing" constant="285" id="D1q-8N-jiq"/>
-                            <constraint firstItem="8JY-KQ-2HE" firstAttribute="top" secondItem="vDr-yG-f9a" secondAttribute="bottom" constant="29" id="Msa-w5-hXN"/>
+                            <constraint firstItem="yEw-sf-2J2" firstAttribute="top" secondItem="vDr-yG-f9a" secondAttribute="bottom" constant="7" id="BDl-o4-lT0"/>
+                            <constraint firstItem="kdt-up-rNF" firstAttribute="top" secondItem="yEw-sf-2J2" secondAttribute="bottom" constant="32" id="ILE-Ol-9be"/>
                             <constraint firstItem="kdt-up-rNF" firstAttribute="leading" secondItem="7Yl-As-TFu" secondAttribute="leadingMargin" constant="20" id="bvg-so-E2F"/>
                             <constraint firstItem="dxC-fJ-lmJ" firstAttribute="centerX" secondItem="7Yl-As-TFu" secondAttribute="centerX" id="cMM-Py-SsP"/>
-                            <constraint firstItem="8JY-KQ-2HE" firstAttribute="top" secondItem="dxC-fJ-lmJ" secondAttribute="bottom" constant="-4" id="mz6-Cj-3LQ"/>
+                            <constraint firstItem="EXM-0s-VUv" firstAttribute="top" secondItem="yEw-sf-2J2" secondAttribute="bottom" constant="41" id="h3Q-VA-aL8"/>
+                            <constraint firstItem="yEw-sf-2J2" firstAttribute="leading" secondItem="7Yl-As-TFu" secondAttribute="leadingMargin" constant="20" id="kMs-G2-5dJ"/>
                             <constraint firstItem="kdt-up-rNF" firstAttribute="leading" secondItem="EXM-0s-VUv" secondAttribute="trailing" constant="5" id="qda-X2-zbr"/>
-                            <constraint firstItem="8JY-KQ-2HE" firstAttribute="leading" secondItem="7Yl-As-TFu" secondAttribute="leadingMargin" constant="10" id="u6H-fF-SNr"/>
-                            <constraint firstItem="EXM-0s-VUv" firstAttribute="top" secondItem="8JY-KQ-2HE" secondAttribute="bottom" constant="32" id="vFi-Ko-EN2"/>
-                            <constraint firstItem="kdt-up-rNF" firstAttribute="top" secondItem="8JY-KQ-2HE" secondAttribute="bottom" constant="23" id="y2L-GJ-uDn"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="f6z-wT-eE0" id="45a-M9-BwU"/>
                         <outlet property="userGoalTitleLabel" destination="kdt-up-rNF" id="FHO-mf-PLv"/>
+                        <outlet property="validationText" destination="oqK-uy-dRR" id="dEC-tV-uQp"/>
+                        <segue destination="6lr-wV-ngE" kind="show" identifier="CreateGoal" id="eOY-7N-9TM"/>
+                        <segue destination="G5l-1v-Frb" kind="presentation" identifier="GoalCreated" id="LvY-rb-vpe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="swr-41-Y5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -112,11 +123,19 @@
                 <viewControllerPlaceholder storyboardName="GoalCreated" id="G5l-1v-Frb" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3T4-Vx-Z5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3081" y="918"/>
+            <point key="canvasLocation" x="2808" y="896"/>
+        </scene>
+        <!--CreateGoal-->
+        <scene sceneID="pAm-0h-t8v">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateGoal" id="6lr-wV-ngE" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2kF-Os-jRm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2808" y="941"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Pengo" width="69" height="21"/>
+        <image name="pengoWhite" width="69" height="21"/>
         <image name="yellowButton" width="44" height="44"/>
     </resources>
 </document>

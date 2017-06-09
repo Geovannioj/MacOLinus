@@ -12,9 +12,10 @@ class EditSubjectTeacherViewController: UIViewController {
     
     @IBOutlet weak var newTeacherName: UITextField!
 
+    @IBOutlet weak var validationLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        validationLbl.isHidden = true
         configLayout()
 
         // Do any additional setup after loading the view.
@@ -64,8 +65,12 @@ class EditSubjectTeacherViewController: UIViewController {
 
     @IBAction func nextScreenPressed(_ sender: Any) {
         
-        setNewContent()
-        performSegue(withIdentifier: "BackToEditSubject", sender: Any?.self)
+        if newTeacherName.text != ""{
+            setNewContent()
+            performSegue(withIdentifier: "BackToEditSubject", sender: Any?.self)
+        }else{
+            validationLbl.isHidden = false
+        }
     
     }
     
