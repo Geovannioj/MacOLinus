@@ -12,6 +12,8 @@ import MGSwipeTableCell
 class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var filteredActivityArray = [Reminder]()
+    var subjectReceived: Subject?
+    
     @IBOutlet weak var tableView: UITableView!
   
     let greenColor = UIColor(red: 0.2824, green: 0.9098, blue: 0.7765, alpha: 1)
@@ -134,6 +136,7 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         SingletonSubject.sharedInstance.index  = indexPath.row
         
         filterSubjectsActivity(subjectName: subjectSelected.title)
+        self.subjectReceived = subjectSelected
         
         performSegue(withIdentifier: "HomeNotes", sender: Any?.self)
         
@@ -159,7 +162,7 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
             if let nextScreen = segue.destination as? HomeNotesViewController {
                 
                 nextScreen.filteredActivities = self.filteredActivityArray
-                
+                nextScreen.subjectReceived = self.subjectReceived
             }
         }
     }

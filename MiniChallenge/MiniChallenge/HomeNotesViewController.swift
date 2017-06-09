@@ -18,6 +18,7 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var subjectColorLabel: UILabel!
 
     var filteredActivities = [Reminder]()
+    var subjectReceived: Subject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,9 +63,11 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
         
         if segmentControl.selectedSegmentIndex == 2 {
             performSegue(withIdentifier: "SubjectFault", sender: Any?.self)
+        } else if segmentControl.selectedSegmentIndex == 0 {
+            performSegue(withIdentifier: "showActivities", sender: Any?.self)
         }
     }
-    
+
     
     func setupLayout() {
         
@@ -104,9 +107,10 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "HomeTasks" {
+        if segue.identifier == "showActivities" {
             if let nextScreen = segue.destination as? ShowSubjectsActivity {
-                nextScreen.subjectsActivity = self.filteredActivities
+                nextScreen.receivedArray = self.filteredActivities
+                nextScreen.subjectReceived = self.subjectReceived
             }
         }
     }

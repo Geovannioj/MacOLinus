@@ -21,7 +21,7 @@
                 <viewControllerPlaceholder storyboardName="SubjectFaults" id="hPC-ce-CWa" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rdO-XO-LVV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="259"/>
+            <point key="canvasLocation" x="607" y="248"/>
         </scene>
         <!--HomeSubject-->
         <scene sceneID="Tdb-9j-Cei">
@@ -29,7 +29,7 @@
                 <viewControllerPlaceholder storyboardName="HomeSubject" id="O14-ME-WPY" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IrC-qL-qgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="608" y="344"/>
+            <point key="canvasLocation" x="606" y="302"/>
         </scene>
         <!--Home Notes View Controller-->
         <scene sceneID="Qez-F2-v3c">
@@ -213,11 +213,20 @@
                         <segue destination="avh-hN-kJN" kind="show" identifier="PresentNotes" id="5K0-Z7-gjM"/>
                         <segue destination="hPC-ce-CWa" kind="show" identifier="SubjectFault" id="8Qd-Kc-Y0d"/>
                         <segue destination="O14-ME-WPY" kind="show" identifier="HomeSubject" id="J4B-wE-rCj"/>
+                        <segue destination="2Qh-gc-CMo" kind="show" identifier="showActivities" id="EIA-0A-U1z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lty-Fa-ixl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-61.600000000000001" y="126.38680659670166"/>
+        </scene>
+        <!--ShowSubjectsActivity-->
+        <scene sceneID="PLQ-Jk-x2J">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeTasks" referencedIdentifier="ShowSubjectsActivity" id="2Qh-gc-CMo" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QvU-bS-gQo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="632" y="96"/>
         </scene>
         <!--CreateNoteTitle-->
         <scene sceneID="Av9-r2-xNF">
@@ -225,7 +234,7 @@
                 <viewControllerPlaceholder storyboardName="CreateNoteTitle" id="fMz-Ny-WkN" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xy3-0G-xyy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="126"/>
+            <point key="canvasLocation" x="613" y="143"/>
         </scene>
         <!--PresentNotes-->
         <scene sceneID="Rkd-ZV-Fx3">
@@ -233,7 +242,7 @@
                 <viewControllerPlaceholder storyboardName="PresentNotes" id="avh-hN-kJN" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="616-pC-7SH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="193"/>
+            <point key="canvasLocation" x="607" y="199"/>
         </scene>
     </scenes>
     <resources>
