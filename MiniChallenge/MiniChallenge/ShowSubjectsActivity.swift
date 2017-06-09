@@ -15,6 +15,7 @@ class ShowSubjectsActivity: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var subjectNameLbl: UILabel!
     @IBOutlet weak var subjectColorLBl: UILabel!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     
     
     var subjectReceived:Subject?
@@ -85,9 +86,23 @@ class ShowSubjectsActivity: UIViewController, UITableViewDataSource, UITableView
 
     }
     
+    @IBAction func SegmentControlChanged(_ sender: Any) {
+        
+        if segmentControl.selectedSegmentIndex == 2 {
+            performSegue(withIdentifier: "SubjectFault", sender: Any?.self)
+        } else if segmentControl.selectedSegmentIndex == 1 {
+            performSegue(withIdentifier: "HomeNotes", sender: Any?.self)
+        }else if segmentControl.selectedSegmentIndex == 0 {
+            print("aquiii index = 0")
+        }else{
+            print("aquiii else")
+        }
+    }
+
+    
     @IBAction func backBtnAction(_ sender: Any) {
         
-        performSegue(withIdentifier: "BackToSubjectsHome", sender: Any?.self)
+        performSegue(withIdentifier: "BackToCalendar", sender: Any?.self)
         
     }
 }
