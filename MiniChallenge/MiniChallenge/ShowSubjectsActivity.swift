@@ -89,16 +89,36 @@ class ShowSubjectsActivity: UIViewController, UITableViewDataSource, UITableView
     @IBAction func SegmentControlChanged(_ sender: Any) {
         
         if segmentControl.selectedSegmentIndex == 2 {
-            performSegue(withIdentifier: "SubjectFault", sender: Any?.self)
+    
+            performSegue(withIdentifier: "SubjectFaults", sender: Any?.self)
         } else if segmentControl.selectedSegmentIndex == 1 {
+    
             performSegue(withIdentifier: "HomeNotes", sender: Any?.self)
-        }else if segmentControl.selectedSegmentIndex == 0 {
-            print("aquiii index = 0")
-        }else{
-            print("aquiii else")
+    
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SubjectFaults"{
+            if let nextScreen = segue.destination as? SubjectFaultsViewController {
+                nextScreen.filteredActivities = self.receivedArray
+                nextScreen.subjectReceived = self.subjectReceived
+            }
+        }else if segue.identifier == "HomeNotes"{
+            if let nextScreen = segue.destination as? HomeNotesViewController {
+                
+                nextScreen.subjectReceived = self.subjectReceived
+                nextScreen.filteredActivities = self.receivedArray
+            }
+        } else if segue.identifier == "BackToSubjectsHome" {
+            if let nextScreen = segue.destination as? HomeSubject {
+                nextScreen.filteredActivityArray = self.receivedArray
+            }
+        }
+        
+    }
 
+    
     
     @IBAction func backBtnAction(_ sender: Any) {
         

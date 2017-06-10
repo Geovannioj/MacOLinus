@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kgK-Rx-FDp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kgK-Rx-FDp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -215,10 +215,10 @@
                         <outlet property="subjectTitleLabel" destination="2oz-Wr-c6E" id="sfU-Fk-z6x"/>
                         <outlet property="tableView" destination="AMW-Mi-FNj" id="c9q-RI-vNm"/>
                         <segue destination="fMz-Ny-WkN" kind="show" identifier="CreateNoteTitle" id="WEd-a4-9P5"/>
-                        <segue destination="avh-hN-kJN" kind="show" identifier="PresentNotes" id="5K0-Z7-gjM"/>
+                        <segue destination="avh-hN-kJN" kind="show" identifier="PresentNotes" animates="NO" id="5K0-Z7-gjM"/>
                         <segue destination="hPC-ce-CWa" kind="show" identifier="SubjectFault" animates="NO" id="8Qd-Kc-Y0d"/>
                         <segue destination="O14-ME-WPY" kind="show" identifier="HomeSubject" id="J4B-wE-rCj"/>
-                        <segue destination="2Qh-gc-CMo" kind="show" identifier="showActivities" id="EIA-0A-U1z"/>
+                        <segue destination="2Qh-gc-CMo" kind="show" identifier="showActivities" animates="NO" id="EIA-0A-U1z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lty-Fa-ixl" userLabel="First Responder" sceneMemberID="firstResponder"/>
