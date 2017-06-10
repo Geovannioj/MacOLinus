@@ -102,17 +102,22 @@ class SelectGoalDatetime: UIViewController {
         
         let calendar = Calendar(identifier: .gregorian)
         let components = calendar.dateComponents(in: .current, from: date)
-        let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: false)
+        
+//        let newComponents = DateComponents(calendar: calendar, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute)
+
+        let newComponents = DateComponents(calendar: calendar, timeZone: .current, hour: components.hour, minute: components.minute)
+        
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: newComponents, repeats: true)
         
     
         let content = UNMutableNotificationContent()
-        content.title = "Pengo"
-        content.body = "Pengo is notifying you"
+        content.title = "Hora de " + GoalService.sharedInstance.user_goal.title
+        content.body =  "Cumpra suas metas e realize seus objetivos"
         content.sound = UNNotificationSound.default()
         
-        let request = UNNotificationRequest(identifier: "textNotification", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: GoalService.sharedInstance.user_goal.title, content: content, trigger: trigger)
 
 //        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().add(request) {(error) in
