@@ -141,7 +141,7 @@
                                 </segments>
                                 <color key="tintColor" red="0.055538594720000001" green="0.88168424369999998" blue="0.78111153840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="segmenteControlChanged:" destination="m0Q-3l-P4Y" eventType="valueChanged" id="RX1-sa-Xeq"/>
+                                    <action selector="SegmentControlChanged:" destination="m0Q-3l-P4Y" eventType="valueChanged" id="3DY-jz-ZXm"/>
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KF-qT-iAk">
@@ -183,9 +183,9 @@
                         <outlet property="subjectColorLBl" destination="lGJ-ex-8Fl" id="OjP-fj-tlH"/>
                         <outlet property="subjectNameLbl" destination="wUW-MO-hlX" id="MKl-zV-DW8"/>
                         <outlet property="subjectsActivityTableView" destination="Rlt-ke-4rc" id="d3L-2S-xHV"/>
-                        <segue destination="YbT-sF-GLs" kind="show" identifier="HomeNotes" id="ls2-1i-Hnz"/>
-                        <segue destination="yM9-Rd-a2P" kind="show" identifier="BackToSubjectsHome" id="Thq-ii-6Re"/>
-                        <segue destination="ZOI-nz-p3K" kind="show" identifier="SubjectFaults" id="ApM-ca-LWu"/>
+                        <segue destination="YbT-sF-GLs" kind="show" identifier="HomeNotes" animates="NO" id="ls2-1i-Hnz"/>
+                        <segue destination="yM9-Rd-a2P" kind="show" identifier="BackToSubjectsHome" animates="NO" id="Thq-ii-6Re"/>
+                        <segue destination="ZOI-nz-p3K" kind="show" identifier="SubjectFaults" animates="NO" id="ApM-ca-LWu"/>
                         <segue destination="xbE-Km-LOB" kind="show" identifier="BackToCalendar" id="kn9-ox-ohd"/>
                     </connections>
                 </viewController>

@@ -107,6 +107,12 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
                 nextScreen.receivedArray = self.filteredActivities
                 nextScreen.subjectReceived = self.subjectReceived
             }
+        }else if segue.identifier == "SubjectFault"{
+                if let nextScreen = segue.destination as? SubjectFaultsViewController {
+                    nextScreen.subjectReceived = self.subjectReceived
+                    nextScreen.filteredActivities = self.filteredActivities
+                }
+            
         }else if segue.identifier == "HomeSubject"{
             CalendarViewController.pushedFromHomeSubject = true
         }

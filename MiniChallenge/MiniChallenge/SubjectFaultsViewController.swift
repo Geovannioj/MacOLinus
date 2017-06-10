@@ -16,6 +16,9 @@ class SubjectFaultsViewController: UIViewController {
 
     @IBOutlet weak var segmentControl: UISegmentedControl!
  
+    var filteredActivities = [Reminder]()
+    var subjectReceived:Subject?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,7 +52,7 @@ class SubjectFaultsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "HomeSubject"{
+        if segue.identifier == "HomeSubject" {
             CalendarViewController.pushedFromHomeSubject = true
             let subjectWithFault = SingletonSubject.sharedInstance.subject
             let index = SingletonSubject.sharedInstance.index
@@ -59,6 +62,18 @@ class SubjectFaultsViewController: UIViewController {
             SingletonSubject.sharedInstance.subjects[index] = subjectWithFault
             saveSubjects()
 
+        }else if segue.identifier == "HomeTasks" {
+            
+            if let nextScreen = segue.destination as? ShowSubjectsActivity {
+                nextScreen.subjectReceived = self.subjectReceived
+                nextScreen.receivedArray = self.filteredActivities
+            }
+        }else if segue.identifier == "HomeNotes" {
+            
+            if let nextScreen = segue.destination as? HomeNotesViewController {
+                nextScreen.subjectReceived = self.subjectReceived
+                nextScreen.filteredActivities = self.filteredActivities
+            }
         }
     }
     
@@ -78,6 +93,8 @@ class SubjectFaultsViewController: UIViewController {
             saveSubjects()
             
             performSegue(withIdentifier: "HomeNotes", sender: Any?.self)
+        }else if segmentControl.selectedSegmentIndex == 0 {
+            performSegue(withIdentifier: "HomeTasks", sender: Any?.self)
         }
     }
     
