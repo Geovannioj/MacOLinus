@@ -63,10 +63,12 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpCalendar()
         let calendar = Calendar.current
         currentMonth = calendar.component(.month, from: currentDate! as Date)
         currentYear = calendar.component(.year, from: currentDate! as Date)
+        
         loadReminders()
         
         //ficar de olho nesta, pois activities é onde o Singleton é repassado para esta classe!
@@ -101,11 +103,15 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        self.tableView.reloadData()
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        tableView.beginUpdates()
-        tableView.endUpdates()
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
         
         if CalendarViewController.sendActivityToPostpone {
             showAnimationMovedToPostPoned()
@@ -116,6 +122,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         } else if CalendarViewController.pushedFromHomeGoal {
             tabBarController?.selectedIndex = 2
         }
+        
     }
 
     func documentsDirectory() -> URL{
@@ -257,9 +264,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         var sortedArray : [Reminder] = []
         sortedArray = activities.sorted(by: { $0.time.compare($1.time) == ComparisonResult.orderedAscending})
-        //SingletonActivity.sharedInstance.tasks = sortedArray
-        //controlerPList.saveReminders()
-        
+
         return sortedArray
     }
     

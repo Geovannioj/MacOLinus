@@ -21,6 +21,7 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         self.addButton.clipsToBounds = true
         self.addButton.layer.cornerRadius = 20
         
@@ -188,6 +189,7 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     func deleteActivityByID(id:Int) {
         
+        let controllerPlist = ControllerPList()
         var counter = 0
         
         for activity in SingletonActivity.sharedInstance.tasks {
@@ -198,6 +200,8 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
             
             counter += 1
         }
+        
+        controllerPlist.saveReminders()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

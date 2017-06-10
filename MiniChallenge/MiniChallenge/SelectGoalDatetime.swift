@@ -12,14 +12,10 @@ import UserNotifications
 
 class SelectGoalDatetime: UIViewController {
 
-    @IBOutlet weak var userGoalTitleLabel: UILabel!
+    @IBOutlet weak var titleText: UITextView!
     @IBOutlet weak var datePicker: UIDatePicker!
-   
-    @IBOutlet weak var validationText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        validationText.isHidden = true
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {
             didAllow, error in
@@ -55,8 +51,8 @@ class SelectGoalDatetime: UIViewController {
     
     func assignBackground() {
         
+        titleText.backgroundColor = UIColor(patternImage: UIImage(named: "PurplePatternWithBoy")!)
         let background = UIImage(named: "PurplePatternWithBoy")
-        validationText.backgroundColor = UIColor(patternImage: UIImage(named:"PurplePatternWithBoy")!)
         var imageView : UIImageView!
         imageView = UIImageView(frame: view.bounds)
         imageView.contentMode =  UIViewContentMode.scaleAspectFill
@@ -79,20 +75,15 @@ class SelectGoalDatetime: UIViewController {
         assignBackground()
         setDatePickerColor()
     
-        userGoalTitleLabel.text = GoalService.sharedInstance.user_goal.title
+        //userGoalTitleLabel.text = GoalService.sharedInstance.user_goal.title
     }
     
     
    
     @IBAction func submitnewUserGoal(_ sender: Any) {
-        
-        if datePicker.date > Date(){
-            let date = datePicker.date
-            scheduleNotification(at: date)
-            performSegue(withIdentifier: "GoalCreated", sender: Any?.self)
-        }else{
-            validationText.isHidden = false
-        }
+        let date = datePicker.date
+        scheduleNotification(at: date)
+        performSegue(withIdentifier: "GoalCreated", sender: Any?.self)
     
     }
     
@@ -113,8 +104,8 @@ class SelectGoalDatetime: UIViewController {
         
     
         let content = UNMutableNotificationContent()
-        content.title = "Hora de " + GoalService.sharedInstance.user_goal.title
-        content.body =  "Cumpra suas metas e realize seus objetivos"
+        content.title = "Você tem uma meta para cumprir"
+        content.body =  "Hora de " + GoalService.sharedInstance.user_goal.title
         content.sound = UNNotificationSound.default()
         
         let request = UNNotificationRequest(identifier: GoalService.sharedInstance.user_goal.title, content: content, trigger: trigger)

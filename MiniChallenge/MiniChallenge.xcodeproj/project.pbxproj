@@ -26,7 +26,6 @@
 		6E1E4BDD1EE03A0100C65683 /* EditGoalTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BC61EE03A0100C65683 /* EditGoalTitleViewController.swift */; };
 		6E1E4BDE1EE03A0100C65683 /* EditGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BC71EE03A0100C65683 /* EditGoalViewController.swift */; };
 		6E1E4BDF1EE03A0100C65683 /* EditSubject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BC81EE03A0100C65683 /* EditSubject.storyboard */; };
-		6E1E4BE01EE03A0100C65683 /* EditSubjectColor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BC91EE03A0100C65683 /* EditSubjectColor.storyboard */; };
 		6E1E4BE11EE03A0100C65683 /* EditSubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BCA1EE03A0100C65683 /* EditSubjectTableViewCell.swift */; };
 		6E1E4BE21EE03A0100C65683 /* EditSubjectTeacher.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BCB1EE03A0100C65683 /* EditSubjectTeacher.storyboard */; };
 		6E1E4BE31EE03A0100C65683 /* EditSubjectTeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BCC1EE03A0100C65683 /* EditSubjectTeacherViewController.swift */; };
@@ -44,7 +43,6 @@
 		6E1E4BFA1EE03A0D00C65683 /* showNotes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BEF1EE03A0D00C65683 /* showNotes.storyboard */; };
 		6E1E4BFB1EE03A0D00C65683 /* ShowNotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BF01EE03A0D00C65683 /* ShowNotesTableViewCell.swift */; };
 		6E1E4BFC1EE03A0D00C65683 /* ShowNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BF11EE03A0D00C65683 /* ShowNotesViewController.swift */; };
-		6E1E4BFD1EE03A0D00C65683 /* ShowSubject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BF21EE03A0D00C65683 /* ShowSubject.storyboard */; };
 		6E1E4BFE1EE03A0D00C65683 /* SubjectFaults.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E1E4BF31EE03A0D00C65683 /* SubjectFaults.storyboard */; };
 		6E1E4BFF1EE03A0D00C65683 /* SubjectFaultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E1E4BF41EE03A0D00C65683 /* SubjectFaultsViewController.swift */; };
 		6EB66EA71EB9174D00A16F1D /* DayActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB66EA51EB9174D00A16F1D /* DayActivityTableViewCell.swift */; };
@@ -132,8 +130,10 @@
 		BF77E5651EC394A9007845B2 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BF77E5141EC394A9007845B2 /* SF-UI-Text-SemiboldItalic.otf */; };
 		BF77E5671EC394A9007845B2 /* SingletonDayActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E5161EC394A9007845B2 /* SingletonDayActivity.swift */; };
 		BF77E56C1EC394A9007845B2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E51B1EC394A9007845B2 /* User.swift */; };
+		D4142BCB1EE76350005AA7F5 /* HomeTasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4142BCA1EE76350005AA7F5 /* HomeTasks.storyboard */; };
 		D4C988981EA7D33B008DC591 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C988971EA7D33B008DC591 /* Goal.swift */; };
 		D4C9889D1EA7DF4F008DC591 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9889C1EA7DF4F008DC591 /* Reminder.swift */; };
+		D4CC85C71EEB2B9600193CFE /* ShowSubject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CC85C61EEB2B9600193CFE /* ShowSubject.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,7 +159,6 @@
 		6E1E4BC61EE03A0100C65683 /* EditGoalTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditGoalTitleViewController.swift; sourceTree = "<group>"; };
 		6E1E4BC71EE03A0100C65683 /* EditGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditGoalViewController.swift; sourceTree = "<group>"; };
 		6E1E4BC81EE03A0100C65683 /* EditSubject.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditSubject.storyboard; sourceTree = "<group>"; };
-		6E1E4BC91EE03A0100C65683 /* EditSubjectColor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditSubjectColor.storyboard; sourceTree = "<group>"; };
 		6E1E4BCA1EE03A0100C65683 /* EditSubjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSubjectTableViewCell.swift; sourceTree = "<group>"; };
 		6E1E4BCB1EE03A0100C65683 /* EditSubjectTeacher.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditSubjectTeacher.storyboard; sourceTree = "<group>"; };
 		6E1E4BCC1EE03A0100C65683 /* EditSubjectTeacherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSubjectTeacherViewController.swift; sourceTree = "<group>"; };
@@ -177,7 +176,6 @@
 		6E1E4BEF1EE03A0D00C65683 /* showNotes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = showNotes.storyboard; sourceTree = "<group>"; };
 		6E1E4BF01EE03A0D00C65683 /* ShowNotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowNotesTableViewCell.swift; sourceTree = "<group>"; };
 		6E1E4BF11EE03A0D00C65683 /* ShowNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowNotesViewController.swift; sourceTree = "<group>"; };
-		6E1E4BF21EE03A0D00C65683 /* ShowSubject.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShowSubject.storyboard; sourceTree = "<group>"; };
 		6E1E4BF31EE03A0D00C65683 /* SubjectFaults.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SubjectFaults.storyboard; sourceTree = "<group>"; };
 		6E1E4BF41EE03A0D00C65683 /* SubjectFaultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectFaultsViewController.swift; sourceTree = "<group>"; };
 		6EB66EA51EB9174D00A16F1D /* DayActivityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayActivityTableViewCell.swift; sourceTree = "<group>"; };
@@ -266,8 +264,10 @@
 		BF77E5141EC394A9007845B2 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		BF77E5161EC394A9007845B2 /* SingletonDayActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingletonDayActivity.swift; sourceTree = "<group>"; };
 		BF77E51B1EC394A9007845B2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D4142BCA1EE76350005AA7F5 /* HomeTasks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeTasks.storyboard; sourceTree = "<group>"; };
 		D4C988971EA7D33B008DC591 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		D4C9889C1EA7DF4F008DC591 /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		D4CC85C61EEB2B9600193CFE /* ShowSubject.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShowSubject.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -548,9 +548,9 @@
 		BF1C9D3A1EC4EE5F00707BFF /* Subject */ = {
 			isa = PBXGroup;
 			children = (
+				D4CC85C61EEB2B9600193CFE /* ShowSubject.storyboard */,
+				D4142BCA1EE76350005AA7F5 /* HomeTasks.storyboard */,
 				6E1E4BF31EE03A0D00C65683 /* SubjectFaults.storyboard */,
-				6E1E4BF21EE03A0D00C65683 /* ShowSubject.storyboard */,
-				6E1E4BC91EE03A0100C65683 /* EditSubjectColor.storyboard */,
 				6E1E4BC81EE03A0100C65683 /* EditSubject.storyboard */,
 				6E1E4BCB1EE03A0100C65683 /* EditSubjectTeacher.storyboard */,
 				6E1E4BCD1EE03A0100C65683 /* EditSubjectTitle.storyboard */,
@@ -734,7 +734,7 @@
 				TargetAttributes = {
 					6E15E5101EA6B8130027AAFD = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = A93689JNSR;
+						DevelopmentTeam = 7CN8A9X5L6;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -780,12 +780,13 @@
 				6E1E4BD31EE03A0100C65683 /* CreateGeolocalizatedNotification.storyboard in Resources */,
 				BF77E5591EC394A9007845B2 /* SF-UI-Display-Ultralight.otf in Resources */,
 				BF77E5371EC394A9007845B2 /* ActivityTableViewCell.xib in Resources */,
-				6E1E4BFD1EE03A0D00C65683 /* ShowSubject.storyboard in Resources */,
 				6E1E4BF51EE03A0D00C65683 /* NoteCreated.storyboard in Resources */,
 				BF77E5621EC394A9007845B2 /* SF-UI-Text-Regular.otf in Resources */,
 				BF77E5321EC394A9007845B2 /* DoneAndPostponedActivities.storyboard in Resources */,
 				BF762CCD1ED47532004E423B /* Assets.xcassets in Resources */,
 				BF77E5541EC394A9007845B2 /* SF-UI-Display-Light.otf in Resources */,
+				D4142BCB1EE76350005AA7F5 /* HomeTasks.storyboard in Resources */,
+				D4CC85C71EEB2B9600193CFE /* ShowSubject.storyboard in Resources */,
 				BF762CC41ED47336004E423B /* MissedClasses.storyboard in Resources */,
 				BF762CB21ED47320004E423B /* EditActivity.storyboard in Resources */,
 				BF77E51C1EC394A9007845B2 /* Calendar.storyboard in Resources */,
@@ -811,7 +812,6 @@
 				BF762CDA1ED4769A004E423B /* SelectDate.storyboard in Resources */,
 				BF77E5511EC394A9007845B2 /* SF-UI-Display-Black.otf in Resources */,
 				6E1E4BE71EE03A0100C65683 /* HomeNotes.storyboard in Resources */,
-				6E1E4BE01EE03A0100C65683 /* EditSubjectColor.storyboard in Resources */,
 				BF77E5651EC394A9007845B2 /* SF-UI-Text-SemiboldItalic.otf in Resources */,
 				BF77E5531EC394A9007845B2 /* SF-UI-Display-Heavy.otf in Resources */,
 				BF77E5271EC394A9007845B2 /* Subject.storyboard in Resources */,
@@ -1050,7 +1050,7 @@
 			baseConfigurationReference = 13E560A381673CA9CEE1D9E2 /* Pods-MiniChallenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = A93689JNSR;
+				DEVELOPMENT_TEAM = 7CN8A9X5L6;
 				INFOPLIST_FILE = MiniChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.bepiducb.MiniChallenge;
@@ -1064,7 +1064,7 @@
 			baseConfigurationReference = 774B8E3577BCA297B347D437 /* Pods-MiniChallenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = A93689JNSR;
+				DEVELOPMENT_TEAM = 7CN8A9X5L6;
 				INFOPLIST_FILE = MiniChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.bepiducb.MiniChallenge;
