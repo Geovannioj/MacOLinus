@@ -67,7 +67,7 @@ class Reminder: NSObject, NSCoding {
     func scheduleNotification(){
         if time > Date(){
             let content = UNMutableNotificationContent()
-            content.title = "Reminder:"
+            content.title = "Lembrete do Pengo:"
             content.body = title
             content.sound = UNNotificationSound.default()
             

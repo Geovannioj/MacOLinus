@@ -84,11 +84,16 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
             
             let deleteButton = UIAlertAction(title: "Deletar", style: UIAlertActionStyle.cancel, handler: { action in
                 
+                let subject = SingletonSubject.sharedInstance.subjects[indexPath.row].title
                 SingletonSubject.sharedInstance.subjects.remove(at: indexPath.row)
                 let indexPaths = [indexPath]
                 tableView.deleteRows(at: indexPaths, with: .automatic)
                 tableView.reloadData()
+                self.deleteSubjectsActivity(subject: subject)
                 self.saveSubjects()
+                
+                
+                
             })
             
             let cancelButton = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default, handler: { (action) -> Void in
@@ -157,6 +162,41 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 
             }
             
+        }
+    }
+    
+    func deleteSubjectsActivity(subject : String) {
+        
+        let controllerPlist = ControllerPList()
+        
+        let arrayLength = SingletonActivity.sharedInstance.tasks.count
+        let copySingleton = SingletonActivity.sharedInstance.tasks
+        
+        for i in (0..<(arrayLength)) {
+            print(i)
+            
+            if copySingleton[i].subject?.title == subject {
+                let id = copySingleton[i].reminderID
+                self.deleteActivityByID(id: id)
+                
+            }
+        }
+        
+        controllerPlist.saveReminders()
+        
+    }
+    
+    func deleteActivityByID(id:Int) {
+        
+        var counter = 0
+        
+        for activity in SingletonActivity.sharedInstance.tasks {
+            
+            if activity.reminderID == id {
+                SingletonActivity.sharedInstance.tasks.remove(at: counter)
+            }
+            
+            counter += 1
         }
     }
     
