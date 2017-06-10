@@ -33,8 +33,14 @@ class CreateSubject: UIViewController {
     
  
     @IBAction func backToHomeSubject(_ sender: Any) {
+       if segueData == "AddActivity" || segueData == "ChooseSubjectController" || segueData == "AddActivityByDone" || segueData == "AddActivityByDaily" {
+            
+            performSegue(withIdentifier: "BackToSubjectChoice", sender: Any?.self)
         
-        performSegue(withIdentifier: "HomeSubject", sender: Any?.self)
+        }else{
+         
+            performSegue(withIdentifier: "HomeSubject", sender: Any?.self)
+        }
     }
     
     
@@ -73,6 +79,11 @@ class CreateSubject: UIViewController {
             }
         }else if segue.identifier == "HomeSubject"{
             CalendarViewController.pushedFromHomeSubject = true
+        
+        }else if segue.identifier == "BackToSubjectChoice" {
+            if let backToScreen = segue.destination as? ChooseSubjectController {
+                backToScreen.segueRecived = self.segueData!
+            }
         }
     }
     
