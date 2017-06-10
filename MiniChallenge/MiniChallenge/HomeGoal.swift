@@ -21,7 +21,8 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         self.addButton.clipsToBounds = true
         self.addButton.layer.cornerRadius = 20
         loadUserGoals()
@@ -61,7 +62,6 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "userGoals", for: indexPath) as! GoalCellsTableViewCell
-        
         cell.goalTitleLabel.text = GoalService.sharedInstance.user_goals[indexPath.row].title
         
         let deleteButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "delete")!)) {
