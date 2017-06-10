@@ -21,6 +21,7 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         self.addButton.clipsToBounds = true
         self.addButton.layer.cornerRadius = 20
         
