@@ -204,6 +204,10 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
             if let nextScreen = segue.destination as? SubjectCreated {
                 nextScreen.segueData = segueData
             }
+        } else if segue.identifier == "CreateTeacher"{
+            if let backScreen = segue.destination as? CreateTeacherViewController {
+                backScreen.segueData = self.segueData
+            }
         }
     }
     func createSubject() {

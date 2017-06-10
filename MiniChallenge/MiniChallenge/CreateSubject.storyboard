@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F9j-RJ-gHw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F9j-RJ-gHw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -117,6 +117,7 @@
                         <outlet property="validation" destination="2xr-yu-wKa" id="1aO-S9-pzB"/>
                         <segue destination="8qK-e8-Pfg" kind="presentation" identifier="CreateTeacher" id="nZF-s9-ilX"/>
                         <segue destination="kJv-2w-7Ng" kind="show" identifier="HomeSubject" id="92K-Wr-nkG"/>
+                        <segue destination="dPd-CG-8uo" kind="show" identifier="BackToSubjectChoice" id="Ftx-Zt-7mE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tiv-2m-8KT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -137,7 +138,15 @@
                 <viewControllerPlaceholder storyboardName="CreateTeacher" id="8qK-e8-Pfg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="khk-3j-ePQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1236" y="122"/>
+            <point key="canvasLocation" x="1255" y="123"/>
+        </scene>
+        <!--ChooseSubjectController-->
+        <scene sceneID="iM3-1R-TwD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Reminders" referencedIdentifier="ChooseSubjectController" id="dPd-CG-8uo" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eqt-oj-U4Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1307" y="184"/>
         </scene>
     </scenes>
     <resources>

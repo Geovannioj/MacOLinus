@@ -33,6 +33,7 @@ class CreateTeacherViewController: UIViewController {
     
     @IBAction func backToCreateSubject(_ sender: Any) {
         
+        
         performSegue(withIdentifier: "CreateSubject", sender: Any?.self)
     }
     
@@ -96,6 +97,10 @@ class CreateTeacherViewController: UIViewController {
         if segue.identifier == "SelectSubjectColor" {
             if let nextScreen = segue.destination as? SelectSubjectColorViewController {
                 nextScreen.segueData = segueData
+            }
+        } else if segue.identifier == "CreateSubject" {
+            if let backScreen = segue.destination as? CreateSubject {
+                backScreen.segueData = self.segueData
             }
         }
     }
