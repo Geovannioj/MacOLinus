@@ -16,6 +16,7 @@ class showNotesViewController: UIViewController, UITabBarDelegate, UITableViewDa
         super.viewDidLoad()
         
         loadNotes()
+        self.hideKeyboardWhenTappedAround() 
 
         // Do any additional setup after loading the view.
     }

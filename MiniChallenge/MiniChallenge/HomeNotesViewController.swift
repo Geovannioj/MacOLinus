@@ -24,12 +24,6 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
         setupLayout()
         loadSubjects()
         
-            for aux in SingletonSubject.sharedInstance.subject.notes {
-            
-            print(aux.title)
-            print(aux.noteDescription)
-            
-        }
         
         // Do any additional setup after loading the view.
     }
