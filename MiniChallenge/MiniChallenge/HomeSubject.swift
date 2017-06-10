@@ -12,6 +12,8 @@ import MGSwipeTableCell
 class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var filteredActivityArray = [Reminder]()
+    var subjectReceived: Subject?
+    
     @IBOutlet weak var tableView: UITableView!
   
     @IBOutlet weak var addButton: UIButton!
@@ -133,13 +135,42 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let subjectSelected = SingletonSubject.sharedInstance.subjects[indexPath.row]
-       
+        
         SingletonSubject.sharedInstance.subject = subjectSelected
         SingletonSubject.sharedInstance.index  = indexPath.row
         
+        filterSubjectsActivity(subjectName: subjectSelected.title)
+        self.subjectReceived = subjectSelected
+        
         performSegue(withIdentifier: "HomeNotes", sender: Any?.self)
         
+        tableView.deselectRow(at: indexPath, animated: true)
     }
+
+    func filterSubjectsActivity(subjectName: String){
+            
+        for activity in SingletonActivity.sharedInstance.tasks{
+            
+            if activity.subject?.title == subjectName{
+                
+                filteredActivityArray.append(activity)
+                
+            }
+            
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "HomeNotes"{
+            if let nextScreen = segue.destination as? HomeNotesViewController {
+                
+                nextScreen.filteredActivities = self.filteredActivityArray
+                nextScreen.subjectReceived = self.subjectReceived
+            }
+        }
+    }
+
     
     // MARK: - Persist Data
     

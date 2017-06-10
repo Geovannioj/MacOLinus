@@ -192,6 +192,7 @@
                         <outlet property="alertNotificationConstraint" destination="Re6-OV-QBI" id="JFg-D0-cVE"/>
                         <outlet property="alertNotificationLabel" destination="7c0-be-p1v" id="KT4-Kp-r60"/>
                         <outlet property="alertNotificationView" destination="YWR-DI-pPx" id="nfm-XK-dhn"/>
+                        <outlet property="tableView" destination="9Mb-kp-vUf" id="NhU-om-3hc"/>
                         <segue destination="bfw-G1-Xg1" kind="presentation" identifier="EditActivity" id="0iO-ZO-zIU"/>
                         <segue destination="Wz2-Of-soq" kind="presentation" identifier="GoToPostponeByDone" id="a5U-YD-2L8"/>
                     </connections>
