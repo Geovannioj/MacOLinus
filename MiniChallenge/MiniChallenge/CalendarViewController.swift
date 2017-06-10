@@ -288,7 +288,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     
     // There is just one row in every section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return activities.count
+        let numberOfRows = activities.count
+        return numberOfRows
     }
     
     // Set the spacing between sections
@@ -375,9 +376,11 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
                 let activityID = DoneAndPostponedActivitiesViewController.getActivityID(activity: self.activities[indexPath.row])
                 
                 SingletonActivity.sharedInstance.tasks.remove(at: activityID)
-                self.controlerPList.saveReminders()
                 self.activities.remove(at: indexPath.row)
+                self.controlerPList.saveReminders()
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
+                self.tableView.reloadData()//era isso aqui que estava faltando
+                self.calendarView.reloadData()
             })
             
             let cancelButton = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default, handler: { (action) -> Void in
