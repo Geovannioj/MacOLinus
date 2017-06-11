@@ -71,12 +71,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
         
         loadReminders()
         
-        //ficar de olho nesta, pois activities é onde o Singleton é repassado para esta classe!
-        //Pode gerar um bug!
-        //also get by the month of the year
-        activities = getToDoAndPostponedActivities(activities: SingletonActivity.sharedInstance.tasks)
-        activities = sortActivities()
-        
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
         tableView.delegate = self
@@ -110,6 +104,14 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //ficar de olho nesta, pois activities é onde o Singleton é repassado para esta classe!
+        //Pode gerar um bug!
+        //also get by the month of the year
+        activities = getToDoAndPostponedActivities(activities: SingletonActivity.sharedInstance.tasks)
+        activities = sortActivities()
+        
+        self.calendarView.reloadData()
+        self.tableView.reloadData()
         self.tableView.beginUpdates()
         self.tableView.endUpdates()
         
