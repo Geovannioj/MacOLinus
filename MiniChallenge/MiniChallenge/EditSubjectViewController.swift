@@ -14,7 +14,7 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var editTableView: UITableView!
     let formFields = ["Matéria", "Professor","Cor"]
     var fields = ["", "", ""]
-
+    var currentSubject : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,7 +111,6 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
     
         fields[0] = SingletonSubject.sharedInstance.subject.title
         fields[1] = SingletonSubject.sharedInstance.subject.teacher.name
-        
     }
 
     
@@ -126,9 +125,34 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
         editedSubject.title = SingletonSubject.sharedInstance.subject.title
         editedSubject.teacher.name = SingletonSubject.sharedInstance.subject.teacher.name
         *///Nao sei o pq do motivo desse código, apenas adicionei a linha abaixo e o editar funcionou
+        
+        updateActivities(currentSubject: currentSubject!, newSubject: SingletonSubject.sharedInstance.subject)
+        
         saveSubjects()
         
         performSegue(withIdentifier: "BackToHome", sender: Any?.self)
+        
+    }
+    
+    func updateActivities(currentSubject : String, newSubject : Subject) {
+        
+        let controllerPlist = ControllerPList()
+        
+        let arrayLength = SingletonActivity.sharedInstance.tasks.count
+        let copySingleton = SingletonActivity.sharedInstance.tasks
+        
+        for i in (0..<(arrayLength)) {
+            print(i)
+            
+            if copySingleton[i].subject?.title == currentSubject {
+                
+                SingletonActivity.sharedInstance.tasks[i].subject = newSubject
+                
+            }
+        }
+        
+        controllerPlist.saveReminders()
+        
         
     }
     
@@ -138,9 +162,24 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
         }else if segue.identifier == "EditColor"{
             if let editColor = segue.destination as? SelectSubjectColorViewController{
                 editColor.segueReceived = segue.identifier!
+                editColor.currentSubject = self.currentSubject
+            }
+        }else if segue.identifier == "EditSubjectTitle" {
+            
+            if let editTitle = segue.destination as? EditSubjectTitleViewController {
+                editTitle.currentSubject = self.currentSubject
+            }
+            
+        }else if segue.identifier == "EditTeacher" {
+            
+            if let editTeacher = segue.destination as? EditSubjectTeacherViewController {
+                editTeacher.currentSubject = self.currentSubject
+                
             }
         }
     }
+    
+
 
     @IBAction func cancelButtonPressed(_ sender: Any) {
         

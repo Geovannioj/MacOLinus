@@ -14,6 +14,8 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
     var segueReceived = ""
     var colors = [UIColor]()
     var aColorWasSelected = false
+    var currentSubject : String?
+    
     @IBOutlet weak var validation: UILabel!
     
     let customRed = UIColor(colorLiteralRed: 1.0000, green: 0.3412, blue: 0.4392, alpha: 1.0)
@@ -207,6 +209,10 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
         } else if segue.identifier == "CreateTeacher"{
             if let backScreen = segue.destination as? CreateTeacherViewController {
                 backScreen.segueData = self.segueData
+            }
+        }else if segue.identifier == "goToEditSubject"{
+            if let backScreen = segue.destination as? EditSubjectViewController {
+                backScreen.currentSubject = self.currentSubject
             }
         }
     }

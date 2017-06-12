@@ -12,7 +12,7 @@ import MGSwipeTableCell
 class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var filteredActivityArray = [Reminder]()
-    var subjectReceived: Subject?
+    var subjectReceived =  Subject()
     
     @IBOutlet weak var tableView: UITableView!
   
@@ -117,6 +117,7 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
             
             SingletonSubject.sharedInstance.subject = SingletonSubject.sharedInstance.subjects[indexPath.row]
             SingletonSubject.sharedInstance.index  = indexPath.row
+            self.subjectReceived = SingletonSubject.sharedInstance.subjects[indexPath.row]
             
             self.performSegue(withIdentifier: "EditSubject", sender: Any?.self)
 
@@ -211,6 +212,10 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 
                 nextScreen.filteredActivities = self.filteredActivityArray
                 nextScreen.subjectReceived = self.subjectReceived
+            }
+        }else if segue.identifier == "EditSubject" {
+            if let nextScreen = segue.destination as? EditSubjectViewController {
+                nextScreen.currentSubject = self.subjectReceived.title
             }
         }
     }
