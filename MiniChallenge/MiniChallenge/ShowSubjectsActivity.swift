@@ -99,6 +99,9 @@ class ShowSubjectsActivity: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("---------------")
+        print(segue.identifier)
+        print("---------------")
         if segue.identifier == "SubjectFaults"{
             if let nextScreen = segue.destination as? SubjectFaultsViewController {
                 nextScreen.filteredActivities = self.receivedArray
@@ -114,6 +117,8 @@ class ShowSubjectsActivity: UIViewController, UITableViewDataSource, UITableView
             if let nextScreen = segue.destination as? HomeSubject {
                 nextScreen.filteredActivityArray = self.receivedArray
             }
+        }else if segue.identifier == "BackToCalendar"{
+            CalendarViewController.pushedFromHomeSubject = true
         }
         
     }
