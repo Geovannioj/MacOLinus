@@ -25,6 +25,7 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     var segueRecived: String = ""
     var indexActivity: Int = 0//-1
     var homeSubject = HomeSubject()
+    var indexSubject : Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
         
         homeSubject.loadSubjects()
         
-        subjects = SingletonSubject.sharedInstance.subjects
+        //subjects = SingletonSubject.sharedInstance.subjects
         
         subjectsTableView.delegate = self
         subjectsTableView.dataSource = self
@@ -66,15 +67,15 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
         
         if segueRecived == "ChooseSubjectController"{
             
-            EditActivityController.activityPassed.subject = subject!
+            EditActivityController.activityPassed.subject = SingletonSubject.sharedInstance.subjects[indexSubject!]
             performSegue(withIdentifier: "GoToEditScreen2", sender: Any?.self)
             
         }else{
             
-            if(subject != nil){
-                SingletonActivity.sharedInstance.task.subject = subject!
+            if(indexSubject != nil){
+                SingletonActivity.sharedInstance.task.subject = SingletonSubject.sharedInstance.subjects[indexSubject!]
             }else{
-                SingletonActivity.sharedInstance.task.subject = Subject()
+                //SingletonActivity.sharedInstance.task.subject = Subject()
             }
             performSegue(withIdentifier: "GoToDateScreenWithSubject", sender: Any?.self)
         }
@@ -99,17 +100,17 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subjects.count
+        return SingletonSubject.sharedInstance.subjects.count//subjects.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Subjects", for: indexPath)
-        let subject = subjects[indexPath.row]
+        let subject = SingletonSubject.sharedInstance.subjects[indexPath.row]
         let label = cell.viewWithTag(10) as! UILabel
         let imageLabel = cell.viewWithTag(3) as! UILabel
         
-        imageLabel.backgroundColor = subjects[indexPath.row].color
+        imageLabel.backgroundColor = SingletonSubject.sharedInstance.subjects[indexPath.row].color
         label.text = subject.title
         
         return cell
@@ -117,7 +118,7 @@ class ChooseSubjectController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        subject = subjects[indexPath.row]
+        self.indexSubject = indexPath.row
         //SingletonActivity.sharedInstance.task.subject = subjects[indexPath.row]
         nextScreenBtn.isEnabled = true
     

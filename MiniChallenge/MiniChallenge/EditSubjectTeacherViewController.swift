@@ -13,6 +13,9 @@ class EditSubjectTeacherViewController: UIViewController {
     @IBOutlet weak var newTeacherName: UITextField!
 
     @IBOutlet weak var validationLbl: UILabel!
+    
+    var currentSubject : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         validationLbl.isHidden = true
@@ -72,6 +75,13 @@ class EditSubjectTeacherViewController: UIViewController {
             validationLbl.isHidden = false
         }
     
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "BackToEditSubject" {
+            if let backScreen = segue.destination as? EditSubjectViewController {
+                backScreen.currentSubject = self.currentSubject
+            }
+        }
     }
     
     func setNewContent() {

@@ -14,6 +14,8 @@ class EditSubjectTitleViewController: UIViewController {
     
     @IBOutlet weak var validationLbl: UILabel!
     
+    var currentSubject : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         validationLbl.isHidden = true
@@ -82,6 +84,14 @@ class EditSubjectTitleViewController: UIViewController {
             performSegue(withIdentifier: "BackToEditSubject", sender: Any?.self)
         }else{
             validationLbl.isHidden = false
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "BackToEditSubject"{
+            if let backScreen = segue.destination as? EditSubjectViewController {
+                backScreen.currentSubject = self.currentSubject
+            }
         }
     }
     
