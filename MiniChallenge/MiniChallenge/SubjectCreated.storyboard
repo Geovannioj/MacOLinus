@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f1w-OC-WNv">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -27,7 +27,7 @@
                         <viewControllerLayoutGuide type="bottom" id="1s8-Zi-1jb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xKj-h1-XJw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A matéria " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RxD-xw-QzV">
@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="foi adicionada com sucesso !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agO-qC-UM4">
-                                <rect key="frame" x="36" y="131" width="339" height="29"/>
+                                <rect key="frame" x="36" y="131" width="284" height="29"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                                 <color key="highlightedColor" red="1" green="0.47842687369999998" blue="0.4926418662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nw1-eU-gYQ">
-                                <rect key="frame" x="302" y="190" width="44" height="44"/>
+                                <rect key="frame" x="247" y="190" width="44" height="44"/>
                                 <state key="normal" image="redButton"/>
                                 <connections>
                                     <action selector="nextScreenBtn:" destination="f1w-OC-WNv" eventType="touchUpInside" id="Ypy-5c-Ean"/>
@@ -62,13 +62,13 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="n48-JB-XhC">
-                                <rect key="frame" x="153.5" y="32" width="68" height="21"/>
+                                <rect key="frame" x="126" y="32" width="68" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="WdE-gv-QtW"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLG-sQ-X7O">
-                                <rect key="frame" x="156" y="89" width="134" height="29"/>
+                                <rect key="frame" x="156" y="89" width="79" height="29"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="24"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -85,7 +85,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="agO-qC-UM4" secondAttribute="trailing" constant="-16" id="eMI-Dx-ibK"/>
                             <constraint firstItem="7Xh-CL-83k" firstAttribute="leading" secondItem="xKj-h1-XJw" secondAttribute="leadingMargin" constant="7" id="gGg-oL-VP8"/>
                             <constraint firstItem="MLG-sQ-X7O" firstAttribute="top" secondItem="n48-JB-XhC" secondAttribute="bottom" constant="36" id="q9q-iE-Oc2"/>
-                            <constraint firstItem="nw1-eU-gYQ" firstAttribute="leading" secondItem="xKj-h1-XJw" secondAttribute="leadingMargin" constant="286" id="r99-u1-jIv"/>
                             <constraint firstItem="RxD-xw-QzV" firstAttribute="leading" secondItem="xKj-h1-XJw" secondAttribute="leadingMargin" constant="20" id="rFg-62-c0f"/>
                             <constraint firstItem="n48-JB-XhC" firstAttribute="centerX" secondItem="xKj-h1-XJw" secondAttribute="centerX" id="rZk-hY-Ifi"/>
                             <constraint firstItem="agO-qC-UM4" firstAttribute="top" secondItem="RxD-xw-QzV" secondAttribute="bottom" constant="13" id="uvU-ek-zk1"/>
