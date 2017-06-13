@@ -14,13 +14,14 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
     var filteredActivityArray = [Reminder]()
     var subjectReceived =  Subject()
     
+
     @IBOutlet weak var tableView: UITableView!
   
+
     @IBOutlet weak var addButton: UIButton!
     let greenColor = UIColor(red: 0.2824, green: 0.9098, blue: 0.7765, alpha: 1)
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         self.addButton.clipsToBounds = true
         self.addButton.layer.cornerRadius = 20
@@ -37,6 +38,10 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
             
         }
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,7 +80,6 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         cell.teacherNameLabel.text = SingletonSubject.sharedInstance.subjects[indexPath.row].teacher.name
     
         cell.subjectColorLabel.backgroundColor = SingletonSubject.sharedInstance.subjects[indexPath.row].color
-        cell.subjectColorLabel.layer.cornerRadius = 20
         
         
         let deleteButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "delete")!)) {

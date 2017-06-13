@@ -18,6 +18,7 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var goals = [Goal]()
     
     @IBOutlet weak var addButton: UIButton!
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
