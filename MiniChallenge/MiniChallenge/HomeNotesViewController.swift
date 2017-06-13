@@ -16,16 +16,28 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var subjectTitleLabel: UILabel!
     @IBOutlet weak var subjectColorLabel: UILabel!
+    
+    var notes = [Note]()
 
     var filteredActivities = [Reminder]()
     var subjectReceived: Subject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         setupLayout()
         loadSubjects()
         
+        let index = SingletonSubject.sharedInstance.index
+        notes = SingletonSubject.sharedInstance.subjects[index].notes
+        
+        tableView.reloadData()
+        
+        for aux in notes {
+            
+            print(aux.title)
+        }
+
         
         // Do any additional setup after loading the view.
     }
@@ -72,7 +84,7 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return SingletonSubject.sharedInstance.subject.notes.count
+        return notes.count
         
     }
     
@@ -81,8 +93,7 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeNotesTableViewCell
         
-        let index = SingletonSubject.sharedInstance.index
-        cell.noteTitle.text = SingletonSubject.sharedInstance.subjects[index].notes[indexPath.row].title
+        cell.noteTitle.text = notes[indexPath.row].title
         
         return cell
     }

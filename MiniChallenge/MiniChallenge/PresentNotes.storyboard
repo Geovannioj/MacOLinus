@@ -40,6 +40,9 @@
                                         <state key="normal" title="Anotações">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="bakcButtonPressed:" destination="cP6-VM-0Ou" eventType="touchUpInside" id="TIQ-8e-qWF"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -96,11 +99,20 @@
                     <connections>
                         <outlet property="noteContent" destination="yJe-LF-FDZ" id="qQp-lZ-pNI"/>
                         <outlet property="noteTitle" destination="E6x-25-plb" id="6A7-o4-jVC"/>
+                        <segue destination="JG5-Kq-NMN" kind="show" identifier="HomeNotes" id="3KS-wG-dEl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3G5-Bs-KmF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-559" y="162"/>
+        </scene>
+        <!--HomeNotes-->
+        <scene sceneID="ICb-Na-KeM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeNotes" id="JG5-Kq-NMN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dQe-NL-Yq5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="158" y="161"/>
         </scene>
     </scenes>
     <resources>
