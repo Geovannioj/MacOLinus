@@ -18,6 +18,7 @@ class CreateNoteTitleViewController: UIViewController {
         validationLbl.isHidden = true
         configLayout()
         
+        
         // Do any additional setup after loading the view.
     }
 
@@ -56,7 +57,7 @@ class CreateNoteTitleViewController: UIViewController {
         
         assignBackground()
         assignBlackStatusBar()
-        
+        hideKeyboardWhenTappedAround()
     }
     
     func assignBackground() {

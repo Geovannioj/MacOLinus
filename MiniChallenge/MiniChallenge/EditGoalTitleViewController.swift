@@ -32,6 +32,7 @@ class EditGoalTitleViewController: UIViewController {
         
         assignBackground()
         assignBlackStatusBar()
+        hideKeyboardWhenTappedAround()
      
         
         newGoalTitle.text = GoalService.sharedInstance.user_goal.title

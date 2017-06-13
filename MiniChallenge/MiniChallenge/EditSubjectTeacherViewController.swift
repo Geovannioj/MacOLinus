@@ -41,6 +41,7 @@ class EditSubjectTeacherViewController: UIViewController {
         
         assignBackground()
         assignBlackStatusBar()
+        hideKeyboardWhenTappedAround()
         
        newTeacherName.text = SingletonSubject.sharedInstance.subject.teacher.name
         

@@ -37,6 +37,7 @@ class CreateGoal: UIViewController {
         
         assignBlackStatusBar()
         assignBackground()
+        hideKeyboardWhenTappedAround()
         
         
         if goalType != "" {

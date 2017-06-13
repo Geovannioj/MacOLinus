@@ -130,6 +130,7 @@ class CreateSubject: UIViewController {
         
         assignBackground()
         assignBlackStatusBar()
+        hideKeyboardWhenTappedAround()
         
     }
     

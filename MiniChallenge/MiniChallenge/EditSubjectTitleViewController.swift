@@ -52,6 +52,7 @@ class EditSubjectTitleViewController: UIViewController {
         
         assignBackground()
         assignBlackStatusBar()
+        hideKeyboardWhenTappedAround()
         
         newSubectTitleLabel.text = SingletonSubject.sharedInstance.subject.title
         

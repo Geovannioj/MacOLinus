@@ -43,6 +43,7 @@ class CreateTeacherViewController: UIViewController {
         
         assignBackground()
         assignBlackStatusBar()
+        hideKeyboardWhenTappedAround()
     }
     
     func assignBackground() {
