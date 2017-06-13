@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -27,32 +26,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Utr-R2-aYn">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Utr-R2-aYn">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="Srl-lf-xZy">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="Srl-lf-xZy">
                                         <rect key="frame" x="153" y="32" width="69" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loG-O0-O80">
-                                        <rect key="frame" x="24" y="25" width="78" height="34"/>
+                                        <rect key="frame" x="24" y="25" width="84" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
-                                        <state key="normal" title="Anotações">
+                                        <state key="normal" title="&lt; Anotações">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="bakcButtonPressed:" destination="cP6-VM-0Ou" eventType="touchUpInside" id="TIQ-8e-qWF"/>
+                                            <action selector="backButtonPressed:" destination="cP6-VM-0Ou" eventType="touchUpInside" id="WzV-no-R12"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="Srl-lf-xZy" firstAttribute="centerX" secondItem="Utr-R2-aYn" secondAttribute="centerX" id="aY5-I8-82T"/>
-                                    <constraint firstItem="Srl-lf-xZy" firstAttribute="top" secondItem="Utr-R2-aYn" secondAttribute="top" constant="32" id="gbN-p1-FDd"/>
-                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FoN-a0-A1z">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FoN-a0-A1z">
                                 <rect key="frame" x="15" y="108" width="345" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6v-gX-taK">
                                         <rect key="frame" x="9" y="12" width="328" height="61"/>
@@ -75,36 +73,33 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yJe-LF-FDZ">
-                                <rect key="frame" x="29" y="221" width="316" height="409"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Upy-pt-mOh">
+                                <rect key="frame" x="39" y="236" width="305" height="383"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="textColor" red="0.43121758103370667" green="0.43533876538276672" blue="0.43528473377227783" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yJe-LF-FDZ">
+                                        <rect key="frame" x="21" y="19" width="262" height="344"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.43121758103370667" green="0.43533876538276672" blue="0.43528473377227783" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Utr-R2-aYn" secondAttribute="trailing" constant="-16" id="4OW-r8-HQx"/>
-                            <constraint firstItem="emb-Jp-ulL" firstAttribute="top" secondItem="FoN-a0-A1z" secondAttribute="bottom" constant="475" id="FXM-hR-8HB"/>
-                            <constraint firstItem="Utr-R2-aYn" firstAttribute="centerX" secondItem="FoN-a0-A1z" secondAttribute="centerX" id="QBV-tc-iLe"/>
-                            <constraint firstItem="Utr-R2-aYn" firstAttribute="top" secondItem="gei-52-whQ" secondAttribute="bottom" constant="-20" id="RuV-qs-kek"/>
-                            <constraint firstItem="FoN-a0-A1z" firstAttribute="leading" secondItem="ryQ-bF-WYm" secondAttribute="leadingMargin" constant="-1" id="WUg-tH-Avz"/>
-                            <constraint firstItem="Utr-R2-aYn" firstAttribute="leading" secondItem="ryQ-bF-WYm" secondAttribute="leadingMargin" constant="-16" id="YUd-Kz-XbU"/>
-                            <constraint firstItem="FoN-a0-A1z" firstAttribute="top" secondItem="Utr-R2-aYn" secondAttribute="bottom" constant="8" symbolic="YES" id="dyY-9h-wVg"/>
-                            <constraint firstAttribute="bottom" secondItem="Utr-R2-aYn" secondAttribute="bottom" constant="567" id="jVg-mx-2UR"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="noteContent" destination="yJe-LF-FDZ" id="qQp-lZ-pNI"/>
                         <outlet property="noteTitle" destination="E6x-25-plb" id="6A7-o4-jVC"/>
-                        <segue destination="JG5-Kq-NMN" kind="show" identifier="HomeNotes" id="3KS-wG-dEl"/>
+                        <segue destination="JG5-Kq-NMN" kind="show" identifier="HomeNotes" id="uae-LG-cZ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3G5-Bs-KmF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-559" y="162"/>
+            <point key="canvasLocation" x="-559.20000000000005" y="161.46926536731635"/>
         </scene>
         <!--HomeNotes-->
         <scene sceneID="ICb-Na-KeM">
@@ -112,7 +107,7 @@
                 <viewControllerPlaceholder storyboardName="HomeNotes" id="JG5-Kq-NMN" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dQe-NL-Yq5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="158" y="161"/>
+            <point key="canvasLocation" x="137" y="161"/>
         </scene>
     </scenes>
     <resources>

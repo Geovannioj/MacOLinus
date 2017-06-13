@@ -13,37 +13,38 @@ class PresentNotesViewController: UIViewController {
     
     @IBOutlet weak var noteTitle: UILabel!
     @IBOutlet weak var noteContent: UITextView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup()
-
+        setContent()
+        
+        for aux in SingletonSubject.sharedInstance.subjects[SingletonSubject.sharedInstance.index].notes {
+            
+            print(aux.noteDescription)
+        }
+        
         // Do any additional setup after loading the view.
     }
+    @IBAction func backButtonPressed(_ sender: Any) {
+        
+        let subjectIndex = SingletonSubject.sharedInstance.index
+        let noteIndex = NoteService.sharedInstance.index
 
+        SingletonSubject.sharedInstance.subjects[subjectIndex].notes[noteIndex].noteDescription = noteContent.text!
+
+        saveSubjects()
+
+
+        performSegue(withIdentifier: "HomeNotes", sender: Any?.self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func setup() {
-        
-        setContent()
-    }
-    
-    @IBAction func bakcButtonPressed(_ sender: Any) {
-        
-        let subjectIndex = SingletonSubject.sharedInstance.index
-        let noteIndex = NoteService.sharedInstance.index
-        
-        SingletonSubject.sharedInstance.subjects[subjectIndex].notes[noteIndex].noteDescription = noteContent.text!
-        
-        saveSubjects()
-        
-        performSegue(withIdentifier: "HomeNotes", sender: Any?.self)
-    }
-    
+ 
     
     func setContent() {
         
@@ -52,12 +53,13 @@ class PresentNotesViewController: UIViewController {
         
         
         let noteName = SingletonSubject.sharedInstance.subjects[subjectIndex].notes[noteIndex].title
-    
+        let noteText = SingletonSubject.sharedInstance.subjects[subjectIndex].notes[noteIndex].noteDescription
+        
         noteTitle.text = noteName
-        noteContent.text = NoteService.sharedInstance.note.noteDescription
+        noteContent.text = noteText
     }
-
-
+    
+    
     func saveSubjects() {
         
         let data = NSMutableData()
