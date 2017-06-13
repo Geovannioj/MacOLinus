@@ -43,5 +43,8 @@ class PresentNotesViewController: UIViewController {
         noteTitle.text = noteName
         noteContent.text = NoteService.sharedInstance.note.noteDescription
     }
+    @IBAction func backBtn(_ sender: Any) {
+        performSegue(withIdentifier: "backToNotes", sender: Any?.self)
+    }
 
 }
