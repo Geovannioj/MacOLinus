@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 
 class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -16,16 +17,28 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBOutlet weak var subjectTitleLabel: UILabel!
     @IBOutlet weak var subjectColorLabel: UILabel!
+    
+    var notes = [Note]()
 
     var filteredActivities = [Reminder]()
     var subjectReceived: Subject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         setupLayout()
         loadSubjects()
         
+        let index = SingletonSubject.sharedInstance.index
+        notes = SingletonSubject.sharedInstance.subjects[index].notes
+        
+        tableView.reloadData()
+        
+        for aux in notes {
+            
+            print(aux.title)
+        }
+
         
         // Do any additional setup after loading the view.
     }
@@ -38,7 +51,7 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
         
-        tableView.reloadData()
+        self.tableView.reloadData()
     }
     
     // MARK: - Actions
@@ -71,18 +84,45 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return SingletonSubject.sharedInstance.subject.notes.count
-        
+        return notes.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeNotesTableViewCell
-        
         let index = SingletonSubject.sharedInstance.index
-        cell.noteTitle.text = SingletonSubject.sharedInstance.subjects[index].notes[indexPath.row].title
+        
+        let deleteButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "delete")!)) {
+            (sender: MGSwipeTableCell!) -> Bool in
+            
+            let deletingAlert = UIAlertController(title: "Excluindo a nota", message: "Você deseja excluir a nota: \(SingletonSubject.sharedInstance.subjects[index].notes[indexPath.row].title) ?", preferredStyle: .alert)
+            
+            let deleteButton = UIAlertAction(title: "Deletar", style: UIAlertActionStyle.cancel, handler: { action in
+                
+                SingletonSubject.sharedInstance.subjects[index].notes.remove(at: indexPath.row)
+                SingletonSubject.sharedInstance.subject.notes.remove(at: indexPath.row)
+                self.notes.remove(at: indexPath.row)
+                self.saveSubjects()
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+                self.tableView.reloadData()
+            })
+            
+            let cancelButton = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+                //Do nothing
+            })
+            
+            deletingAlert.addAction(deleteButton)
+            deletingAlert.addAction(cancelButton)
+            
+            self.present(deletingAlert, animated: true, completion: nil)
+            
+            return true
+        }
+        
+        cell.rightButtons = [deleteButton]
+        cell.rightSwipeSettings.transition = .border
+        cell.noteTitle.text = notes[indexPath.row].title
         
         return cell
     }

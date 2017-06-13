@@ -41,6 +41,7 @@ class CreateNoteContentViewController: UIViewController {
         // Set in Subject
         
         SingletonSubject.sharedInstance.subjects[index].notes = notes
+        SingletonSubject.sharedInstance.subject.notes = notes
   
         saveSubjects()
 
@@ -54,6 +55,15 @@ class CreateNoteContentViewController: UIViewController {
     @IBAction func newNoteRequested(_ sender: Any) {
         
         addContentToNote()
+        loadSubjects()
+        
+        for aux in SingletonSubject.sharedInstance.subjects[SingletonSubject.sharedInstance.index].notes {
+            print(aux.title)
+            print(SingletonSubject.sharedInstance.index)
+        }
+        
+        saveSubjects()
+        
         performSegue(withIdentifier: "NoteCreated", sender: Any?.self)
     }
     
