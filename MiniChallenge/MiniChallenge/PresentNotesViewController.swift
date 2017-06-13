@@ -32,6 +32,19 @@ class PresentNotesViewController: UIViewController {
         setContent()
     }
     
+    @IBAction func bakcButtonPressed(_ sender: Any) {
+        
+        let subjectIndex = SingletonSubject.sharedInstance.index
+        let noteIndex = NoteService.sharedInstance.index
+        
+        SingletonSubject.sharedInstance.subjects[subjectIndex].notes[noteIndex].noteDescription = noteContent.text!
+        
+        saveSubjects()
+        
+        performSegue(withIdentifier: "HomeNotes", sender: Any?.self)
+    }
+    
+    
     func setContent() {
         
         let subjectIndex = SingletonSubject.sharedInstance.index
@@ -44,4 +57,42 @@ class PresentNotesViewController: UIViewController {
         noteContent.text = NoteService.sharedInstance.note.noteDescription
     }
 
+
+    func saveSubjects() {
+        
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        
+        archiver.encode(SingletonSubject.sharedInstance.subjects, forKey: "Subjects")
+        archiver.finishEncoding()
+        
+        data.write(to: dataFilePath(), atomically: true)
+        
+    }
+    
+    func loadSubjects() {
+        
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path){
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            SingletonSubject.sharedInstance.subjects = unarchiver.decodeObject(forKey: "Subjects") as! [Subject]
+            unarchiver.finishDecoding()
+        }
+    }
+    
+    func documentsDirectory() -> URL {
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
+        return paths[0]
+    }
+    
+    func dataFilePath() -> URL {
+        
+        return documentsDirectory().appendingPathComponent("Subjects.plist")
+        
+    }
+    
+    
 }
