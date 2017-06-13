@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lSa-Ta-tik">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lSa-Ta-tik">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -83,7 +83,6 @@
                             <constraint firstItem="gGb-pd-RBM" firstAttribute="leading" secondItem="eaZ-IB-zal" secondAttribute="trailing" constant="8" id="Cki-iu-HvA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bqQ-HX-SZb" secondAttribute="trailing" constant="13" id="FA2-Hq-5A2"/>
                             <constraint firstItem="eaZ-IB-zal" firstAttribute="top" secondItem="y9G-sj-LO5" secondAttribute="bottom" constant="69" id="G2f-Jn-Bel"/>
-                            <constraint firstItem="bqQ-HX-SZb" firstAttribute="leading" secondItem="brG-7G-Iqn" secondAttribute="leadingMargin" constant="286" id="IQz-zY-kNF"/>
                             <constraint firstItem="hao-Ia-tmb" firstAttribute="top" secondItem="y9G-sj-LO5" secondAttribute="bottom" constant="78" id="M87-Vq-eIS"/>
                             <constraint firstItem="AdB-Iy-Yft" firstAttribute="centerX" secondItem="brG-7G-Iqn" secondAttribute="centerX" id="P9M-hR-uKc"/>
                             <constraint firstItem="gGb-pd-RBM" firstAttribute="top" secondItem="AdB-Iy-Yft" secondAttribute="bottom" constant="36" id="WV1-FU-l8J"/>

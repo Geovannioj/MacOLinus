@@ -30,8 +30,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual o título da anotação ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbK-zL-TJK">
-                                <rect key="frame" x="40" y="89" width="332" height="29"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual o título da anotação ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbK-zL-TJK">
+                                <rect key="frame" x="40" y="90" width="332" height="28"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -59,7 +59,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQ8-mH-jQT">
-                                <rect key="frame" x="306" y="189" width="75" height="44"/>
+                                <rect key="frame" x="310" y="189" width="44" height="44"/>
                                 <state key="normal" image="redButton"/>
                                 <connections>
                                     <action selector="nextScreenPressed:" destination="omk-1t-kg2" eventType="touchUpInside" id="6Hc-YE-TbK"/>
@@ -81,7 +81,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O título deve ser preenchido!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neD-UZ-aSd">
-                                <rect key="frame" x="60" y="201" width="221" height="20.666666666666657"/>
+                                <rect key="frame" x="153" y="263" width="221" height="20.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -91,17 +91,16 @@
                         <constraints>
                             <constraint firstItem="qT7-Kj-hJh" firstAttribute="centerX" secondItem="dYK-jr-27X" secondAttribute="centerX" id="0bw-WA-DMt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8PH-oi-kwH" secondAttribute="trailing" constant="-16" id="19Q-S6-3I3"/>
-                            <constraint firstItem="YQ8-mH-jQT" firstAttribute="centerY" secondItem="neD-UZ-aSd" secondAttribute="centerY" id="6De-Ve-A1l"/>
                             <constraint firstItem="8PH-oi-kwH" firstAttribute="top" secondItem="JbK-zL-TJK" secondAttribute="bottom" constant="17.666666666666671" id="BgV-sI-dpg"/>
                             <constraint firstItem="8PH-oi-kwH" firstAttribute="leading" secondItem="dYK-jr-27X" secondAttribute="leadingMargin" constant="-16" id="DQe-CY-MP9"/>
                             <constraint firstItem="DUW-QH-g47" firstAttribute="leading" secondItem="dYK-jr-27X" secondAttribute="leadingMargin" constant="7" id="IVr-Un-ad6"/>
                             <constraint firstItem="8PH-oi-kwH" firstAttribute="top" secondItem="DUW-QH-g47" secondAttribute="bottom" constant="29" id="KG7-nK-e0H"/>
                             <constraint firstItem="JbK-zL-TJK" firstAttribute="leading" secondItem="dYK-jr-27X" secondAttribute="leadingMargin" constant="20" id="L4Y-tS-SFV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="YQ8-mH-jQT" secondAttribute="trailing" constant="13" id="OiI-59-P3D"/>
-                            <constraint firstItem="YQ8-mH-jQT" firstAttribute="leading" secondItem="dYK-jr-27X" secondAttribute="leadingMargin" constant="286" id="WSj-dP-aE9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YQ8-mH-jQT" secondAttribute="trailing" constant="40" id="S6s-VN-OH8"/>
                             <constraint firstItem="YQ8-mH-jQT" firstAttribute="top" secondItem="8PH-oi-kwH" secondAttribute="bottom" constant="10" id="Xk4-do-2fw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="neD-UZ-aSd" secondAttribute="trailing" constant="20" id="fSM-gI-xZf"/>
+                            <constraint firstItem="neD-UZ-aSd" firstAttribute="top" secondItem="YQ8-mH-jQT" secondAttribute="bottom" constant="30" id="iDO-To-kis"/>
                             <constraint firstItem="IMV-yM-naN" firstAttribute="top" secondItem="T4U-KD-OLo" secondAttribute="bottom" constant="8" id="iGU-4b-1Mi"/>
-                            <constraint firstItem="YQ8-mH-jQT" firstAttribute="leading" secondItem="neD-UZ-aSd" secondAttribute="trailing" constant="25" id="k2a-zQ-QYC"/>
                             <constraint firstItem="IMV-yM-naN" firstAttribute="leading" secondItem="dYK-jr-27X" secondAttribute="leadingMargin" constant="7" id="krC-vG-gFD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JbK-zL-TJK" secondAttribute="trailing" constant="22" id="mvz-58-pBQ"/>
                             <constraint firstItem="qT7-Kj-hJh" firstAttribute="top" secondItem="dYK-jr-27X" secondAttribute="topMargin" constant="32" id="nd0-Ap-Y34"/>
