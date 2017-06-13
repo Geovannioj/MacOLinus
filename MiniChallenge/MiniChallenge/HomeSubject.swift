@@ -76,6 +76,9 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SubjectTableViewCell
         
+        cell.layer.borderWidth = 1.0
+        cell.layer.borderColor =  UIColor(red: 0.2353, green:0.9020, blue:0.7686, alpha: 1.0).cgColor
+       
         cell.subjectTitleLabel.text = SingletonSubject.sharedInstance.subjects[indexPath.row].title
         cell.teacherNameLabel.text = SingletonSubject.sharedInstance.subjects[indexPath.row].teacher.name
     

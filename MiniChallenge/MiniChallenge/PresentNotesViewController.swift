@@ -18,6 +18,7 @@ class PresentNotesViewController: UIViewController {
         super.viewDidLoad()
         
         setContent()
+        hideKeyboardWhenTappedAround()
         
         for aux in SingletonSubject.sharedInstance.subjects[SingletonSubject.sharedInstance.index].notes {
             
@@ -58,6 +59,12 @@ class PresentNotesViewController: UIViewController {
         noteTitle.text = noteName
         noteContent.text = noteText
     }
+
+    @IBAction func backBtn(_ sender: Any) {
+        performSegue(withIdentifier: "backToNotes", sender: Any?.self)
+    }
+
+
     
     
     func saveSubjects() {
@@ -96,5 +103,5 @@ class PresentNotesViewController: UIViewController {
         
     }
     
-    
+
 }

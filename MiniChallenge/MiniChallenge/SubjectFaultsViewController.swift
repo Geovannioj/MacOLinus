@@ -27,6 +27,9 @@ class SubjectFaultsViewController: UIViewController {
         loadSubjects()
         setup()
 
+        self.subjectColor.clipsToBounds = true
+        self.subjectColor.layer.cornerRadius = 8
+        
         // Do any additional setup after loading the view.
     }
 
