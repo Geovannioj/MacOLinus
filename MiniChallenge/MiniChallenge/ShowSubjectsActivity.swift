@@ -54,6 +54,10 @@ class ShowSubjectsActivity: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "activities", for: indexPath)
+       
+        cell.layer.borderWidth = 1.0
+        cell.layer.borderColor =  UIColor(red: 0.2353, green:0.9020, blue:0.7686, alpha: 1.0).cgColor
+
         let activity = subjectsActivity[indexPath.row]
         
         let activityNameLabel = cell.viewWithTag(30) as! UILabel

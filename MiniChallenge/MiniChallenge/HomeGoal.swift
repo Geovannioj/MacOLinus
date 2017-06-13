@@ -63,6 +63,11 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "userGoals", for: indexPath) as! GoalCellsTableViewCell
+        
+        cell.layer.borderWidth = 1.0
+        cell.layer.borderColor =  UIColor(red: 0.4078, green:0.4314, blue:0.8784, alpha: 1.0).cgColor
+
+        
         cell.goalTitleLabel.text = GoalService.sharedInstance.user_goals[indexPath.row].title
         
         let deleteButton = MGSwipeButton(title: "            ", backgroundColor: UIColor(patternImage: UIImage(named: "delete")!)) {
