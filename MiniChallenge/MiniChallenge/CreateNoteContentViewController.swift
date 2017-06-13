@@ -41,6 +41,7 @@ class CreateNoteContentViewController: UIViewController {
         // Set in Subject
         
         SingletonSubject.sharedInstance.subjects[index].notes = notes
+        SingletonSubject.sharedInstance.subject.notes = notes
   
         saveSubjects()
 
