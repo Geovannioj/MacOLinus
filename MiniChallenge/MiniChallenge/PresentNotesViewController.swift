@@ -18,6 +18,7 @@ class PresentNotesViewController: UIViewController {
         super.viewDidLoad()
         
         setContent()
+        hideKeyboardWhenTappedAround()
         
         for aux in SingletonSubject.sharedInstance.subjects[SingletonSubject.sharedInstance.index].notes {
             
