@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="omk-1t-kg2">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -27,17 +27,17 @@
                         <viewControllerLayoutGuide type="bottom" id="EIA-ph-5Eo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dYK-jr-27X">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual o título da anotação ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbK-zL-TJK">
-                                <rect key="frame" x="40" y="90" width="332" height="28"/>
-                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual o título da anotação ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbK-zL-TJK">
+                                <rect key="frame" x="36" y="86" width="301" height="32"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="20"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUW-QH-g47">
-                                <rect key="frame" x="27" y="98" width="8" height="8"/>
+                                <rect key="frame" x="23" y="98" width="8" height="8"/>
                                 <color key="backgroundColor" red="1" green="0.47842687369999998" blue="0.4926418662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="8" id="d4h-7y-PD2"/>
@@ -48,7 +48,7 @@
                                 <color key="highlightedColor" red="1" green="0.47842687369999998" blue="0.4926418662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8PH-oi-kwH">
-                                <rect key="frame" x="4" y="135" width="406" height="44"/>
+                                <rect key="frame" x="0.0" y="135" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="1" green="0.47842687369999998" blue="0.4926418662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -59,20 +59,20 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQ8-mH-jQT">
-                                <rect key="frame" x="310" y="189" width="44" height="44"/>
+                                <rect key="frame" x="275" y="189" width="44" height="44"/>
                                 <state key="normal" image="redButton"/>
                                 <connections>
                                     <action selector="nextScreenPressed:" destination="omk-1t-kg2" eventType="touchUpInside" id="6Hc-YE-TbK"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="qT7-Kj-hJh">
-                                <rect key="frame" x="173" y="32" width="68" height="21"/>
+                                <rect key="frame" x="153.5" y="32" width="68" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="TLU-WO-Ypn"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMV-yM-naN">
-                                <rect key="frame" x="27" y="28" width="61" height="30"/>
+                                <rect key="frame" x="23" y="28" width="61" height="30"/>
                                 <state key="normal" title="Cancelar">
                                     <color key="titleColor" red="0.099203579127788544" green="0.039092682301998138" blue="0.025941237807273865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -81,7 +81,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O título deve ser preenchido!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neD-UZ-aSd">
-                                <rect key="frame" x="153" y="263" width="221" height="20.666666666666686"/>
+                                <rect key="frame" x="118" y="263" width="221" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -95,6 +95,7 @@
                             <constraint firstItem="8PH-oi-kwH" firstAttribute="leading" secondItem="dYK-jr-27X" secondAttribute="leadingMargin" constant="-16" id="DQe-CY-MP9"/>
                             <constraint firstItem="DUW-QH-g47" firstAttribute="leading" secondItem="dYK-jr-27X" secondAttribute="leadingMargin" constant="7" id="IVr-Un-ad6"/>
                             <constraint firstItem="8PH-oi-kwH" firstAttribute="top" secondItem="DUW-QH-g47" secondAttribute="bottom" constant="29" id="KG7-nK-e0H"/>
+                            <constraint firstItem="DUW-QH-g47" firstAttribute="centerY" secondItem="JbK-zL-TJK" secondAttribute="centerY" id="KZZ-NN-ocp"/>
                             <constraint firstItem="JbK-zL-TJK" firstAttribute="leading" secondItem="dYK-jr-27X" secondAttribute="leadingMargin" constant="20" id="L4Y-tS-SFV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YQ8-mH-jQT" secondAttribute="trailing" constant="40" id="S6s-VN-OH8"/>
                             <constraint firstItem="YQ8-mH-jQT" firstAttribute="top" secondItem="8PH-oi-kwH" secondAttribute="bottom" constant="10" id="Xk4-do-2fw"/>
