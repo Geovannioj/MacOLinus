@@ -38,7 +38,9 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
             
             print(aux.title)
         }
-
+        self.subjectColorLabel.clipsToBounds = true
+        self.subjectColorLabel.layer.cornerRadius = 8
+        
         
         // Do any additional setup after loading the view.
     }

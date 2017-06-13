@@ -30,6 +30,9 @@ class ShowSubjectsActivity: UIViewController, UITableViewDataSource, UITableView
         subjectNameLbl.text = subjectReceived?.title
         subjectColorLBl.backgroundColor = subjectReceived?.color
         
+        self.subjectColorLBl.clipsToBounds = true
+        self.subjectColorLBl.layer.cornerRadius = 8
+        
         subjectsActivityTableView.delegate = self
         subjectsActivityTableView.dataSource = self
     }
