@@ -20,6 +20,8 @@ class CreateSubject: UIViewController {
 
         configLayout()
         validation.isHidden = true
+        SingletonSubject.sharedInstance.subject.faults = 0
+
         
         // Do any additional setup after loading the view.
     }
