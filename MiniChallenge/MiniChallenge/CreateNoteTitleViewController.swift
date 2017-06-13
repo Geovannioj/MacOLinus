@@ -17,7 +17,6 @@ class CreateNoteTitleViewController: UIViewController {
         super.viewDidLoad()
         validationLbl.isHidden = true
         configLayout()
-        self.hideKeyboardWhenTappedAround() 
         
         // Do any additional setup after loading the view.
     }
