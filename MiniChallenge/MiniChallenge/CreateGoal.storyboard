@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wAH-rk-qZ8">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -27,17 +27,17 @@
                         <viewControllerLayoutGuide type="bottom" id="7uy-cr-6yV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lZF-SQ-xuf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual  o sua meta?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1c-BM-pS3">
-                                <rect key="frame" x="36" y="89" width="262" height="29"/>
+                                <rect key="frame" x="40" y="89" width="293" height="29"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogE-aJ-O3H">
-                                <rect key="frame" x="23" y="98" width="8" height="8"/>
+                                <rect key="frame" x="27" y="98" width="8" height="8"/>
                                 <color key="backgroundColor" red="0.98884028199999996" green="0.83359497790000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="8" id="B6o-2H-heX"/>
@@ -48,7 +48,7 @@
                                 <color key="highlightedColor" red="0.98884028199999996" green="0.83359497790000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mv8-SF-fGg">
-                                <rect key="frame" x="0.0" y="136.5" width="375" height="44"/>
+                                <rect key="frame" x="4" y="136.66666666666666" width="406" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.98884028199999996" green="0.83359497790000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <rect key="contentStretch" x="0.050000000000000003" y="0.0" width="1" height="1"/>
@@ -59,32 +59,36 @@
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tW-Ek-7yf">
-                                <rect key="frame" x="302" y="190.5" width="44" height="44"/>
-                                <state key="normal" image="yellowButton"/>
-                                <connections>
-                                    <action selector="userGoalTitleCreated:" destination="wAH-rk-qZ8" eventType="touchUpInside" id="FmO-Qc-EbM"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="15g-s1-iSv">
-                                <rect key="frame" x="153.5" y="32" width="68" height="21"/>
+                                <rect key="frame" x="173" y="32" width="68" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="Hjv-EX-yvi"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O nome da meta deve ser preenchido!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3i-LQ-GnU">
-                                <rect key="frame" x="47" y="202" width="231" height="21"/>
+                                <rect key="frame" x="49" y="202" width="231" height="15.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9S-IT-7zw">
-                                <rect key="frame" x="47" y="27" width="41" height="30"/>
+                                <rect key="frame" x="51" y="27" width="41" height="30"/>
                                 <state key="normal" title="Voltar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="wAH-rk-qZ8" eventType="touchUpInside" id="Zlf-KX-jPk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tW-Ek-7yf">
+                                <rect key="frame" x="308" y="202" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="08g-if-GEE"/>
+                                    <constraint firstAttribute="width" constant="44" id="XFq-Qx-IPx"/>
+                                </constraints>
+                                <state key="normal" image="yellowButton"/>
+                                <connections>
+                                    <action selector="userGoalTitleCreated:" destination="wAH-rk-qZ8" eventType="touchUpInside" id="FmO-Qc-EbM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -97,18 +101,16 @@
                             <constraint firstItem="mv8-SF-fGg" firstAttribute="leading" secondItem="lZF-SQ-xuf" secondAttribute="leadingMargin" constant="-16" id="DFO-1b-rgw"/>
                             <constraint firstItem="v3i-LQ-GnU" firstAttribute="top" secondItem="mv8-SF-fGg" secondAttribute="bottom" constant="21.5" id="ERD-g5-PFa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mv8-SF-fGg" secondAttribute="trailing" constant="-16" id="Ifw-X6-zIP"/>
-                            <constraint firstItem="3tW-Ek-7yf" firstAttribute="leading" secondItem="lZF-SQ-xuf" secondAttribute="leadingMargin" constant="286" id="J2j-zM-9i4"/>
+                            <constraint firstItem="3tW-Ek-7yf" firstAttribute="top" secondItem="mv8-SF-fGg" secondAttribute="bottom" constant="21.333333333333343" id="Mjs-hi-Aw1"/>
                             <constraint firstItem="15g-s1-iSv" firstAttribute="top" secondItem="lZF-SQ-xuf" secondAttribute="topMargin" constant="32" id="MxB-8P-BEp"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3tW-Ek-7yf" secondAttribute="trailing" constant="13" id="VXg-px-GZu"/>
                             <constraint firstItem="w1c-BM-pS3" firstAttribute="leading" secondItem="lZF-SQ-xuf" secondAttribute="leadingMargin" constant="20" id="WtB-DY-gMe"/>
-                            <constraint firstItem="v3i-LQ-GnU" firstAttribute="centerY" secondItem="3tW-Ek-7yf" secondAttribute="centerY" id="ZIN-PQ-IgB"/>
                             <constraint firstItem="w1c-BM-pS3" firstAttribute="top" secondItem="g9S-IT-7zw" secondAttribute="bottom" constant="32" id="bcR-Sy-0D3"/>
-                            <constraint firstItem="3tW-Ek-7yf" firstAttribute="leading" secondItem="v3i-LQ-GnU" secondAttribute="trailing" constant="24" id="fKC-4V-13J"/>
                             <constraint firstItem="g9S-IT-7zw" firstAttribute="leading" secondItem="lZF-SQ-xuf" secondAttribute="leadingMargin" constant="31" id="mUJ-uW-KZJ"/>
                             <constraint firstItem="mv8-SF-fGg" firstAttribute="top" secondItem="w1c-BM-pS3" secondAttribute="bottom" constant="17.666666666666671" id="mWw-an-sX5"/>
                             <constraint firstItem="w1c-BM-pS3" firstAttribute="leading" secondItem="ogE-aJ-O3H" secondAttribute="trailing" constant="5" id="nA5-tj-C8m"/>
-                            <constraint firstItem="3tW-Ek-7yf" firstAttribute="top" secondItem="mv8-SF-fGg" secondAttribute="bottom" constant="10" id="qqP-vR-uAA"/>
+                            <constraint firstItem="3tW-Ek-7yf" firstAttribute="leading" secondItem="v3i-LQ-GnU" secondAttribute="trailing" constant="28" id="nuJ-k8-clS"/>
                             <constraint firstItem="15g-s1-iSv" firstAttribute="centerX" secondItem="lZF-SQ-xuf" secondAttribute="centerX" id="qsl-oK-evv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3tW-Ek-7yf" secondAttribute="trailing" constant="42" id="usJ-ms-Qkr"/>
                         </constraints>
                     </view>
                     <connections>

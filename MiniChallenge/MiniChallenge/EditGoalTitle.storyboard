@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="R9i-7Y-aQO">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -13,6 +13,9 @@
         <array key="SF-UI-Display-Bold.otf">
             <string>SFUIDisplay-Bold</string>
         </array>
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Edit Goal Title View Controller-->
@@ -24,17 +27,17 @@
                         <viewControllerLayoutGuide type="bottom" id="uGY-IH-dNd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="T2T-Cg-IGb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual a sua  meta?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qi-bq-tDz">
-                                <rect key="frame" x="36" y="89" width="262" height="29"/>
+                                <rect key="frame" x="36" y="92" width="207" height="29"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56O-a3-DYG">
-                                <rect key="frame" x="23" y="98" width="8" height="8"/>
+                                <rect key="frame" x="23" y="101" width="8" height="8"/>
                                 <color key="backgroundColor" red="0.98884028199999996" green="0.83359497790000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="8" id="ALR-fG-roa"/>
@@ -45,7 +48,7 @@
                                 <color key="highlightedColor" red="0.98884028199999996" green="0.83359497790000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wPC-bn-t8b">
-                                <rect key="frame" x="0.0" y="135" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="138" width="320" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="1" green="0.47842687369999998" blue="0.4926418662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -56,50 +59,54 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h16-EE-zRK">
-                                <rect key="frame" x="302" y="189" width="44" height="44"/>
+                                <rect key="frame" x="247" y="192" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="NIt-aV-XHp"/>
+                                    <constraint firstAttribute="width" constant="44" id="hxJ-ZO-P4B"/>
+                                </constraints>
                                 <state key="normal" image="yellowButton"/>
                                 <connections>
                                     <action selector="nextScreenPressed:" destination="R9i-7Y-aQO" eventType="touchUpInside" id="aad-HK-0qP"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="Y0Q-DW-hly">
-                                <rect key="frame" x="153.5" y="32" width="68" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="Y0Q-DW-hly">
+                                <rect key="frame" x="126" y="32" width="68" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="xUX-Aw-eh6"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O nome da meta deve ser preenchido!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IL5-CW-1as">
-                                <rect key="frame" x="46" y="203.5" width="231" height="16"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5a-hs-zNo">
-                                <rect key="frame" x="23" y="28" width="61" height="30"/>
+                                <rect key="frame" x="23" y="28" width="71" height="33"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                 <state key="normal" title="Cancelar">
-                                    <color key="titleColor" red="0.099203579127788544" green="0.039092682301998138" blue="0.025941237807273865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="cancelButtonPressed:" destination="R9i-7Y-aQO" eventType="touchUpInside" id="gn4-tt-Yzf"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O nome da meta deve ser preenchido!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IL5-CW-1as">
+                                <rect key="frame" x="8" y="206" width="231" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="h16-EE-zRK" firstAttribute="leading" secondItem="T2T-Cg-IGb" secondAttribute="leadingMargin" constant="286" id="0F0-Gy-Dku"/>
-                            <constraint firstItem="h16-EE-zRK" firstAttribute="leading" secondItem="IL5-CW-1as" secondAttribute="trailing" constant="25" id="2EY-ky-q5A"/>
                             <constraint firstItem="wPC-bn-t8b" firstAttribute="leading" secondItem="T2T-Cg-IGb" secondAttribute="leadingMargin" constant="-16" id="4Co-GJ-Rx6"/>
                             <constraint firstItem="2qi-bq-tDz" firstAttribute="leading" secondItem="56O-a3-DYG" secondAttribute="trailing" constant="5" id="4Yd-AQ-Img"/>
-                            <constraint firstItem="h16-EE-zRK" firstAttribute="top" secondItem="wPC-bn-t8b" secondAttribute="bottom" constant="10" id="Bb3-bL-Rag"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h16-EE-zRK" secondAttribute="trailing" constant="13" id="8MA-ky-pHE"/>
+                            <constraint firstItem="IL5-CW-1as" firstAttribute="top" secondItem="wPC-bn-t8b" secondAttribute="bottom" constant="24" id="CZC-k7-fW5"/>
                             <constraint firstItem="2qi-bq-tDz" firstAttribute="leading" secondItem="T2T-Cg-IGb" secondAttribute="leadingMargin" constant="20" id="FOO-Ig-400"/>
                             <constraint firstItem="Y0Q-DW-hly" firstAttribute="top" secondItem="T2T-Cg-IGb" secondAttribute="topMargin" constant="32" id="JRT-xN-rQ3"/>
                             <constraint firstItem="2qi-bq-tDz" firstAttribute="top" secondItem="a5a-hs-zNo" secondAttribute="bottom" constant="31" id="NSk-SJ-ZgY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2qi-bq-tDz" secondAttribute="trailing" constant="61" id="OfQ-Tr-qSj"/>
+                            <constraint firstItem="IL5-CW-1as" firstAttribute="leading" secondItem="T2T-Cg-IGb" secondAttribute="leadingMargin" constant="-8" id="aO8-8l-gIn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wPC-bn-t8b" secondAttribute="trailing" constant="-16" id="aYi-7q-Apu"/>
                             <constraint firstItem="a5a-hs-zNo" firstAttribute="leading" secondItem="T2T-Cg-IGb" secondAttribute="leadingMargin" constant="7" id="eN2-RF-CuF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="h16-EE-zRK" secondAttribute="trailing" constant="13" id="iYp-fg-oXz"/>
                             <constraint firstItem="Y0Q-DW-hly" firstAttribute="centerX" secondItem="T2T-Cg-IGb" secondAttribute="centerX" id="idA-bd-sEK"/>
-                            <constraint firstItem="IL5-CW-1as" firstAttribute="centerY" secondItem="h16-EE-zRK" secondAttribute="centerY" id="kZE-HF-tTH"/>
+                            <constraint firstItem="h16-EE-zRK" firstAttribute="top" secondItem="wPC-bn-t8b" secondAttribute="bottom" constant="10" id="jVi-ko-52J"/>
                             <constraint firstItem="56O-a3-DYG" firstAttribute="top" secondItem="a5a-hs-zNo" secondAttribute="bottom" constant="40" id="lkw-v8-UEY"/>
                             <constraint firstItem="a5a-hs-zNo" firstAttribute="top" secondItem="MQX-YV-kcH" secondAttribute="bottom" constant="8" id="nAM-4U-yn0"/>
                             <constraint firstItem="56O-a3-DYG" firstAttribute="leading" secondItem="T2T-Cg-IGb" secondAttribute="leadingMargin" constant="7" id="rPK-Y1-02g"/>
@@ -135,7 +142,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pengoBlack" width="69" height="21"/>
+        <image name="pengoWhite" width="69" height="21"/>
         <image name="yellowButton" width="44" height="44"/>
     </resources>
 </document>
