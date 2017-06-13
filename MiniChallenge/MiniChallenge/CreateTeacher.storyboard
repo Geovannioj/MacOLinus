@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wEI-v4-pIa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wEI-v4-pIa">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -28,8 +28,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual  o seu Professor?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXx-zO-wlw">
-                                <rect key="frame" x="36" y="89" width="262" height="29"/>
-                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
+                                <rect key="frame" x="36" y="89" width="318" height="26.5"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="22"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -45,7 +45,7 @@
                                 <color key="highlightedColor" red="1" green="0.47842687369999998" blue="0.4926418662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mOt-FG-dsw">
-                                <rect key="frame" x="0.0" y="136" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="133.5" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="1" green="0.47842687369999998" blue="0.4926418662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -56,7 +56,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMW-3k-HGK">
-                                <rect key="frame" x="308" y="190" width="44" height="44"/>
+                                <rect key="frame" x="308" y="187.5" width="44" height="44"/>
                                 <state key="normal" image="redButton"/>
                                 <connections>
                                     <action selector="nextScreenPressed:" destination="wEI-v4-pIa" eventType="touchUpInside" id="4KK-ep-kyP"/>
@@ -69,7 +69,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O nome do professor deve ser preenchido!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6Q-lv-Wzh">
-                                <rect key="frame" x="61" y="202" width="242" height="14.5"/>
+                                <rect key="frame" x="61" y="199.5" width="242" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.03920602426" green="0.039221249520000001" blue="0.039205066859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -96,8 +96,8 @@
                             <constraint firstItem="mOt-FG-dsw" firstAttribute="top" secondItem="FXx-zO-wlw" secondAttribute="bottom" constant="17.666666666666671" id="RqO-pe-OXc"/>
                             <constraint firstItem="b6Q-lv-Wzh" firstAttribute="top" secondItem="mOt-FG-dsw" secondAttribute="bottom" constant="22" id="U2b-7I-dIH"/>
                             <constraint firstItem="BMW-3k-HGK" firstAttribute="top" secondItem="mOt-FG-dsw" secondAttribute="bottom" constant="10" id="Wv6-qw-WNO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FXx-zO-wlw" secondAttribute="trailing" constant="5" id="hwf-NK-U3d"/>
                             <constraint firstItem="ByZ-Bl-cqd" firstAttribute="top" secondItem="MID-3M-73z" secondAttribute="bottom" constant="36" id="lkz-sR-lCK"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="FXx-zO-wlw" secondAttribute="trailing" constant="61" id="mWt-5w-aIh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BMW-3k-HGK" secondAttribute="trailing" constant="7" id="q4Z-25-jLc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mOt-FG-dsw" secondAttribute="trailing" constant="-16" id="rl3-hv-5ks"/>
                             <constraint firstItem="mOt-FG-dsw" firstAttribute="leading" secondItem="cYg-hy-OHy" secondAttribute="leadingMargin" constant="-16" id="v7x-BM-mZk"/>
