@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 
-class HomeNotesTableViewCell: UITableViewCell {
+class HomeNotesTableViewCell: MGSwipeTableCell{
 
     @IBOutlet weak var noteTitle: UILabel!
     
