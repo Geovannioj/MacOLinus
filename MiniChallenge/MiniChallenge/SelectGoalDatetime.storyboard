@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HlT-Ck-RBK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HlT-Ck-RBK">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -55,18 +55,15 @@
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="f6z-wT-eE0">
-                                <rect key="frame" x="47" y="226" width="320" height="216"/>
+                                <rect key="frame" x="47" y="226" width="320" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="TmG-fY-Da9"/>
+                                </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="516308104.49410999">
                                     <!--2017-05-12 18:55:04 +0000-->
                                 </date>
                                 <locale key="locale" localeIdentifier="pt_BR"/>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* Você será notificado todos os dias nesse horário" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDF-kt-hq6">
-                                <rect key="frame" x="33.666666666666657" y="452" width="346" height="18"/>
-                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Quando gostaria de ser lembrado ?" translatesAutoresizingMaskIntoConstraints="NO" id="GJ1-O8-w9g">
                                 <rect key="frame" x="40" y="65" width="349" height="75"/>
                                 <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -83,22 +80,33 @@
                                     <action selector="backButtonPressed:" destination="HlT-Ck-RBK" eventType="touchUpInside" id="8so-AP-nBv"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="* Você será notificado todos os dias nesse horário" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Fgp-N1-PLa">
+                                <rect key="frame" x="30" y="391" width="354" height="58"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="Zde-PO-Nbp"/>
+                                </constraints>
+                                <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="f6z-wT-eE0" firstAttribute="centerX" secondItem="eDF-kt-hq6" secondAttribute="centerX" id="3La-Or-y2S"/>
                             <constraint firstItem="dxC-fJ-lmJ" firstAttribute="centerX" secondItem="7Yl-As-TFu" secondAttribute="centerX" id="3rP-Vd-G5L"/>
                             <constraint firstItem="f6z-wT-eE0" firstAttribute="top" secondItem="ZMs-JV-oxm" secondAttribute="bottom" constant="25" id="6gj-uq-hJd"/>
                             <constraint firstItem="GJ1-O8-w9g" firstAttribute="leading" secondItem="EXM-0s-VUv" secondAttribute="trailing" constant="5" id="9Z4-ny-X1z"/>
+                            <constraint firstItem="Fgp-N1-PLa" firstAttribute="top" secondItem="f6z-wT-eE0" secondAttribute="bottom" constant="15" id="9vt-1a-RuC"/>
+                            <constraint firstItem="Fgp-N1-PLa" firstAttribute="leading" secondItem="7Yl-As-TFu" secondAttribute="leadingMargin" constant="10" id="De2-OX-AXB"/>
                             <constraint firstItem="EXM-0s-VUv" firstAttribute="top" secondItem="yEw-sf-2J2" secondAttribute="bottom" constant="41" id="Iko-9L-Vle"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZMs-JV-oxm" secondAttribute="trailing" constant="50" id="ItK-8q-J6A"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GJ1-O8-w9g" secondAttribute="trailing" constant="5" id="KKg-hF-UPF"/>
                             <constraint firstItem="GJ1-O8-w9g" firstAttribute="centerY" secondItem="EXM-0s-VUv" secondAttribute="centerY" id="KXD-ud-M9K"/>
                             <constraint firstItem="yEw-sf-2J2" firstAttribute="top" secondItem="vDr-yG-f9a" secondAttribute="bottom" constant="7" id="Ncz-Tv-9eB"/>
-                            <constraint firstItem="eDF-kt-hq6" firstAttribute="top" secondItem="f6z-wT-eE0" secondAttribute="bottom" constant="10" id="T9W-Td-e0T"/>
                             <constraint firstItem="f6z-wT-eE0" firstAttribute="centerX" secondItem="dxC-fJ-lmJ" secondAttribute="centerX" id="VZF-5i-Izy"/>
                             <constraint firstItem="GJ1-O8-w9g" firstAttribute="top" secondItem="yEw-sf-2J2" secondAttribute="bottom" constant="7.5" id="c3e-36-uai"/>
                             <constraint firstItem="yEw-sf-2J2" firstAttribute="leading" secondItem="7Yl-As-TFu" secondAttribute="leadingMargin" constant="20" id="eh4-e7-cO1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fgp-N1-PLa" secondAttribute="trailing" constant="10" id="gEQ-kx-DoG"/>
                             <constraint firstItem="ZMs-JV-oxm" firstAttribute="top" secondItem="GJ1-O8-w9g" secondAttribute="bottom" constant="17" id="ihy-Yy-xuW"/>
                             <constraint firstItem="EXM-0s-VUv" firstAttribute="leading" secondItem="7Yl-As-TFu" secondAttribute="leadingMargin" constant="7" id="nMR-Pd-uVT"/>
                             <constraint firstItem="dxC-fJ-lmJ" firstAttribute="top" secondItem="vDr-yG-f9a" secondAttribute="bottom" constant="12" id="zmq-J7-erZ"/>
@@ -106,6 +114,7 @@
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="f6z-wT-eE0" id="45a-M9-BwU"/>
+                        <outlet property="textView" destination="Fgp-N1-PLa" id="Gs7-LJ-YtP"/>
                         <outlet property="title" destination="GJ1-O8-w9g" id="MNi-Ww-01k"/>
                         <outlet property="titleText" destination="GJ1-O8-w9g" id="Ia2-HK-sfn"/>
                         <segue destination="6lr-wV-ngE" kind="show" identifier="CreateGoal" id="eOY-7N-9TM"/>
@@ -114,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="swr-41-Y5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2140" y="918.89055472263874"/>
+            <point key="canvasLocation" x="2139.130434782609" y="918.75000000000011"/>
         </scene>
         <!--GoalCreated-->
         <scene sceneID="UVn-DZ-YWJ">

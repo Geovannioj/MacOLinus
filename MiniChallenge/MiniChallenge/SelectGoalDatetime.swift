@@ -12,6 +12,7 @@ import UserNotifications
 
 class SelectGoalDatetime: UIViewController {
 
+    @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var titleText: UITextView!
     @IBOutlet weak var datePicker: UIDatePicker!
     override func viewDidLoad() {
@@ -51,6 +52,7 @@ class SelectGoalDatetime: UIViewController {
     
     func assignBackground() {
         
+        self.textView.backgroundColor = UIColor.clear
         titleText.backgroundColor = UIColor(patternImage: UIImage(named: "PurplePatternWithBoy")!)
         let background = UIImage(named: "PurplePatternWithBoy")
         var imageView : UIImageView!
@@ -61,6 +63,7 @@ class SelectGoalDatetime: UIViewController {
         imageView.center = view.center
         view.addSubview(imageView)
         self.view.sendSubview(toBack: imageView)
+        
     }
     
     func setDatePickerColor() {

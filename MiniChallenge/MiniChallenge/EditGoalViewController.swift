@@ -10,6 +10,7 @@ import UIKit
 
 class EditGoalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
     
     let formFields = ["Meta"]
     var fields = [""]
@@ -28,6 +29,10 @@ class EditGoalViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: tableView.contentSize.height)
+    }
     
     // MARK: - TableView Protocol
     

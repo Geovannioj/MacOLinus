@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="b1H-fI-vbn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="b1H-fI-vbn">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -44,6 +44,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i0S-GT-Bpl">
                                 <rect key="frame" x="0.0" y="111" width="414" height="123"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="123" id="AbZ-0o-b0w"/>
+                                </constraints>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="uqS-1B-HLW" customClass="EditGoalTableViewCell" customModule="MiniChallenge" customModuleProvider="target">
@@ -63,7 +66,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXL-hY-BvG">
-                                                    <rect key="frame" x="135" y="8" width="199" height="21"/>
+                                                    <rect key="frame" x="135" y="8" width="238" height="21"/>
                                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="16"/>
                                                     <color key="textColor" red="0.43916493649999999" green="0.43924486639999999" blue="0.43915987010000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -121,10 +124,10 @@
                             <constraint firstItem="EZh-J4-fTU" firstAttribute="top" secondItem="Xrw-Pd-bPJ" secondAttribute="bottom" constant="21" id="eKR-IC-afx"/>
                             <constraint firstItem="i0S-GT-Bpl" firstAttribute="leading" secondItem="2tJ-a4-k7I" secondAttribute="leading" id="oDG-0Y-g8Y"/>
                             <constraint firstItem="9Pd-ri-yyf" firstAttribute="centerX" secondItem="2tJ-a4-k7I" secondAttribute="centerX" id="tDa-U3-Zdr"/>
-                            <constraint firstItem="IG4-VU-vnu" firstAttribute="top" secondItem="i0S-GT-Bpl" secondAttribute="bottom" constant="502" id="zud-So-UxB"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="tableView" destination="i0S-GT-Bpl" id="vlz-7i-7YL"/>
                         <segue destination="oDz-v5-1l5" kind="show" identifier="EditGoalTitle" id="cWf-1X-8wl"/>
                         <segue destination="8ZM-cE-RRu" kind="show" identifier="backToHomeGoal" id="1fW-kN-53e"/>
                         <segue destination="HE2-jN-xtv" kind="show" identifier="backToHomeGoal" id="aRE-Li-HiH"/>
