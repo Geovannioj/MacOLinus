@@ -8,6 +8,7 @@
 
 import UIKit
 import MGSwipeTableCell
+import UserNotifications
 
 
 class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -71,6 +72,12 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let deletingAlert = UIAlertController(title: "Excluindo meta", message: "Você deseja excluir a meta: \(GoalService.sharedInstance.user_goals[indexPath.row].title) ?", preferredStyle: .alert)
             
             let deleteButton = UIAlertAction(title: "Deletar", style: UIAlertActionStyle.cancel, handler: { action in
+                
+                let notificationID = GoalService.sharedInstance.user_goals[indexPath.row].title
+                print(notificationID)
+                
+                let center = UNUserNotificationCenter.current()
+                center.removePendingNotificationRequests(withIdentifiers: ["\(notificationID)"])
                 
                 GoalService.sharedInstance.user_goals.remove(at: indexPath.row)
                 self.saveUserGoals()
