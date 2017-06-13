@@ -133,15 +133,7 @@ class EditActivityController: UIViewController, UITableViewDataSource, UITableVi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "GoToAddSubject" {
-            
-            if let toAddSubject = segue.destination as? SubjectViewController{
-                toAddSubject.segueData = segue.identifier
-                toAddSubject.auxSegue = segueReceived
-                
-            }
-            
-        }else if segue.identifier == "ChooseSubjectController" {
+        if segue.identifier == "ChooseSubjectController" {
             
             if let goToChooseSubject = segue.destination as? ChooseSubjectController{
     
