@@ -87,12 +87,9 @@
 		BF77E5241EC394A9007845B2 /* Reminders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF77E4D21EC394A9007845B2 /* Reminders.storyboard */; };
 		BF77E5251EC394A9007845B2 /* SingletonActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E4D31EC394A9007845B2 /* SingletonActivity.swift */; };
 		BF77E5261EC394A9007845B2 /* SingletonSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E4D41EC394A9007845B2 /* SingletonSubject.swift */; };
-		BF77E5271EC394A9007845B2 /* Subject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF77E4D51EC394A9007845B2 /* Subject.storyboard */; };
 		BF77E5281EC394A9007845B2 /* SubjectCreated.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF77E4D61EC394A9007845B2 /* SubjectCreated.storyboard */; };
 		BF77E5291EC394A9007845B2 /* SubjectCreated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E4D71EC394A9007845B2 /* SubjectCreated.swift */; };
 		BF77E52A1EC394A9007845B2 /* SubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E4D81EC394A9007845B2 /* SubjectTableViewCell.swift */; };
-		BF77E52B1EC394A9007845B2 /* SubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E4D91EC394A9007845B2 /* SubjectViewController.swift */; };
-		BF77E52C1EC394A9007845B2 /* TempController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E4DA1EC394A9007845B2 /* TempController.swift */; };
 		BF77E52D1EC394A9007845B2 /* AddTitleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E4DB1EC394A9007845B2 /* AddTitleController.swift */; };
 		BF77E52E1EC394A9007845B2 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E4DC1EC394A9007845B2 /* CalendarViewController.swift */; };
 		BF77E5301EC394A9007845B2 /* DailyCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77E4DE1EC394A9007845B2 /* DailyCalendarViewController.swift */; };
@@ -133,7 +130,6 @@
 		D4142BCB1EE76350005AA7F5 /* HomeTasks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4142BCA1EE76350005AA7F5 /* HomeTasks.storyboard */; };
 		D4C988981EA7D33B008DC591 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C988971EA7D33B008DC591 /* Goal.swift */; };
 		D4C9889D1EA7DF4F008DC591 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9889C1EA7DF4F008DC591 /* Reminder.swift */; };
-		D4CC85C71EEB2B9600193CFE /* ShowSubject.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4CC85C61EEB2B9600193CFE /* ShowSubject.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -221,12 +217,9 @@
 		BF77E4D21EC394A9007845B2 /* Reminders.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reminders.storyboard; sourceTree = "<group>"; };
 		BF77E4D31EC394A9007845B2 /* SingletonActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingletonActivity.swift; sourceTree = "<group>"; };
 		BF77E4D41EC394A9007845B2 /* SingletonSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingletonSubject.swift; sourceTree = "<group>"; };
-		BF77E4D51EC394A9007845B2 /* Subject.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Subject.storyboard; sourceTree = "<group>"; };
 		BF77E4D61EC394A9007845B2 /* SubjectCreated.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SubjectCreated.storyboard; sourceTree = "<group>"; };
 		BF77E4D71EC394A9007845B2 /* SubjectCreated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectCreated.swift; sourceTree = "<group>"; };
 		BF77E4D81EC394A9007845B2 /* SubjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectTableViewCell.swift; sourceTree = "<group>"; };
-		BF77E4D91EC394A9007845B2 /* SubjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectViewController.swift; sourceTree = "<group>"; };
-		BF77E4DA1EC394A9007845B2 /* TempController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempController.swift; sourceTree = "<group>"; };
 		BF77E4DB1EC394A9007845B2 /* AddTitleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTitleController.swift; sourceTree = "<group>"; };
 		BF77E4DC1EC394A9007845B2 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		BF77E4DE1EC394A9007845B2 /* DailyCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCalendarViewController.swift; sourceTree = "<group>"; };
@@ -267,7 +260,6 @@
 		D4142BCA1EE76350005AA7F5 /* HomeTasks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeTasks.storyboard; sourceTree = "<group>"; };
 		D4C988971EA7D33B008DC591 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		D4C9889C1EA7DF4F008DC591 /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
-		D4CC85C61EEB2B9600193CFE /* ShowSubject.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ShowSubject.storyboard; sourceTree = "<group>"; };
 		D4EAF6181EEF36400042CAB9 /* MiniChallenge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiniChallenge.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -501,12 +493,10 @@
 				BF762CC11ED47336004E423B /* ShowSubjectsActivity.swift */,
 				BF762CD01ED47686004E423B /* CreateTeacherViewController.swift */,
 				BF77E4ED1EC394A9007845B2 /* ChooseSubjectController.swift */,
-				BF77E4D91EC394A9007845B2 /* SubjectViewController.swift */,
 				BF77E4D71EC394A9007845B2 /* SubjectCreated.swift */,
 				BF77E4D41EC394A9007845B2 /* SingletonSubject.swift */,
 				BF77E4CF1EC394A9007845B2 /* HomeSubject.swift */,
 				BF77E4CC1EC394A9007845B2 /* CreateSubject.swift */,
-				BF77E4DA1EC394A9007845B2 /* TempController.swift */,
 			);
 			name = Subject;
 			sourceTree = "<group>";
@@ -550,7 +540,6 @@
 		BF1C9D3A1EC4EE5F00707BFF /* Subject */ = {
 			isa = PBXGroup;
 			children = (
-				D4CC85C61EEB2B9600193CFE /* ShowSubject.storyboard */,
 				D4142BCA1EE76350005AA7F5 /* HomeTasks.storyboard */,
 				6E1E4BF31EE03A0D00C65683 /* SubjectFaults.storyboard */,
 				6E1E4BC81EE03A0100C65683 /* EditSubject.storyboard */,
@@ -560,7 +549,6 @@
 				BF762CCF1ED47686004E423B /* CreateTeacher.storyboard */,
 				BF77E4CE1EC394A9007845B2 /* HomeSubject.storyboard */,
 				BF77E4CB1EC394A9007845B2 /* CreateSubject.storyboard */,
-				BF77E4D51EC394A9007845B2 /* Subject.storyboard */,
 				BF77E4D61EC394A9007845B2 /* SubjectCreated.storyboard */,
 			);
 			name = Subject;
@@ -736,11 +724,11 @@
 				TargetAttributes = {
 					6E15E5101EA6B8130027AAFD = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = 7CN8A9X5L6;
+						DevelopmentTeam = A93689JNSR;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -793,7 +781,6 @@
 				BF762CCD1ED47532004E423B /* Assets.xcassets in Resources */,
 				BF77E5541EC394A9007845B2 /* SF-UI-Display-Light.otf in Resources */,
 				D4142BCB1EE76350005AA7F5 /* HomeTasks.storyboard in Resources */,
-				D4CC85C71EEB2B9600193CFE /* ShowSubject.storyboard in Resources */,
 				BF762CC41ED47336004E423B /* MissedClasses.storyboard in Resources */,
 				BF762CB21ED47320004E423B /* EditActivity.storyboard in Resources */,
 				BF77E51C1EC394A9007845B2 /* Calendar.storyboard in Resources */,
@@ -821,7 +808,6 @@
 				6E1E4BE71EE03A0100C65683 /* HomeNotes.storyboard in Resources */,
 				BF77E5651EC394A9007845B2 /* SF-UI-Text-SemiboldItalic.otf in Resources */,
 				BF77E5531EC394A9007845B2 /* SF-UI-Display-Heavy.otf in Resources */,
-				BF77E5271EC394A9007845B2 /* Subject.storyboard in Resources */,
 				BF77E55C1EC394A9007845B2 /* SF-UI-Text-Heavy.otf in Resources */,
 				6E1E4BFA1EE03A0D00C65683 /* showNotes.storyboard in Resources */,
 				BF77E51F1EC394A9007845B2 /* Goal.storyboard in Resources */,
@@ -898,7 +884,6 @@
 				6E1E4BE51EE03A0100C65683 /* EditSubjectTitleViewController.swift in Sources */,
 				BF762CBB1ED47320004E423B /* HomeGoal.swift in Sources */,
 				6E1E4BF91EE03A0D00C65683 /* PresentNotesViewController.swift in Sources */,
-				BF77E52C1EC394A9007845B2 /* TempController.swift in Sources */,
 				BF762CDD1ED4769A004E423B /* SelectSubjectColorViewController.swift in Sources */,
 				BF77E5311EC394A9007845B2 /* DatePickViewController.swift in Sources */,
 				BF77E5671EC394A9007845B2 /* SingletonDayActivity.swift in Sources */,
@@ -915,7 +900,6 @@
 				6E1E4BE91EE03A0100C65683 /* HomeNotesViewController.swift in Sources */,
 				BF762CB61ED47320004E423B /* GoalCreated.swift in Sources */,
 				BF762CC51ED47336004E423B /* MissedClassViewController.swift in Sources */,
-				BF77E52B1EC394A9007845B2 /* SubjectViewController.swift in Sources */,
 				BF762CDF1ED4769A004E423B /* SelectWhereToNotifyViewController.swift in Sources */,
 				6E1E4BE81EE03A0100C65683 /* HomeNotesTableViewCell.swift in Sources */,
 				6E1E4BFC1EE03A0D00C65683 /* ShowNotesViewController.swift in Sources */,
@@ -1057,8 +1041,7 @@
 			baseConfigurationReference = 13E560A381673CA9CEE1D9E2 /* Pods-MiniChallenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MiniChallenge/MiniChallenge.entitlements;
-				DEVELOPMENT_TEAM = 7CN8A9X5L6;
+				DEVELOPMENT_TEAM = A93689JNSR;
 				INFOPLIST_FILE = MiniChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.bepiducb.MiniChallenge;
@@ -1073,8 +1056,7 @@
 			baseConfigurationReference = 774B8E3577BCA297B347D437 /* Pods-MiniChallenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MiniChallenge/MiniChallenge.entitlements;
-				DEVELOPMENT_TEAM = 7CN8A9X5L6;
+				DEVELOPMENT_TEAM = A93689JNSR;
 				INFOPLIST_FILE = MiniChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.bepiducb.MiniChallenge;

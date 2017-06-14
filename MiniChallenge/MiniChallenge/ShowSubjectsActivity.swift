@@ -108,9 +108,6 @@ class ShowSubjectsActivity: UIViewController, UITableViewDataSource, UITableView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("---------------")
-        print(segue.identifier)
-        print("---------------")
         if segue.identifier == "SubjectFaults"{
             if let nextScreen = segue.destination as? SubjectFaultsViewController {
                 nextScreen.filteredActivities = self.receivedArray

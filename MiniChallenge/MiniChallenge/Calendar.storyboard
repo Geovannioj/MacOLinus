@@ -319,11 +319,11 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iz1-bR-GkN">
-                                                            <rect key="frame" x="62" y="92" width="7" height="7"/>
+                                                            <rect key="frame" x="62.333333333333329" y="92" width="6.9999999999999858" height="7"/>
                                                             <color key="backgroundColor" red="0.16029505080000001" green="0.16029505080000001" blue="0.16029505080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="7" id="1T3-mL-gvP"/>
-                                                                <constraint firstAttribute="height" constant="7" id="nO5-PI-0m9"/>
+                                                                <constraint firstAttribute="width" priority="999" constant="7" id="1T3-mL-gvP"/>
+                                                                <constraint firstAttribute="height" priority="999" constant="7" id="nO5-PI-0m9"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

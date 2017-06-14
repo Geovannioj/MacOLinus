@@ -65,7 +65,7 @@
                                     <action selector="nextScreenPressed:" destination="omk-1t-kg2" eventType="touchUpInside" id="6Hc-YE-TbK"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="qT7-Kj-hJh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="qT7-Kj-hJh">
                                 <rect key="frame" x="153.5" y="32" width="68" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="TLU-WO-Ypn"/>
@@ -73,6 +73,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IMV-yM-naN">
                                 <rect key="frame" x="23" y="28" width="61" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Cancelar">
                                     <color key="titleColor" red="0.099203579127788544" green="0.039092682301998138" blue="0.025941237807273865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -80,9 +81,9 @@
                                     <action selector="cancelButtonPressed:" destination="omk-1t-kg2" eventType="touchUpInside" id="cik-IC-t8G"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O título deve ser preenchido!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neD-UZ-aSd">
-                                <rect key="frame" x="118" y="263" width="221" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O título deve ser preenchido!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="neD-UZ-aSd">
+                                <rect key="frame" x="106.5" y="263" width="232.5" height="20.5"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -118,7 +119,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zgi-oa-Qqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1031.2" y="-6.746626686656672"/>
+            <point key="canvasLocation" x="-1031.5" y="-7.5"/>
         </scene>
         <!--CreateNoteContent-->
         <scene sceneID="tZ3-2D-biL">
