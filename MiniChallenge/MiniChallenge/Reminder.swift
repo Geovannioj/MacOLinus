@@ -54,11 +54,13 @@ class Reminder: NSObject, NSCoding {
     }
     
     init(title: String, time: Date){
+        reminderID = Reminder.nextReminderID()
         self.title = title
         self.time = time
         
     }
     init(title: String, subject: Subject, time: Date){
+        reminderID = Reminder.nextReminderID()
         self.title = title
         self.subject = subject
         self.time = time

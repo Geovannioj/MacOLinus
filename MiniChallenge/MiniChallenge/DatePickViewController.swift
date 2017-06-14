@@ -96,7 +96,7 @@ class DatePickViewController: UIViewController {
                 
                 SingletonActivity.sharedInstance.task.time = datePicker.date
                 
-                let task : Reminder = SingletonActivity.sharedInstance.task
+                let task = Reminder(title: SingletonActivity.sharedInstance.task.title, subject: SingletonActivity.sharedInstance.task.subject!, time: datePicker.date)
                 
                 task.scheduleNotification()
                 
