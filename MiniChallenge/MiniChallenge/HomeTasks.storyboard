@@ -37,7 +37,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWO-3c-MTs">
-                                        <rect key="frame" x="22" y="27" width="71" height="30"/>
+                                        <rect key="frame" x="22" y="27" width="75" height="30"/>
                                         <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
                                         <state key="normal" title="&lt; Matérias">
                                             <color key="titleColor" red="0.079394258558750153" green="0.031285576522350311" blue="0.022504771128296852" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

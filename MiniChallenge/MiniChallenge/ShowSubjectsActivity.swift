@@ -35,6 +35,8 @@ class ShowSubjectsActivity: UIViewController, UITableViewDataSource, UITableView
         
         subjectsActivityTableView.delegate = self
         subjectsActivityTableView.dataSource = self
+        
+        self.subjectsActivityTableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

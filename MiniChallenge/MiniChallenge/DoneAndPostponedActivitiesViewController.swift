@@ -49,6 +49,8 @@ class DoneAndPostponedActivitiesViewController: UIViewController, UITableViewDel
         self.alertNotificationView.layer.borderColor = redColor.cgColor
         self.alertNotificationView.layer.borderWidth = 1
         self.alertNotificationView.layer.cornerRadius = 14
+        
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     override func viewDidAppear(_ animated: Bool) {
