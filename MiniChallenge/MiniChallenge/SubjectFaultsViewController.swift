@@ -14,6 +14,8 @@ class SubjectFaultsViewController: UIViewController {
     @IBOutlet weak var subjectTitle: UILabel!
     @IBOutlet weak var numberOfFaults: UILabel!
 
+    @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var segmentControl: UISegmentedControl!
  
     var filteredActivities = [Reminder]()
@@ -22,7 +24,10 @@ class SubjectFaultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
+        self.plusButton.clipsToBounds = true
+        self.minusButton.clipsToBounds = true
+        self.plusButton.layer.cornerRadius = 20
+        self.minusButton.layer.cornerRadius = 20
         
         loadSubjects()
         setup()
