@@ -29,15 +29,8 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
         setupLayout()
         loadSubjects()
         
-        let index = SingletonSubject.sharedInstance.index
-        notes = SingletonSubject.sharedInstance.subjects[index].notes
-        
         tableView.reloadData()
         
-        for aux in notes {
-            
-            print(aux.title)
-        }
         self.subjectColorLabel.clipsToBounds = true
         self.subjectColorLabel.layer.cornerRadius = 8
         
@@ -52,7 +45,8 @@ class HomeNotesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        let index = SingletonSubject.sharedInstance.index
+        notes = SingletonSubject.sharedInstance.subjects[index].notes
         self.tableView.reloadData()
     }
     

@@ -43,6 +43,9 @@ class SubjectFaultsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
     // MARK: - Setup
     
     func setup() {
@@ -89,17 +92,6 @@ class SubjectFaultsViewController: UIViewController {
         
        
         if segmentControl.selectedSegmentIndex == 1 {
-            
-            let subjectWithFault = SingletonSubject.sharedInstance.subject
-            let index = SingletonSubject.sharedInstance.index
-            
-            if Int64(numberOfFaults.text!) != nil {
-                subjectWithFault.faults = Int64(numberOfFaults.text!)!
-            }
-            
-            SingletonSubject.sharedInstance.subjects[index] = subjectWithFault
-            saveSubjects()
-            
             performSegue(withIdentifier: "HomeNotes", sender: Any?.self)
         }else if segmentControl.selectedSegmentIndex == 0 {
             performSegue(withIdentifier: "HomeTasks", sender: Any?.self)

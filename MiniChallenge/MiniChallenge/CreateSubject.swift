@@ -18,6 +18,7 @@ class CreateSubject: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.cleanBuffer()
         configLayout()
         validation.isHidden = true
         SingletonSubject.sharedInstance.subject.faults = 0
