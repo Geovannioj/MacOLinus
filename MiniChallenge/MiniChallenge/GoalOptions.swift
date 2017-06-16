@@ -12,7 +12,8 @@ class GoalOptions: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationItem.titleView = UIImageView(image: HomeGoal.pengoWhiteImage)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Voltar", style: .plain, target: nil, action: nil)
         // Do any additional setup after loading the view.
     }
 

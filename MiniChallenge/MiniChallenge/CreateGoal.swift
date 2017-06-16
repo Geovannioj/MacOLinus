@@ -15,16 +15,31 @@ class CreateGoal: UIViewController {
     
     @IBOutlet weak var validation: UILabel!
     var goalType: String  = ""
-
+    var segueReceived = ""
+    var passedTitle = ""
     @IBOutlet weak var createSpecficGoal: UILabel!
     @IBOutlet weak var UserGoalFIeld: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.titleView = UIImageView(image: HomeGoal.pengoWhiteImage)
         self.validation.isHidden = true
         setConfig()
-
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Voltar", style: .plain, target: nil, action: nil)
+        if segueReceived == "EditGoalTitle"{
+            let backButton = UIBarButtonItem(title: "", style: .plain, target: navigationController, action: nil)
+            navigationItem.leftBarButtonItem = backButton
+            UserGoalFIeld.text = passedTitle
+        }
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,33 +77,35 @@ class CreateGoal: UIViewController {
     internal func assignBackground() {
         
         let background = UIImage(named: "PurplePatternWithBoy")
-        
-        var imageView : UIImageView!
-        imageView = UIImageView(frame: view.bounds)
-        imageView.contentMode =  UIViewContentMode.scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = background
-        imageView.center = view.center
-        view.addSubview(imageView)
-        self.view.sendSubview(toBack: imageView)
+        self.view.backgroundColor = UIColor(patternImage: background!)
     }
 
 
     @IBAction func userGoalTitleCreated(_ sender: Any) {
         
-        let newUserGoal = Goal()
-        
-        if !(UserGoalFIeld.text?.isEmpty)! {
-            
-            newUserGoal.title = goalType + " " + UserGoalFIeld.text!
-            GoalService.sharedInstance.user_goal = newUserGoal
-            
-            GoalService.sharedInstance.user_goals.append(newUserGoal)
-            saveUserGoals()
-            
-            performSegue(withIdentifier: "SelectDate", sender: Any?.self)
+        if segueReceived == "EditGoalTitle"{
+            if UserGoalFIeld.text != ""{
+                GoalService.sharedInstance.user_goal.title = UserGoalFIeld.text!
+                print(GoalService.sharedInstance.user_goal.title)
+                saveUserGoals()
+                _ = navigationController?.popViewController(animated: true)
+            }else{
+                validation.isHidden = false
+            }
         }else{
-            validation.isHidden = false
+            let newUserGoal = Goal()
+            
+            if UserGoalFIeld.text != "" {
+                
+                newUserGoal.title = goalType + " " + UserGoalFIeld.text!
+                GoalService.sharedInstance.user_goal = newUserGoal
+                
+                saveUserGoals()
+                
+                performSegue(withIdentifier: "SelectDate", sender: Any?.self)
+            }else{
+                validation.isHidden = false
+            }
         }
     
     }

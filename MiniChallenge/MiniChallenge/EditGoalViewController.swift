@@ -15,13 +15,22 @@ class EditGoalViewController: UIViewController, UITableViewDelegate, UITableView
     let formFields = ["Meta"]
     var fields = [""]
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationItem.titleView = UIImageView(image: HomeGoal.pengoWhiteImage)
+        let saveButton = UIBarButtonItem(title: "Salvar", style: .done, target: self, action: #selector(EditGoalViewController.saveChanges))
+        self.navigationItem.rightBarButtonItem = saveButton
         configLayout()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadContent()
+    }
+    
+    func goBack(){
+        performSegue(withIdentifier: "backToHomeGoal", sender: Any?.self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,7 +56,7 @@ class EditGoalViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        print("Aquiiiiii")
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! EditGoalTableViewCell
         
         cell.formFieldLabel?.text = formFields[indexPath.row]
@@ -64,7 +73,7 @@ class EditGoalViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       
         performSegue(withIdentifier: "EditGoalTitle", sender: Any?.self)
-        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -74,14 +83,26 @@ class EditGoalViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func nextScreenPressed(_ sender: Any) {
         
+        
         saveContent()
         
+        performSegue(withIdentifier: "backToHomeGoal", sender: Any?.self)
+    }
+    
+    func saveChanges(){
+        saveContent()
         performSegue(withIdentifier: "backToHomeGoal", sender: Any?.self)
     }
     // MARK: - Setup
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "backToHomeGoal" || segue.identifier == "HomeGoal"{
+        if segue.identifier == "EditGoalTitle"{
+            if let nextScreen = segue.destination as? CreateGoal{
+                nextScreen.segueReceived = segue.identifier!
+                nextScreen.passedTitle = GoalService.sharedInstance.user_goal.title
+            }
+        }
+        else if segue.identifier == "backToHomeGoal" || segue.identifier == "HomeGoal"{
             CalendarViewController.pushedFromHomeGoal = true
         }
     }
@@ -90,8 +111,6 @@ class EditGoalViewController: UIViewController, UITableViewDelegate, UITableView
         
         assignBackground()
         assignBlackStatusBar()
-        loadContent()
-        
         
     }
     
@@ -118,14 +137,12 @@ class EditGoalViewController: UIViewController, UITableViewDelegate, UITableView
     func loadContent() {
         
         fields[0] = GoalService.sharedInstance.user_goal.title
-    
+        self.tableView.reloadData()
     }
     
     func saveContent() {
     
-        GoalService.sharedInstance.user_goals[GoalService.sharedInstance.user_goal.index] =  GoalService.sharedInstance.user_goal
-        
-        
+        GoalService.sharedInstance.user_goals[GoalService.sharedInstance.user_goal.index] = GoalService.sharedInstance.user_goal
         saveUserGoals()
     }
     

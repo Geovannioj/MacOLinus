@@ -26,7 +26,7 @@
         <!--Edit Goal View Controller-->
         <scene sceneID="XUK-4v-Hwi">
             <objects>
-                <viewController id="b1H-fI-vbn" customClass="EditGoalViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="b1H-fI-vbn" customClass="EditGoalViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xrw-Pd-bPJ"/>
                         <viewControllerLayoutGuide type="bottom" id="IG4-VU-vnu"/>
@@ -35,14 +35,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="9Pd-ri-yyf">
-                                <rect key="frame" x="173" y="46" width="68" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="68" id="tLd-sJ-OqQ"/>
-                                </constraints>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i0S-GT-Bpl">
-                                <rect key="frame" x="0.0" y="111" width="414" height="123"/>
+                                <rect key="frame" x="0.0" y="120" width="414" height="123"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="123" id="AbZ-0o-b0w"/>
@@ -53,11 +47,11 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uqS-1B-HLW" id="Ngx-cD-3Mm">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qQe-M1-9Ch">
-                                                    <rect key="frame" x="22" y="12" width="92" height="21"/>
+                                                    <rect key="frame" x="22" y="11" width="92" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="92" id="XTN-8G-5BJ"/>
                                                     </constraints>
@@ -92,38 +86,12 @@
                                     <outlet property="delegate" destination="b1H-fI-vbn" id="AEC-MY-WzG"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZh-J4-fTU">
-                                <rect key="frame" x="334" y="41" width="40" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Salvar">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextScreenPressed:" destination="b1H-fI-vbn" eventType="touchUpInside" id="4PD-qo-ZA5"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NPV-JN-zv3">
-                                <rect key="frame" x="30" y="41" width="58" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Cancelar">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelButtonPressed:" destination="b1H-fI-vbn" eventType="touchUpInside" id="QxP-BD-ypZ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="EZh-J4-fTU" secondAttribute="trailing" constant="20" id="7wd-ga-dcJ"/>
-                            <constraint firstItem="i0S-GT-Bpl" firstAttribute="top" secondItem="9Pd-ri-yyf" secondAttribute="bottom" constant="44" id="LoD-Gp-QIg"/>
-                            <constraint firstItem="9Pd-ri-yyf" firstAttribute="top" secondItem="Xrw-Pd-bPJ" secondAttribute="bottom" constant="26" id="Rdd-aH-hc7"/>
+                            <constraint firstItem="i0S-GT-Bpl" firstAttribute="top" secondItem="Xrw-Pd-bPJ" secondAttribute="bottom" constant="100" id="Hsq-mr-7sG"/>
                             <constraint firstAttribute="trailing" secondItem="i0S-GT-Bpl" secondAttribute="trailing" id="Ru9-D7-mSo"/>
-                            <constraint firstItem="NPV-JN-zv3" firstAttribute="leading" secondItem="2tJ-a4-k7I" secondAttribute="leadingMargin" constant="10" id="a3Z-l8-z94"/>
-                            <constraint firstItem="NPV-JN-zv3" firstAttribute="top" secondItem="Xrw-Pd-bPJ" secondAttribute="bottom" constant="21" id="chq-ug-jfN"/>
-                            <constraint firstItem="EZh-J4-fTU" firstAttribute="top" secondItem="Xrw-Pd-bPJ" secondAttribute="bottom" constant="21" id="eKR-IC-afx"/>
                             <constraint firstItem="i0S-GT-Bpl" firstAttribute="leading" secondItem="2tJ-a4-k7I" secondAttribute="leading" id="oDG-0Y-g8Y"/>
-                            <constraint firstItem="9Pd-ri-yyf" firstAttribute="centerX" secondItem="2tJ-a4-k7I" secondAttribute="centerX" id="tDa-U3-Zdr"/>
                         </constraints>
                     </view>
                     <connections>
@@ -146,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="359" y="108"/>
         </scene>
-        <!--EditGoalTitle-->
+        <!--CreateGoal-->
         <scene sceneID="o96-1e-uhc">
             <objects>
-                <viewControllerPlaceholder storyboardName="EditGoalTitle" id="oDz-v5-1l5" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="CreateGoal" id="oDz-v5-1l5" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePq-g9-J9G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="372" y="184"/>
@@ -163,7 +131,4 @@
             <point key="canvasLocation" x="364" y="259"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="pengoWhite" width="69" height="21"/>
-    </resources>
 </document>

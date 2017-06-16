@@ -17,12 +17,11 @@ class SelectGoalDatetime: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {
             didAllow, error in
             
         })
-        
+        self.navigationItem.titleView = UIImageView(image: HomeGoal.pengoWhiteImage)
         
         setConfig()
 
@@ -43,6 +42,12 @@ class SelectGoalDatetime: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoalCreated"{
+            CalendarViewController.pushedFromHomeGoal = true
+        }
+    }
+    
     
     func assignBlackStatusBar() {
         
@@ -55,14 +60,7 @@ class SelectGoalDatetime: UIViewController {
         self.textView.backgroundColor = UIColor.clear
         titleText.backgroundColor = UIColor(patternImage: UIImage(named: "PurplePatternWithBoy")!)
         let background = UIImage(named: "PurplePatternWithBoy")
-        var imageView : UIImageView!
-        imageView = UIImageView(frame: view.bounds)
-        imageView.contentMode =  UIViewContentMode.scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = background
-        imageView.center = view.center
-        view.addSubview(imageView)
-        self.view.sendSubview(toBack: imageView)
+        self.view.backgroundColor = UIColor(patternImage: background!)
         
     }
     
@@ -85,6 +83,8 @@ class SelectGoalDatetime: UIViewController {
    
     @IBAction func submitnewUserGoal(_ sender: Any) {
         let date = datePicker.date
+        GoalService.sharedInstance.user_goals.append(GoalService.sharedInstance.user_goal)
+        saveUserGoals()
         scheduleNotification(at: date)
         performSegue(withIdentifier: "GoalCreated", sender: Any?.self)
     
@@ -121,5 +121,30 @@ class SelectGoalDatetime: UIViewController {
         }
         
     }
+    
+    func saveUserGoals() {
+        
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        
+        archiver.encode(GoalService.sharedInstance.user_goals, forKey: "UserGoals")
+        archiver.finishEncoding()
+        
+        data.write(to: dataFilePath(), atomically: true)
+    }
+    
+    
+    
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("UserGoals.plist")
+        
+    }
+
    
 }

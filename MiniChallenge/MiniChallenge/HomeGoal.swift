@@ -16,7 +16,7 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let purpleColor = UIColor(colorLiteralRed: 0.4078, green: 0.4314, blue: 0.8784, alpha: 1)
     var doneGoals = [Goal]()
     var goals = [Goal]()
-    
+    static let pengoWhiteImage = UIImage(named: "pengoWhite")
     @IBOutlet weak var addButton: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
@@ -24,15 +24,26 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let myPurple = UIColor(red: 104.0/255, green: 110.0/255, blue: 224.0/255, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = myPurple
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        
+        
+        //the line below removes the black line above the navigation item (Probably will be useful at some point, do not delete it)
+        //self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        self.navigationItem.titleView = UIImageView(image: HomeGoal.pengoWhiteImage)
+        
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         self.addButton.clipsToBounds = true
         self.addButton.layer.cornerRadius = 20
         loadUserGoals()
         loadContent()
 
-        self.tabBarItem.image = UIImage(named: "Goal Line")?.withRenderingMode(.alwaysOriginal)
-        self.tabBarItem.selectedImage = UIImage(named: "goals fill")?.withRenderingMode(.alwaysOriginal)
-        self.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: purpleColor], for: .selected)
+        self.navigationController?.tabBarItem.image = UIImage(named: "Goal Line")?.withRenderingMode(.alwaysOriginal)
+        self.navigationController?.tabBarItem.selectedImage = UIImage(named: "goals fill")?.withRenderingMode(.alwaysOriginal)
+        self.navigationController?.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: purpleColor], for: .selected)
         // Do any additional setup after loading the view.
     }
 
@@ -122,6 +133,14 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.leftSwipeSettings.transition = .border
     
         return cell;
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditGoal"{
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .plain, target: nil, action: #selector(EditGoalViewController.goBack))
+        } else{
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .plain, target: nil, action: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

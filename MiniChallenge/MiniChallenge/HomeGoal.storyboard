@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fgV-0O-sdI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CmI-m4-ami">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,50 +10,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Metas-->
+        <!--Home Goal-->
         <scene sceneID="hdP-TO-T0A">
             <objects>
-                <viewController storyboardIdentifier="First" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fgV-0O-sdI" customClass="HomeGoal" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="fgV-0O-sdI" customClass="HomeGoal" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E0C-E8-edS"/>
                         <viewControllerLayoutGuide type="bottom" id="u4H-yx-voF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vID-gI-Li8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrI-Bk-jzW">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="DEe-jD-qx5">
-                                        <rect key="frame" x="153.5" y="33" width="69" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="69" id="H4V-et-oHu"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="T8p-Zg-Rxc"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="69" id="dt1-br-cR1"/>
-                                            <constraint firstAttribute="height" constant="21" id="ndW-dZ-Jep"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vamos definir metas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pe-4d-L0F">
-                                        <rect key="frame" x="122.5" y="62" width="132" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.40459585190000003" green="0.41695094110000003" blue="0.89097839590000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="86" id="W6z-XY-m5e"/>
-                                    <constraint firstItem="DEe-jD-qx5" firstAttribute="centerX" secondItem="5Pe-4d-L0F" secondAttribute="centerX" id="ehe-cv-IIy"/>
-                                    <constraint firstItem="DEe-jD-qx5" firstAttribute="centerX" secondItem="hrI-Bk-jzW" secondAttribute="centerX" id="g07-kb-Mua"/>
-                                    <constraint firstItem="DEe-jD-qx5" firstAttribute="centerY" secondItem="hrI-Bk-jzW" secondAttribute="centerY" id="vIC-nU-8nl"/>
-                                    <constraint firstItem="5Pe-4d-L0F" firstAttribute="top" secondItem="DEe-jD-qx5" secondAttribute="bottom" constant="8" id="ypy-Pi-gsh"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6E-bQ-Zux">
-                                <rect key="frame" x="24" y="104" width="327" height="126"/>
+                                <rect key="frame" x="24" y="14" width="327" height="109"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="126" id="JST-XM-NnL"/>
+                                    <constraint firstAttribute="height" constant="109" id="Pfi-7f-sas"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="createUserGoals">
                                     <color key="titleColor" red="0.24964994190000001" green="0.062413342300000001" blue="0.2381774187" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -63,14 +35,14 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="98E-dP-rHf">
-                                <rect key="frame" x="0.0" y="250" width="375" height="368"/>
+                                <rect key="frame" x="0.0" y="143" width="375" height="411"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userGoals" rowHeight="78" id="tM4-cv-RX4" customClass="GoalCellsTableViewCell" customModule="MiniChallenge" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tM4-cv-RX4" id="USa-03-40t">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="77.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caw-iD-UFc">
@@ -122,14 +94,11 @@
                             <constraint firstItem="98E-dP-rHf" firstAttribute="leading" secondItem="vID-gI-Li8" secondAttribute="leading" id="Emd-dr-v3L"/>
                             <constraint firstAttribute="trailingMargin" secondItem="C6E-bQ-Zux" secondAttribute="trailing" constant="8" id="G4R-GJ-TuA"/>
                             <constraint firstItem="C6E-bQ-Zux" firstAttribute="leading" secondItem="vID-gI-Li8" secondAttribute="leadingMargin" constant="8" id="LCd-Ez-GQF"/>
-                            <constraint firstItem="hrI-Bk-jzW" firstAttribute="top" secondItem="vID-gI-Li8" secondAttribute="top" id="SRB-rM-tS2"/>
-                            <constraint firstAttribute="trailing" secondItem="hrI-Bk-jzW" secondAttribute="trailing" id="ZAh-uY-GV4"/>
-                            <constraint firstItem="C6E-bQ-Zux" firstAttribute="top" secondItem="hrI-Bk-jzW" secondAttribute="bottom" constant="18" id="stN-fF-8vd"/>
+                            <constraint firstItem="C6E-bQ-Zux" firstAttribute="top" secondItem="E0C-E8-edS" secondAttribute="bottom" constant="14" id="Vl2-tV-Nfo"/>
                             <constraint firstAttribute="trailing" secondItem="98E-dP-rHf" secondAttribute="trailing" id="tuH-WW-HYs"/>
-                            <constraint firstItem="hrI-Bk-jzW" firstAttribute="leading" secondItem="vID-gI-Li8" secondAttribute="leading" id="uoP-0V-hcU"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Metas" image="Goal Line" selectedImage="goals fill" id="BjW-ch-xME"/>
+                    <navigationItem key="navigationItem" id="HZM-Fy-60P"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addButton" destination="C6E-bQ-Zux" id="cPH-82-cZ2"/>
@@ -139,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8xh-sy-RFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-378.39999999999998" y="120.98950524737631"/>
+            <point key="canvasLocation" x="560.79999999999995" y="120.98950524737631"/>
         </scene>
         <!--GoalOptions-->
         <scene sceneID="Kys-ti-f4N">
@@ -147,7 +116,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="CreateGoal" storyboardName="GoalOptions" id="uTU-Y6-BPz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nir-l7-wdY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="292" y="100"/>
+            <point key="canvasLocation" x="1230.4000000000001" y="99.850074962518747"/>
         </scene>
         <!--EditGoal-->
         <scene sceneID="asf-GA-Zyf">
@@ -155,7 +124,29 @@
                 <viewControllerPlaceholder storyboardName="EditGoal" id="nRI-N5-hMk" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="io4-ew-Qdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="273" y="145"/>
+            <point key="canvasLocation" x="1211.2" y="144.82758620689657"/>
+        </scene>
+        <!--Metas-->
+        <scene sceneID="fJ5-Rd-et8">
+            <objects>
+                <navigationController storyboardIdentifier="First" automaticallyAdjustsScrollViewInsets="NO" id="CmI-m4-ami" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Metas" image="Goal Line" selectedImage="goals fill" id="3B8-bU-UfK"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="mTj-MQ-EGI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.4084542989730835" green="0.43000844120979309" blue="0.87880009412765503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fgV-0O-sdI" kind="relationship" relationship="rootViewController" id="kbw-6K-ffQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JTJ-Ld-NiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-378.39999999999998" y="120.98950524737631"/>
         </scene>
     </scenes>
     <resources>
@@ -164,6 +155,5 @@
         <image name="createUserGoals" width="375" height="126"/>
         <image name="goals fill" width="24" height="25"/>
         <image name="listIcon" width="13" height="13"/>
-        <image name="pengoWhite" width="69" height="21"/>
     </resources>
 </document>
