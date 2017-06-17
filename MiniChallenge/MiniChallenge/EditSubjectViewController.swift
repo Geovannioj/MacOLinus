@@ -24,7 +24,6 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
         let saveButton = UIBarButtonItem(title: "Salvar", style: .done, target: self, action: #selector(EditSubjectViewController.saveChanges))
         self.navigationItem.rightBarButtonItem = saveButton
         // Do any additional setup after loading the view.
-        print(SingletonSubject.sharedInstance.subjects[SingletonSubject.sharedInstance.index].title)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -158,6 +157,16 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
             if let editColor = segue.destination as? SelectSubjectColorViewController{
                 editColor.segueReceived = segue.identifier!
                 editColor.currentSubject = self.currentSubject
+            }
+        }else if segue.identifier == "EditTeacher"{
+            if let editTeacher = segue.destination as? CreateTeacherViewController{
+                editTeacher.segueData = segue.identifier
+                editTeacher.passedTeacherName = SingletonSubject.sharedInstance.subject.teacher.name
+            }
+        }else if segue.identifier == "EditSubjectTitle"{
+            if let editSubjectTitle = segue.destination as? CreateSubject{
+                editSubjectTitle.segueData = segue.identifier
+                editSubjectTitle.passedTitle = SingletonSubject.sharedInstance.subject.title
             }
         }
     }

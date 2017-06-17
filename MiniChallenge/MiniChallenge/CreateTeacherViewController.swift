@@ -23,6 +23,7 @@ class CreateTeacherViewController: UIViewController {
         configLayout()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Voltar", style: .plain, target: nil, action: nil)
         if segueData == "EditTeacher"{
+            print("Entrei aqui")
             let backButton = UIBarButtonItem(title: "", style: .plain, target: navigationController, action: nil)
             navigationItem.leftBarButtonItem = backButton
             teacherNameField.text = passedTeacherName
