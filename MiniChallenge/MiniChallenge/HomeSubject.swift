@@ -13,10 +13,8 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
 
     var filteredActivityArray = [Reminder]()
     var subjectReceived =  Subject()
-    
-
+    static let pengoBlackImage = UIImage(named: "pengoBlack")
     @IBOutlet weak var tableView: UITableView!
-  
 
     @IBOutlet weak var addButton: UIButton!
     let greenColor = UIColor(red: 0.2824, green: 0.9098, blue: 0.7765, alpha: 1)
@@ -26,17 +24,21 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         self.addButton.clipsToBounds = true
         self.addButton.layer.cornerRadius = 20
         
+        let myGreen = UIColor(red: 60.0/255, green: 230.0/255, blue: 196.0/255, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = myGreen
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+
+        self.navigationItem.titleView = UIImageView(image: HomeSubject.pengoBlackImage)
+        
         loadSubjects()
         
-        self.tabBarItem.selectedImage = UIImage(named: "Subjects Fill")?.withRenderingMode(.alwaysOriginal)
-        self.tabBarItem.image = UIImage(named: "subject line")?.withRenderingMode(.alwaysOriginal)
+        self.navigationController?.tabBarItem.selectedImage = UIImage(named: "Subjects Fill")?.withRenderingMode(.alwaysOriginal)
+        self.navigationController?.tabBarItem.image = UIImage(named: "subject line")?.withRenderingMode(.alwaysOriginal)
         
-        self.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: greenColor], for: .selected)
+        self.navigationController?.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName: greenColor], for: .selected)
         
-        for aux in SingletonSubject.sharedInstance.subjects {
-            print(aux.title)
-            
-        }
         // Do any additional setup after loading the view.
     }
     
@@ -53,6 +55,8 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         super.viewWillAppear(animated)
         CalendarViewController.pushedFromHomeGoal = false
         CalendarViewController.pushedFromHomeSubject = false
+        loadSubjects()
+        self.tableView.reloadData()
     }
     
     
@@ -182,7 +186,6 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         let copySingleton = SingletonActivity.sharedInstance.tasks
         
         for i in (0..<(arrayLength)) {
-            print(i)
             
             if copySingleton[i].subject?.title == subject {
                 let id = copySingleton[i].reminderID
@@ -223,7 +226,10 @@ class HomeSubject: UIViewController, UITableViewDelegate, UITableViewDataSource 
         }else if segue.identifier == "EditSubject" {
             if let nextScreen = segue.destination as? EditSubjectViewController {
                 nextScreen.currentSubject = self.subjectReceived.title
+                self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .plain, target: nil, action: #selector(EditSubjectViewController.goBack))
             }
+        }else if segue.identifier == "CreateSubject"{
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancelar", style: .plain, target: nil, action: nil)
         }
     }
 

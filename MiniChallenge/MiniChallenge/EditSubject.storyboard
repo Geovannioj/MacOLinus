@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bb2-q5-Rbd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bb2-q5-Rbd">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -18,7 +17,7 @@
         <!--Edit Subject View Controller-->
         <scene sceneID="acY-M2-dYF">
             <objects>
-                <viewController id="bb2-q5-Rbd" customClass="EditSubjectViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="bb2-q5-Rbd" customClass="EditSubjectViewController" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M5c-wT-mLu"/>
                         <viewControllerLayoutGuide type="bottom" id="Lpx-sg-2Xk"/>
@@ -27,14 +26,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="rEw-Hw-WJe">
-                                <rect key="frame" x="173" y="32" width="68" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="68" id="KHn-E4-g7S"/>
-                                </constraints>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1b6-yr-Pal">
-                                <rect key="frame" x="0.0" y="111" width="414" height="129"/>
+                                <rect key="frame" x="0.0" y="120" width="414" height="129"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="129" id="8Rt-8a-Zx6"/>
@@ -45,7 +38,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nw7-vF-cha" id="qJ4-5E-0uT">
-                                            <rect key="frame" x="0.0" y="0.0" width="381" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3Y-eH-kiV">
@@ -75,41 +68,17 @@
                                     <outlet property="delegate" destination="bb2-q5-Rbd" id="RMu-3P-z0e"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vba-Yo-rh7">
-                                <rect key="frame" x="26" y="32" width="61" height="30"/>
-                                <state key="normal" title="Cancelar">
-                                    <color key="titleColor" red="0.099203579127788544" green="0.039092682301998138" blue="0.025941237807273865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelButtonPressed:" destination="bb2-q5-Rbd" eventType="touchUpInside" id="8Qb-rN-Hlh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AC5-89-ASG">
-                                <rect key="frame" x="340" y="33" width="40" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="Salvar">
-                                    <color key="titleColor" red="0.086577527225017548" green="0.079168088734149933" blue="0.020614210516214371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextScreenPressed:" destination="bb2-q5-Rbd" eventType="touchUpInside" id="hYQ-hQ-6uI"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rEw-Hw-WJe" firstAttribute="centerX" secondItem="d4X-I3-zZ4" secondAttribute="centerX" id="73O-Hi-yc3"/>
+                            <constraint firstItem="1b6-yr-Pal" firstAttribute="top" secondItem="M5c-wT-mLu" secondAttribute="bottom" constant="100" id="K9O-OW-Nvz"/>
                             <constraint firstAttribute="trailing" secondItem="1b6-yr-Pal" secondAttribute="trailing" id="MFP-03-11h"/>
-                            <constraint firstItem="1b6-yr-Pal" firstAttribute="top" secondItem="rEw-Hw-WJe" secondAttribute="bottom" constant="58" id="Rmr-wW-bag"/>
-                            <constraint firstItem="AC5-89-ASG" firstAttribute="top" secondItem="M5c-wT-mLu" secondAttribute="bottom" constant="13" id="XeM-If-siJ"/>
-                            <constraint firstItem="rEw-Hw-WJe" firstAttribute="top" secondItem="d4X-I3-zZ4" secondAttribute="topMargin" constant="32" id="cSV-B4-dXN"/>
                             <constraint firstItem="1b6-yr-Pal" firstAttribute="leading" secondItem="d4X-I3-zZ4" secondAttribute="leading" id="oTK-K7-kvh"/>
-                            <constraint firstItem="Vba-Yo-rh7" firstAttribute="top" secondItem="M5c-wT-mLu" secondAttribute="bottom" constant="12" id="rRG-Le-27P"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="Vba-Yo-rh7" secondAttribute="leading" constant="-6" id="sEA-D8-cXH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="AC5-89-ASG" secondAttribute="trailing" constant="14" id="ud4-SF-zPd"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="editTableView" destination="1b6-yr-Pal" id="jgQ-Pp-hI6"/>
+                        <outlet property="tableView" destination="1b6-yr-Pal" id="OP8-Op-zyF"/>
                         <segue destination="TxH-fX-6rc" kind="show" identifier="EditTeacher" id="TK2-DX-bLe"/>
                         <segue destination="Efj-Se-Qjg" kind="show" identifier="EditSubjectTitle" id="9ZD-lD-KdD"/>
                         <segue destination="ZUs-mF-cTH" kind="show" identifier="EditColor" id="fAb-Mw-PbP"/>
@@ -121,10 +90,10 @@
             </objects>
             <point key="canvasLocation" x="-282.39999999999998" y="184.85757121439281"/>
         </scene>
-        <!--EditSubjectTeacher-->
+        <!--CreateTeacher-->
         <scene sceneID="4ef-yS-ULL">
             <objects>
-                <viewControllerPlaceholder storyboardName="EditSubjectTeacher" id="TxH-fX-6rc" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="CreateTeacher" id="TxH-fX-6rc" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0c-fa-SdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="490" y="190"/>
@@ -137,10 +106,10 @@
             </objects>
             <point key="canvasLocation" x="462" y="63"/>
         </scene>
-        <!--EditSubjectTitle-->
+        <!--CreateSubject-->
         <scene sceneID="Cr2-K2-nnX">
             <objects>
-                <viewControllerPlaceholder storyboardName="EditSubjectTitle" id="Efj-Se-Qjg" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="CreateSubject" id="Efj-Se-Qjg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nI2-TN-krR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="476" y="128"/>
@@ -162,7 +131,4 @@
             <point key="canvasLocation" x="461" y="337"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="pengoBlack" width="69" height="21"/>
-    </resources>
 </document>

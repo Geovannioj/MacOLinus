@@ -64,11 +64,6 @@ class EditGoalViewController: UIViewController, UITableViewDelegate, UITableView
         
         return cell
     }
-    
-    @IBAction func cancelButtonPressed(_ sender: Any) {
-        
-        performSegue(withIdentifier: "HomeGoal", sender: Any?.self)
-    }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       
@@ -79,14 +74,6 @@ class EditGoalViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
         return UIView()
-    }
-    
-    @IBAction func nextScreenPressed(_ sender: Any) {
-        
-        
-        saveContent()
-        
-        performSegue(withIdentifier: "backToHomeGoal", sender: Any?.self)
     }
     
     func saveChanges(){

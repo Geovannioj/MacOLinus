@@ -11,6 +11,7 @@ import UIKit
 class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editTableView: UITableView!
     let formFields = ["Matéria", "Professor","Cor"]
     var fields = ["", "", ""]
@@ -18,9 +19,17 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.titleView = UIImageView(image: HomeSubject.pengoBlackImage)
         self.editTableView.tableFooterView = UIView()
-        configLayout()
+        let saveButton = UIBarButtonItem(title: "Salvar", style: .done, target: self, action: #selector(EditSubjectViewController.saveChanges))
+        self.navigationItem.rightBarButtonItem = saveButton
         // Do any additional setup after loading the view.
+        print(SingletonSubject.sharedInstance.subjects[SingletonSubject.sharedInstance.index].title)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configLayout()
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +37,9 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
         // Dispose of any resources that can be recreated.
     }
     
+    func goBack(){
+        performSegue(withIdentifier: "BackToHome", sender: Any?.self)
+    }
     
     // MARK: - TableView Protocol
     
@@ -67,6 +79,7 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
             performSegue(withIdentifier: "EditColor", sender: Any?.self)
         }
         
+        tableView.deselectRow(at: indexPath, animated: true)
         
         
     }
@@ -90,15 +103,7 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
     func assignBackground() {
         
         let background = UIImage(named: "greenPatternWithBoy")
-        
-        var imageView : UIImageView!
-        imageView = UIImageView(frame: view.bounds)
-        imageView.contentMode =  UIViewContentMode.scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = background
-        imageView.center = view.center
-        view.addSubview(imageView)
-        self.view.sendSubview(toBack: imageView)
+        self.view.backgroundColor = UIColor(patternImage: background!)
     }
     
     func assignBlackStatusBar() {
@@ -111,28 +116,20 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
     
         fields[0] = SingletonSubject.sharedInstance.subject.title
         fields[1] = SingletonSubject.sharedInstance.subject.teacher.name
+        self.tableView.reloadData()
     }
 
-    
-    // MARK: - Navigation
-    
-    @IBAction func nextScreenPressed(_ sender: Any) {
-        
-        /*
-        let index = SingletonSubject.sharedInstance.index
-        let editedSubject = SingletonSubject.sharedInstance.subjects[index]
-        
-        editedSubject.title = SingletonSubject.sharedInstance.subject.title
-        editedSubject.teacher.name = SingletonSubject.sharedInstance.subject.teacher.name
-        *///Nao sei o pq do motivo desse código, apenas adicionei a linha abaixo e o editar funcionou
+    func saveChanges(){
+        SingletonSubject.sharedInstance.subjects[SingletonSubject.sharedInstance.index] = SingletonSubject.sharedInstance.subject
         
         updateActivities(currentSubject: currentSubject!, newSubject: SingletonSubject.sharedInstance.subject)
         
         saveSubjects()
         
         performSegue(withIdentifier: "BackToHome", sender: Any?.self)
-        
     }
+    
+    // MARK: - Navigation
     
     func updateActivities(currentSubject : String, newSubject : Subject) {
         
@@ -142,7 +139,6 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
         let copySingleton = SingletonActivity.sharedInstance.tasks
         
         for i in (0..<(arrayLength)) {
-            print(i)
             
             if copySingleton[i].subject?.title == currentSubject {
                 
@@ -152,7 +148,6 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         controllerPlist.saveReminders()
-        
         
     }
     
@@ -164,26 +159,7 @@ class EditSubjectViewController: UIViewController, UITableViewDelegate, UITableV
                 editColor.segueReceived = segue.identifier!
                 editColor.currentSubject = self.currentSubject
             }
-        }else if segue.identifier == "EditSubjectTitle" {
-            
-            if let editTitle = segue.destination as? EditSubjectTitleViewController {
-                editTitle.currentSubject = self.currentSubject
-            }
-            
-        }else if segue.identifier == "EditTeacher" {
-            
-            if let editTeacher = segue.destination as? EditSubjectTeacherViewController {
-                editTeacher.currentSubject = self.currentSubject
-                
-            }
         }
-    }
-    
-
-
-    @IBAction func cancelButtonPressed(_ sender: Any) {
-        
-        performSegue(withIdentifier: "HomeSubject", sender: Any?.self)
     }
     
     

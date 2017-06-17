@@ -28,13 +28,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qual  o seu Professor?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXx-zO-wlw">
-                                <rect key="frame" x="36" y="89" width="318" height="26.5"/>
+                                <rect key="frame" x="36" y="34" width="318" height="26"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="22"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByZ-Bl-cqd">
-                                <rect key="frame" x="23" y="98" width="8" height="8"/>
+                                <rect key="frame" x="23" y="43" width="8" height="8"/>
                                 <color key="backgroundColor" red="1" green="0.47842687369999998" blue="0.4926418662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="8" id="16S-kM-RUI"/>
@@ -45,7 +45,7 @@
                                 <color key="highlightedColor" red="1" green="0.47842687369999998" blue="0.4926418662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mOt-FG-dsw">
-                                <rect key="frame" x="0.0" y="133.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="78" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="1" green="0.47842687369999998" blue="0.4926418662" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -56,61 +56,41 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMW-3k-HGK">
-                                <rect key="frame" x="308" y="187.5" width="44" height="44"/>
+                                <rect key="frame" x="308" y="132" width="44" height="44"/>
                                 <state key="normal" image="redButton"/>
                                 <connections>
                                     <action selector="nextScreenPressed:" destination="wEI-v4-pIa" eventType="touchUpInside" id="4KK-ep-kyP"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="ZgX-tH-qmZ">
-                                <rect key="frame" x="153.5" y="32" width="68" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="68" id="uMw-IM-cMU"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O nome do professor deve ser preenchido!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6Q-lv-Wzh">
-                                <rect key="frame" x="61" y="199.5" width="242" height="14.5"/>
+                                <rect key="frame" x="61" y="144" width="242" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.03920602426" green="0.039221249520000001" blue="0.039205066859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MID-3M-73z">
-                                <rect key="frame" x="26" y="32" width="41" height="30"/>
-                                <state key="normal" title="Voltar">
-                                    <color key="titleColor" red="0.099203579127788544" green="0.039092682301998138" blue="0.025941237807273865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="backToCreateSubject:" destination="wEI-v4-pIa" eventType="touchUpInside" id="o6O-YW-cuK"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="FXx-zO-wlw" firstAttribute="leading" secondItem="cYg-hy-OHy" secondAttribute="leadingMargin" constant="20" id="00J-sj-ehm"/>
-                            <constraint firstItem="MID-3M-73z" firstAttribute="top" secondItem="rNn-aR-Y5b" secondAttribute="bottom" constant="12" id="5An-xx-I2f"/>
-                            <constraint firstItem="ZgX-tH-qmZ" firstAttribute="centerX" secondItem="cYg-hy-OHy" secondAttribute="centerX" id="6Ib-P7-7FF"/>
+                            <constraint firstItem="FXx-zO-wlw" firstAttribute="top" secondItem="rNn-aR-Y5b" secondAttribute="bottom" constant="14" id="2j5-ST-17c"/>
                             <constraint firstItem="FXx-zO-wlw" firstAttribute="leading" secondItem="ByZ-Bl-cqd" secondAttribute="trailing" constant="5" id="CIl-OB-P8v"/>
-                            <constraint firstItem="ZgX-tH-qmZ" firstAttribute="top" secondItem="cYg-hy-OHy" secondAttribute="topMargin" constant="32" id="Eew-1B-inV"/>
                             <constraint firstItem="BMW-3k-HGK" firstAttribute="leading" secondItem="b6Q-lv-Wzh" secondAttribute="trailing" constant="5" id="GEf-6S-Lo9"/>
-                            <constraint firstItem="MID-3M-73z" firstAttribute="leading" secondItem="cYg-hy-OHy" secondAttribute="leadingMargin" constant="10" id="PQd-GD-Z3k"/>
                             <constraint firstItem="mOt-FG-dsw" firstAttribute="top" secondItem="FXx-zO-wlw" secondAttribute="bottom" constant="17.666666666666671" id="RqO-pe-OXc"/>
                             <constraint firstItem="b6Q-lv-Wzh" firstAttribute="top" secondItem="mOt-FG-dsw" secondAttribute="bottom" constant="22" id="U2b-7I-dIH"/>
                             <constraint firstItem="BMW-3k-HGK" firstAttribute="top" secondItem="mOt-FG-dsw" secondAttribute="bottom" constant="10" id="Wv6-qw-WNO"/>
+                            <constraint firstItem="FXx-zO-wlw" firstAttribute="centerY" secondItem="ByZ-Bl-cqd" secondAttribute="centerY" id="h6r-pV-Ns4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FXx-zO-wlw" secondAttribute="trailing" constant="5" id="hwf-NK-U3d"/>
-                            <constraint firstItem="ByZ-Bl-cqd" firstAttribute="top" secondItem="MID-3M-73z" secondAttribute="bottom" constant="36" id="lkz-sR-lCK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BMW-3k-HGK" secondAttribute="trailing" constant="7" id="q4Z-25-jLc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mOt-FG-dsw" secondAttribute="trailing" constant="-16" id="rl3-hv-5ks"/>
                             <constraint firstItem="mOt-FG-dsw" firstAttribute="leading" secondItem="cYg-hy-OHy" secondAttribute="leadingMargin" constant="-16" id="v7x-BM-mZk"/>
-                            <constraint firstItem="FXx-zO-wlw" firstAttribute="top" secondItem="MID-3M-73z" secondAttribute="bottom" constant="27" id="vB6-Ny-JeA"/>
                             <constraint firstItem="ByZ-Bl-cqd" firstAttribute="leading" secondItem="cYg-hy-OHy" secondAttribute="leadingMargin" constant="7" id="xZJ-ll-iAb"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="teacherNameField" destination="mOt-FG-dsw" id="BSY-89-mfa"/>
                         <outlet property="validation" destination="b6Q-lv-Wzh" id="xpW-kv-rkr"/>
-                        <segue destination="3kf-ZV-E6t" kind="show" identifier="BackEditSubject" id="2cT-4b-Rum"/>
-                        <segue destination="thr-Rt-On8" kind="presentation" identifier="SelectSubjectColor" id="2jn-gT-dG1"/>
                         <segue destination="My9-BR-l5D" kind="show" identifier="CreateSubject" id="mIE-2n-a38"/>
+                        <segue destination="thr-Rt-On8" kind="show" identifier="SelectSubjectColor" id="qXD-Y6-Ow5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ngq-Mp-hhM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -133,17 +113,8 @@
             </objects>
             <point key="canvasLocation" x="1417" y="184"/>
         </scene>
-        <!--EditSubject-->
-        <scene sceneID="c4G-Hg-hg0">
-            <objects>
-                <viewControllerPlaceholder storyboardName="EditSubject" id="3kf-ZV-E6t" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dHm-yn-zmx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1403" y="49"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="pengoBlack" width="69" height="21"/>
         <image name="redButton" width="44" height="44"/>
     </resources>
 </document>

@@ -37,8 +37,14 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.titleView = UIImageView(image: HomeSubject.pengoBlackImage)
         validation.isHidden = true
         configLayout()
+        
+        if segueReceived == "EditColor"{
+            let backButton = UIBarButtonItem(title: "", style: .plain, target: navigationController, action: nil)
+            navigationItem.leftBarButtonItem = backButton
+        }
         
         colors = [  customRed,
                     customYellow,
@@ -54,15 +60,6 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
                     customViolet ]
         
         // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    @IBAction func backToCreateTeacher(_ sender: Any) {
-        
-        if segueReceived == "EditColor"{
-            performSegue(withIdentifier: "goToEditSubject", sender: Any?.self)
-        }else{
-            performSegue(withIdentifier: "CreateTeacher", sender: Any?.self)
-        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,15 +78,7 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
     func assignBackground() {
         
         let background = UIImage(named: "greenPatternWithBoy")
-        
-        var imageView : UIImageView!
-        imageView = UIImageView(frame: view.bounds)
-        imageView.contentMode =  UIViewContentMode.scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = background
-        imageView.center = view.center
-        view.addSubview(imageView)
-        self.view.sendSubview(toBack: imageView)
+        self.view.backgroundColor = UIColor(patternImage: background!)
     }
     
     func assignBlackStatusBar() {
@@ -188,11 +177,11 @@ class SelectSubjectColorViewController: UIViewController, UICollectionViewDataSo
         
         if aColorWasSelected{
             if segueReceived == "EditColor"{
-                saveSubjects()
-                performSegue(withIdentifier: "goToEditSubject", sender: Any?.self)
+                _ = navigationController?.popViewController(animated: true)
             }else{
                 createSubject()
                 saveSubjects()
+                CalendarViewController.pushedFromHomeSubject = true
                 performSegue(withIdentifier: "SubjectCreated", sender: Any?.self)
             }
         }else{

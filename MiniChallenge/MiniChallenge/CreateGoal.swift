@@ -86,8 +86,6 @@ class CreateGoal: UIViewController {
         if segueReceived == "EditGoalTitle"{
             if UserGoalFIeld.text != ""{
                 GoalService.sharedInstance.user_goal.title = UserGoalFIeld.text!
-                print(GoalService.sharedInstance.user_goal.title)
-                saveUserGoals()
                 _ = navigationController?.popViewController(animated: true)
             }else{
                 validation.isHidden = false

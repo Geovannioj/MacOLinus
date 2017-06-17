@@ -14,15 +14,26 @@ class CreateSubject: UIViewController {
     
     var segueData:String?
     var auxSegue:String?
+    var passedTitle = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.cleanBuffer()
+        self.navigationItem.titleView = UIImageView(image: HomeSubject.pengoBlackImage)
+        if segueData != "EditSubjectTitle"{
+            self.cleanBuffer()
+        }
         configLayout()
         validation.isHidden = true
-        SingletonSubject.sharedInstance.subject.faults = 0
 
+        SingletonSubject.sharedInstance.subject.faults = 0
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Voltar", style: .plain, target: nil, action: nil)
+        
+        if segueData == "EditSubjectTitle"{
+            let backButton = UIBarButtonItem(title: "", style: .plain, target: navigationController, action: nil)
+            navigationItem.leftBarButtonItem = backButton
+            subjectField.text = passedTitle
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -31,22 +42,6 @@ class CreateSubject: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // MARK: - Actions
-    
- 
-    @IBAction func backToHomeSubject(_ sender: Any) {
-       if segueData == "AddActivity" || segueData == "ChooseSubjectController" || segueData == "AddActivityByDone" || segueData == "AddActivityByDaily" {
-            
-            performSegue(withIdentifier: "BackToSubjectChoice", sender: Any?.self)
-        
-        }else{
-         
-            performSegue(withIdentifier: "HomeSubject", sender: Any?.self)
-        }
-    }
-    
-    
     
     // MARK: - Helpers
     
@@ -62,12 +57,15 @@ class CreateSubject: UIViewController {
     @IBAction func newSubjectRequired(_ sender: Any) {
         
         if subjectField.text != ""{
-
-            SingletonSubject.sharedInstance.subject.title = subjectField.text!
-            SingletonSubject.sharedInstance.subject.color = assignSubjectColor()
+            if segueData == "EditSubjectTitle" {
+                SingletonSubject.sharedInstance.subject.title = subjectField.text!
+                _ = navigationController?.popViewController(animated: true)
+            }else{
+                SingletonSubject.sharedInstance.subject.title = subjectField.text!
+                SingletonSubject.sharedInstance.subject.color = assignSubjectColor()
+                performSegue(withIdentifier: "CreateTeacher", sender: Any?.self)
+            }
             
-            performSegue(withIdentifier: "CreateTeacher", sender: Any?.self)
-         
         }else{
             validation.isHidden = false
         }
@@ -138,15 +136,7 @@ class CreateSubject: UIViewController {
     func assignBackground() {
         
         let background = UIImage(named: "greenPatternWithBoy")
-        
-        var imageView : UIImageView!
-        imageView = UIImageView(frame: view.bounds)
-        imageView.contentMode =  UIViewContentMode.scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = background
-        imageView.center = view.center
-        view.addSubview(imageView)
-        self.view.sendSubview(toBack: imageView)
+        self.view.backgroundColor = UIColor(patternImage: background!)
     }
     
     func assignBlackStatusBar() {

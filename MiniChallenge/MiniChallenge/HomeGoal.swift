@@ -56,6 +56,8 @@ class HomeGoal: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewWillAppear(animated)
         CalendarViewController.pushedFromHomeGoal = false
         CalendarViewController.pushedFromHomeSubject = false
+        loadUserGoals()
+        self.tableView.reloadData()
     }
     
     // TableView Protocol

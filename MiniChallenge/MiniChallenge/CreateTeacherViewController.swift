@@ -14,27 +14,25 @@ class CreateTeacherViewController: UIViewController {
 
     var segueData:String?
     var auxSegue:String?
+    var passedTeacherName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.titleView = UIImageView(image: HomeSubject.pengoBlackImage)
         validation.isHidden = true
         configLayout()
-
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Voltar", style: .plain, target: nil, action: nil)
+        if segueData == "EditTeacher"{
+            let backButton = UIBarButtonItem(title: "", style: .plain, target: navigationController, action: nil)
+            navigationItem.leftBarButtonItem = backButton
+            teacherNameField.text = passedTeacherName
+        }
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-
-    // MARK: - Config
-    
-    @IBAction func backToCreateSubject(_ sender: Any) {
-        
-        
-        performSegue(withIdentifier: "CreateSubject", sender: Any?.self)
     }
     
     // MARK: - Config
@@ -49,15 +47,7 @@ class CreateTeacherViewController: UIViewController {
     func assignBackground() {
         
         let background = UIImage(named: "greenPatternWithBoy")
-        
-        var imageView : UIImageView!
-        imageView = UIImageView(frame: view.bounds)
-        imageView.contentMode =  UIViewContentMode.scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = background
-        imageView.center = view.center
-        view.addSubview(imageView)
-        self.view.sendSubview(toBack: imageView)
+        self.view.backgroundColor = UIColor(patternImage: background!)
     }
     
     func assignBlackStatusBar() {
@@ -71,13 +61,18 @@ class CreateTeacherViewController: UIViewController {
     @IBAction func nextScreenPressed(_ sender: Any) {
         
          if teacherNameField.text != ""{
-            setTeacherName()
-            performSegue(withIdentifier: "SelectSubjectColor", sender: Any?.self)
+            if segueData == "EditTeacher"{
+                SingletonSubject.sharedInstance.subject.teacher.name = teacherNameField.text!
+                _ = navigationController?.popViewController(animated: true)
+            }
+            else{
+                setTeacherName()
+                performSegue(withIdentifier: "SelectSubjectColor", sender: Any?.self)
+            }
          }else{
             validation.isHidden = false
         }
-//         performSegue(withIdentifier: "BackEditSubject", sender: Any?.self)
-//        
+        
     }
     
     @IBOutlet weak var validation: UILabel!
@@ -105,6 +100,5 @@ class CreateTeacherViewController: UIViewController {
             }
         }
     }
-
     
 }

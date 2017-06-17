@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2zr-vg-P1N">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hOb-D5-4T9">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Disciplinas-->
+        <!--Home Subject-->
         <scene sceneID="Y6m-IA-X4O">
             <objects>
-                <viewController storyboardIdentifier="First" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2zr-vg-P1N" customClass="HomeSubject" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="2zr-vg-P1N" customClass="HomeSubject" customModule="MiniChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JwU-Cw-lTy"/>
                         <viewControllerLayoutGuide type="bottom" id="npW-3d-b5U"/>
@@ -22,31 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndw-Co-UFS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pengoBlack" translatesAutoresizingMaskIntoConstraints="NO" id="wCL-ID-fjh">
-                                        <rect key="frame" x="153.5" y="33" width="69" height="21"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vamos organizar suas disciplinas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPG-pf-MOE">
-                                        <rect key="frame" x="74.5" y="59" width="226" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.1757494211" green="0.90575999019999998" blue="0.76787537340000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="wCL-ID-fjh" firstAttribute="centerX" secondItem="Ndw-Co-UFS" secondAttribute="centerX" id="7YG-io-vSO"/>
-                                    <constraint firstItem="wCL-ID-fjh" firstAttribute="centerY" secondItem="Ndw-Co-UFS" secondAttribute="centerY" id="NI8-QI-YXi"/>
-                                    <constraint firstAttribute="height" constant="86" id="bQH-1C-AXA"/>
-                                    <constraint firstItem="pPG-pf-MOE" firstAttribute="top" secondItem="wCL-ID-fjh" secondAttribute="bottom" constant="5" id="jjr-cz-PHU"/>
-                                    <constraint firstItem="wCL-ID-fjh" firstAttribute="centerX" secondItem="pPG-pf-MOE" secondAttribute="centerX" id="tWt-qZ-wad"/>
-                                    <constraint firstItem="wCL-ID-fjh" firstAttribute="centerX" secondItem="Ndw-Co-UFS" secondAttribute="centerX" id="vsQ-At-cuf"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HxO-0r-h8D">
-                                <rect key="frame" x="24" y="100" width="327" height="109"/>
+                                <rect key="frame" x="24" y="78" width="327" height="109"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="109" id="NOW-KK-dnP"/>
                                 </constraints>
@@ -60,11 +37,11 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="sVB-YR-NZ0" kind="presentation" identifier="CreateSubject" id="9A1-AY-1SK"/>
+                                    <segue destination="sVB-YR-NZ0" kind="show" identifier="CreateSubject" id="DAA-dc-cHw"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X77-kK-Cou">
-                                <rect key="frame" x="0.0" y="219" width="375" height="399"/>
+                                <rect key="frame" x="0.0" y="197" width="375" height="421"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="78" id="32H-dk-Mm6" customClass="SubjectTableViewCell" customModule="MiniChallenge" customModuleProvider="target">
@@ -142,31 +119,27 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Ndw-Co-UFS" secondAttribute="trailing" id="1ti-D4-IsB"/>
-                            <constraint firstItem="HxO-0r-h8D" firstAttribute="top" secondItem="Ndw-Co-UFS" secondAttribute="bottom" constant="14" id="5xx-MB-TMe"/>
-                            <constraint firstItem="HxO-0r-h8D" firstAttribute="centerX" secondItem="Ndw-Co-UFS" secondAttribute="centerX" id="GzB-Rr-68Y"/>
-                            <constraint firstItem="Ndw-Co-UFS" firstAttribute="leading" secondItem="wpQ-RM-SRZ" secondAttribute="leading" id="PZ5-IS-Crj"/>
                             <constraint firstItem="HxO-0r-h8D" firstAttribute="leading" secondItem="wpQ-RM-SRZ" secondAttribute="leadingMargin" constant="8" id="a9w-Ra-lXN"/>
                             <constraint firstItem="X77-kK-Cou" firstAttribute="top" secondItem="HxO-0r-h8D" secondAttribute="bottom" constant="10" id="fO4-k9-jT8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HxO-0r-h8D" secondAttribute="trailing" constant="8" id="nSZ-EW-G9l"/>
                             <constraint firstAttribute="trailing" secondItem="X77-kK-Cou" secondAttribute="trailing" id="nv6-JU-ic1"/>
                             <constraint firstItem="npW-3d-b5U" firstAttribute="top" secondItem="X77-kK-Cou" secondAttribute="bottom" id="oic-yu-i1T"/>
+                            <constraint firstItem="HxO-0r-h8D" firstAttribute="top" secondItem="JwU-Cw-lTy" secondAttribute="bottom" constant="14" id="sD1-V7-Wac"/>
                             <constraint firstItem="X77-kK-Cou" firstAttribute="leading" secondItem="wpQ-RM-SRZ" secondAttribute="leading" id="vxH-05-sUi"/>
-                            <constraint firstItem="Ndw-Co-UFS" firstAttribute="top" secondItem="wpQ-RM-SRZ" secondAttribute="top" id="wuZ-1K-cxI"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Disciplinas" image="subject line" selectedImage="Subjects Fill" id="7IA-Wm-3cq"/>
+                    <navigationItem key="navigationItem" id="X0o-zL-Duh"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addButton" destination="HxO-0r-h8D" id="PSM-JW-3E7"/>
                         <outlet property="tableView" destination="X77-kK-Cou" id="Vdl-Eb-U8b"/>
-                        <segue destination="BEI-Mo-AP0" kind="presentation" identifier="EditSubject" id="M2d-IB-pJK"/>
                         <segue destination="UDJ-gg-Q2V" kind="presentation" identifier="HomeNotes" id="qKH-oK-YrE"/>
+                        <segue destination="BEI-Mo-AP0" kind="show" identifier="EditSubject" id="ifv-Ml-xSH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ac-Zg-BQf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-376.80000000000001" y="121.88905547226388"/>
+            <point key="canvasLocation" x="1501.5999999999999" y="121.88905547226388"/>
         </scene>
         <!--CreateSubject-->
         <scene sceneID="xTc-gH-S2K">
@@ -174,7 +147,7 @@
                 <viewControllerPlaceholder storyboardName="CreateSubject" id="sVB-YR-NZ0" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ID-JK-2sd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="244" y="94"/>
+            <point key="canvasLocation" x="2122.4000000000001" y="93.553223388305852"/>
         </scene>
         <!--EditSubject-->
         <scene sceneID="qKz-fr-lho">
@@ -182,7 +155,7 @@
                 <viewControllerPlaceholder storyboardName="EditSubject" id="BEI-Mo-AP0" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BXS-1m-L5D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="243" y="148"/>
+            <point key="canvasLocation" x="2120" y="147.52623688155924"/>
         </scene>
         <!--HomeNotes-->
         <scene sceneID="CMy-hY-fiX">
@@ -190,7 +163,27 @@
                 <viewControllerPlaceholder storyboardName="HomeNotes" id="UDJ-gg-Q2V" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="63v-K7-PxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="244" y="213"/>
+            <point key="canvasLocation" x="2109" y="319"/>
+        </scene>
+        <!--Disciplinas-->
+        <scene sceneID="B55-SP-0cE">
+            <objects>
+                <navigationController storyboardIdentifier="First" automaticallyAdjustsScrollViewInsets="NO" id="hOb-D5-4T9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Disciplinas" image="subject line" selectedImage="Subjects Fill" id="Gm2-ou-q4l"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="92J-nx-7pr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2zr-vg-P1N" kind="relationship" relationship="rootViewController" id="ULg-qR-hhd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ARV-Ob-ifb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="562.39999999999998" y="121.88905547226388"/>
         </scene>
     </scenes>
     <resources>
@@ -198,7 +191,6 @@
         <image name="clockIcon" width="14" height="14"/>
         <image name="createSubjectButton" width="375" height="125"/>
         <image name="listIcon" width="13" height="13"/>
-        <image name="pengoBlack" width="69" height="21"/>
         <image name="subject line" width="26" height="26"/>
     </resources>
 </document>
